@@ -80,7 +80,7 @@ node offerAssistance
 }
 
 // digressions located here
-digression wantChris 
+digression wantTransfer 
 {
 	conditions 
 	{
