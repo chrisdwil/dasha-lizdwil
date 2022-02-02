@@ -30,16 +30,16 @@ start node mainIntroduction {
 	
 	transitions {
 
-		agree: goto mainIntroductionPositive on #messageHasSentiment("positive");
-		disagree: goto mainIntroductionNegative on #messageHasSentiment("negative");
+		agree: goto offerAssistance on #messageHasSentiment("positive");
+		disagree: goto offerAssistance on #messageHasSentiment("negative");
 		
 		callerTimeout: goto callerTimeout;
 		restartself: goto mainIntroduction on true priority -1000 tags: ontick;
 	}
 	
 	onexit {
-		agree: do { mainIntroResponse = "positive"; }
-		disagree: do { mainIntroResponse = "negative"; }
+		agree: do { mainIntroResponse == "positive"; }
+		disagree: do { mainIntroResponse == "negative"; }
 	}
 }
 
@@ -52,7 +52,7 @@ node offerAssistance {
 		}
 		
 		if(mainIntroNegative == "negative") {
-			exit
+			exit;
 		}
 	}
 }
@@ -66,7 +66,7 @@ digression wantChris {
 	}
 	
 	transitions {
-		agree: goto mainIntroductionPositive on #messageHasSentiment("positive");
+		agree: goto mainIntroduction on #messageHasSentiment("positive");
 	}
 }
 
@@ -87,7 +87,7 @@ node @exit {
     }
 }
 
-digress @exit_dig {
+digression @exit_dig {
 		conditions { on true tags: onclosed; }
 		do {
 			exit;
