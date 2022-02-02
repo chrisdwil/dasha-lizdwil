@@ -10,7 +10,7 @@
 		"phrases": {
 			"mainIntroduction": [
 				{ 
-				"text": "Hello,I'm Chris'sz assistant... My name is Liizzz D. Wiiill... How are you doing today?",
+				"text": "Hello,I'm Chris'sz assistant... My name is Liizzz D Wiiill... How are you doing today?",
 				"voiceInfo": { 
 					"speed": 1.1,
 					"variation": 5 
@@ -35,9 +35,9 @@
 					}
 				}
 			],		
-			"transferTimeout": [
+			"callerTimeout": [
 				{ 
-				"text": "Hey... It appears you've gone quiet, if you're having phone issues you're more than welcome to try again later",
+				"text": "Hey... It appears you've gone quiet, if you're having phone issues you're more than welcome to try us again anytime... Hope you have a wonderful day.",
 				"voiceInfo": { 
 					"speed": 0.9,
 					"variation": 5 
@@ -85,7 +85,7 @@
 			"mainIntroduction": {},
 			"mainIntroductionPositive": {},
 			"mainIntroductionNegative": {},
-			"transferTimeout": {},
+			"callerTimeout": {},
 			"hangUp": {},
 			"hold": {},
 			"unavailable": {},

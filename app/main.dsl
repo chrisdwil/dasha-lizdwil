@@ -12,11 +12,10 @@ start node mainIntroduction {
 			#say("mainIntroduction");
 		} 
 
-		/*
+		
 		if(#getVisitCount("mainIntroduction") > 10) {		
-			goto transferTimeout;
+			goto callerTimeout;
 		}
-		*/
 	
 		if(!#waitForSpeech(500)) {	
 			wait { 
@@ -70,9 +69,19 @@ node mainIntroductionNegative {
 	}
 }
 
+node callerTimeout {
+	do {
+        #log("-- node @exit -- ending conversation");
+
+        say("callerTimeout");
+        exit;
+	}
+}
+
 node @exit {
     do {
         #log("-- node @exit -- ending conversation");
+        
         exit;
     }
 }
