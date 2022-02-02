@@ -54,10 +54,12 @@ node transferCallYes {
 		if(#getVisitCount("transferCallYes") < 2) {
 			#say("hold");
 		} 
-		
+
+		/*
 		if(#getVisitCount("transferCallYes") > 10) {
 				goto offerMessage;	
 		}
+		*/
 		
 		if(#getVisitCount("transferCallYes") < 11) {	
 			wait { 
