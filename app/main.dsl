@@ -48,7 +48,7 @@ digression wantChris {
 	}
 	
 	transitions {
-		agree: goto exit on #messageHasSentiment("positive");
+		agree: goto mainIntroductionPositive on #messageHasSentiment("positive");
 	}
 }	
 
