@@ -10,7 +10,7 @@
 		"phrases": {
 			"mainIntroduction": [
 				{ 
-				"text": "Hello, this is Liiiz D. Wiiil,,, Chris'sz assistant... Would you like me to connect you to him?",
+				"text": "Hello,I'm Chris'sz assistant... My name is Liiizz D. Wiiill... How are you doing today?",
 				"voiceInfo": { 
 					"speed": 1.1,
 					"variation": 5 
@@ -60,14 +60,6 @@
 					"speed": 1.1,
 					"variation": 5
 					}
-				},
-			"messagePrep": [
-				{
-				"text": "Okay... I have my pen and paper ready, say what you need..... When finished... Just tell me I'm done, or finished, and I'll confirmed I've saved your message... Go.",
-				"voiceInfo": {
-					"speed": 1.1,
-					"variation": 5
-					}
 				}
 			]
 		},
@@ -77,9 +69,8 @@
 			"hangUp": {},
 			"hold": {},
 			"unavailable": {},
-			"messageOffer": {},
-			"messagePrepCaller": {}
-		}
+			"messageOffer": {}		
+			}
 	}          
 }
 
