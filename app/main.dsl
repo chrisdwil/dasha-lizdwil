@@ -26,19 +26,24 @@ start node mainIntroduction {
 		
 		wait {
 				agree
-//				disagree
-//				transfer
+				disagree
 		};
 	}
-		
+
+	digression wantChris {
+		conditions {on #messageHasIntent("transfer");}
+		do {
+			#sayText("wow you did your first digression");
+			exit;
+		}
+	}
+	
 	transitions {
 
 		agree: goto mainIntroductionPositive on #messageHasSentiment("positive");
-//		disagree: goto transferCallNo on #messageHasSentiment("negative");
-//		transfer: goto transferCallYes on #messageHasIntent("transfer");
-//		transferTimeout: goto transferTimeout;
+		disagree: goto mainIntroductionNegative on #messageHasSentiment("negative");
 
-//		restartself: goto mainIntroduction on true priority -1000 tags: ontick;
+		restartself: goto mainIntroduction on true priority -1000 tags: ontick;
 	}
 }
 
@@ -47,14 +52,7 @@ node mainIntroductionPositive {
 		#log("-- node mainIntroductionPositive -- respond to caller's positive sentiment");
 
 		#say("mainIntroductionPositive");
-
-		goto offerAssistance;
-	}
-	
-	transitions {
-	
-		offerAssistance: goto offerAssistance on true;
-		
+		exit;
 	}
 }
 
@@ -63,19 +61,6 @@ node mainIntroductionNegative {
 		#log("-- node mainIntroductionNegative -- respond to caller's negative sentiment");
 
 		#say("mainIntroductionNegative");
-		
-		goto offerAssistance;
-	}
-		
-	transitions {
-	
-		offerAssistance: goto offerAssistance on true;
-		
-	}
-}
-
-node offerAssistance {
-	do {
 		exit;
 	}
 }
