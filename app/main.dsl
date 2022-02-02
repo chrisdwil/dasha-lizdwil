@@ -10,29 +10,34 @@ start node mainIntroduction {
 	do {
 		#log("-- node mainIntroduction -- Introduction to caller");
 
-		if(#getVisitCount("mainIntroduction") < 2) {
+		if(#getVisitCount("mainIntroduction") < 2) 
+		{
 			#connectSafe($phone);
 			#say("mainIntroduction");
 		} 
 
-		if(#getVisitCount("mainIntroduction") > 10) {		
+		if(#getVisitCount("mainIntroduction") > 10) 
+		{		
 			goto callerTimeout;
 		}
 	
-		if(!#waitForSpeech(500)) {	
-			wait { 
+		if(!#waitForSpeech(500)) 
+		{
+			wait 
+			{ 
 				restartself
 			};
 		}
 		
-		wait {
+		wait 
+		{
 				agree
 				disagree
 		};
 	}
 	
-	transitions {
-
+	transitions 
+	{
 		agree: goto offerAssistance on #messageHasSentiment("positive");
 		disagree: goto offerAssistance on #messageHasSentiment("negative");
 		
@@ -40,48 +45,60 @@ start node mainIntroduction {
 		restartself: goto mainIntroduction on true priority -1000 tags: ontick;
 	}
 	
-	onexit {
-		agree: do { 
+	onexit 
+	{
+		agree: do 
+		{ 
 			set $mainIntroResponse = "positive"; 
-			}
-		disagree: do { 
+		}
+		disagree: do 
+		{ 
 			set $mainIntroResponse = "negative"; 
-			}
-		
-		callerTimeout: 
-		restartself:
+		}
 	}
 }
 
-node offerAssistance {
-	do {
+node offerAssistance 
+{
+	do 
+	{
 		#log("-- node offerAssistance -- offering assistance to caller");
 		
-		if($mainIntroResponse == "positive") {
+		if($mainIntroResponse == "positive") 
+		{
 			exit;
 		}
 		
-		if($mainIntroResponse == "negative") {
+		if($mainIntroResponse == "negative") 
+		{
 			exit;
 		}
 	}
 }
 
-digression wantChris {
-	conditions {on #messageHasIntent("transfer");}
-	do {
+digression wantChris 
+{
+	conditions 
+	{
+		on #messageHasIntent("transfer");
+	}
+	do 
+	{
 		#sayText("wow you did your first digression");
 		wait *;
 		exit;
 	}
 	
-	transitions {
+	transitions 
+	{
 		agree: goto mainIntroduction on #messageHasSentiment("positive");
 	}
 }
 
-node callerTimeout {
-	do {
+node callerTimeout 
+{
+	do 
+	{
         #log("-- node @exit -- ending conversation");
 
         #say("callerTimeout");
@@ -89,20 +106,25 @@ node callerTimeout {
 	}
 }
 
-node @exit {
-    do {
+node @exit 
+{
+    do 
+    {
         #log("-- node @exit -- ending conversation");
         
         exit;
     }
 }
 
-digression @exit_dig {
-		conditions { 
+digression @exit_dig 
+{
+		conditions 
+		{ 
 			on true tags: onclosed; 
 		}
 		
-		do {
+		do 
+		{
 			exit;
 		}
 }
