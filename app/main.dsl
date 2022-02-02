@@ -29,14 +29,6 @@ start node mainIntroduction {
 				disagree
 		};
 	}
-
-	digression wantChris {
-		conditions {on #messageHasIntent("transfer");}
-		do {
-			#sayText("wow you did your first digression");
-			exit;
-		}
-	}
 	
 	transitions {
 
@@ -46,6 +38,19 @@ start node mainIntroduction {
 		restartself: goto mainIntroduction on true priority -1000 tags: ontick;
 	}
 }
+
+digression wantChris {
+	conditions {on #messageHasIntent("transfer");}
+	do {
+		#sayText("wow you did your first digression");
+		wait *;
+		exit;
+	}
+	
+	transitions {
+		agree: goto exit on #messageHasSentiment("positive");
+	}
+}	
 
 node mainIntroductionPositive {
 	do {
@@ -70,5 +75,4 @@ node @exit {
         #log("-- node @exit -- ending conversation");
         exit;
     }
-} 
-
+}
