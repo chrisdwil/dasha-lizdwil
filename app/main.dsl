@@ -88,14 +88,14 @@ digression wantChris
 	}
 	do 
 	{
-		#sayText("Excuse me, you didn't let me finish talking, right?");
+		#sayText("Okay let me check if he's available.");
 		wait *;
 	}
 	
 	transitions 
 	{
 		agree: goto mainIntroduction on #messageHasSentiment("positive");
-		disagree: goto node fastHangUp on #messageHasSentiment("positive");
+		disagree: goto fastHangUp on #messageHasSentiment("positive");
 	}
 }
 
@@ -115,7 +115,7 @@ node fastHangUp
 {
 	do
 	{
-		sayText("Goodbye");
+		#sayText("Goodbye");
 		exit;
 	}
 }

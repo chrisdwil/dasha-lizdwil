@@ -94,6 +94,8 @@
 			"mainIntroduction": {},
 			"howAreYouPositive": {},
 			"howAreYouNegative": {},
+			"offerAssistance": {},
+			"offerMessage": {},
 			"callerTimeout": {},
 			"hangUp": {},
 			"hold": {},
