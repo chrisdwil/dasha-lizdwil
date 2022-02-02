@@ -11,112 +11,12 @@ start node mainIntroduction {
 			#connectSafe($phone);
 			#say("mainIntroduction");
 		} 
-		
+
+		/*
 		if(#getVisitCount("mainIntroduction") > 10) {		
 			goto transferTimeout;
 		}
-	
-		if(!#waitForSpeech(500)) {	
-			wait { 
-				restartself
-			};
-		}
-		
-		wait {
-				/*
-				transfer
-				transferYes
-				transferNo
-				*/
-				agree
-				disagree
-		};
-	}
-		
-	transitions {
-/*
-		transfer: goto transferCallYes on #messageHasIntent("transfer");
-		transferYes: goto transferCallYes on #messageHasIntent("yes");
-		transferNo: goto transferCallNo on #messageHasIntent("no");
-*/
-		agree: goto transferCallYes on #messageHasSentiment("positive");
-		disagree: goto transferCallNo on #messageHasSentiment("negative");
-		transferTimeout: goto transferTimeout;
-
-		restartself: goto mainIntroduction on true priority -1000 tags: ontick;
-	}
-}
-
-node transferCallYes {
-	do {
-		#log("-- node transferCallYes -- entered call transfer");
-
-		if(#getVisitCount("transferCallYes") < 2) {
-			#say("hold");
-		} 
-
-		/*
-		if(#getVisitCount("transferCallYes") > 10) {
-				goto offerMessage;	
-		}
 		*/
-		
-		if(#getVisitCount("transferCallYes") < 11) {	
-			wait { 
-				restartself
-			};
-		}
-	}
-
-	transitions {
-		offerMessage: goto offerMessage;
-	
-		restartself: goto transferCallYes on true priority -1000 tags: ontick;
-	}
-}
-
-node transferCallNo {
-	do {
-		#log("-- node transferCallNo -- entered call transfer");
-		
-		if(#getVisitCount("transferCallNo") < 2) {
-			#say("offerMessage");
-		} else if(#getVisitCount("transferCallNo") > 10) {		
-			goto transferTimeout;
-		}
-		
-		if(!#waitForSpeech(500)) {	
-			wait { 
-				restartself
-			};
-		}
-		
-		wait {
-				agree
-				disagree
-		};
-	}
-	
-	transitions {
-		agree: goto hangUp on #messageHasIntent("yes");
-		disagree: goto hangUp on #messageHasIntent("no");
-		transferTimeout: goto transferTimeout;
-	
-		restartself: goto transferCallNo on true priority -1000 tags: ontick;
-	}
-}
-
-node messageOffer {
-	do {
-		#log("-- node offerMessage -- offer caller chance to leave a message");
-
-		if(#getVisitCount("mainIntroduction") < 2) {
-			#say("offerMessage");
-		} 
-		
-		if(#getVisitCount("offerMessage") > 10) {		
-			goto transferTimeout;
-		}
 	
 		if(!#waitForSpeech(500)) {	
 			wait { 
@@ -125,32 +25,57 @@ node messageOffer {
 		}
 		
 		wait {
-				/*
-				transfer
-				transferYes
-				transferNo
-				*/
 				agree
-				disagree
+//				disagree
+//				transfer
 		};
+	}
 		
-		
+	transitions {
+
+		agree: goto transferCallYes on #messageHasSentiment("positive");
+//		disagree: goto transferCallNo on #messageHasSentiment("negative");
+//		transfer: goto transferCallYes on #messageHasIntent("transfer");
+//		transferTimeout: goto transferTimeout;
+
+//		restartself: goto mainIntroduction on true priority -1000 tags: ontick;
+	}
+}
+
+node mainIntroductionPositive {
+	do {
+		#log("-- node mainIntroductionPositive -- respond to caller's positive sentiment");
+
+		#say("mainIntroductionPositive");
+	}
+	
+	goto offerAssistance;
+	
+	transitions {
+	
+		offerAssistance: goto offerAssistance on true;
 		
 	}
 }
 
-node transferTimeout {
+node mainIntroductionNegative {
 	do {
-		#log("-- node transferTimeout -- Hanging up on caller due to timeout");
-		#say("transferTimeout");
-		exit;
+		#log("-- node mainIntroductionNegative -- respond to caller's negative sentiment");
+
+		#say("mainIntroductionNegative");
+	}
+	
+	goto offerAssistance;
+	
+	transitions {
+	
+		offerAssistance: goto offerAssistance on true;
+		
 	}
 }
 
-node hangUp {
+node offerAssistance {
 	do {
-		#log("-- node transferTimeout -- Hanging up on caller due to timeout");
-		#say("hangUp");
 		exit;
 	}
 }

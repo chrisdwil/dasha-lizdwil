@@ -10,13 +10,31 @@
 		"phrases": {
 			"mainIntroduction": [
 				{ 
-				"text": "Hello,I'm Chris'sz assistant... My name is Liiizz D. Wiiill... How are you doing today?",
+				"text": "Hello,I'm Chris'sz assistant... My name is Liizzz D. Wiiill... How are you doing today?",
 				"voiceInfo": { 
 					"speed": 1.1,
 					"variation": 5 
 					}
 				}
 			],
+			"mainIntroductionPositive": [
+				{ 
+				"text": "That's wonderful to hear,,, I'm doing great myself as well.",
+				"voiceInfo": { 
+					"speed": 1.1,
+					"variation": 5 
+					}
+				}
+			],
+			"mainIntroductionNegative": [
+				{ 
+				"text": "That's unfortunate,,, but hopefully he or I can help.",
+				"voiceInfo": { 
+					"speed": 0.9,
+					"variation": 5 
+					}
+				}
+			],		
 			"transferTimeout": [
 				{ 
 				"text": "Hey... It appears you've gone quiet, if you're having phone issues you're more than welcome to try again later",
@@ -65,6 +83,8 @@
 		},
 		"macros": {
 			"mainIntroduction": {},
+			"mainIntroductionPositive": {},
+			"mainIntroductionNegative": {},
 			"transferTimeout": {},
 			"hangUp": {},
 			"hold": {},
