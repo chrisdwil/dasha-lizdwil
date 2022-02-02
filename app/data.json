@@ -1,0 +1,63 @@
+{
+  "version": "v2",
+  "intents": {
+		"transfer": {
+	      	"includes": [
+		        "Transfer me",
+		        "Transfer me to",
+		        "Connect me to",
+		        "Connect my call",
+		        "I'm looking for",
+		        "I want to talk with",
+		        "Is Chris available?",
+		        "Is Chris around?"
+	      	],
+	  		"excludes": ["fuck off"]
+	    	},
+	    "no": {
+			"includes": [
+				"no",
+				"definitely not",
+				"wrong",
+				"incorrect",
+				"I do not",
+				"I don't",
+				"I would not",
+				"I wouldn't",
+				"nope",
+				"no, I'm okay",
+				"not right now",
+				"not this time",
+				"nah",
+				"not this moment",
+				"not now"
+			]
+	    },
+		"yes": {
+			"includes": [
+				"yes",
+				"yeah",
+				"yee",
+				"definitely",
+				"absolutely",
+				"sure",
+				"fine",
+				"That's fine",
+				"Please do",
+				"Go ahead",
+				"Do it",
+				"Don't twist my arm"      
+			]
+		},
+		"endcall": {
+			"includes": [
+				"end call",
+				"goodbye",
+				"goodbye",
+				"I'm finished",
+				"I'm done",
+				"Ready to send"
+				]
+		}
+	}
+}

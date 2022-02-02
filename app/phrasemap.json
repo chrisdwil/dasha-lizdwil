@@ -1,19 +1,86 @@
 {
-    "default": {
-        "voiceInfo": {
-            "lang": "en-US",
-            "speaker": "default",
-            "speed": 1
+"default": {
+	"default.notes": "this is the original discussion format for dasha-sip-test, preserving for view", 
+    	"voiceInfo": {
+			"lang": "en-US",
+			"speaker": "default",
+			"speed": 1.2,
+			"variation": 5
         },
-        "phrases": {
-            "hello": [{ "text": "Hello" }],
-            "forward": [{ "text": "I'm going to forward you" }],
-            "fine": [{ "text": "Works fine. Good day!" }]
-        },
-        "macros": {
-            "hello": {},
-            "forward": {},
-            "fine": {}
-        }
-    }
+		"phrases": {
+			"mainIntroduction": [
+				{ 
+				"text": "Hello, this is Liiiz D. Wiiil,,, Chris'sz assistant... Would you like me to connect you to him?",
+				"voiceInfo": { 
+					"speed": 1.1,
+					"variation": 5 
+					}
+				}
+			],
+			"transferTimeout": [
+				{ 
+				"text": "Hey... It appears you've gone quiet, if you're having phone issues you're more than welcome to try again later",
+				"voiceInfo": { 
+					"speed": 0.9,
+					"variation": 5 
+					}
+				}
+			],			
+			"hangUp": [
+				{ 
+				"text": "I understand, Chris and I hope you have a wonderful day. Good bye.",
+				"voiceInfo": { 
+					"speed": 0.9,
+					"variation": 5 
+					}
+				}
+			],			
+			"hold": [
+				{
+				"text": "Okay, please hold a moment while I check his availability.",
+				"voiceInfo": {
+					"speed": 0.9,
+					"variation": 5
+					}
+				}
+			],
+			"unavailable": [
+				{
+				"text": "It appears he's unable to accept any calls right now... Is it okay if I leave him a message?",
+				"voiceInfo": {
+					"speed": 0.9,
+					"variation": 5
+					}
+				}
+			],
+			"messageOffer": [
+				{
+				"text": "Understood,,, would you prefer I send him a message?",
+				"voiceInfo": {
+					"speed": 1.1,
+					"variation": 5
+					}
+				},
+			"messagePrep": [
+				{
+				"text": "Okay... I have my pen and paper ready, say what you need..... When finished... Just tell me I'm done, or finished, and I'll confirmed I've saved your message... Go.",
+				"voiceInfo": {
+					"speed": 1.1,
+					"variation": 5
+					}
+				}
+			]
+		},
+		"macros": {
+			"mainIntroduction": {},
+			"transferTimeout": {},
+			"hangUp": {},
+			"hold": {},
+			"unavailable": {},
+			"messageOffer": {},
+			"messagePrepCaller": {}
+		}
+	}          
 }
+
+    
