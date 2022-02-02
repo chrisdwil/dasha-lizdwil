@@ -12,7 +12,6 @@ start node mainIntroduction {
 			#say("mainIntroduction");
 		} 
 
-		
 		if(#getVisitCount("mainIntroduction") > 10) {		
 			goto callerTimeout;
 		}
@@ -33,8 +32,28 @@ start node mainIntroduction {
 
 		agree: goto mainIntroductionPositive on #messageHasSentiment("positive");
 		disagree: goto mainIntroductionNegative on #messageHasSentiment("negative");
-
+		
+		callerTimeout: goto callerTimeout;
 		restartself: goto mainIntroduction on true priority -1000 tags: ontick;
+	}
+	
+	onexit {
+		agree: do { mainIntroResponse = "positive"; }
+		disagree: do { mainIntroResponse = "negative"; }
+	}
+}
+
+node offerAssistance {
+	do {
+		#log("-- node offerAssistance -- offering assistance to caller");
+		
+		if(mainIntroPositive == "positive") {
+			exit;
+		}
+		
+		if(mainIntroNegative == "negative") {
+			exit
+		}
 	}
 }
 
@@ -49,31 +68,13 @@ digression wantChris {
 	transitions {
 		agree: goto mainIntroductionPositive on #messageHasSentiment("positive");
 	}
-}	
-
-node mainIntroductionPositive {
-	do {
-		#log("-- node mainIntroductionPositive -- respond to caller's positive sentiment");
-
-		#say("mainIntroductionPositive");
-		exit;
-	}
-}
-
-node mainIntroductionNegative {
-	do {
-		#log("-- node mainIntroductionNegative -- respond to caller's negative sentiment");
-
-		#say("mainIntroductionNegative");
-		exit;
-	}
 }
 
 node callerTimeout {
 	do {
         #log("-- node @exit -- ending conversation");
 
-        say("callerTimeout");
+        #say("callerTimeout");
         exit;
 	}
 }
@@ -84,4 +85,11 @@ node @exit {
         
         exit;
     }
+}
+
+digress @exit_dig {
+		conditions { on true tags: onclosed; }
+		do {
+			exit;
+		}
 }
