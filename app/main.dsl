@@ -1,3 +1,4 @@
+
 context {
 	input phone: string;
 	input forward: string? = null;
@@ -40,8 +41,12 @@ start node mainIntroduction {
 	}
 	
 	onexit {
-		agree: do { set $mainIntroResponse == "positive"; }
-		disagree: do { set $mainIntroResponse == "negative"; }
+		agree: do { 
+			set $mainIntroResponse = "positive"; 
+			}
+		disagree: do { 
+			set $mainIntroResponse = "negative"; 
+			}
 		
 		callerTimeout: 
 		restartself:
@@ -93,7 +98,10 @@ node @exit {
 }
 
 digression @exit_dig {
-		conditions { on true tags: onclosed; }
+		conditions { 
+			on true tags: onclosed; 
+		}
+		
 		do {
 			exit;
 		}
