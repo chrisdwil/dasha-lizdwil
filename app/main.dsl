@@ -66,14 +66,12 @@ node offerAssistance
 		
 		if($feelingResponse == "positive") 
 		{
-			#say(howAreYouPositive);
-			exit;
+			#say("howAreYouPositive");
 		}
 		
-		if($mainIntroResponse == "negative") 
+		if($feelingResponse == "negative") 
 		{
-			#say(howAreYouNegative);
-			exit;
+			#say("howAreYouNegative");
 		}
 		
 		#say("offerAssistance");
@@ -90,13 +88,14 @@ digression wantChris
 	}
 	do 
 	{
-		#sayText("wow you did your first digression");
+		#sayText("Excuse me, you didn't let me finish talking, right?");
 		wait *;
 	}
 	
 	transitions 
 	{
 		agree: goto mainIntroduction on #messageHasSentiment("positive");
+		disagree: goto node fastHangUp on #messageHasSentiment("positive");
 	}
 }
 
@@ -109,6 +108,15 @@ node callerTimeout
 
         #say("callerTimeout");
         exit;
+	}
+}
+
+node fastHangUp
+{
+	do
+	{
+		sayText("Goodbye");
+		exit;
 	}
 }
 
