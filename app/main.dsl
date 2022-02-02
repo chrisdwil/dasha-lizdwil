@@ -1,6 +1,8 @@
 context {
 	input phone: string;
 	input forward: string? = null;
+	
+	mainIntroResponse: string = "";	
 }
 
 start node mainIntroduction {
@@ -38,8 +40,11 @@ start node mainIntroduction {
 	}
 	
 	onexit {
-		agree: do { mainIntroResponse == "positive"; }
-		disagree: do { mainIntroResponse == "negative"; }
+		agree: do { set $mainIntroResponse == "positive"; }
+		disagree: do { set $mainIntroResponse == "negative"; }
+		
+		callerTimeout: 
+		restartself:
 	}
 }
 
@@ -47,11 +52,11 @@ node offerAssistance {
 	do {
 		#log("-- node offerAssistance -- offering assistance to caller");
 		
-		if(mainIntroPositive == "positive") {
+		if($mainIntroResponse == "positive") {
 			exit;
 		}
 		
-		if(mainIntroNegative == "negative") {
+		if($mainIntroResponse == "negative") {
 			exit;
 		}
 	}
