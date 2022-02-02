@@ -33,7 +33,7 @@ start node mainIntroduction {
 		
 	transitions {
 
-		agree: goto transferCallYes on #messageHasSentiment("positive");
+		agree: goto mainIntroductionPositive on #messageHasSentiment("positive");
 //		disagree: goto transferCallNo on #messageHasSentiment("negative");
 //		transfer: goto transferCallYes on #messageHasIntent("transfer");
 //		transferTimeout: goto transferTimeout;
@@ -47,9 +47,9 @@ node mainIntroductionPositive {
 		#log("-- node mainIntroductionPositive -- respond to caller's positive sentiment");
 
 		#say("mainIntroductionPositive");
+
+		goto offerAssistance;
 	}
-	
-	goto offerAssistance;
 	
 	transitions {
 	
@@ -63,10 +63,10 @@ node mainIntroductionNegative {
 		#log("-- node mainIntroductionNegative -- respond to caller's negative sentiment");
 
 		#say("mainIntroductionNegative");
+		
+		goto offerAssistance;
 	}
-	
-	goto offerAssistance;
-	
+		
 	transitions {
 	
 		offerAssistance: goto offerAssistance on true;
