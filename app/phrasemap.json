@@ -17,7 +17,7 @@
 					}
 				}
 			],
-			"mainIntroductionPositive": [
+			"howAreYouPositive": [
 				{ 
 				"text": "That's wonderful to hear,,, I'm doing great myself as well.",
 				"voiceInfo": { 
@@ -26,15 +26,33 @@
 					}
 				}
 			],
-			"mainIntroductionNegative": [
+			"howAreYouNegative": [
 				{ 
 				"text": "That's unfortunate,,, but hopefully he or I can help.",
 				"voiceInfo": { 
 					"speed": 0.9,
 					"variation": 5 
 					}
+				}	
+			],
+			"offerAssistance": [
+				{
+				"text": "So,,, what can I help you with today?",
+				"voiceInfo": {
+					"speed": 1.1,
+					"variation": 5
+					}
 				}
-			],		
+			],	
+			"offerMessage": [
+				{
+				"text": "Understood,,, would you prefer I send him a message?",
+				"voiceInfo": {
+					"speed": 1.1,
+					"variation": 5
+					}
+				}
+			],	
 			"callerTimeout": [
 				{ 
 				"text": "Hey... It appears you've gone quiet, if you're having phone issues you're more than welcome to try us again anytime... Hope you have a wonderful day.",
@@ -70,21 +88,12 @@
 					"variation": 5
 					}
 				}
-			],
-			"messageOffer": [
-				{
-				"text": "Understood,,, would you prefer I send him a message?",
-				"voiceInfo": {
-					"speed": 1.1,
-					"variation": 5
-					}
-				}
 			]
 		},
 		"macros": {
 			"mainIntroduction": {},
-			"mainIntroductionPositive": {},
-			"mainIntroductionNegative": {},
+			"howAreYouPositive": {},
+			"howAreYouNegative": {},
 			"callerTimeout": {},
 			"hangUp": {},
 			"hold": {},

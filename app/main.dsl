@@ -3,9 +3,9 @@ context {
 	input phone: string;
 	input forward: string? = null;
 	
-	mainIntroResponse: string = "";	
+	feelingResponse: string = "";	
 }
-
+// core complex conversations
 start node mainIntroduction {
 	do {
 		#log("-- node mainIntroduction -- Introduction to caller");
@@ -49,11 +49,11 @@ start node mainIntroduction {
 	{
 		agree: do 
 		{ 
-			set $mainIntroResponse = "positive"; 
+			set $feelingResponse = "positive"; 
 		}
 		disagree: do 
 		{ 
-			set $mainIntroResponse = "negative"; 
+			set $feelingResponse = "negative"; 
 		}
 	}
 }
@@ -64,18 +64,24 @@ node offerAssistance
 	{
 		#log("-- node offerAssistance -- offering assistance to caller");
 		
-		if($mainIntroResponse == "positive") 
+		if($feelingResponse == "positive") 
 		{
+			#say(howAreYouPositive);
 			exit;
 		}
 		
 		if($mainIntroResponse == "negative") 
 		{
+			#say(howAreYouNegative);
 			exit;
 		}
+		
+		#say("offerAssistance");
+		exit;
 	}
 }
 
+// digressions located here
 digression wantChris 
 {
 	conditions 
@@ -86,7 +92,6 @@ digression wantChris
 	{
 		#sayText("wow you did your first digression");
 		wait *;
-		exit;
 	}
 	
 	transitions 
@@ -95,6 +100,7 @@ digression wantChris
 	}
 }
 
+// call wrapup
 node callerTimeout 
 {
 	do 
