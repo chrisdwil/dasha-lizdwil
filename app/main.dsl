@@ -159,12 +159,7 @@ node @exit
 }
 
 digression mainIntroductionConfused
-{
-	conditions
-	{
-		on true;
-	}
-	
+{	
 	do
 	{
 		#sayText("Oh, hey,,, I was just interested in how your day is...");
