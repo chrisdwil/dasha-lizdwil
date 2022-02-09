@@ -3,7 +3,8 @@ context {
 	input phone: string;
 	input forward: string? = null;
 	
-	feelingResponse: string = "";	
+	feelingResponse: string = "";
+	intentConfused; string = "";
 }
 // core complex conversations
 start node mainIntroduction {
@@ -14,7 +15,16 @@ start node mainIntroduction {
 		{
 			#connectSafe($phone);
 			#say("mainIntroduction");
-		} 
+		}
+		
+		if($getVisitCount("mainIntroduction") >= 2)
+		{
+			if ($intentConfused == "yes")
+			{
+				#sayText("testing")
+			}
+					
+		}
 
 		if(#getVisitCount("mainIntroduction") > 10) 
 		{		
@@ -42,6 +52,7 @@ start node mainIntroduction {
 		disagree: goto offerAssistance on #messageHasSentiment("negative");
 		
 		callerTimeout: goto callerTimeout;
+		confusedyes: goto mainIntroduction on #messageHasIntents("yes");
 		restartself: goto mainIntroduction on true priority -1000 tags: ontick;
 	}
 	
@@ -54,6 +65,10 @@ start node mainIntroduction {
 		disagree: do 
 		{ 
 			set $feelingResponse = "negative"; 
+		}
+		confusedyes: do
+		{
+			set $intentConfused = "yes";
 		}
 	}
 }
@@ -79,8 +94,56 @@ node offerAssistance
 	}
 }
 
+node respondToAssistance {
+	do {
+		#log("-- node respondToAssistance -- Introduction to caller");
+
+		if(#getVisitCount("respondToAssistance") < 2) 
+		{
+			#connectSafe($phone);
+			#say("respondToAssistance"); 
+		} 
+
+		if(#getVisitCount("respondToAssistance") > 10) 
+		{		
+			goto callerTimeout;
+		}
+	
+		if(!#waitForSpeech(500)) 
+		{
+			wait 
+			{ 
+				restartself
+			};
+		}
+		
+		wait 
+		{
+			// see transition ideas below
+		};
+	}
+	
+	transitions 
+	{
+		// transfer me
+		// send chris a message
+		// text for me
+		// i'll leave a voicemail
+		// not sure (give options?)
+		// confused ?
+		
+		callerTimeout: goto callerTimeout;
+		restartself: goto mainIntroduction on true priority -1000 tags: ontick;
+	}
+	
+	onexit 
+	{
+
+	}
+}
+
 // digressions located here
-digression wantTransfer 
+digression demandTransfer 
 {
 	conditions 
 	{
@@ -98,6 +161,8 @@ digression wantTransfer
 		disagree: goto fastHangUp on #messageHasSentiment("positive");
 	}
 }
+
+// create digression for wrong number scenarios
 
 // call wrapup
 node callerTimeout 
