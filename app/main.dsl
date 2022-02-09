@@ -88,46 +88,19 @@ node offerAssistance
 		exit;
 	}
 }
-
 /*
 node respondToAssistance 
 {
 	do {
 		#log("-- node respondToAssistance -- Introduction to caller");
-
-		if(#getVisitCount("respondToAssistance") < 2) 
-		{
-			#connectSafe($phone);
-			#say("respondToAssistance"); 
-		} 
-
-		if(#getVisitCount("respondToAssistance") > 10) 
-		{		
-			goto callerTimeout;
-		}
-	
-		if(!#waitForSpeech(500)) 
-		{
-			wait 
-			{ 
-				restartself
-			};
-		}
-		
-		wait 
-		{
-		};
 	}
 	
 	transitions 
 	{
-		callerTimeout: goto callerTimeout;
-		restartself: goto mainIntroduction on true priority -1000 tags: ontick;
 	}
 	
 	onexit 
 	{
-
 	}
 }
 */
@@ -189,13 +162,13 @@ digression mainIntroductionConfused
 {
 	conditions
 	{
-		on $intentConfused;
+		on $intentConfused == true;
 	}
 	
 	do
 	{
-		#sayText("Oh, hey i was just interested in how your day is...");
-		#sayText("However do you need help with being transferred to Chris...");
+		#sayText("Oh, hey,,, I was just interested in how your day is...");
+		#sayText("However do you need help with being transferred to Chris???");
 		return;
 	};
 }
