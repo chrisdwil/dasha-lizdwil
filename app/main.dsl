@@ -160,12 +160,16 @@ node @exit
 
 digression mainIntroductionConfused
 {	
+	conditions {
+		on $intentConfused == true;
+	}
+	
 	do
 	{
 		#sayText("Oh, hey,,, I was just interested in how your day is...");
 		#sayText("However do you need help with being transferred to Chris???");
 		return;
-	};
+	}
 }
 
 /*
