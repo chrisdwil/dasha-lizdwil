@@ -17,6 +17,11 @@ start node mainIntroduction {
 			#say("mainIntroduction");
 		}
 		
+		if((#getVisitCount("mainIntroduction") >= 2) && $intentConfused)
+		{
+			goto offerAssistance;
+		}
+		
 		if(#getVisitCount("mainIntroduction") > 10) 
 		{		
 			goto callerTimeout;
@@ -35,6 +40,7 @@ start node mainIntroduction {
 			agree
 			disagree
 			confusedyes
+			confusedno
 		};
 	}
 	
@@ -42,8 +48,10 @@ start node mainIntroduction {
 	{
 		agree: goto offerAssistance on #messageHasSentiment("positive") priority 2;
 		disagree: goto offerAssistance on #messageHasSentiment("negative") priority 2;
-	
-		confusedyes: goto mainIntroduction on #messageHasIntent("yes") priority 1;
+		offerAssistance: goto offerAssistance on timeout 500;
+		
+		confusedYes: goto mainIntroduction on #messageHasIntent("yes") priority 1;
+		confusedNo: goto mainIntroduction on #messageHasIntent("no") priority 1;
 
 		callerTimeout: goto callerTimeout;
 		restartself: goto mainIntroduction on timeout 1000;
