@@ -22,7 +22,7 @@ start node mainIntroduction {
 			goto callerTimeout;
 		}
 	
-		if(!#waitForSpeech(1000))
+		if(!#waitForSpeech(500))
 		{
 			wait 
 			{ 
@@ -47,8 +47,8 @@ start node mainIntroduction {
 	
 		confusedyes: goto mainIntroduction on #messageHasIntent("yes") priority 1;
 
-		callerTimeout: goto callerTimeout on priority 0;
-		restartself: goto mainIntroduction on timeout 1000 priority 0;
+		callerTimeout: goto callerTimeout;
+		restartself: goto mainIntroduction on timeout 1000;
 	}
 	
 	onexit 
