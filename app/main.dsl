@@ -22,7 +22,7 @@ start node mainIntroduction {
 			goto callerTimeout;
 		}
 	
-		if(!#waitForSpeech(500)) 
+		if(!#waitForSpeech(1000)) 
 		{
 			wait 
 			{ 
@@ -30,21 +30,24 @@ start node mainIntroduction {
 			};
 		}
 		
-		wait(10000)
+		if(!#waitForSpeech(500))
 		{
+			wait
+			{
 				confusedyes
 				agree
 				disagree
-		};
+			};
+		}
 	}
 	
 	transitions 
 	{
-		confusedyes: goto mainIntroduction on #messageHasIntent("yes") priority 100;
-
 		agree: goto offerAssistance on #messageHasSentiment("positive") priority 500;
 		disagree: goto offerAssistance on #messageHasSentiment("negative") priority 500;
-		
+	
+		confusedyes: goto mainIntroduction on #messageHasIntent("yes") priority 100;
+
 		callerTimeout: goto callerTimeout;
 		restartself: goto mainIntroduction on timeout 1000;
 	}
