@@ -17,15 +17,6 @@ start node mainIntroduction {
 			#say("mainIntroduction");
 		}
 		
-		if(#getVisitCount("mainIntroduction") >= 2)
-		{
-			if ($intentConfused == true)
-			{
-				#sayText("testing");
-			}
-					
-		}
-
 		if(#getVisitCount("mainIntroduction") > 10) 
 		{		
 			goto callerTimeout;
@@ -39,7 +30,7 @@ start node mainIntroduction {
 			};
 		}
 		
-		wait 
+		wait(10000)
 		{
 				confusedyes
 				agree
@@ -70,7 +61,7 @@ start node mainIntroduction {
 		}
 		confusedyes: do
 		{
-			set $intentConfused = "yes";
+			set $intentConfused = true;
 		}
 	}
 }
@@ -203,8 +194,8 @@ digression mainIntroductionConfused
 	{
 		#sayText("Oh, hey i was just interested in how your day is...");
 		#sayText("However do you need help with being transferred to Chris...");
-	}
-	return;
+		return;
+	};
 }
 
 digression @exit_dig 
