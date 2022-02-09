@@ -41,7 +41,7 @@ start node mainIntroduction {
 		
 		wait 
 		{
-				confusedyes;
+				confusedyes
 				agree
 				disagree
 		};
