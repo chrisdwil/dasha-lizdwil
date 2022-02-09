@@ -170,7 +170,6 @@ digression mainIntroductionConfused
 	}
 }
 
-/*
 digression @exit_dig 
 {
 		conditions 
@@ -183,4 +182,3 @@ digression @exit_dig
 			exit;
 		}
 }
-*/
