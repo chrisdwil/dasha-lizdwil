@@ -48,10 +48,10 @@ start node mainIntroduction {
 	
 	transitions 
 	{
-		confusedyes: goto mainIntroduction on #messageHasIntents("yes");
+		confusedyes: goto mainIntroduction on #messageHasIntents("yes") priority 1000;
 
-		agree: goto offerAssistance on #messageHasSentiment("positive");
-		disagree: goto offerAssistance on #messageHasSentiment("negative");
+		agree: goto offerAssistance on #messageHasSentiment("positive") priority 500;
+		disagree: goto offerAssistance on #messageHasSentiment("negative") priority 500;
 		
 		callerTimeout: goto callerTimeout;
 		restartself: goto mainIntroduction on true priority -1000 tags: ontick;
