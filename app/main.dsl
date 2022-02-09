@@ -4,7 +4,7 @@ context {
 	input forward: string? = null;
 	
 	feelingResponse: string = "";
-	intentConfused; string = "";
+	intentConfused: string = "";
 }
 // core complex conversations
 start node mainIntroduction {
@@ -17,11 +17,11 @@ start node mainIntroduction {
 			#say("mainIntroduction");
 		}
 		
-		if($getVisitCount("mainIntroduction") >= 2)
+		if(#getVisitCount("mainIntroduction") >= 2)
 		{
 			if ($intentConfused == "yes")
 			{
-				#sayText("testing")
+				#sayText("testing");
 			}
 					
 		}
@@ -48,13 +48,14 @@ start node mainIntroduction {
 	
 	transitions 
 	{
-		confusedyes: goto mainIntroduction on #messageHasIntents("yes") priority 1000;
+		confusedyes: goto mainIntroduction on #messageHasIntent("yes") priority 1000;
 
 		agree: goto offerAssistance on #messageHasSentiment("positive") priority 500;
 		disagree: goto offerAssistance on #messageHasSentiment("negative") priority 500;
 		
 		callerTimeout: goto callerTimeout;
-		restartself: goto mainIntroduction on true priority -1000 tags: ontick;
+		//restartself: goto mainIntroduction on true priority -1000 tags: ontick;
+		restartself: goto mainIntroduction on timeout 1000;
 	}
 	
 	onexit 
@@ -95,7 +96,9 @@ node offerAssistance
 	}
 }
 
-node respondToAssistance {
+/*
+node respondToAssistance 
+{
 	do {
 		#log("-- node respondToAssistance -- Introduction to caller");
 
@@ -120,19 +123,11 @@ node respondToAssistance {
 		
 		wait 
 		{
-			// see transition ideas below
 		};
 	}
 	
 	transitions 
 	{
-		// transfer me
-		// send chris a message
-		// text for me
-		// i'll leave a voicemail
-		// not sure (give options?)
-		// confused ?
-		
 		callerTimeout: goto callerTimeout;
 		restartself: goto mainIntroduction on true priority -1000 tags: ontick;
 	}
@@ -142,6 +137,7 @@ node respondToAssistance {
 
 	}
 }
+*/
 
 // digressions located here
 digression demandTransfer 
