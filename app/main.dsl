@@ -4,7 +4,7 @@ context {
 	input forward: string? = null;
 	
 	feelingResponse: string = "";
-	intentConfused: string = "";
+	intentConfused: boolean = true;
 }
 // core complex conversations
 start node mainIntroduction {
@@ -19,7 +19,7 @@ start node mainIntroduction {
 		
 		if(#getVisitCount("mainIntroduction") >= 2)
 		{
-			if ($intentConfused == "yes")
+			if ($intentConfused == true)
 			{
 				#sayText("testing");
 			}
@@ -41,6 +41,7 @@ start node mainIntroduction {
 		
 		wait 
 		{
+				confusedyes;
 				agree
 				disagree
 		};
@@ -48,13 +49,12 @@ start node mainIntroduction {
 	
 	transitions 
 	{
-		confusedyes: goto mainIntroduction on #messageHasIntent("yes") priority 1000;
+		confusedyes: goto mainIntroduction on #messageHasIntent("yes") priority 100;
 
 		agree: goto offerAssistance on #messageHasSentiment("positive") priority 500;
 		disagree: goto offerAssistance on #messageHasSentiment("negative") priority 500;
 		
 		callerTimeout: goto callerTimeout;
-		//restartself: goto mainIntroduction on true priority -1000 tags: ontick;
 		restartself: goto mainIntroduction on timeout 1000;
 	}
 	
@@ -190,6 +190,21 @@ node @exit
         
         exit;
     }
+}
+
+digression mainIntroductionConfused
+{
+	conditions
+	{
+		on $intentConfused;
+	}
+	
+	do
+	{
+		#sayText("Oh, hey i was just interested in how your day is...");
+		#sayText("However do you need help with being transferred to Chris...");
+	}
+	return;
 }
 
 digression @exit_dig 
