@@ -22,7 +22,7 @@ start node mainIntroduction {
 			goto callerTimeout;
 		}
 	
-		if(!#waitForSpeech(1000)) 
+		if(!#waitForSpeech(1000))
 		{
 			wait 
 			{ 
@@ -30,15 +30,12 @@ start node mainIntroduction {
 			};
 		}
 		
-		if(!#waitForSpeech(500))
+		wait
 		{
-			wait
-			{
-				confusedyes
-				agree
-				disagree
-			};
-		}
+			confusedyes
+			agree
+			disagree
+		};
 	}
 	
 	transitions 
