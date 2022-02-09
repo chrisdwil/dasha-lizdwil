@@ -30,23 +30,25 @@ start node mainIntroduction {
 			};
 		}
 		
-		wait
+		wait *;
+		/*
 		{
 			confusedyes
 			agree
 			disagree
 		};
+		*/
 	}
 	
 	transitions 
 	{
-		agree: goto offerAssistance on #messageHasSentiment("positive") priority 500;
-		disagree: goto offerAssistance on #messageHasSentiment("negative") priority 500;
+		agree: goto offerAssistance on #messageHasSentiment("positive") priority 2;
+		disagree: goto offerAssistance on #messageHasSentiment("negative") priority 2;
 	
-		confusedyes: goto mainIntroduction on #messageHasIntent("yes") priority 100;
+		confusedyes: goto mainIntroduction on #messageHasIntent("yes") priority 1;
 
-		callerTimeout: goto callerTimeout;
-		restartself: goto mainIntroduction on timeout 1000;
+		callerTimeout: goto callerTimeout priority 0;
+		restartself: goto mainIntroduction on timeout 1000 priority 0;
 	}
 	
 	onexit 
@@ -185,7 +187,7 @@ node @exit
 
 digression mainIntroductionConfused
 {
-	conditions
+	condition
 	{
 		on $intentConfused;
 	}
@@ -198,6 +200,7 @@ digression mainIntroductionConfused
 	};
 }
 
+/*
 digression @exit_dig 
 {
 		conditions 
@@ -210,3 +213,4 @@ digression @exit_dig
 			exit;
 		}
 }
+*/
