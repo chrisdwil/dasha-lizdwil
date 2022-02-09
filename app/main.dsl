@@ -30,14 +30,12 @@ start node mainIntroduction {
 			};
 		}
 		
-		wait *;
-		/*
+		wait 
 		{
-			confusedyes
 			agree
 			disagree
+			confusedyes
 		};
-		*/
 	}
 	
 	transitions 
