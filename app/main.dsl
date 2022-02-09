@@ -47,7 +47,7 @@ start node mainIntroduction {
 	
 		confusedyes: goto mainIntroduction on #messageHasIntent("yes") priority 1;
 
-		callerTimeout: goto callerTimeout priority 0;
+		callerTimeout: goto callerTimeout on priority 0;
 		restartself: goto mainIntroduction on timeout 1000 priority 0;
 	}
 	
@@ -187,7 +187,7 @@ node @exit
 
 digression mainIntroductionConfused
 {
-	condition
+	conditions
 	{
 		on $intentConfused;
 	}
