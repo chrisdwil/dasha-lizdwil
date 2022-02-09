@@ -162,7 +162,7 @@ digression mainIntroductionConfused
 {
 	conditions
 	{
-		on $intentConfused == true;
+		on true;
 	}
 	
 	do
