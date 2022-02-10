@@ -93,18 +93,18 @@ node helloRespond {
 				{
 					#say("helpOfferPositive");
 				}
-				else if ($currentSentiment == "negative")
+				if ($currentSentiment == "negative")
 				{
 					#say("helpOfferNegative");
 				} 
-				else if ($currentSentiment == "confused")
+				if ($currentSentiment == "confused")
 				{
 					#say("helpOfferConfused");
 				}
 			}
 			else
 			{
-				sayText("last chance, say something like transfer me, or leave message");
+				#sayText("last chance, say something like transfer me, or leave message");
 			}
 			
 			#say("helpOfferStart");
