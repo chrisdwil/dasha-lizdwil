@@ -7,8 +7,13 @@
             "variation": 5
         },
         "phrases": {
-            "helloStart": [{ "text": "Hello I'm Chris'sz assistant." }],
-            "hangUpRandom": [{ "text": "I'm going to forward you" }]
+            "helloStart": [
+            	{"text": "Hello I'm Chris'sz assistant." },
+            	{"text": "How are you doing today?"}
+            ],
+            "hangUpRandom": [
+            	{ "text": "I'm going to forward you" }
+            ]
         },
         "macros": {
             "helloStart": {},

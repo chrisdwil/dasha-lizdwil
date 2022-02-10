@@ -45,17 +45,8 @@ node @hangUpTimeout
 	{
         #log("-- node @exit -- ending conversation");
 
-        #say("hangUpTimeout");
+        #say("hangUpRandom");
         exit;
-	}
-}
-
-node hangUpFast
-{
-	do
-	{
-		#sayText("Goodbye");
-		exit;
 	}
 }
 
