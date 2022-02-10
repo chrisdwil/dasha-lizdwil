@@ -59,7 +59,7 @@ start node helloStart {
             positiveSentiment: goto helpOffer on #messageHasSentiment("positive");
             negativeSentiment: goto helpOffer on #messageHasSentiment("negative");
             helloStartTimeout: goto helloStart on timeout 5000;
-            helloStartHangUp: goto @exit on timeout 500;
+            helloStartHangUp: goto hellpOffer on timeout 500;
             self: goto helloStart on true priority -1000 tags: ontick;
     }  
     
@@ -92,7 +92,7 @@ node helpOffer
 		{
 			#sayText("That's wonderful, I'm doing great myself today.");
 		}
-		elseif (!$currentSentiment)
+		else if (!$currentSentiment)
 		{
 			#sayText("Awwwww, well maybe Chris or I will be able to assist.");
 		}
