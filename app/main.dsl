@@ -31,7 +31,7 @@ start node helloStart {
 	{
 		positive: goto offerAssistance on #messageHasSentiment("positive");
 		negative: goto offerAssistance on #messageHasSentiment("negative");
-		questionTimeout: goto @helloStartTimeout on timeout 5000;
+		helloStartTimeout: goto @helloRepeatTimeout on timeout 5000;
 	}
 	
 	onexit
@@ -46,14 +46,14 @@ start node helloStart {
 			set $currentSentiment = "negative";
 		}
 		
-		questionTimeout: do
+		helloStartTimeout: do
 		{
 			set $currentSentiment = "confused";
 		}
 	}
 }
 
-node @helloStartTimeout
+node @helloRepeatTimeout
 {
 	do 
 	{
@@ -65,7 +65,7 @@ node @helloStartTimeout
 	
 	transitions
 	{
-		helloStartTimeout: goto @exit on timeout 5000;
+		helloRepeatTimeout: goto @exit on timeout 5000;
 	}
 }
 
