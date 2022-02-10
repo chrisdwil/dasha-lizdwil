@@ -25,11 +25,6 @@ start node mainIntroduction {
 			set $sayIntroduction=false;
 		}
 		
-		if((#getVisitCount("mainIntroduction") >= 2) && ($intentConfused))
-		{
-			goto mainIntroductionConfused;
-		}
-		
 		if(#getVisitCount("mainIntroduction") > 5) 
 		{		
 			goto callerTimeout;
@@ -102,7 +97,7 @@ node offerAssistance
 		}
 		
 		#say("offerAssistance");
-		exit;
+		return;
 	}
 }
 
