@@ -102,14 +102,10 @@ node helloRespond {
 					#say("helpOfferConfused");
 				}
 			}
-			else
-			{
-				#sayText("last chance, say something like transfer me, or leave message");
-			}
 			
 			#say("helpOfferStart");
 			
-			if ("$currentSentiment" == "confused")
+			if ($currentSentiment == "confused")
 			{
 				#log("-- node helloRespond -- caller is confused");
 
@@ -117,11 +113,10 @@ node helloRespond {
 					{
 						emptyTalk
 					};
-				}
-        	}
+			}
 			else
 			{
-					
+				#log("-- node helloRespond -- caller is not confused");	
 			}
 		}
         else
