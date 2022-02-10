@@ -30,8 +30,8 @@ start node helloStart {
 	
 	transitions 
 	{
-		positiveIntent: goto helpOffer on #messageHasSentiment("positive") priority 3;
-		negativeIntent: goto helpOffer on #messageHasSentiment("negative") priority 3;
+		positiveIntent: goto helpOffer on #messageHasIntent("positive") priority 3;
+		negativeIntent: goto helpOffer on #messageHasIntent("negative") priority 3;
 		positiveSentiment: goto helpOffer on #messageHasSentiment("positive")priority 1;
 		negativeSentiment: goto helpOffer on #messageHasSentiment("negative")priority 1;
 		//helloStartTimeout: goto @helloRepeatTimeout on timeout 5000;
@@ -74,8 +74,8 @@ node @helloRepeatTimeout
 	
 	transitions 
 	{
-		positiveIntent: goto helloRepeatTimeout on #messageHasSentiment("positive") priority 3;
-		negativeIntent: goto helloRepeatTimeout on #messageHasSentiment("negative") priority 3;
+		positiveIntent: goto helloRepeatTimeout on #messageHasIntent("positive") priority 3;
+		negativeIntent: goto helloRepeatTimeout on #messageHasIntent("negative") priority 3;
 		positiveSentiment: goto helloRepeatTimeout on #messageHasSentiment("positive")priority 1;
 		negativeSentiment: goto helloRepeatTimeout on #messageHasSentiment("negative")priority 1;
 		//helloStartTimeout: goto @helloRepeatTimeout on timeout 5000;
