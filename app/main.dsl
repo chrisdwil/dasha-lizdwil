@@ -12,6 +12,11 @@ start node helloRoot {
 		#connectSafe($phone);
 		goto helloStart;
 	}
+	
+	transition
+	{
+		helloStart: goto helloStart on true;
+	}
 }
 
 digression helloStart {
@@ -29,7 +34,7 @@ digression helloStart {
 		{
 		}
 
-		if(
+		if(digression.helloStart.fullGreeting)
 		{
 			#log("-- node helloStart -- introduction to caller");
 
