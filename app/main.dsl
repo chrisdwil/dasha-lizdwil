@@ -8,18 +8,18 @@ context {
 	callTimeout: number = 5000;
 }
 
-start node mainIntroduction {
+start node helloStart {
 	do {
-		#log("-- node mainIntroduction -- Introduction to caller");
+		#log("-- node helloStart -- Introduction to caller");
 		
-		if(#getVisitCount("mainIntroduction") < 2) 
+		if(#getVisitCount("helloStart") < 2) 
 		{
 			#connectSafe($phone);
 		}
 
 		if($introductionSay)
 		{
-			#say("mainIntroduction");
+			#say("helloStart");
 			set $introductionSay=false;
 		}
 				
