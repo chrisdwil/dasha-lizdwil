@@ -11,7 +11,7 @@ context {
 // core complex conversations
 start node mainIntroduction {
 	do {
-		set $introductionCount = #getVisitCount("mainIntroduction");
+		set $prevTransitionCount = #getVisitCount("mainIntroduction");
 		set $feelingResponse = "";
 
 		#log("-- node mainIntroduction -- Introduction to caller");
@@ -48,7 +48,8 @@ start node mainIntroduction {
 	transitions 
 	{
 		agree: goto offerAssistance on #messageHasSentiment("positive") priority 3;
-		disagree: goto offerAssistance on #messageHasSentiment("negative") priority 3;
+		neutral: goto offerAssistance on #messageHasSentiment("neutral") priority 3;
+		negative: goto offerAssistance on #messageHasSentiment("negative") priority 3;
 		
 		callerTimeout: goto callerTimeout;
 		restartSelf: goto mainIntroduction on timeout 1500;
@@ -60,7 +61,11 @@ start node mainIntroduction {
 		{ 
 			set $feelingResponse = "positive"; 
 		}
-		disagree: do 
+		neutral: do 
+		{ 
+			set $feelingResponse = "neutral"; 
+		}		
+		negative: do 
 		{ 
 			set $feelingResponse = "negative"; 
 		}
@@ -191,3 +196,4 @@ digression @exit_dig
 			exit;
 		}
 }
+
