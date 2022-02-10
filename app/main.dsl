@@ -18,6 +18,9 @@ digression helloStart {
 	conditions { on false; }
 
 	var fullGreeting = true;
+	var retriesLimit = 0;
+	var retriesTimeout = 5000;
+	var counter = 0;
 	
 	do {
 		#log("-- node helloStart -- initializing helloStart");
@@ -26,7 +29,7 @@ digression helloStart {
 		{
 		}
 
-		if()
+		if(
 		{
 			#log("-- node helloStart -- introduction to caller");
 
