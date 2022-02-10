@@ -44,7 +44,7 @@ start node lizDWilRoot {
 
         	wait
         	{
-        		confusedSentiment
+        		confusedAnswer
         	};
         }
 	}
@@ -53,8 +53,8 @@ start node lizDWilRoot {
 	{		
 		positiveSentiment: goto helloRespond on #messageHasSentiment("positive");
 		negativeSentiment: goto helloRespond on #messageHasSentiment("negative");
-		emptySentiment: goto lizDWilRoot on timeout 5000;
-		confusedSentiment: goto helloRespond on timeout 500;
+		emptyTalk: goto lizDWilRoot on timeout 5000;
+		confusedAnswer: goto helloRespond on timeout 500;
 	}
 	
 	onexit
@@ -70,7 +70,7 @@ start node lizDWilRoot {
 
     	}
     	
-    	confusedSentiment: do
+    	emptyTalk: do
     	{
     		set $currentSentiment = "confused";
     	}
@@ -80,7 +80,7 @@ start node lizDWilRoot {
 node helloRespond {
 	do
 	{
-        #log("-- node lizDWilRoot -- initializing helloRespond");
+        #log("-- node helloRespond -- initializing helloRespond");
         #log("currentSentiment: " + $currentSentiment);
         
         if (#getVisitCount("helloRespond") < 4)
@@ -102,15 +102,17 @@ node helloRespond {
 			}
 			
 			#say("helpOfferStart");
+			
+			wait 
+			{
+				emptyTalk
+			};
 		}
-		else
-		{
-			#log("-- node helloRespond -- introduction rephrased to caller");
-	
-			#sayText("So how may I be of asstance today?");
-		}
-        exit;
     }
+	transition
+	{
+		emptyTalk: goto lizDWilRoot on timeout 5000;
+	}
 }
 
 
