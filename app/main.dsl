@@ -136,8 +136,9 @@ digression digTransfer {
 		wait
 		{
 			digTransferUnavailable
-		}
+		};
 	}
+	
 	transitions
 	{
 		digTransferUnavailable: goto transferHangUp on timeout 10000;
@@ -148,8 +149,17 @@ node transferHangUp
 {
 	do
 	{
-		#sayText("I'm sorry he's unavailable, you'll have to try back later.");
-		exit;
+		#sayText("I'm sorry he's unavailable."};
+		#sayText("you'll have to try back later.");
+		wait 
+		{
+			hangUpPolite
+		}
+	}
+
+	transitions
+	{
+		hangUpPolite: goto @exit on timeout 250;
 	}
 }
 
