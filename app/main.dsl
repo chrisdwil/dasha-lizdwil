@@ -23,30 +23,30 @@ start node helloStart {
 			set $introductionSay=false;
 		}
 				
-		wait
-		{
-			positive
-			negative
-		};
+		wait *;
 	}
 	
 	transitions 
 	{
-		positive: goto @hangUpTimeout on #messageHasSentiment("positive");
-		negative: goto @hangUpTimeout on #messageHasSentiment("negative");
-		@hangUpTimeout: goto @hangUpTimeout on timeout 5000;
+		positive: goto offerAssistance on #messageHasSentiment("positive");
+		negative: goto offerAssistance on #messageHasSentiment("negative");
+		questionTimeout: goto questionTimeout on timeout 5000;
 	}
 }
 
-// call wrapup
-node @hangUpTimeout
+node @questionTimeout
 {
 	do 
 	{
-        #log("-- node @exit -- ending conversation");
-
-        #say("hangUpRandom");
-        exit;
+        #log("-- node @questionTimeout -- repeating once more");
+        
+        #sayText("Again, this is Liz speaking, is there anything I can help you with?");
+        wait *;
+	}
+	
+	transition
+	{
+		questionTimeout: goto @exit on timeout 5000;
 	}
 }
 
@@ -55,6 +55,7 @@ node @exit
     do 
     {
         #log("-- node @exit -- ending conversation");
+        
         
         exit;
     }
