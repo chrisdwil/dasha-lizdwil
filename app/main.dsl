@@ -4,7 +4,7 @@ context {
 	input forward: string? = null;
 	
 	introductionSay: boolean = true;
-	introductionCount: integer = 0; 
+	introductionCount: string = 0; 
 
 	feelingResponse: string = "";
 	intentConfused: boolean = false;
