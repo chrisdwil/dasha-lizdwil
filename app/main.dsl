@@ -154,7 +154,7 @@ node transferHangUp
 		wait 
 		{
 			hangUpPolite
-		}
+		};
 	}
 
 	transitions
