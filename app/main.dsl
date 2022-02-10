@@ -10,7 +10,7 @@ context {
 // core complex conversations
 start node mainIntroduction {
 	do {
-		#log("-- node mainIntroduction -- Introduction to caller");
+		#log("-- node mainIntroduction -- Introduction to caller - ");
 		set $feelingResponse = "";
 		set $intentConfused = false;
 		
@@ -42,8 +42,6 @@ start node mainIntroduction {
 		{
 			agree
 			disagree
-			confusedYes
-			confusedNo
 		};
 	}
 	
@@ -97,7 +95,7 @@ node offerAssistance
 		}
 		
 		#say("offerAssistance");
-		return;
+		;
 	}
 }
 
