@@ -6,6 +6,7 @@ context {
 	introductionSay: boolean = true;
 	currentIntent: boolean = false;
 	currentSentiment: boolean = false;
+	currentConfusion: boolean = false;
 	
 	callTimeout: number = 5000;
 }
@@ -28,12 +29,12 @@ start node helloStart {
 		}
 		else
 		{
-			#log("-- node helloStart -- introduction repeated to caller");
+			#log("-- node helloStart -- introduction rephrased to caller");
 		
-			#sayText("Just checking again, how are you today?");
+			#say("helloRepeat");
 		}
 
-        if (#getVisitCount("helloStart") < 5 && !#waitForSpeech(2000))
+        if (#getVisitCount("helloStart") < 5 && !#waitForSpeech(300))
         {
                 #log("-- node helloStart -- waiting for speech");
                 wait
@@ -45,86 +46,55 @@ start node helloStart {
         }
         else
         {
-                wait
-                {
-                        self
-                };
+        	wait
+        	{
+        		helloStartHangUp
+        	};
         }
 	}
         
     transitions
     {
-            positiveSentiment: goto helloRepeatTimeout on #messageHasSentiment("positive");
-            negativeSentiment: goto helloRepeatTimeout on #messageHasSentiment("negative");
+            positiveSentiment: goto helpOffer on #messageHasSentiment("positive");
+            negativeSentiment: goto helpOffer on #messageHasSentiment("negative");
             helloStartTimeout: goto helloStart on timeout 5000;
+            helloStartHangUp: goto @exit on timeout 500;
             self: goto helloStart on true priority -1000 tags: ontick;
-    }        
+    }  
+    
+    onexit
+    {
+    	positiveSentiment: do
+    	{
+    		set $currentSentiment = true;
+    	}
+    	
+    	negativeSentiment: do
+    	{
+    		set $currentSentiment = false;
+    	}
+    	
+    	helloStartTimeout: do
+    	{
+    		set $currentConfusion = true;
+    	}
+    }
 }		
-
-node @helloRepeatTimeout
-{
-	do 
-	{
-        #log("-- node @helloRepeatTimeout -- repeating once more");
-
-        wait *;
-	}
-	
-	transitions 
-	{
-		positiveIntent: goto helloRepeatTimeout on #messageHasIntent("positive") priority 3;
-		negativeIntent: goto helloRepeatTimeout on #messageHasIntent("negative") priority 3;
-		//helloStartTimeout: goto @helloRepeatTimeout on timeout 5000;
-	}
-	
-	onexit
-	{
-		positiveIntent: do
-		{
-			set $currentIntent = true;
-		}
-		
-		negativeIntent: do
-		{
-			set $currentIntent = false;
-		}
-	}
-}
 
 node helpOffer
 {
 	do
 	{
-		#log("-- node helpOffer -- offering assistance");
-		if ($currentIntent)
+		#log("-- node helpOffer -- initializing helpOffer");
+		wait
 		{
-			#log("-- node helpOffer -- helpOffer positiveIntent match");
-			#sayText("That's wonderful");
-		} 
-		else
-		{
-			#log("-- node helpOffer -- helpOffer negativeIntent match");
-			#sayText("Aww I'm sorry to hear");
-		}
-
-		if (!$currentSentiment)
-		{
-			#log("-- node helpOffer -- helpOffer caller sentiment negative");
-			#sayText("Are you sure you're having an okay day?");
-		}
-		else
-		{
-			#log("-- node helpOffer -- helpOffer caller sentiment maybe positive");
-			#sayText ("Oh, apologize about the confusion.");
-		}
-		
-		#sayText("So, what can I help you with?");
-		wait *;
+			helpOfferTimeout
+		};
 	}
 	
 	transitions
 	{
-		helpOfferTimeout: goto helpOffer on timeout 5000;
+		helpOfferTimeout: goto @exit on timeout 500;
 	}
 }
 
