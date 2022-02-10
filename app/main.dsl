@@ -24,6 +24,7 @@ start node helloStart {
 		{
 			#log("-- node helloStart -- introduction to caller");
 
+			#waitForSpeech(500);
 			#say("helloStart");
 			set $introductionSay=false;
 		}
@@ -34,7 +35,7 @@ start node helloStart {
 			#say("helloRepeat");
 		}
 
-        if (#getVisitCount("helloStart") < 5 && !#waitForSpeech(300))
+        if (#getVisitCount("helloStart") < 4 && !#waitForSpeech(300))
         {
                 #log("-- node helloStart -- waiting for speech");
                 wait
@@ -86,6 +87,23 @@ node helpOffer
 	do
 	{
 		#log("-- node helpOffer -- initializing helpOffer");
+		
+		if ($currentSentiment)
+		{
+			#sayText("That's wonderful, I'm doing great myself today.");
+		}
+		elseif (!$currentSentiment)
+		{
+			#sayText("Awwwww, well maybe Chris or I will be able to assist.");
+		}
+		else
+		{
+			#sayText("I'm not sure I understand what you're communicating");
+			#sayText("But hey I can transfer calls and leave messages for Chris");
+		}
+		
+		#sayText("So how may I be of asstance today?");
+		
 		wait
 		{
 			helpOfferTimeout
