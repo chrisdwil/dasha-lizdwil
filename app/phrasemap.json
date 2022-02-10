@@ -13,9 +13,19 @@
 			"helloStart": 
 			[
 				{"text": "Hello I'm Chris'sz assistant." },
-				{"text": "My name is Liz D. Wil."},
+				{"text": "My name is Liz D Wil."},
 				{"text": "How are you doing today?"}
 			],
+
+			"helloRepeat":
+			{
+				"random":
+				[
+					[{"text": "Hi, Liz speaking, are you there?" }],
+					[{"text": "Hello, I'm not sure I quite heard you." }]
+				]
+			},
+				
 			"hangUpRandom":
 			{ 
 				"random": 
@@ -26,6 +36,7 @@
 				]
 			}
 		},
+
 		"macros": 
 		{
 			"helloStart": {},

@@ -30,21 +30,21 @@ start node helloStart {
 	{
 		positive: goto offerAssistance on #messageHasSentiment("positive");
 		negative: goto offerAssistance on #messageHasSentiment("negative");
-		questionTimeout: goto questionTimeout on timeout 5000;
+		questionTimeout: goto @questionTimeout on timeout 5000;
 	}
 }
 
-node @questionTimeout
+node @helloStartTimeout
 {
 	do 
 	{
         #log("-- node @questionTimeout -- repeating once more");
-        
-        #sayText("Again, this is Liz speaking, is there anything I can help you with?");
+
+        #say("hellRepeat");
         wait *;
 	}
 	
-	transition
+	transitions
 	{
 		questionTimeout: goto @exit on timeout 5000;
 	}
