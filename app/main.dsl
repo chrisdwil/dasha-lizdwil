@@ -4,20 +4,18 @@ context {
 	input forward: string? = null;
 	
 	introductionSay: boolean = true;
-	introductionCount: number = 0; 
+	prevTransitionCount: number = 0; 
 
 	feelingResponse: string = "";
-	intentConfused: boolean = false;
 }
 // core complex conversations
 start node mainIntroduction {
 	do {
 		set $introductionCount = #getVisitCount("mainIntroduction");
 		set $feelingResponse = "";
-		set $intentConfused = false;
 
 		#log("-- node mainIntroduction -- Introduction to caller");
-		#log("introductionCount: $introductionCount");
+		#log("prevTransitionCount: $prevTransitionCount");
 		#log("feelingResponse: $feelingResponse");
 		
 		if(#getVisitCount("mainIntroduction") < 2) 
@@ -73,7 +71,9 @@ node offerAssistance
 	do 
 	{
 		#log("-- node offerAssistance -- offering assistance to caller");
-
+		#log("prevTransitionCount: $prevTransitionCount");
+		#log("feelingResponse: $feelingResponse");
+		exit;
 	}
 }
 
