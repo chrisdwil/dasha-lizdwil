@@ -1,108 +1,31 @@
 {
-"default": {
-	"default.notes": "this is the original discussion format for dasha-sip-test, preserving for view", 
-    	"voiceInfo": {
+	"default": 
+	{
+		"voiceInfo": 
+		{
 			"lang": "en-US",
 			"speaker": "default",
 			"speed": 1.2,
 			"variation": 5
-        },
-		"phrases": {
-			"ideaaboutorganization": "here should be organized similar to main.dsl nodes, complex conversation - guided conversation - statements - digressions",
-			"mainIntroduction": [
+	    },
+		"phrases": 
+		{
+			"mainIntroduction": 
+			[ 
+				"text": "Hello,I'm Chris'sz assistant.",
+				"voiceInfo": 
 				{ 
-				"text": "Hello,I'm Chris'sz assistant... My name is Liizzz D Wiiill... How are you doing today?",
-				"voiceInfo": { 
 					"speed": 1.1,
 					"variation": 5 
-					}
 				}
-			],
-			"howAreYouPositive": [
-				{ 
-				"text": "That's wonderful to hear,,, I'm doing great myself as well.",
-				"voiceInfo": { 
-					"speed": 1.1,
-					"variation": 5 
-					}
-				}
-			],
-			"howAreYouNegative": [
-				{ 
-				"text": "That's unfortunate,,, but hopefully he or I can help.",
-				"voiceInfo": { 
-					"speed": 0.9,
-					"variation": 5 
-					}
-				}	
-			],
-			"offerAssistance": [
-				{
-				"text": "So,,, what can I help you with today?",
-				"voiceInfo": {
-					"speed": 1.1,
-					"variation": 5
-					}
-				}
-			],	
-			"offerMessage": [
-				{
-				"text": "Understood,,, would you prefer I send him a message?",
-				"voiceInfo": {
-					"speed": 1.1,
-					"variation": 5
-					}
-				}
-			],	
-			"callerTimeout": [
-				{ 
-				"text": "Hey... It appears you've gone quiet, if you're having phone issues you're more than welcome to try us again anytime... Hope you have a wonderful day.",
-				"voiceInfo": { 
-					"speed": 0.9,
-					"variation": 5 
-					}
-				}
-			],			
-			"hangUp": [
-				{ 
-				"text": "I understand, Chris and I hope you have a wonderful day. Good bye.",
-				"voiceInfo": { 
-					"speed": 0.9,
-					"variation": 5 
-					}
-				}
-			],			
-			"hold": [
-				{
-				"text": "Okay, please hold a moment while I check his availability.",
-				"voiceInfo": {
-					"speed": 0.9,
-					"variation": 5
-					}
-				}
-			],
-			"unavailable": [
-				{
-				"text": "It appears he's unable to accept any calls right now... Is it okay if I leave him a message?",
-				"voiceInfo": {
-					"speed": 0.9,
-					"variation": 5
-					}
-				}
+				"text": "My name is Liizzz D Wiiill.",
+				"text": "How are you doing today?",
 			]
-		},
-		"macros": {
-			"mainIntroduction": {},
-			"howAreYouPositive": {},
-			"howAreYouNegative": {},
-			"offerAssistance": {},
-			"offerMessage": {},
-			"callerTimeout": {},
-			"hangUp": {},
-			"hold": {},
-			"unavailable": {},
-			"messageOffer": {}		
-			}
+		}
+		"macros": 
+		{
+			"mainIntroduction": {}	
+		}
 	}          
 }
 

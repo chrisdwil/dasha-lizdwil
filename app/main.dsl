@@ -4,19 +4,15 @@ context {
 	input forward: string? = null;
 	
 	introductionSay: boolean = true;
-	prevTransitionCount: number = 0; 
-
-	feelingResponse: string = "";
+	
+	callTimeout: number = 5000;
 }
 // core complex conversations
 start node mainIntroduction {
 	do {
-		set $prevTransitionCount = #getVisitCount("mainIntroduction");
 		set $feelingResponse = "";
 
 		#log("-- node mainIntroduction -- Introduction to caller");
-		#log("prevTransitionCount: $prevTransitionCount");
-		#log("feelingResponse: $feelingResponse");
 		
 		if(#getVisitCount("mainIntroduction") < 2) 
 		{
@@ -28,20 +24,7 @@ start node mainIntroduction {
 			#say("mainIntroduction");
 			set $introductionSay=false;
 		}
-		
-		if(#getVisitCount("mainIntroduction") > 5) 
-		{		
-			goto callerTimeout;
-		}
-	
-		if(!#waitForSpeech(1000))
-		{
-			wait 
-			{ 
-				restartSelf
-			};
-		}
-		
+				
 		wait
 		{
 			positive
@@ -51,23 +34,24 @@ start node mainIntroduction {
 	
 	transitions 
 	{
-		positive: goto offerAssistance on #messageHasSentiment("positive") priority 3;
-		negative: goto offerAssistance on #messageHasSentiment("negative") priority 3;
-		
-		callerTimeout: goto callerTimeout;
-		restartSelf: goto mainIntroduction on timeout 1500;
+		positive: goto callerTimeout on #messageHasSentiment("positive");
+		negative: goto callerTimeout on #messageHasSentiment("negative");
+		@callerTimeout: goto callerTimeout on timeout($callTimeout);
 	}
-	
-	onexit 
+}
+
+/*
+node @repeatTimeout
+{
+	do
 	{
-		positive: do 
-		{ 
-			set $feelingResponse = "positive"; 
-		}		
-		negative: do 
-		{ 
-			set $feelingResponse = "negative"; 
-		}
+		#repeat();
+		wait *;
+	}
+
+	transition
+	{
+		positive
 	}
 }
 
@@ -79,10 +63,7 @@ node offerAssistance
 		#log("prevTransitionCount: $prevTransitionCount");
 		#log("feelingResponse:" + $feelingResponse);
 		exit;
-	}
-}
-
-/*
+	
 		if($feelingResponse == "positive") 
 		{
 			#say("howAreYouPositive");
@@ -102,9 +83,7 @@ node offerAssistance
 		}
 		
 		#say("offerAssistance");
-		wait {
-			restartMainIntroduction
-		};
+		wait *;
 	}
 	
 	transition {
