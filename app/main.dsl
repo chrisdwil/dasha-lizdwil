@@ -25,15 +25,18 @@ start node lizDWilRoot {
         {
             #log("-- node lizDWilRoot -- repeating random greeting");
 
-				#say("helloRepeat");
-				
-				#log("-- node lizDWilRoot -- waiting for speech");
-                wait
-                {
-	                positiveSentiment
-	                negativeSentiment
-	                confusedSentiment
-                };
+            if (#getVisitCount("lizDWilRoot") > 1)
+            {
+            	#say("helloRepeat");
+            }
+			
+			#log("-- node lizDWilRoot -- waiting for speech");
+            wait
+            {
+                positiveSentiment
+                negativeSentiment
+                confusedSentiment
+            };
         }
         else
         {
@@ -80,7 +83,42 @@ node helloRespond {
 	do
 	{
         #log("-- node lizDWilRoot -- initializing helloRespond");
+        
+        if (#getVisitCount("helloRespond") == 1) 
+        {
+        	set $currentSetiment = "";
+        }
+        else if (#getVisitCount("helloRespond") < 4)
+        {
+			#log("-- node helloRespond -- introduction to caller");
+
+			#waitForSpeech(500);
+			set $introductionSay=false;
+
+			if ($currentSentiment == "positive")
+			{
+				#say("helpOfferPositive");
+			}
+			else if ($currentSentiment == "negative")
+			{
+				#say("helpOfferPositive");
+			} 
+			else
+			{
+				#say("helpOfferConfused");
+			}
+			
+			#say("helpOfferStart");
+		}
+		else
+		{
+			#log("-- node helloRespond -- introduction rephrased to caller");
 	
+			#sayText("So how may I be of asstance today?");
+			}
+        }
+	
+        exit;
 	}
 }
 
