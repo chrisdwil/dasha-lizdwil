@@ -102,8 +102,7 @@ node helloRespond {
 					#say("helpOfferConfused");
 				}
 			}
-			
-			if (#getVisitCount("helloRespond") == 3)
+			else if (#getVisitCount("helloRespond") == 3)
 			{
 				sayText("last chance, say something like transfer me, or leave message");
 			}
@@ -123,7 +122,8 @@ node helloRespond {
         	exit;
         }
     }
-	transition
+
+	transitions
 	{
 		emptyTalk: goto helloRespond on timeout 5000;
 	}
