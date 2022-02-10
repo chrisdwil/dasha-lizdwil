@@ -7,7 +7,11 @@ context {
 }
 
 start node helloRoot {
-	goto helloStart;
+	do
+	{
+		#connectSafe($phone);
+		goto helloStart;
+	}
 }
 
 digression helloStart {
@@ -20,7 +24,6 @@ digression helloStart {
 		
 		if(#getVisitCount("helloStart") < 2) 
 		{
-			#connectSafe($phone);
 		}
 
 		if()
