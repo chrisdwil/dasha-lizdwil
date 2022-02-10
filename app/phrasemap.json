@@ -1,36 +1,26 @@
 {
-	"default": 
-	{
-		"voiceInfo": 
-		{
+	"default": {
+		"voiceInfo": {
 			"lang": "en-US",
 			"speaker": "default",
 			"speed": 1.2,
 			"variation": 5
 	    },
-		"phrases": 
-		{
-			"mainIntroduction": 
-			[ 
-				{ 
+		"phrases": {
+			"mainIntroduction": [{ 
 				"text": "Hello, I'm Chris'sz assistant.",
-					"voiceInfo": 
-					{ 
+					"voiceInfo": { 
 						"speed": 1.1,
 						"variation": 5 
 					}
 				}
 			],
-			"hangUpTimeout": 
-			[
-				{
-				"random": 
-				[
+			"hangUpTimeout": [{
+				"random": [
 					[{"text": "Goodbye!"}],
 					[{"text": "Bye now."}],
 					[{"text": "Have a good day."}]
 				]
-				}
 			]
 		},
 		"macros": {
