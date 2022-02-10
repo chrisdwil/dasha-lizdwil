@@ -7,9 +7,9 @@ context {
 }
 
 start node helloStart {
-	var currentRepeat = false;
-	var currentSentiment = "";
-	var currentTimeout = 5000;
+	var currentRepeat: boolean = false;
+	var currentSentiment: string = null;
+	var currentTimeout: number = 5000;
 	
 	do {
 		#log("-- node helloStart -- initializing helloStart");
