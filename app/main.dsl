@@ -4,8 +4,8 @@ context {
 	input forward: string? = null;
 	
 	introductionSay: boolean = true;
-	currentIntent: string = false;
-	currentSentiment: string = false;
+	currentIntent: boolean = false;
+	currentSentiment: boolean = false;
 	
 	callTimeout: number = 5000;
 }
@@ -63,10 +63,10 @@ node @helloRepeatTimeout
 	
 	transitions 
 	{
-		positiveIntent: goto helpOffer on #messageHasSentiment("positive") priority 3;
-		negativeIntent: goto helpOffer on #messageHasSentiment("negative") priority 3;
-		positiveSentiment: goto helpOffer on #messageHasSentiment("positive")priority 1;
-		negativeSentiment: goto helpOffer on #messageHasSentiment("negative")priority 1;
+		positiveSentiment: goto helpOffer on #messageHasSentiment("positive")priority 3;
+		negativeSentiment: goto helpOffer on #messageHasSentiment("negative")priority 3;
+		negativeIntent: goto helpOffer on #messageHasSentiment("negative") priority 2;
+		positiveIntent: goto helpOffer on #messageHasSentiment("positive") priority 1;
 		helloRepeatTimeout: goto @exit on timeout 12000;
 	}
 	
@@ -88,25 +88,36 @@ node helpOffer
 {
 	do
 	{
-		#log("-- node helpOffer -- offering assistance")
+		#log("-- node helpOffer -- offering assistance");
 		if ($currentIntent)
 		{
+			#log("-- node helpOffer -- helpOffer positiveIntent match");
 			#sayText("That's wonderful");
-			exit;
 		} 
 		else
 		{
+			#log("-- node helpOffer -- helpOffer negativeIntent match");
 			#sayText("Aww I'm sorry to hear");
-			exit;
 		}
 
-		if ($currentSentiment)
+		if (!$currentSentiment)
 		{
+			#log("-- node helpOffer -- helpOffer caller sentiment negative");
 			#sayText("Are you sure you're having an okay day?");
+		}
+		else
+		{
+			#log("-- node helpOffer -- helpOffer caller sentiment maybe positive");
+			#sayText ("Oh, apologize about the confusion.");
 		}
 		
 		#sayText("So, what can I help you with?");
-		exit;
+		wait *;
+	}
+	
+	transitions
+	{
+		helpOfferTimeout: goto helpOffer on timeout 5000;
 	}
 }
 
