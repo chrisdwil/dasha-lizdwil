@@ -102,7 +102,7 @@ node helloRespond {
 					#say("helpOfferConfused");
 				}
 			}
-			else if (#getVisitCount("helloRespond") == 3)
+			else
 			{
 				sayText("last chance, say something like transfer me, or leave message");
 			}
