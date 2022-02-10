@@ -22,7 +22,8 @@
 				"random":
 				[
 					[{"text": "Hi, Liz speaking, are you there?" }],
-					[{"text": "Hello, I'm not sure I quite heard you." }]
+					[{"text": "Hello, I'm not sure I quite heard you." }],
+					[{"text": "Are you able to repeat that for me?" }]
 				]
 			},
 				

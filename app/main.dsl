@@ -61,9 +61,26 @@ node @helloRepeatTimeout
         wait *;
 	}
 	
-	transitions
+	transitions 
 	{
-		helloRepeatTimeout: goto @exit on timeout 5000;
+		positiveIntent: goto helpOffer on #messageHasSentiment("positive") priority 3;
+		negativeIntent: goto helpOffer on #messageHasSentiment("negative") priority 3;
+		positiveSentiment: goto helpOffer on #messageHasSentiment("positive")priority 1;
+		negativeSentiment: goto helpOffer on #messageHasSentiment("negative")priority 1;
+		helloRepeatTimeout: goto @exit on timeout 12000;
+	}
+	
+	onexit
+	{
+		positiveIntent: do
+		{
+			set $currentIntent = true;
+		}
+				
+		positiveSentiment: do
+		{
+			set $currentSentiment = true;
+		}
 	}
 }
 
