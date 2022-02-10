@@ -56,10 +56,10 @@ start node helloStart {
         
     transitions
     {
-            positiveSentiment: goto helpOffer on #messageHasSentiment("positive");
-            negativeSentiment: goto helpOffer on #messageHasSentiment("negative");
+            positiveSentiment: goto helpStart on #messageHasSentiment("positive");
+            negativeSentiment: goto helpStart on #messageHasSentiment("negative");
             helloStartTimeout: goto helloStart on timeout 5000;
-            helloStartHangUp: goto helpOffer on timeout 500;
+            helloStartHangUp: goto helpStart on timeout 500;
             self: goto helloStart on true priority -1000 tags: ontick;
     }  
     
@@ -86,15 +86,15 @@ start node helloStart {
     }
 }		
 
-node helpOffer
+node helpStart
 {
 	do
 	{
-		#log("-- node helpOffer -- initializing helpOffer");
+		#log("-- node helpStart -- initializing helpStart");
 		
 		if($introductionSay)
 		{
-			#log("-- node helpOffer -- introduction to caller");
+			#log("-- node helpStart -- introduction to caller");
 
 			#waitForSpeech(500);
 			set $introductionSay=false;
@@ -105,15 +105,14 @@ node helpOffer
 			}
 			else if ($currentSentiment == "negative")
 			{
-				#sayText("Awwwww, well maybe Chris or I will be able to assist you today.");
+				#say("helpOfferPositive");
 			} 
 			else
 			{
-				#sayText("I'm not sure I understand what you're communicating");
-				#sayText("But hey I can transfer calls and leave messages for Chris");
+				#say("helpOfferConfused");
 			}
 			
-			#sayText("So how may I be of asstance today?");
+			#say("helpOfferStart");
 		
 			set $introductionSay=false;
 		}
@@ -126,13 +125,13 @@ node helpOffer
 		
 		wait
 		{
-			helpOfferTimeout
+			helpStartTimeout
 		};
 	}
 	
 	transitions
 	{
-		helpOfferTimeout: goto @exit on timeout 500;
+		helpStartTimeout: goto @exit on timeout 500;
 	}
 }
 

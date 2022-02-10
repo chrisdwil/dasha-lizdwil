@@ -29,6 +29,8 @@
 				]
 			},
 			
+			"helpOfferStart": {"text": "So how may I help you, today?"},
+			
 			"helpOfferPositive":
 			{
 				"random":
@@ -37,6 +39,21 @@
 					[{"text": "Nice! I'm enjoying the weather here." }]
 				]
 			},
+			
+			"helpOfferNegative":
+			{
+				"random":
+				[
+					[{"text": "Awwwww, well maybe Chris or I will be able to help." }],
+					[{"text": "Gotch yuh, I'll try to get you where you need A S A P." }]
+				]
+			},
+			
+			"helpOfferConfused": 
+			[
+				{"text": "I'm not sure I understand what you're communicating"},
+				{"text": "But hey I can transfer calls and leave messages for Chris"}
+			],
 
 			"hangUpRandom":
 			{ 
