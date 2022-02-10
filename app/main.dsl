@@ -10,17 +10,20 @@ start node helloRoot {
 	do
 	{
 		#connectSafe($phone);
-		goto helloStart;
+		#waitForSpeech(300);
+		#say("helloStart");
+		
+		wait *;
 	}
 	
-	transition
+	transitions
 	{
-		helloStart: goto helloStart on true;
+		helloStart: goto helloStart on timeout 5000;
 	}
 }
 
 digression helloStart {
-	conditions { on false; }
+	conditions { on true; }
 
 	var fullGreeting = true;
 	var retriesLimit = 0;
@@ -39,7 +42,6 @@ digression helloStart {
 			#log("-- node helloStart -- introduction to caller");
 
 			#waitForSpeech(500);
-			#say("helloStart");
 		}
 		else
 		{
