@@ -13,12 +13,26 @@ start node lizDWilRoot {
 		#waitForSpeech(300);
 		#say("helloStart");
 		
-		wait *;
+		wait {
+			helloStart
+		};
 	}
 	
 	transitions
 	{
 		helloStart: goto helloStart on timeout 5000;
+	}
+}
+
+node helloRepeat {
+	do
+	{
+		
+	}
+	
+	transitions
+	{
+		
 	}
 }
 
