@@ -81,8 +81,10 @@ digression helloStart {
             negativeSentiment: goto helpStart on #messageHasSentiment("negative");
 
             helloStartHangUp: goto helpStart on timeout 500;
+            */
     }  
     
+    /*
     onexit
     {
     	positiveSentiment: do
