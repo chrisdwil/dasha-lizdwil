@@ -4,9 +4,9 @@ context {
 	input forward: string? = null;
 	
 	introductionSay: boolean = true;
-	currentIntent: boolean = false;
-	currentSentiment: boolean = false;
-	currentConfusion: boolean = false;
+	currentIntent: string = "";
+	currentSentiment: string = "";
+	currentConfusion: string = "";
 	
 	callTimeout: number = 5000;
 }
@@ -67,17 +67,17 @@ start node helloStart {
     {
     	positiveSentiment: do
     	{
-    		set $currentSentiment = true;
+    		set $currentSentiment = "positive";
     	}
     	
     	negativeSentiment: do
     	{
-    		set $currentSentiment = false;
+    		set $currentSentiment = "negative";
     	}
     	
     	helloStartTimeout: do
     	{
-    		set $currentConfusion = true;
+    		set $currentConfusion = "confused";
     	}
     }
 }		
@@ -88,21 +88,18 @@ node helpOffer
 	{
 		#log("-- node helpOffer -- initializing helpOffer");
 		
-		if (($currentConfusion) || (!currentSentiment))
-		{
-			if (!$currentSentiment)
-			{
-				#sayText("Awwwww, well maybe Chris or I will be able to assist.");
-			} 
-			else
-			{
-				#sayText("I'm not sure I understand what you're communicating");
-				#sayText("But hey I can transfer calls and leave messages for Chris");
-			}
-		}
-		else if ($currentSentiment)
+		if ($currentSentiment == "positive")
 		{
 			#sayText("That's wonderful, I'm doing great myself today.");
+		}
+		else if ($currentSentiment == "negative")
+		{
+			#sayText("Awwwww, well maybe Chris or I will be able to assist.");
+		} 
+		else
+		{
+			#sayText("I'm not sure I understand what you're communicating");
+			#sayText("But hey I can transfer calls and leave messages for Chris");
 		}
 		
 		#sayText("So how may I be of asstance today?");
