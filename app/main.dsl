@@ -23,10 +23,10 @@ start node helloStart {
 		if($introductionSay)
 		{
 			#log("-- node helloStart -- introduction to caller");
+			set $introductionSay=false;
 
 			#waitForSpeech(500);
 			#say("helloStart");
-			set $introductionSay=false;
 		}
 		else
 		{
