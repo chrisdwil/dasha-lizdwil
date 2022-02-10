@@ -1,3 +1,16 @@
+library
+
+digression helpDigression
+{
+	conditions { on false; }
+	do
+	{
+	}
+	transitions
+	{
+	}
+}
+
 node helpStart
 {
 	do
@@ -25,9 +38,7 @@ node helpStart
 			}
 			
 			#say("helpOfferStart");
-		
-			set $introductionSay=false;
-		}
+			}
 		else
 		{
 			#log("-- node helloStart -- introduction rephrased to caller");
@@ -56,13 +67,13 @@ node helpStart
 	
 	transitions
 	{
-		confusedSentiment: goto helpStart on timeout 5000;
+		confusedSentiment: goto transferStart on timeout 5000;
 
-		positiveSentiment: goto helpStart;
-		negativeSentiment: goto helpStart:
+		positiveSentiment: goto transferStart on #messageHasSentiment("positive");
+        negativeSentiment: goto transferStart on #messageHasSentiment("negative");
 		
-		helpStartTimeout: goto @exit on timeout 500;
-        self: goto helpStart on true priority -1000 tags: ontick;
+		helpStartHangUp: goto @exit on timeout 500;
+        //self: goto helpStart on true priority -1000 tags: ontick;
 	}
 	
     onexit
@@ -82,7 +93,7 @@ node helpStart
     	
     	confusedSentiment: do
     	{
-    		set $currentConfusion = "confused";
+    		set $currentSentiment = "confused";
     		set $introductionSay = true;
     	}
     }

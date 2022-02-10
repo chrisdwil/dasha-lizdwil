@@ -1,15 +1,19 @@
 // Liz D. Wil
-// import "lizdwilReactions/all.dsl";
+import "lizdwilReactions/all.dsl";
 
 context {
 	input phone: string;
 	input forward: string? = null;
 }
 
-start node helloStart {
-	var currentRepeat: boolean = false;
-	var currentSentiment: string = null;
-	var currentTimeout: number = 5000;
+start node helloRoot {
+	goto helloStart;
+}
+
+digression helloStart {
+	conditions { on false; }
+
+	var fullGreeting = true;
 	
 	do {
 		#log("-- node helloStart -- initializing helloStart");
@@ -19,10 +23,9 @@ start node helloStart {
 			#connectSafe($phone);
 		}
 
-		if(node.helloStart.currentRepeat)
+		if()
 		{
 			#log("-- node helloStart -- introduction to caller");
-			set node.helloStart.currentRepeat=false;
 
 			#waitForSpeech(500);
 			#say("helloStart");
@@ -85,94 +88,6 @@ start node helloStart {
     	}
     }
 }		
-
-node helpStart
-{
-	do
-	{
-		#log("-- node helpStart -- initializing helpStart");
-				
-		if($introductionSay)
-		{
-			#log("-- node helpStart -- introduction to caller");
-
-			#waitForSpeech(500);
-			set $introductionSay=false;
-
-			if ($currentSentiment == "positive")
-			{
-				#say("helpOfferPositive");
-			}
-			else if ($currentSentiment == "negative")
-			{
-				#say("helpOfferPositive");
-			} 
-			else
-			{
-				#say("helpOfferConfused");
-			}
-			
-			#say("helpOfferStart");
-			}
-		else
-		{
-			#log("-- node helloStart -- introduction rephrased to caller");
-
-			#sayText("So how may I be of asstance today?");
-		}
-		
-        if (#getVisitCount("helpStart") < 3 && !#waitForSpeech(300))
-        {
-                #log("-- node helpStart -- waiting for speech");
-                wait
-                {
-                positiveSentiment
-                negativeSentiment
-                confusedSentiment
-                };
-        }
-        else
-        {
-        	wait
-        	{
-        		helpStartHangUp
-        	};
-        }
-    }
-	
-	transitions
-	{
-		confusedSentiment: goto transferStart on timeout 5000;
-
-		positiveSentiment: goto transferStart on #messageHasSentiment("positive");
-        negativeSentiment: goto transferStart on #messageHasSentiment("negative");
-		
-		helpStartHangUp: goto @exit on timeout 500;
-        //self: goto helpStart on true priority -1000 tags: ontick;
-	}
-	
-    onexit
-    {
-    	positiveSentiment: do
-    	{
-    		set $currentSentiment = "positive";
-    		set $introductionSay = true;
-    	}
-    	
-    	negativeSentiment: do
-    	{
-    		set $currentSentiment = "negative";
-    		set $introductionSay = true;
-
-    	}
-    	
-    	confusedSentiment: do
-    	{
-    		set $currentSentiment = "confused";
-    		set $introductionSay = true;
-    	}
-    }
-}
 
 node transferStart {
 	do
