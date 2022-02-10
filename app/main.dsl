@@ -97,7 +97,6 @@ node helpOffer
 			#log("-- node helpOffer -- introduction to caller");
 
 			#waitForSpeech(500);
-			#say("helpOfferStart");
 			set $introductionSay=false;
 
 			if ($currentSentiment == "positive")
@@ -115,6 +114,8 @@ node helpOffer
 			}
 			
 			#sayText("So how may I be of asstance today?");
+		
+			set $introductionSay=false;
 		}
 		else
 		{
