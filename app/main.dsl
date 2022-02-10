@@ -35,16 +35,16 @@ start node lizDWilRoot {
             {
                 positiveSentiment
                 negativeSentiment
-                confusedSentiment
+                emptySentiment
             };
         }
         else
         {
-            #log("-- node lizDWilRoot -- caller has timed out, hanging up");
+            #log("-- node lizDWilRoot -- caller is confused");
 
         	wait
         	{
-        		lizDWilRootHangup
+        		confusedSentiment
         	};
         }
 	}
@@ -53,9 +53,8 @@ start node lizDWilRoot {
 	{		
 		positiveSentiment: goto helloRespond on #messageHasSentiment("positive");
 		negativeSentiment: goto helloRespond on #messageHasSentiment("negative");
-		confusedSentiment: goto lizDWilRoot on timeout 5000;
-		
-		lizDWilRootHangup: goto @exit on timeout 500;
+		emptySentiment: goto lizDWilRoot on timeout 5000;
+		confusedSentiment: goto helloRespond on timeout 500;
 	}
 	
 	onexit
@@ -82,7 +81,7 @@ node helloRespond {
 	do
 	{
         #log("-- node lizDWilRoot -- initializing helloRespond");
-        #log("currentSentiment: " + $currentSentiment;)
+        #log("currentSentiment: " + $currentSentiment);
         
         if (#getVisitCount("helloRespond") < 4)
         {
