@@ -6,7 +6,6 @@ context {
 	introductionSay: boolean = true;
 	currentIntent: string = "";
 	currentSentiment: string = "";
-	currentConfusion: string = "";
 	
 	callTimeout: number = 5000;
 }
@@ -94,6 +93,10 @@ node helpStart
 	{
 		#log("-- node helpStart -- initializing helpStart");
 		
+		if(#getVisitCount("helpStart") == 1)
+		{
+			set $currentSentiment = "";
+		}
 		if($introductionSay)
 		{
 			#log("-- node helpStart -- introduction to caller");
@@ -146,8 +149,36 @@ node helpStart
 	
 	transitions
 	{
+		confusedSentiment: goto hellpStart on timeout 5000;
+
+		positiveSentiment: goto helpStart;
+		negativeSentiment: goto helpStart:
+		
 		helpStartTimeout: goto @exit on timeout 500;
+        self: goto helpStart on true priority -1000 tags: ontick;
 	}
+	
+    onexit
+    {
+    	positiveSentiment: do
+    	{
+    		set $currentSentiment = "positive";
+    		set $introductionSay = true;
+    	}
+    	
+    	negativeSentiment: do
+    	{
+    		set $currentSentiment = "negative";
+    		set $introductionSay = true;
+
+    	}
+    	
+    	confusedSentiment: do
+    	{
+    		set $currentConfusion = "confused";
+    		set $introductionSay = true;
+    	}
+    }
 }
 
 node @exit 
