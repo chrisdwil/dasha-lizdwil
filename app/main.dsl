@@ -82,30 +82,20 @@ node helloRespond {
 	do
 	{
         #log("-- node lizDWilRoot -- initializing helloRespond");
-        if ($getVisitCount("helloRespond") == 1)
-		{
-    		set $currentSentiment = "";
-		}
         
         if (#getVisitCount("helloRespond") < 4)
         {
 			#log("-- node helloRespond -- introduction to caller");
 
 			#waitForSpeech(500);
-			set $introductionSay=false;
-
 			if ($currentSentiment == "positive")
 			{
 				#say("helpOfferPositive");
 			}
-			else if ($currentSentiment == "negative")
+			if ($currentSentiment == "negative")
 			{
 				#say("helpOfferPositive");
 			} 
-			else
-			{
-				#say("helpOfferConfused");
-			}
 			
 			#say("helpOfferStart");
 		}
