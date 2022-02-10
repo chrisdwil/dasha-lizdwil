@@ -16,13 +16,15 @@
 				{"text": "My name is Liz D. Wil."},
 				{"text": "How are you doing today?"}
 			],
-			"hangUpRandom": 
-			[
-				[{"text": "Good bye!"}],
-				[{"text": "Bye now."}],
-				[{"text": "Have a nice day"}]
-				
-			]
+			"hangUpRandom":
+			{ 
+				"random": 
+				[
+					[{"text": "Good bye!"}],
+					[{"text": "Bye now."}],
+					[{"text": "Have a nice day"}]
+				]
+			}
 		},
 		"macros": 
 		{
