@@ -22,10 +22,22 @@
 				},
 				{ "text": "My name is Liizzz D Wiiill." },
 				{ "text": "How are you doing today?" }
+			],
+			"hangUpTimeout": 
+			[
+				{
+				"random": 
+				[
+					[{"text": "Goodbye!"}],
+					[{"text": "Bye now."}],
+					[{"text": "Have a good day."}]
+				]
+				}
 			]
 		},
 		"macros": {
-			"mainIntroduction": {}	
+			"mainIntroduction": {},
+			"hangUpTimeout": {}
 		}
 	}          
 }

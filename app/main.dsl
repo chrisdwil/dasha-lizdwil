@@ -1,4 +1,4 @@
-
+// Liz D. Wil
 context {
 	input phone: string;
 	input forward: string? = null;
@@ -7,7 +7,7 @@ context {
 	
 	callTimeout: number = 5000;
 }
-// core complex conversations
+
 start node mainIntroduction {
 	do {
 		#log("-- node mainIntroduction -- Introduction to caller");
@@ -32,25 +32,25 @@ start node mainIntroduction {
 	
 	transitions 
 	{
-		positive: goto @callerTimeout on #messageHasSentiment("positive");
-		negative: goto @callerTimeout on #messageHasSentiment("negative");
-		@callerTimeout: goto @callerTimeout on timeout 5000;
+		positive: goto @hangUpTimeout on #messageHasSentiment("positive");
+		negative: goto @hangUpTimeout on #messageHasSentiment("negative");
+		@hangUpTimeout: goto @hangUpTimeout on timeout 5000;
 	}
 }
 
 // call wrapup
-node @timeout
+node @hangUpTimeout
 {
 	do 
 	{
         #log("-- node @exit -- ending conversation");
 
-        #say("callerTimeout");
+        #say("hangUpTimeout");
         exit;
 	}
 }
 
-node fastHangUp
+node hangUpFast
 {
 	do
 	{
@@ -69,7 +69,7 @@ node @exit
     }
 }
 
-digression @exit_dig 
+digression @exit_dig
 {
 		conditions 
 		{ 
