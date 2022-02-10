@@ -22,12 +22,12 @@ start node mainIntroduction {
 			goto offerAssistance;
 		}
 		
-		if(#getVisitCount("mainIntroduction") > 10) 
+		if(#getVisitCount("mainIntroduction") > 5) 
 		{		
 			goto callerTimeout;
 		}
 	
-		if(!#waitForSpeech(500))
+		if(!#waitForSpeech(1000))
 		{
 			wait 
 			{ 
@@ -50,11 +50,11 @@ start node mainIntroduction {
 		disagree: goto offerAssistance on #messageHasSentiment("negative") priority 2;
 		offerAssistance: goto offerAssistance;
 		
-		confusedYes: goto mainIntroduction on #messageHasIntent("yes") priority 1;
-		confusedNo: goto mainIntroduction on #messageHasIntent("no") priority 1;
+		confusedYes: goto mainIntroduction on #messageHasIntent("yes") priority 3;
+		confusedNo: goto mainIntroduction on #messageHasIntent("no") priority 3;
 
 		callerTimeout: goto callerTimeout;
-		restartself: goto mainIntroduction on timeout 1000;
+		restartself: goto mainIntroduction on timeout 1500;
 	}
 	
 	onexit 
