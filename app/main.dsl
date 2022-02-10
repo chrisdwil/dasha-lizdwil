@@ -38,7 +38,7 @@ start node mainIntroduction {
 		{
 			wait 
 			{ 
-				restartself
+				restartSelf
 			};
 		}
 		
@@ -54,9 +54,8 @@ start node mainIntroduction {
 		agree: goto offerAssistance on #messageHasSentiment("positive") priority 3;
 		disagree: goto offerAssistance on #messageHasSentiment("negative") priority 3;
 		
-		
 		callerTimeout: goto callerTimeout;
-		restartself: goto mainIntroduction on timeout 1500;
+		restartSelf: goto mainIntroduction on timeout 1500;
 	}
 	
 	onexit 
@@ -92,16 +91,18 @@ node offerAssistance
 		{
 			wait 
 			{ 
-				restartself
+				restartSelf
 			};
 		}
 		
 		#say("offerAssistance");
-		goto mainIntroduction;
+		wait {
+			restartMainIntroduction
+		};
 	}
 	
 	transition {
-		restartself: goto offerAssistance on timeout 1500;
+		restartSelf: goto offerAssistance on timeout 1500;
 		restartMainIntroduction: goto mainIntroduction on timeout 1500;
 	}
 }
