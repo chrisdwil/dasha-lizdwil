@@ -1,5 +1,5 @@
 // Liz D. Wil
-import "lizdwilReactions/all.dsl";
+//import "lizdwilReactions/all.dsl";
 
 context {
 	input phone: string;
@@ -19,13 +19,13 @@ start node lizDWilRoot {
 		#waitForSpeech(300);
 		#say("helloStart");
 		wait {
-			helloStart
+			self
 		};
 	}
 	
 	transitions
 	{
-		helloStart: goto self on timeout 5000;
+		self: goto lizDWilRoot on timeout 5000;
 	}
 }
 
