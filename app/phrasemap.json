@@ -21,9 +21,19 @@
 			{
 				"random":
 				[
-					[{"text": "I'm not sure I got that, are you having an okay day?" }],
+					[{"text": "I'm not sure I got that, are you having an oh-kay day?" }],
 					[{"text": "Were you able to hear my question clearly?" }],
-					[{"text": "Are you able to repeat that again?"}]
+					[{"text": "Are you able to repeat that again?"}],
+					[{"text": "You may need to talk louder or more clearly"]
+				]
+			},
+			
+			"helpOfferPositive":
+			{
+				"random":
+				[
+					[{"text": "That's wonderful, I'm doing great myself today." }],
+					[{"text": "Nice! I'm enjoying the weather here." }]
 				]
 			},
 				

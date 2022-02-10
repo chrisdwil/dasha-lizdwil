@@ -35,7 +35,7 @@ start node helloStart {
 			#say("helloRepeat");
 		}
 
-        if (#getVisitCount("helloStart") < 4 && !#waitForSpeech(300))
+        if (#getVisitCount("helloStart") < 3 && !#waitForSpeech(300))
         {
                 #log("-- node helloStart -- waiting for speech");
                 wait
@@ -68,16 +68,20 @@ start node helloStart {
     	positiveSentiment: do
     	{
     		set $currentSentiment = "positive";
+    		set $introductionSay = true;
     	}
     	
     	negativeSentiment: do
     	{
     		set $currentSentiment = "negative";
+    		set $introductionSay = true;
+
     	}
     	
     	helloStartTimeout: do
     	{
     		set $currentConfusion = "confused";
+    		set $introductionSay = true;
     	}
     }
 }		
@@ -88,21 +92,36 @@ node helpOffer
 	{
 		#log("-- node helpOffer -- initializing helpOffer");
 		
-		if ($currentSentiment == "positive")
+		if($introductionSay)
 		{
-			#sayText("That's wonderful, I'm doing great myself today.");
+			#log("-- node helpOffer -- introduction to caller");
+
+			#waitForSpeech(500);
+			#say("helpOfferStart");
+			set $introductionSay=false;
+
+			if ($currentSentiment == "positive")
+			{
+				#say("helpOfferPositive");
+			}
+			else if ($currentSentiment == "negative")
+			{
+				#sayText("Awwwww, well maybe Chris or I will be able to assist you today.");
+			} 
+			else
+			{
+				#sayText("I'm not sure I understand what you're communicating");
+				#sayText("But hey I can transfer calls and leave messages for Chris");
+			}
+			
+			#sayText("So how may I be of asstance today?");
 		}
-		else if ($currentSentiment == "negative")
-		{
-			#sayText("Awwwww, well maybe Chris or I will be able to assist.");
-		} 
 		else
 		{
-			#sayText("I'm not sure I understand what you're communicating");
-			#sayText("But hey I can transfer calls and leave messages for Chris");
+			#log("-- node helloStart -- introduction rephrased to caller");
+
+			#sayText("So how may I be of asstance today?");
 		}
-		
-		#sayText("So how may I be of asstance today?");
 		
 		wait
 		{
