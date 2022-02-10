@@ -10,7 +10,7 @@ context {
 // core complex conversations
 start node mainIntroduction {
 	do {
-		#log("-- node mainIntroduction -- Introduction to caller);
+		#log("-- node mainIntroduction -- Introduction to caller");
 		set $feelingResponse = "";
 		set $intentConfused = false;
 		
@@ -97,6 +97,10 @@ node offerAssistance
 		#say("offerAssistance");
 		goto mainIntroduction;
 	}
+	transition {
+		restartself: goto offerAssistance on timeout 1500;
+		restartMainIntroduction: goto mainIntroduction on timeout 1500;
+	}
 }
 
 node mainIntroductionConfused
@@ -106,6 +110,10 @@ node mainIntroductionConfused
 		#sayText("Oh, hey,,, I was just interested in how your day is...");
 		#sayText("However do you need help with being transferred to Chris???");
 		goto mainIntroduction;
+	}
+	transition {
+		restartself: goto mainIntroductionConfused on timeout 1500;
+		restartMainIntroduction: goto mainIntroduction on timeout 1500;
 	}
 }
 
