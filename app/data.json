@@ -3,18 +3,15 @@
   "intents": {
 		"transfer": {
 	      	"includes": [
-		        "Transfer me",
-		        "Transfer me to",
-		        "Connect me to",
-		        "Connect my call",
-		        "I'm looking for",
-		        "I want to talk with",
+		        "transfer me",
+		        "connect me",
+		        "connect my",
+		        "I'm looking",
+		        "want to talk",
 		        "Is Chris available?",
 		        "Is Chris around?"
-	      	],
-	  		"excludes": ["fuck off"]
 	    	},
-	    "": {
+	    "no": {
 			"includes": [
 				"no",
 				"definitely not",

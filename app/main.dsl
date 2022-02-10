@@ -122,7 +122,7 @@ node helloRespond {
 }
 
 digression digTransfer {
-	conditions { on #messageHasIntent("transfer") }
+	conditions { on #messageHasIntent("transfer"); }
 
 	var fullGreeting = true;
 	var retriesLimit = 0;
