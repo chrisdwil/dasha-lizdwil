@@ -91,33 +91,23 @@ node helloRespond {
 			{
 				if ($currentSentiment == "positive")
 				{
-					#say("helpOfferPositive");
+					#say("helloRespondPositive");
 				}
 				if ($currentSentiment == "negative")
 				{
-					#say("helpOfferNegative");
+					#say("helloRespondNegative");
 				} 
 				if ($currentSentiment == "confused")
 				{
-					#say("helpOfferConfused");
+					#log("-- node helloRespond -- caller is confused");
+					
+					#say("helloRespondConfused");
+					set $currentSentiment = "";
 				}
 			}
 			
-			#say("helpOfferStart");
+			#say("helloRespondStart");
 			
-			if ($currentSentiment == "confused")
-			{
-				#log("-- node helloRespond -- caller is confused");
-
-				wait 				
-					{
-						emptyTalk
-					};
-			}
-			else
-			{
-				#log("-- node helloRespond -- caller is not confused");	
-			}
 		}
         else
         {
