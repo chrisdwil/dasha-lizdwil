@@ -4,13 +4,14 @@ context {
 	input forward: string? = null;
 	
 	introductionSay: boolean = true;
+	currentSentiment: string = "";
 	
 	callTimeout: number = 5000;
 }
 
 start node helloStart {
 	do {
-		#log("-- node helloStart -- Introduction to caller");
+		#log("-- node helloStart -- introduction to caller");
 		
 		if(#getVisitCount("helloStart") < 2) 
 		{
@@ -30,7 +31,25 @@ start node helloStart {
 	{
 		positive: goto offerAssistance on #messageHasSentiment("positive");
 		negative: goto offerAssistance on #messageHasSentiment("negative");
-		questionTimeout: goto @questionTimeout on timeout 5000;
+		questionTimeout: goto @helloStartTimeout on timeout 5000;
+	}
+	
+	onexit
+	{
+		positive: do
+		{
+			set $currentSentiment = "positive";
+		}
+		
+		negative: do
+		{
+			set $currentSentiment = "negative";
+		}
+		
+		questionTimeout: do
+		{
+			set $currentSentiment = "confused";
+		}
 	}
 }
 
@@ -40,13 +59,31 @@ node @helloStartTimeout
 	{
         #log("-- node @questionTimeout -- repeating once more");
 
-        #say("hellRepeat");
+        #say("helloRepeat");
         wait *;
 	}
 	
 	transitions
 	{
-		questionTimeout: goto @exit on timeout 5000;
+		helloStartTimeout: goto @exit on timeout 5000;
+	}
+}
+
+node helpOfferPositive
+{
+	do
+	{
+		#sayText("That's wonderful");
+		exit;
+	}
+}
+
+node helpOfferNegative
+{
+	do
+	{
+		#sayText("Aww I'm sorry to hear");
+		exit;
 	}
 }
 
@@ -56,7 +93,7 @@ node @exit
     {
         #log("-- node @exit -- ending conversation");
         
-        
+        say("hangUpRandom");
         exit;
     }
 }
