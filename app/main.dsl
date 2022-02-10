@@ -151,7 +151,7 @@ node helpStart
 		positiveSentiment: goto transferStart on #messageHasSentiment("positive");
         negativeSentiment: goto transferStart on #messageHasSentiment("negative");
 		
-		helpStartTimeout: goto @exit on timeout 500;
+		helpStartHangUp: goto @exit on timeout 500;
         //self: goto helpStart on true priority -1000 tags: ontick;
 	}
 	
@@ -172,7 +172,7 @@ node helpStart
     	
     	confusedSentiment: do
     	{
-    		set $currentConfusion = "confused";
+    		set $currentSentiment = "confused";
     		set $introductionSay = true;
     	}
     }
