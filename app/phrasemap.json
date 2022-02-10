@@ -63,7 +63,20 @@
 					[{"text": "Bye now."}],
 					[{"text": "Have a nice day"}]
 				]
-			}
+			},
+			
+			"transferRespondUnavailable": 
+			{
+				"random":
+				[
+					{"text": "Unfortunately he's not available."},
+					{"text": "You'll have to try back later."}
+				],
+				[
+					{"text": "I can't seem to get his attention at the moment."},
+					{"text": "Try back in a little while, thank you."}
+				]
+			}	
 		},
 
 		"macros": 

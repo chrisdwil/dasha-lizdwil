@@ -149,8 +149,7 @@ node transferHangUp
 {
 	do
 	{
-		#sayText("I'm sorry he's unavailable.");
-		#sayText("you'll have to try back later.");
+		#say("transferRespondUnvailable");
 		wait 
 		{
 			hangUpPolite
