@@ -19,7 +19,7 @@ start node helloStart {
 			#connectSafe($phone);
 		}
 
-		if (!#WaitForSpeech(1000))
+		if (!#waitForSpeech(1000))
 		{
 			#log("-- node helloStart -- waiting for speech");
 			
@@ -40,7 +40,7 @@ start node helloStart {
 		{
 			#log("-- node helloStart -- introduction repeated to caller");
 
-			#say("Just checking again, how are you today?");
+			#sayText("Just checking again, how are you today?");
 		}
 
 		wait *;
@@ -50,21 +50,8 @@ start node helloStart {
 	{
 		positiveSentiment: goto helloRepeatTimeout on #messageHasSentiment("positive");
 		negativeSentiment: goto helloRepeatTimeout on #messageHasSentiment("negative");
-		helloStartTimeout: goto helloStart on timeout 10000;
+		helloStartTimeout: goto helloRepeatTimeout on timeout 5000;
 		self: goto helloStart on true priority -1000 tags: ontick;
-	}
-	
-	onexit
-	{
-		positiveIntent: do
-		{
-			set $currentIntent = true;
-		}
-		
-		negativeIntent: do
-		{
-			set $currentIntent = false;
-		}
 	}
 }
 
@@ -73,9 +60,7 @@ node @helloRepeatTimeout
 	do 
 	{
         #log("-- node @helloRepeatTimeout -- repeating once more");
-        #repeat();
 
-        #sayText("helloRepeat");
         wait *;
 	}
 	
