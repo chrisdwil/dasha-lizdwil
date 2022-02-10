@@ -10,8 +10,6 @@ context {
 // core complex conversations
 start node mainIntroduction {
 	do {
-		set $feelingResponse = "";
-
 		#log("-- node mainIntroduction -- Introduction to caller");
 		
 		if(#getVisitCount("mainIntroduction") < 2) 
@@ -36,7 +34,7 @@ start node mainIntroduction {
 	{
 		positive: goto callerTimeout on #messageHasSentiment("positive");
 		negative: goto callerTimeout on #messageHasSentiment("negative");
-		@callerTimeout: goto callerTimeout on timeout($callTimeout);
+		@callerTimeout: goto @callerTimeout on timeout 5000;
 	}
 }
 
@@ -133,7 +131,7 @@ node respondToAssistance
 */
 
 // call wrapup
-node callerTimeout 
+node @callerTimeout 
 {
 	do 
 	{
