@@ -24,17 +24,19 @@ start node helloStart {
 			#say("helloStart");
 			set $introductionSay=false;
 		}
+		else
+		{
+			#say("Just checking again, how are you today?");
+		}
 
 		wait *;
 	}
 	
 	transitions 
 	{
-		positiveIntent: goto helpOffer on #messageHasIntent("positive") priority 3;
-		negativeIntent: goto helpOffer on #messageHasIntent("negative") priority 3;
-		positiveSentiment: goto helpOffer on #messageHasSentiment("positive")priority 1;
-		negativeSentiment: goto helpOffer on #messageHasSentiment("negative")priority 1;
-		//helloStartTimeout: goto @helloRepeatTimeout on timeout 5000;
+		positiveIntent: goto helloRepeatTimeout on #messageHasIntent("positive");
+		negativeIntent: goto helloRepeatTimeout on #messageHasIntent("negative");
+		helloStartTimeout: goto helloStart on timeout 5000;
 	}
 	
 	onexit
@@ -47,16 +49,6 @@ start node helloStart {
 		negativeIntent: do
 		{
 			set $currentIntent = false;
-		}
-				
-		positiveSentiment: do
-		{
-			set $currentSentiment = true;
-		}
-		
-		negativeSentiment: do
-		{
-			set $currentSentiment = false;			
 		}
 	}
 }
@@ -76,8 +68,6 @@ node @helloRepeatTimeout
 	{
 		positiveIntent: goto helloRepeatTimeout on #messageHasIntent("positive") priority 3;
 		negativeIntent: goto helloRepeatTimeout on #messageHasIntent("negative") priority 3;
-		positiveSentiment: goto helloRepeatTimeout on #messageHasSentiment("positive")priority 1;
-		negativeSentiment: goto helloRepeatTimeout on #messageHasSentiment("negative")priority 1;
 		//helloStartTimeout: goto @helloRepeatTimeout on timeout 5000;
 	}
 	
@@ -91,16 +81,6 @@ node @helloRepeatTimeout
 		negativeIntent: do
 		{
 			set $currentIntent = false;
-		}
-				
-		positiveSentiment: do
-		{
-			set $currentSentiment = true;
-		}
-		
-		negativeSentiment: do
-		{
-			set $currentSentiment = false;			
 		}
 	}
 }
