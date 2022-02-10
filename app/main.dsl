@@ -42,12 +42,17 @@ start node mainIntroduction {
 			};
 		}
 		
-		exit;
+		wait
+		{
+			positive
+			neutral
+			negative
+		}
 	}
 	
 	transitions 
 	{
-		agree: goto offerAssistance on #messageHasSentiment("positive") priority 3;
+		positive: goto offerAssistance on #messageHasSentiment("positive") priority 3;
 		neutral: goto offerAssistance on #messageHasSentiment("neutral") priority 3;
 		negative: goto offerAssistance on #messageHasSentiment("negative") priority 3;
 		
@@ -57,7 +62,7 @@ start node mainIntroduction {
 	
 	onexit 
 	{
-		agree: do 
+		positive: do 
 		{ 
 			set $feelingResponse = "positive"; 
 		}
