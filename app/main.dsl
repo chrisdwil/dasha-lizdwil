@@ -17,7 +17,7 @@ start node mainIntroduction {
 			#say("mainIntroduction");
 		}
 		
-		if((#getVisitCount("mainIntroduction") >= 2)
+		if(#getVisitCount("mainIntroduction") >= 2)
 		{
 			goto offerAssistance;
 		}
@@ -67,7 +67,11 @@ start node mainIntroduction {
 		{ 
 			set $feelingResponse = "negative"; 
 		}
-		confusedyes: do
+		confusedYes: do
+		{
+			set $intentConfused = true;
+		}
+		confusedNo: do
 		{
 			set $intentConfused = true;
 		}
