@@ -19,16 +19,6 @@ start node helloStart {
 			#connectSafe($phone);
 		}
 
-		if (!#waitForSpeech(1000))
-		{
-			#log("-- node helloStart -- waiting for speech");
-			
-			wait
-			{
-				self
-			};
-		}
-		
 		if($introductionSay)
 		{
 			#log("-- node helloStart -- introduction to caller");
@@ -42,8 +32,25 @@ start node helloStart {
 
 			#sayText("Just checking again, how are you today?");
 		}
-
-		wait *;
+		
+		if (!#waitForSpeech(1000))
+		{
+			#log("-- node helloStart -- waiting for speech");
+			
+			wait
+			{
+				self
+			};
+		}
+		else
+		{
+			wait
+			{
+			positiveSentiment
+			negativeSentiment
+			helloStartTimeout
+			};
+		}
 	}
 	
 	transitions 
