@@ -107,7 +107,7 @@ node helloRespond {
 			}
 			
 			#say("helloRespondStart");
-			
+			wait *;
 		}
         else
         {
@@ -121,10 +121,8 @@ node helloRespond {
 	}
 }
 
-
-/*
-digression helloStart {
-	conditions { on true; }
+digression digTransfer {
+	conditions { on #messageHasIntent("transfer") }
 
 	var fullGreeting = true;
 	var retriesLimit = 0;
@@ -134,14 +132,9 @@ digression helloStart {
 	do {
 		#log("-- node helloStart -- initializing helloStart");
 		
-
-	}
-        
-    transitions
-    {
-    }      
-}	
-*/	
+		#sayText("will transfer");
+	}      
+}		
 
 node @exit 
 {
