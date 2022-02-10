@@ -3,25 +3,31 @@ context {
 	input phone: string;
 	input forward: string? = null;
 	
+	sayIntroduction: boolean = true; 
 	feelingResponse: string = "";
-	intentConfused: boolean = null;
+	intentConfused: boolean = false;
 }
 // core complex conversations
 start node mainIntroduction {
 	do {
 		#log("-- node mainIntroduction -- Introduction to caller");
-		$feelingResponse = "";
-		intentConfused = null;
+		set $feelingResponse = "";
+		set $intentConfused = false;
 		
 		if(#getVisitCount("mainIntroduction") < 2) 
 		{
 			#connectSafe($phone);
+		}
+
+		if($sayIntroduction)
+		{
 			#say("mainIntroduction");
+			set $sayIntroduction=false;
 		}
 		
 		if((#getVisitCount("mainIntroduction") >= 2) && ($intentConfused))
 		{
-			goto confusedDigression;
+			goto callerConfused;
 		}
 		
 		if(#getVisitCount("mainIntroduction") > 5) 
@@ -97,7 +103,29 @@ node offerAssistance
 		}
 		
 		#say("offerAssistance");
-		exit;
+		
+		if(!#waitForSpeech(1000))
+		{
+			wait 
+			{ 
+				restartself
+			};
+		}
+	}
+	
+	transition
+	{
+		restartself: goto offerAssistance on timeout 1500;
+	}
+}
+
+node mainIntroductionConfused
+{	
+	do
+	{
+		#sayText("Oh, hey,,, I was just interested in how your day is...");
+		#sayText("However do you need help with being transferred to Chris???");
+		return;
 	}
 }
 /*
@@ -137,8 +165,6 @@ digression demandTransfer
 	}
 }
 
-// create digression for wrong number scenarios
-
 // call wrapup
 node callerTimeout 
 {
@@ -168,20 +194,6 @@ node @exit
         
         exit;
     }
-}
-
-digression mainIntroductionConfused
-{	
-	conditions {
-		on $intentConfused == true;
-	}
-	
-	do
-	{
-		#sayText("Oh, hey,,, I was just interested in how your day is...");
-		#sayText("However do you need help with being transferred to Chris???");
-		return;
-	}
 }
 
 digression @exit_dig 
