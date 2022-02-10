@@ -12,6 +12,11 @@ context {
 }
 
 start node helloStart {
+	var {
+		currentRepeat: boolean = false;
+	}
+	
+	}
 	do {
 		#log("-- node helloStart -- initializing helloStart");
 		
