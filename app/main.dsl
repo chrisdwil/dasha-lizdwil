@@ -4,19 +4,13 @@
 context {
 	input phone: string;
 	input forward: string? = null;
-	
-	introductionSay: boolean = true;
-	currentSentiment: string = "";
-	
-	callTimeout: number = 5000;
 }
 
 start node helloStart {
-	var {
-		currentRepeat: boolean = false;
-	}
+	var currentRepeat = false;
+	var currentSentiment = "";
+	var currentTimeout = 5000;
 	
-	}
 	do {
 		#log("-- node helloStart -- initializing helloStart");
 		
@@ -25,10 +19,10 @@ start node helloStart {
 			#connectSafe($phone);
 		}
 
-		if($introductionSay)
+		if(node.helloStart.currentRepeat)
 		{
 			#log("-- node helloStart -- introduction to caller");
-			set $introductionSay=false;
+			set node.helloStart.currentRepeat=false;
 
 			#waitForSpeech(500);
 			#say("helloStart");
