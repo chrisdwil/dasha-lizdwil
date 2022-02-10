@@ -8,6 +8,7 @@
 			"speed": 1.1,
 			"variation": 5
 		},
+		
 		"phrases": 
 		{
 			"helloStart": 
@@ -24,7 +25,7 @@
 					[{"text": "I'm not sure I got that, are you having an oh-kay day?" }],
 					[{"text": "Were you able to hear my question clearly?" }],
 					[{"text": "Are you able to repeat that again?"}],
-					[{"text": "You may need to talk louder or more clearly"]
+					[{"text": "You may need to talk louder or more clearly"}]
 				]
 			},
 			
@@ -52,6 +53,7 @@
 		{
 			"helloStart": {},
 			"helloRepeat": {},
+			"helpOfferPositive": {},
 			"hangUpRandom": {}
 		}
 	}
