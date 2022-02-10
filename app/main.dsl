@@ -10,37 +10,82 @@ context {
 start node lizDWilRoot {
 	do
 	{
+		#log("-- node lizDWilRoot -- initializing lizDWilRoot");
+
 		if (!$phoneConnect) {
+            #log("-- node lizDWilRoot -- connecting phone and doing primary greeting");
+
 			#connectSafe($phone);
 			set $phoneConnect = true;
-			
+			#say("helloStart");			
+		}
+		else
+		{
+            #log("-- node lizDWilRoot -- repeating random greeting");
+
+			#say("helloRepeat");
 		}
 		
-		#waitForSpeech(300);
-		#say("helloStart");
-		wait {
-			self
-		};
+		if (#getVisitCount("lizDWilRoot") < 3 && !#waitForSpeech(300))
+        {
+                #log("-- node lizDWilRoot -- waiting for speech");
+                wait
+                {
+                positiveSentiment
+                negativeSentiment
+                confusedSentiment
+                };
+        }
+        else
+        {
+            #log("-- node lizDWilRoot -- caller has timed out, hanging up");
+
+        	wait
+        	{
+        		lizDWilRootHangup
+        	};
+        }
 	}
 	
 	transitions
 	{
-		self: goto lizDWilRoot on timeout 5000;
+		confusedSentiment: goto lizDWilRoot on timeout 5000;
+		
+		positiveSentiment: goto helloRespond on #messageHasSentime("positive");
+		negativeSentiment: goto helloRespond on #messageHasSentime("negative");
+		
+		lizDWilRootHangup: goto @exit on timeout 500;
+	}
+	
+	onexit
+	{
+    	positiveSentiment: do
+    	{
+    		set $currentSentiment = "positive";
+    	}
+    	
+    	negativeSentiment: do
+    	{
+    		set $currentSentiment = "negative";
+
+    	}
+    	
+    	confusedSentiment: do
+    	{
+    		set $currentSentiment = "confused";
+    	}
 	}
 }
 
-node helloRepeat {
+node helloRespond {
 	do
 	{
-		
-	}
+        #log("-- node lizDWilRoot -- initializing helloRespond");
 	
-	transitions
-	{
-		
 	}
 }
 
+/*
 digression helloStart {
 	conditions { on true; }
 
@@ -58,7 +103,8 @@ digression helloStart {
     transitions
     {
     }      
-}		
+}	
+*/	
 
 node @exit 
 {
