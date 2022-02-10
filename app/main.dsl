@@ -33,7 +33,9 @@ digression helloStart {
 	do {
 		#log("-- node helloStart -- initializing helloStart");
 		
-		if(#getVisitCount("helloStart") < 2) 
+/*
+
+
 		{
 		}
 
@@ -67,17 +69,18 @@ digression helloStart {
         		helloStartHangUp
         	};
         }
+        */
 	}
         
     transitions
     {
-    		confusedSentiment: goto helloStart on timeout 5000;
+    		/*
+    		 
 
     		positiveSentiment: goto helpStart on #messageHasSentiment("positive");
             negativeSentiment: goto helpStart on #messageHasSentiment("negative");
 
             helloStartHangUp: goto helpStart on timeout 500;
-            //self: goto helloStart on true priority -1000 tags: ontick;
     }  
     
     onexit
@@ -100,16 +103,8 @@ digression helloStart {
     		set $currentSentiment = "confused";
     	}
     }
+    */
 }		
-
-node transferStart {
-	do
-	{
-		#log("-- node helpStart -- initializing helpStart");
-		
-		exit;
-	}
-}
 
 node @exit 
 {
