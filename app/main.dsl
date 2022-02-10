@@ -50,11 +50,10 @@ start node lizDWilRoot {
 	}
 	
 	transitions
-	{
-		confusedSentiment: goto lizDWilRoot on timeout 5000;
-		
+	{		
 		positiveSentiment: goto helloRespond on #messageHasSentiment("positive");
 		negativeSentiment: goto helloRespond on #messageHasSentiment("negative");
+		confusedSentiment: goto lizDWilRoot on timeout 5000;
 		
 		lizDWilRootHangup: goto @exit on timeout 500;
 	}
@@ -83,12 +82,12 @@ node helloRespond {
 	do
 	{
         #log("-- node lizDWilRoot -- initializing helloRespond");
+        if ($getVisitCount("helloRespond") == 1)
+		{
+    		set $currentSentiment = "";
+		}
         
-        if (#getVisitCount("helloRespond") == 1) 
-        {
-        	set $currentSetiment = "";
-        }
-        else if (#getVisitCount("helloRespond") < 4)
+        if (#getVisitCount("helloRespond") < 4)
         {
 			#log("-- node helloRespond -- introduction to caller");
 
@@ -115,12 +114,11 @@ node helloRespond {
 			#log("-- node helloRespond -- introduction rephrased to caller");
 	
 			#sayText("So how may I be of asstance today?");
-			}
-        }
-	
+		}
         exit;
-	}
+    }
 }
+
 
 /*
 digression helloStart {
