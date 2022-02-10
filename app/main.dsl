@@ -59,7 +59,7 @@ start node helloStart {
             positiveSentiment: goto helpOffer on #messageHasSentiment("positive");
             negativeSentiment: goto helpOffer on #messageHasSentiment("negative");
             helloStartTimeout: goto helloStart on timeout 5000;
-            helloStartHangUp: goto hellpOffer on timeout 500;
+            helloStartHangUp: goto helpOffer on timeout 500;
             self: goto helloStart on true priority -1000 tags: ontick;
     }  
     
@@ -88,18 +88,21 @@ node helpOffer
 	{
 		#log("-- node helpOffer -- initializing helpOffer");
 		
-		if ($currentSentiment)
+		if (($currentConfusion) || (!currentSentiment))
+		{
+			if (!$currentSentiment)
+			{
+				#sayText("Awwwww, well maybe Chris or I will be able to assist.");
+			} 
+			else
+			{
+				#sayText("I'm not sure I understand what you're communicating");
+				#sayText("But hey I can transfer calls and leave messages for Chris");
+			}
+		}
+		else if ($currentSentiment)
 		{
 			#sayText("That's wonderful, I'm doing great myself today.");
-		}
-		else if (!$currentSentiment)
-		{
-			#sayText("Awwwww, well maybe Chris or I will be able to assist.");
-		}
-		else
-		{
-			#sayText("I'm not sure I understand what you're communicating");
-			#sayText("But hey I can transfer calls and leave messages for Chris");
 		}
 		
 		#sayText("So how may I be of asstance today?");
