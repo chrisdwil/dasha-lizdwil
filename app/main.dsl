@@ -111,6 +111,8 @@ node offerAssistance
 				restartself
 			};
 		}
+		
+		wait *;
 	}
 	
 	transition
@@ -128,6 +130,7 @@ node mainIntroductionConfused
 		return;
 	}
 }
+
 /*
 node respondToAssistance 
 {
@@ -144,26 +147,6 @@ node respondToAssistance
 	}
 }
 */
-
-// digressions located here
-digression demandTransfer 
-{
-	conditions 
-	{
-		on #messageHasIntent("transfer");
-	}
-	do 
-	{
-		#sayText("Okay let me check if he's available.");
-		wait *;
-	}
-	
-	transitions 
-	{
-		agree: goto mainIntroduction on #messageHasSentiment("positive");
-		disagree: goto fastHangUp on #messageHasSentiment("positive");
-	}
-}
 
 // call wrapup
 node callerTimeout 
