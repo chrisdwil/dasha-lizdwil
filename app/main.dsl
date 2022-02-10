@@ -5,11 +5,12 @@ context {
 	input phone: string;
 	input forward: string? = null;
 	phoneConnect: boolean = false;
+	currentSentiment: string = "";
 }
 
 start node lizDWilRoot {
 	do
-	{
+	{		
 		#log("-- node lizDWilRoot -- initializing lizDWilRoot");
 
 		if (!$phoneConnect) {
@@ -19,21 +20,19 @@ start node lizDWilRoot {
 			set $phoneConnect = true;
 			#say("helloStart");			
 		}
-		else
-		{
+		
+		if (#getVisitCount("lizDWilRoot") < 4 && !#waitForSpeech(300))
+        {
             #log("-- node lizDWilRoot -- repeating random greeting");
 
-			#say("helloRepeat");
-		}
-		
-		if (#getVisitCount("lizDWilRoot") < 3 && !#waitForSpeech(300))
-        {
-                #log("-- node lizDWilRoot -- waiting for speech");
+				#say("helloRepeat");
+				
+				#log("-- node lizDWilRoot -- waiting for speech");
                 wait
                 {
-                positiveSentiment
-                negativeSentiment
-                confusedSentiment
+	                positiveSentiment
+	                negativeSentiment
+	                confusedSentiment
                 };
         }
         else
@@ -51,8 +50,8 @@ start node lizDWilRoot {
 	{
 		confusedSentiment: goto lizDWilRoot on timeout 5000;
 		
-		positiveSentiment: goto helloRespond on #messageHasSentime("positive");
-		negativeSentiment: goto helloRespond on #messageHasSentime("negative");
+		positiveSentiment: goto helloRespond on #messageHasSentiment("positive");
+		negativeSentiment: goto helloRespond on #messageHasSentiment("negative");
 		
 		lizDWilRootHangup: goto @exit on timeout 500;
 	}
