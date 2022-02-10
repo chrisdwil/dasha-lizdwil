@@ -4,22 +4,24 @@ context {
 	input forward: string? = null;
 	
 	feelingResponse: string = "";
-	intentConfused: boolean = true;
+	intentConfused: boolean = null;
 }
 // core complex conversations
 start node mainIntroduction {
 	do {
 		#log("-- node mainIntroduction -- Introduction to caller");
-
+		$feelingResponse = "";
+		intentConfused = null;
+		
 		if(#getVisitCount("mainIntroduction") < 2) 
 		{
 			#connectSafe($phone);
 			#say("mainIntroduction");
 		}
 		
-		if(#getVisitCount("mainIntroduction") >= 2)
+		if((#getVisitCount("mainIntroduction") >= 2) && ($intentConfused))
 		{
-			goto offerAssistance;
+			goto confusedDigression;
 		}
 		
 		if(#getVisitCount("mainIntroduction") > 5) 
@@ -46,13 +48,13 @@ start node mainIntroduction {
 	
 	transitions 
 	{
-		agree: goto offerAssistance on #messageHasSentiment("positive") priority 2;
-		disagree: goto offerAssistance on #messageHasSentiment("negative") priority 2;
-		offerAssistance: goto offerAssistance;
+		agree: goto offerAssistance on #messageHasSentiment("positive") priority 3;
+		disagree: goto offerAssistance on #messageHasSentiment("negative") priority 3;
 		
-		confusedYes: goto mainIntroduction on #messageHasIntent("yes") priority 3;
-		confusedNo: goto mainIntroduction on #messageHasIntent("no") priority 3;
-
+		confusedYes: goto mainIntroduction on #messageHasIntent("yes") priority 2;
+		confusedNo: goto mainIntroduction on #messageHasIntent("no") priority 2;
+		confusedDigression: goto mainIntroductionConfused;
+		
 		callerTimeout: goto callerTimeout;
 		restartself: goto mainIntroduction on timeout 1500;
 	}
