@@ -42,11 +42,7 @@ start node mainIntroduction {
 			};
 		}
 		
-		wait 
-		{
-			agree
-			disagree
-		};
+		exit;
 	}
 	
 	transitions 
