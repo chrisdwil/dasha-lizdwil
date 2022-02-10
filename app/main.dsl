@@ -51,8 +51,8 @@ start node mainIntroduction {
 	
 	transitions 
 	{
-		agree: goto offerAssistance on #messageHasSentiment("positive") priority 3;
-		disagree: goto offerAssistance on #messageHasSentiment("negative") priority 3;
+		//agree: goto offerAssistance on #messageHasSentiment("positive") priority 3;
+		//disagree: goto offerAssistance on #messageHasSentiment("negative") priority 3;
 		
 		callerTimeout: goto callerTimeout;
 		restartSelf: goto mainIntroduction on timeout 1500;
@@ -71,6 +71,7 @@ start node mainIntroduction {
 	}
 }
 
+/*
 node offerAssistance 
 {
 	do 
@@ -107,8 +108,6 @@ node offerAssistance
 	}
 }
 
-
-/*
 node mainIntroductionConfused
 {	
 	do
