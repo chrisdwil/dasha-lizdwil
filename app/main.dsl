@@ -149,8 +149,8 @@ node helpStart
 	{
 		confusedSentiment: goto helpStart on timeout 5000;
 
-		positiveSentiment: goto helpStart;
-		negativeSentiment: goto helpStart:
+		positiveSentiment: goto helpStart on timeout 500;
+		negativeSentiment: goto helpStart on timeou5 500;
 		
 		helpStartTimeout: goto @exit on timeout 500;
         self: goto helpStart on true priority -1000 tags: ontick;
