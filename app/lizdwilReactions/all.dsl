@@ -1,3 +1,3 @@
 library
 
-helpOffer.dsl
+import "helpOffer.dsl";
