@@ -17,6 +17,8 @@ start node mainIntroduction {
 		set $intentConfused = false;
 
 		#log("-- node mainIntroduction -- Introduction to caller");
+		#log("introductionCount: $introductionCount");
+		#log("feelingResponse: $feelingResponse");
 		
 		if(#getVisitCount("mainIntroduction") < 2) 
 		{
@@ -71,9 +73,10 @@ node offerAssistance
 	do 
 	{
 		#log("-- node offerAssistance -- offering assistance to caller");
-		exit;
+
 	}
 }
+
 /*
 		if($feelingResponse == "positive") 
 		{
