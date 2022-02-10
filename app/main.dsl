@@ -12,20 +12,34 @@ context {
 
 start node helloStart {
 	do {
-		#log("-- node helloStart -- introduction to caller");
+		#log("-- node helloStart -- initializing helloStart");
 		
 		if(#getVisitCount("helloStart") < 2) 
 		{
 			#connectSafe($phone);
 		}
 
+		if (!#WaitForSpeech(1000))
+		{
+			#log("-- node helloStart -- waiting for speech");
+			
+			wait
+			{
+				self
+			};
+		}
+		
 		if($introductionSay)
 		{
+			#log("-- node helloStart -- introduction to caller");
+
 			#say("helloStart");
 			set $introductionSay=false;
 		}
 		else
 		{
+			#log("-- node helloStart -- introduction repeated to caller");
+
 			#say("Just checking again, how are you today?");
 		}
 
@@ -34,9 +48,10 @@ start node helloStart {
 	
 	transitions 
 	{
-		positiveIntent: goto helloRepeatTimeout on #messageHasIntent("positive");
-		negativeIntent: goto helloRepeatTimeout on #messageHasIntent("negative");
-		helloStartTimeout: goto helloStart on timeout 5000;
+		positiveSentiment: goto helloRepeatTimeout on #messageHasSentiment("positive");
+		negativeSentiment: goto helloRepeatTimeout on #messageHasSentiment("negative");
+		helloStartTimeout: goto helloStart on timeout 10000;
+		self: goto helloStart on true priority -1000 tags: ontick;
 	}
 	
 	onexit
@@ -60,7 +75,7 @@ node @helloRepeatTimeout
         #log("-- node @helloRepeatTimeout -- repeating once more");
         #repeat();
 
-        #say("helloRepeat");
+        #sayText("helloRepeat");
         wait *;
 	}
 	
