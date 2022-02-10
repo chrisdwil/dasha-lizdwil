@@ -13,11 +13,15 @@
 			"helloStart": 
 			[
 				{"text": "Hello I'm Chris'sz assistant." },
+				{"text": "My name is Liz D. Wil."},
 				{"text": "How are you doing today?"}
 			],
 			"hangUpRandom": 
 			[
-				{ "text": "I'm going to forward you" }
+				[{"text": "Good bye!"}],
+				[{"text": "Bye now."}],
+				[{"text": "Have a nice day"}]
+				
 			]
 		},
 		"macros": 
