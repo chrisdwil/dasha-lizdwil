@@ -42,7 +42,7 @@ start node helloStart {
                 {
                 positiveSentiment
                 negativeSentiment
-                helloStartTimeout
+                confusedSentiment
                 };
         }
         else
@@ -56,9 +56,11 @@ start node helloStart {
         
     transitions
     {
-            positiveSentiment: goto helpStart on #messageHasSentiment("positive");
+    		confusedSentiment: goto helloStart on timeout 5000;
+
+    		positiveSentiment: goto helpStart on #messageHasSentiment("positive");
             negativeSentiment: goto helpStart on #messageHasSentiment("negative");
-            helloStartTimeout: goto helloStart on timeout 5000;
+
             helloStartHangUp: goto helpStart on timeout 500;
             self: goto helloStart on true priority -1000 tags: ontick;
     }  
@@ -78,7 +80,7 @@ start node helloStart {
 
     	}
     	
-    	helloStartTimeout: do
+    	confusedSentiment: do
     	{
     		set $currentConfusion = "confused";
     		set $introductionSay = true;
@@ -123,11 +125,24 @@ node helpStart
 			#sayText("So how may I be of asstance today?");
 		}
 		
-		wait
-		{
-			helpStartTimeout
-		};
-	}
+        if (#getVisitCount("helpStart") < 3 && !#waitForSpeech(300))
+        {
+                #log("-- node helpStart -- waiting for speech");
+                wait
+                {
+                positiveSentiment
+                negativeSentiment
+                confusedSentiment
+                };
+        }
+        else
+        {
+        	wait
+        	{
+        		helpStartHangUp
+        	};
+        }
+    }
 	
 	transitions
 	{

@@ -70,7 +70,10 @@
 		{
 			"helloStart": {},
 			"helloRepeat": {},
+			"helpOfferStart": {},
 			"helpOfferPositive": {},
+			"helpOfferNegative": {},
+			"helpOfferConfused": {},
 			"hangUpRandom": {}
 		}
 	}
