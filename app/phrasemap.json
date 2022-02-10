@@ -1,33 +1,18 @@
 {
-	"default": {
-		"voiceInfo": {
-			"lang": "en-US",
-			"speaker": "default",
-			"speed": 1.2,
-			"variation": 5
-	    },
-		"phrases": {
-			"mainIntroduction": [{ 
-				"text": "Hello, I'm Chris'sz assistant.",
-					"voiceInfo": { 
-						"speed": 1.1,
-						"variation": 5 
-					}
-				}
-			],
-			"hangUpTimeout": [{
-				"random": [
-					[{"text": "Goodbye!"}],
-					[{"text": "Bye now."}],
-					[{"text": "Have a good day."}]
-				]
-			]
-		},
-		"macros": {
-			"mainIntroduction": {},
-			"hangUpTimeout": {}
-		}
-	}          
+    "default": {
+        "voiceInfo": {
+            "lang": "en-US",
+            "speaker": "default",
+            "speed": 1.2,
+            "variation": 5
+        },
+        "phrases": {
+            "helloStart": [{ "text": "Hello I'm Chris'sz assistant." }],
+            "hangUpRandom": [{ "text": "I'm going to forward you" }]
+        },
+        "macros": {
+            "helloStart": {},
+            "hangUpRandom": {}
+        }
+    }
 }
-
-    
