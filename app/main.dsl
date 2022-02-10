@@ -111,10 +111,17 @@ node helloRespond {
 			
 			if ("$currentSentiment" == "confused")
 			{
-			wait 				
-				{
-					emptyTalk
-				};
+				#log("-- node helloRespond -- caller is confused");
+
+				wait 				
+					{
+						emptyTalk
+					};
+				}
+        	}
+			else
+			{
+					
 			}
 		}
         else
