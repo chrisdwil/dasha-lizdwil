@@ -3,16 +3,20 @@ context {
 	input phone: string;
 	input forward: string? = null;
 	
-	sayIntroduction: boolean = true; 
+	introductionSay: boolean = true;
+	introductionCount: integer = 0; 
+
 	feelingResponse: string = "";
 	intentConfused: boolean = false;
 }
 // core complex conversations
 start node mainIntroduction {
 	do {
-		#log("-- node mainIntroduction -- Introduction to caller");
+		set $introductionCount = #getVisitCount("mainIntroduction");
 		set $feelingResponse = "";
 		set $intentConfused = false;
+
+		#log("-- node mainIntroduction -- Introduction to caller");
 		
 		if(#getVisitCount("mainIntroduction") < 2) 
 		{
@@ -22,7 +26,7 @@ start node mainIntroduction {
 		if($sayIntroduction)
 		{
 			#say("mainIntroduction");
-			set $sayIntroduction=false;
+			set $introductionSay=false;
 		}
 		
 		if(#getVisitCount("mainIntroduction") > 5) 
@@ -50,8 +54,6 @@ start node mainIntroduction {
 		agree: goto offerAssistance on #messageHasSentiment("positive") priority 3;
 		disagree: goto offerAssistance on #messageHasSentiment("negative") priority 3;
 		
-		confusedYes: goto mainIntroduction on #messageHasIntent("yes") priority 2;
-		confusedNo: goto mainIntroduction on #messageHasIntent("no") priority 2;
 		
 		callerTimeout: goto callerTimeout;
 		restartself: goto mainIntroduction on timeout 1500;
@@ -66,14 +68,6 @@ start node mainIntroduction {
 		disagree: do 
 		{ 
 			set $feelingResponse = "negative"; 
-		}
-		confusedYes: do
-		{
-			set $intentConfused = true;
-		}
-		confusedNo: do
-		{
-			set $intentConfused = true;
 		}
 	}
 }
@@ -112,6 +106,8 @@ node offerAssistance
 	}
 }
 
+
+/*
 node mainIntroductionConfused
 {	
 	do
@@ -136,7 +132,6 @@ node mainIntroductionConfused
 	}
 }
 
-/*
 node respondToAssistance 
 {
 	do {
