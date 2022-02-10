@@ -27,7 +27,7 @@ start node mainIntroduction {
 		
 		if((#getVisitCount("mainIntroduction") >= 2) && ($intentConfused))
 		{
-			goto confusedAll;
+			goto mainIntroductionConfused;
 		}
 		
 		if(#getVisitCount("mainIntroduction") > 5) 
@@ -49,7 +49,6 @@ start node mainIntroduction {
 			disagree
 			confusedYes
 			confusedNo
-			confusedAll
 		};
 	}
 	
@@ -60,8 +59,6 @@ start node mainIntroduction {
 		
 		confusedYes: goto mainIntroduction on #messageHasIntent("yes") priority 2;
 		confusedNo: goto mainIntroduction on #messageHasIntent("no") priority 2;
-		
-		confusedAll: goto mainIntroductionConfused priority 1;
 		
 		callerTimeout: goto callerTimeout;
 		restartself: goto mainIntroduction on timeout 1500;
