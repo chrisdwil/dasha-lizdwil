@@ -83,7 +83,6 @@ start node helloStart {
     	confusedSentiment: do
     	{
     		set $currentSentiment = "confused";
-    		set $introductionSay = true;
     	}
     }
 }		
@@ -115,9 +114,7 @@ node helpStart
 			}
 			
 			#say("helpOfferStart");
-		
-			set $introductionSay=false;
-		}
+			}
 		else
 		{
 			#log("-- node helloStart -- introduction rephrased to caller");
