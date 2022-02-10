@@ -14,7 +14,7 @@
 	      	],
 	  		"excludes": ["fuck off"]
 	    	},
-	    "no": {
+	    "": {
 			"includes": [
 				"no",
 				"definitely not",
