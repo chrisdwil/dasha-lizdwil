@@ -35,7 +35,7 @@ start node lizDWilRoot {
             {
                 positiveSentiment
                 negativeSentiment
-                emptySentiment
+                emptyTalk
             };
         }
         else
@@ -87,31 +87,45 @@ node helloRespond {
         {
 			#log("-- node helloRespond -- introduction to caller");
 
-			#waitForSpeech(500);
-			if ($currentSentiment == "positive")
+			if (#getVisitCount("helloRespond") == 1)
 			{
-				#say("helpOfferPositive");
+				if ($currentSentiment == "positive")
+				{
+					#say("helpOfferPositive");
+				}
+				else if ($currentSentiment == "negative")
+				{
+					#say("helpOfferNegative");
+				} 
+				else if ($currentSentiment == "confused")
+				{
+					#say("helpOfferConfused");
+				}
 			}
-			else if ($currentSentiment == "negative")
+			
+			if (#getVisitCount("helloRespond") == 3)
 			{
-				#say("helpOfferNegative");
-			} 
-			else if ($currentSentiment == "confused")
-			{
-				#say("helpOfferConfused");
+				sayText("last chance, say something like transfer me, or leave message");
 			}
 			
 			#say("helpOfferStart");
 			
-			wait 
+			if ("$currentSentiment" == "confused")
 			{
-				emptyTalk
-			};
+			wait 				
+				{
+					emptyTalk
+				};
+			}
 		}
+        else
+        {
+        	exit;
+        }
     }
 	transition
 	{
-		emptyTalk: goto lizDWilRoot on timeout 5000;
+		emptyTalk: goto helloRespond on timeout 5000;
 	}
 }
 
