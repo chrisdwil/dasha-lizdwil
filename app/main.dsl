@@ -33,22 +33,22 @@ start node helloStart {
 			#sayText("Just checking again, how are you today?");
 		}
 		
-		if (!#waitForSpeech(1000))
-		{
-			#log("-- node helloStart -- waiting for speech");
-			
-			wait
-			{
-				self
-			};
-		}
-		else
+		if (!#getVisitCount("helloStart") < 5)
 		{
 			wait
 			{
 			positiveSentiment
 			negativeSentiment
 			helloStartTimeout
+			};
+		}
+		elseif (!#waitForSpeech(1000) 
+		{
+			#log("-- node helloStart -- waiting for speech");
+			
+			wait
+			{
+				self
 			};
 		}
 	}
