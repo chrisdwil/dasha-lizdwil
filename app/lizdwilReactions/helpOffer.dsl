@@ -56,7 +56,7 @@ node helpStart
 	
 	transitions
 	{
-		confusedSentiment: goto hellpStart on timeout 5000;
+		confusedSentiment: goto helpStart on timeout 5000;
 
 		positiveSentiment: goto helpStart;
 		negativeSentiment: goto helpStart:
