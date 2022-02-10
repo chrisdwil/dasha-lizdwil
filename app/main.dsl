@@ -29,38 +29,37 @@ start node helloStart {
 		else
 		{
 			#log("-- node helloStart -- introduction repeated to caller");
-
+		
 			#sayText("Just checking again, how are you today?");
 		}
-		
-		if (!#getVisitCount("helloStart") < 5)
-		{
-			wait
-			{
-			positiveSentiment
-			negativeSentiment
-			helloStartTimeout
-			};
-		}
-		elseif (!#waitForSpeech(1000) 
-		{
-			#log("-- node helloStart -- waiting for speech");
-			
-			wait
-			{
-				self
-			};
-		}
+
+        if (#getVisitCount("helloStart") < 5 && !#waitForSpeech(2000))
+        {
+                #log("-- node helloStart -- waiting for speech");
+                wait
+                {
+                positiveSentiment
+                negativeSentiment
+                helloStartTimeout
+                };
+        }
+        else
+        {
+                wait
+                {
+                        self
+                };
+        }
 	}
-	
-	transitions 
-	{
-		positiveSentiment: goto helloRepeatTimeout on #messageHasSentiment("positive");
-		negativeSentiment: goto helloRepeatTimeout on #messageHasSentiment("negative");
-		helloStartTimeout: goto helloRepeatTimeout on timeout 5000;
-		self: goto helloStart on true priority -1000 tags: ontick;
-	}
-}
+        
+    transitions
+    {
+            positiveSentiment: goto helloRepeatTimeout on #messageHasSentiment("positive");
+            negativeSentiment: goto helloRepeatTimeout on #messageHasSentiment("negative");
+            helloStartTimeout: goto helloStart on timeout 5000;
+            self: goto helloStart on true priority -1000 tags: ontick;
+    }        
+}		
 
 node @helloRepeatTimeout
 {
