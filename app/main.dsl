@@ -82,6 +82,7 @@ node helloRespond {
 	do
 	{
         #log("-- node lizDWilRoot -- initializing helloRespond");
+        #log("currentSentiment: " + $currentSentiment;)
         
         if (#getVisitCount("helloRespond") < 4)
         {
@@ -92,10 +93,14 @@ node helloRespond {
 			{
 				#say("helpOfferPositive");
 			}
-			if ($currentSentiment == "negative")
+			else if ($currentSentiment == "negative")
 			{
-				#say("helpOfferPositive");
+				#say("helpOfferNegative");
 			} 
+			else if ($currentSentiment == "confused")
+			{
+				#say("helpOfferConfused");
+			}
 			
 			#say("helpOfferStart");
 		}
