@@ -132,9 +132,26 @@ digression digTransfer {
 	do {
 		#log("-- node helloStart -- initializing helloStart");
 		
-		#sayText("will transfer");
-	}      
+		#sayText("Hold one moment while I check if he's available");
+		wait
+		{
+			digTransferUnavailable
+		}
+	}
+	transitions
+	{
+		digTransferUnavailable: goto transferHangUp on timeout 10000;
+	}
 }		
+
+node transferHangUp
+{
+	do
+	{
+		#sayText("I'm sorry he's unavailable, you'll have to try back later.");
+		exit;
+	}
+}
 
 node @exit 
 {

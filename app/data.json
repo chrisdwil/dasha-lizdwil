@@ -10,6 +10,7 @@
 		        "want to talk",
 		        "Is Chris available?",
 		        "Is Chris around?"
+		        ]
 	    	},
 	    "no": {
 			"includes": [
