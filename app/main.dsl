@@ -4,15 +4,20 @@ import "lizdwilReactions/all.dsl";
 context {
 	input phone: string;
 	input forward: string? = null;
+	phoneConnect: boolean = false;
 }
 
 start node lizDWilRoot {
 	do
 	{
-		#connectSafe($phone);
+		if (!$phoneConnect) {
+			#connectSafe($phone);
+			set $phoneConnect = true;
+			
+		}
+		
 		#waitForSpeech(300);
 		#say("helloStart");
-		
 		wait {
 			helloStart
 		};
@@ -20,7 +25,7 @@ start node lizDWilRoot {
 	
 	transitions
 	{
-		helloStart: goto helloStart on timeout 5000;
+		helloStart: goto self on timeout 5000;
 	}
 }
 
