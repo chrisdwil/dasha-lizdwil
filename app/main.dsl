@@ -6,7 +6,6 @@ context {
 	input forward: string? = null;
 	
 	introductionSay: boolean = true;
-	currentIntent: string = "";
 	currentSentiment: string = "";
 	
 	callTimeout: number = 5000;
@@ -63,7 +62,7 @@ start node helloStart {
             negativeSentiment: goto helpStart on #messageHasSentiment("negative");
 
             helloStartHangUp: goto helpStart on timeout 500;
-            self: goto helloStart on true priority -1000 tags: ontick;
+            //self: goto helloStart on true priority -1000 tags: ontick;
     }  
     
     onexit
@@ -147,13 +146,13 @@ node helpStart
 	
 	transitions
 	{
-		confusedSentiment: goto helpStart on timeout 5000;
+		confusedSentiment: goto transferStart on timeout 5000;
 
-		positiveSentiment: goto helpStart on timeout 500;
-		negativeSentiment: goto helpStart on timeou5 500;
+		positiveSentiment: goto transferStart on #messageHasSentiment("positive");
+        negativeSentiment: goto transferStart on #messageHasSentiment("negative");
 		
 		helpStartTimeout: goto @exit on timeout 500;
-        self: goto helpStart on true priority -1000 tags: ontick;
+        //self: goto helpStart on true priority -1000 tags: ontick;
 	}
 	
     onexit
@@ -177,6 +176,15 @@ node helpStart
     		set $introductionSay = true;
     	}
     }
+}
+
+node transferStart {
+	do
+	{
+		#log("-- node helpStart -- initializing helpStart");
+		
+		exit;
+	}
 }
 
 node @exit 
