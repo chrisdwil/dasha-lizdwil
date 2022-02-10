@@ -4,7 +4,8 @@ context {
 	input forward: string? = null;
 	
 	introductionSay: boolean = true;
-	currentSentiment: string = "";
+	currentIntent: string = false;
+	currentSentiment: string = false;
 	
 	callTimeout: number = 5000;
 }
@@ -23,32 +24,29 @@ start node helloStart {
 			#say("helloStart");
 			set $introductionSay=false;
 		}
-				
+
 		wait *;
 	}
 	
 	transitions 
 	{
-		positive: goto offerAssistance on #messageHasSentiment("positive");
-		negative: goto offerAssistance on #messageHasSentiment("negative");
+		positiveIntent: goto helpOffer on #messageHasSentiment("positive") priority 3;
+		negativeIntent: goto helpOffer on #messageHasSentiment("negative") priority 3;
+		positiveSentiment: goto helpOffer on #messageHasSentiment("positive")priority 1;
+		negativeSentiment: goto helpOffer on #messageHasSentiment("negative")priority 1;
 		helloStartTimeout: goto @helloRepeatTimeout on timeout 5000;
 	}
 	
 	onexit
 	{
-		positive: do
+		positiveIntent: do
 		{
-			set $currentSentiment = "positive";
+			set $currentIntent = true;
 		}
-		
-		negative: do
+				
+		positiveSentiment: do
 		{
-			set $currentSentiment = "negative";
-		}
-		
-		helloStartTimeout: do
-		{
-			set $currentSentiment = "confused";
+			set $currentSentiment = true;
 		}
 	}
 }
@@ -57,7 +55,7 @@ node @helloRepeatTimeout
 {
 	do 
 	{
-        #log("-- node @questionTimeout -- repeating once more");
+        #log("-- node @helloRepeatTimeout -- repeating once more");
 
         #say("helloRepeat");
         wait *;
@@ -69,20 +67,28 @@ node @helloRepeatTimeout
 	}
 }
 
-node helpOfferPositive
+node helpOffer
 {
 	do
 	{
-		#sayText("That's wonderful");
-		exit;
-	}
-}
+		#log("-- node helpOffer -- offering assistance")
+		if ($currentIntent)
+		{
+			#sayText("That's wonderful");
+			exit;
+		} 
+		else
+		{
+			#sayText("Aww I'm sorry to hear");
+			exit;
+		}
 
-node helpOfferNegative
-{
-	do
-	{
-		#sayText("Aww I'm sorry to hear");
+		if ($currentSentiment)
+		{
+			#sayText("Are you sure you're having an okay day?");
+		}
+		
+		#sayText("So, what can I help you with?");
 		exit;
 	}
 }
@@ -93,7 +99,7 @@ node @exit
     {
         #log("-- node @exit -- ending conversation");
         
-        say("hangUpRandom");
+        #say("hangUpRandom");
         exit;
     }
 }
