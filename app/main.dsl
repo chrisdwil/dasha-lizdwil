@@ -34,7 +34,7 @@ start node helloStart {
 		negativeIntent: goto helpOffer on #messageHasSentiment("negative") priority 3;
 		positiveSentiment: goto helpOffer on #messageHasSentiment("positive")priority 1;
 		negativeSentiment: goto helpOffer on #messageHasSentiment("negative")priority 1;
-		helloStartTimeout: goto @helloRepeatTimeout on timeout 5000;
+		//helloStartTimeout: goto @helloRepeatTimeout on timeout 5000;
 	}
 	
 	onexit
@@ -42,11 +42,27 @@ start node helloStart {
 		positiveIntent: do
 		{
 			set $currentIntent = true;
+			set $currentSentiment = true;
+		}
+		
+		negativeIntent: do
+		{
+			set $currentIntent = false;
+			set $currentSentiment = false;
 		}
 				
 		positiveSentiment: do
 		{
+			set $currentSentiment = false;
 			set $currentSentiment = true;
+			
+		}
+		
+		negativeSentiment: do
+		{
+			set $currentSentiment = false;
+			set $currentSentiment = true;
+			
 		}
 	}
 }
@@ -56,6 +72,7 @@ node @helloRepeatTimeout
 	do 
 	{
         #log("-- node @helloRepeatTimeout -- repeating once more");
+        #repeat();
 
         #say("helloRepeat");
         wait *;
@@ -67,7 +84,7 @@ node @helloRepeatTimeout
 		negativeSentiment: goto helpOffer on #messageHasSentiment("negative")priority 3;
 		negativeIntent: goto helpOffer on #messageHasSentiment("negative") priority 2;
 		positiveIntent: goto helpOffer on #messageHasSentiment("positive") priority 1;
-		helloRepeatTimeout: goto @exit on timeout 12000;
+		//helloRepeatTimeout: goto @exit on timeout 12000;
 	}
 	
 	onexit
