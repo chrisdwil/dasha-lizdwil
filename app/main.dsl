@@ -23,7 +23,7 @@ start node mainIntroduction {
 			#connectSafe($phone);
 		}
 
-		if($sayIntroduction)
+		if($introductionSay)
 		{
 			#say("mainIntroduction");
 			set $introductionSay=false;
@@ -47,8 +47,8 @@ start node mainIntroduction {
 	
 	transitions 
 	{
-		//agree: goto offerAssistance on #messageHasSentiment("positive") priority 3;
-		//disagree: goto offerAssistance on #messageHasSentiment("negative") priority 3;
+		agree: goto offerAssistance on #messageHasSentiment("positive") priority 3;
+		disagree: goto offerAssistance on #messageHasSentiment("negative") priority 3;
 		
 		callerTimeout: goto callerTimeout;
 		restartSelf: goto mainIntroduction on timeout 1500;
@@ -66,14 +66,15 @@ start node mainIntroduction {
 		}
 	}
 }
-
-/*
 node offerAssistance 
 {
 	do 
 	{
 		#log("-- node offerAssistance -- offering assistance to caller");
-		
+		exit;
+	}
+}
+/*
 		if($feelingResponse == "positive") 
 		{
 			#say("howAreYouPositive");
