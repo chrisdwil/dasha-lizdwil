@@ -82,7 +82,7 @@ start node helloStart {
     	
     	confusedSentiment: do
     	{
-    		set $currentConfusion = "confused";
+    		set $currentSentiment = "confused";
     		set $introductionSay = true;
     	}
     }
