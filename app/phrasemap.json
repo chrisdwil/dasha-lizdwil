@@ -12,18 +12,19 @@
 		{
 			"mainIntroduction": 
 			[ 
-				"text": "Hello,I'm Chris'sz assistant.",
-				"voiceInfo": 
 				{ 
-					"speed": 1.1,
-					"variation": 5 
-				}
-				"text": "My name is Liizzz D Wiiill.",
-				"text": "How are you doing today?",
+				"text": "Hello, I'm Chris'sz assistant.",
+					"voiceInfo": 
+					{ 
+						"speed": 1.1,
+						"variation": 5 
+					}
+				},
+				{ "text": "My name is Liizzz D Wiiill." },
+				{ "text": "How are you doing today?" }
 			]
-		}
-		"macros": 
-		{
+		},
+		"macros": {
 			"mainIntroduction": {}	
 		}
 	}          
