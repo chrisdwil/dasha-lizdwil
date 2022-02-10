@@ -45,15 +45,13 @@ start node mainIntroduction {
 		wait
 		{
 			positive
-			neutral
 			negative
-		}
+		};
 	}
 	
 	transitions 
 	{
 		positive: goto offerAssistance on #messageHasSentiment("positive") priority 3;
-		neutral: goto offerAssistance on #messageHasSentiment("neutral") priority 3;
 		negative: goto offerAssistance on #messageHasSentiment("negative") priority 3;
 		
 		callerTimeout: goto callerTimeout;
@@ -65,10 +63,6 @@ start node mainIntroduction {
 		positive: do 
 		{ 
 			set $feelingResponse = "positive"; 
-		}
-		neutral: do 
-		{ 
-			set $feelingResponse = "neutral"; 
 		}		
 		negative: do 
 		{ 
@@ -76,13 +70,14 @@ start node mainIntroduction {
 		}
 	}
 }
+
 node offerAssistance 
 {
 	do 
 	{
 		#log("-- node offerAssistance -- offering assistance to caller");
 		#log("prevTransitionCount: $prevTransitionCount");
-		#log("feelingResponse: $feelingResponse");
+		#log("feelingResponse:" + $feelingResponse);
 		exit;
 	}
 }
