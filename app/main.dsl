@@ -4,8 +4,6 @@ import "assistantLibrary/all.dsl";
 context {
 	input phone: string;
 	input forward: string? = null;
-	
-	repeatQuestionTimeout: number = 5000;
 }
 
 start node assist {
@@ -28,7 +26,7 @@ node assistGreet {
 	}
 	transitions
 	{
-		repeatGreet: goto assistGreet on timeout $repeatQuestionTimeout;
+		repeatGreet: goto assistGreet on timeout 5000;
 	}
 }
 
