@@ -58,7 +58,7 @@ node assistGreetAttempt {
 				{
 					assistGreetHangUp
 					idleHangUp
-				}
+				};
 			}
 
 			/*
