@@ -47,7 +47,7 @@ node assistGreetAttempt {
 	
 	transitions
 	{
-		repeatGreet: goto assistGreetAttempt on timeout 5000;
+		idleGreetAttempt: goto assistGreetAttempt on timeout 5000;
 	}
 }
 
