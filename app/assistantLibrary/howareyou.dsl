@@ -6,7 +6,7 @@ digression digHowAreYou
 	do
 	{
 		#say("digHowAreYou");
-		#say("digHowAreYouReturn", option)
+		#say("digHowAreYouReturn", options: { emotion: "from text: i love you" });
 		return;
 	}
 }
