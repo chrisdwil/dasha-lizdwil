@@ -14,9 +14,7 @@ start node assist {
 	do
 	{	
 		#connect($phone);
-		wait {
-			idleGreetAttempt
-		};
+		wait *;
 	}
 	
 	transitions
@@ -51,26 +49,40 @@ node assistGreetAttempt {
 			else
 			{
 				#say("assistGreetExplain", options: { emotion: "positive", speed: 0.7 });
-				set $callMood = "confusion";
 			}
-				
-			if ((attemptCur > attemptMax) && ($callMood == "confusion"))
+
+			if (attemptCur > max)
+			{
+				#sayText("Are you sure you want to continue this call?");
+				wait
+				{
+					assistGreetHangUp
+					idleHangUp
+				}
+			}
+
+			/*
+			if ($callMood == "confusion")
 			{
 				#say("assistGreetHangUpPrep");
-				wait {
+				wait 
+				{
 					callHangUp
 					idleHangUp
 				};
 			}
+			*/
 		}
 
-		wait {
+		wait 
+		{
 			idleGreetAttempt
 		};
 	}
 	
 	transitions
 	{
+		assistGreetHangup: goto assistGreetAttempt on #messageHasSentiment("positve");
 		callHangUp: goto @exit on #messageHasIntent("bye");
 		idleHangUp: goto @exit on timeout 1000;
 		idleGreetAttempt: goto assistGreetAttempt on timeout 8500;
