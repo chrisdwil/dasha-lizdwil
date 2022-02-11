@@ -36,21 +36,23 @@ node assistGreetAttempt {
 		{
 			#say("assistGreetAttempt", interruptible: true);
 		}
-
-		if ((attemptCur < attemptMax) && !#waitForSpeech(attemptTimeOut))
+		else 
 		{
-			#say("assistGreetRepeat", interruptible: true);
-		}
-		
-		if ((attemptCur == attemptMax))
-		{
-			#say("assistGreetExplain", interruptible: true, options: { emotion: "positive", speed: 0.7 });
-		}
-
-		if ((attemptCur > attemptMax))
-		{
-			#say("assistGreetHangUpPrep", interruptible: true, options: { emotion: "negative", speed: 0.9 });
-			exit;
+			if (attemptCur < attemptMax)
+			{
+				#say("assistGreetRepeat", interruptible: true);
+			}
+			
+			if (attemptCur == attemptMax)
+			{
+				#say("assistGreetExplain", interruptible: true, options: { emotion: "positive", speed: 0.7 });
+			}
+	
+			if (attemptCur > attemptMax)
+			{
+				#say("assistGreetHangUpPrep", interruptible: true, options: { emotion: "negative", speed: 0.9 });
+				exit;
+			}
 		}
 
 		wait *;
