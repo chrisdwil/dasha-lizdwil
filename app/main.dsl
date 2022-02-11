@@ -44,13 +44,12 @@ node assistGreetAttempt {
 		
 		if ((attemptCur == attemptMax))
 		{
-			#say("assistGreetExplain", interruptible: true, options: { emotion: speed: 0.7 });
+			#say("assistGreetExplain", interruptible: true, options: { emotion: "positive", speed: 0.7 });
 		}
 
 		if ((attemptCur > attemptMax))
 		{
-			#sayText("I'm sorry, it appears we're having issues with our call");
-			#sayText("You're welcome to try him again later.");
+			#say("assistGreetHangUpPrep", interruptible: true, options: { emotion: "negative", speed: 0.9 });
 			exit;
 		}
 
@@ -59,7 +58,7 @@ node assistGreetAttempt {
 	
 	transitions
 	{
-		idleGreetAttempt: goto assistGreetAttempt on timeout 10000;
+		idleGreetAttempt: goto assistGreetAttempt on timeout 7500;
 	}
 }
 
@@ -67,8 +66,10 @@ node @exit
 {
     do 
     {
+        #say("assistHangUp");
         exit;
     }
+
 }
 
 digression @exit_dig
