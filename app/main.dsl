@@ -32,23 +32,34 @@ node assistGreetAttempt {
 		
 		#log(logNodeName + " --- " + #stringify(attemptCur) + " Attempt(s)");
 
-		if (attemptCur < 2)
+		if ((attemptCur < 2) && !#waitForSpeech(attemptTimeOut))
 		{
 			#say("assistGreetAttempt");
 		}
 
-		if ((attemptCur < attemptMax) && (!#waitForSpeech(attemptTimeOut)))
+		if ((attemptCur < attemptMax) && !#waitForSpeech(attemptTimeOut))
 		{
-			#say("assistGreetExplain");
 			#say("assistGreetRepeat");
 		}
 		
+		if ((attemptCur == attemptMax))
+		{
+			#say("assistGreetExplain", options: { speed: 0.7 });
+		}
+
+		if ((attemptCur >= attemptMax))
+		{
+			#sayText("I'm sorry, it appears we're having issues with our call");
+			#sayText("You're welcome to try him again later.");
+			exit;
+		}
+
 		wait *;
 	}
 	
 	transitions
 	{
-		idleGreetAttempt: goto assistGreetAttempt on timeout 5000;
+		idleGreetAttempt: goto assistGreetAttempt on timeout 10000;
 	}
 }
 
