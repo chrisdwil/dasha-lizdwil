@@ -4,161 +4,25 @@
 context {
 	input phone: string;
 	input forward: string? = null;
-	phoneConnect: boolean = false;
-	currentSentiment: string = "";
 }
 
-start node lizDWilRoot {
+start node assist {
 	do
 	{		
-		#log("-- node lizDWilRoot -- initializing lizDWilRoot");
-
-		if (!$phoneConnect) {
-            #log("-- node lizDWilRoot -- connecting phone and doing primary greeting");
-
-			#connectSafe($phone);
-			set $phoneConnect = true;
-			#say("helloStart");			
-		}
-		
-		if (#getVisitCount("lizDWilRoot") < 4 && !#waitForSpeech(300))
-        {
-            #log("-- node lizDWilRoot -- repeating random greeting");
-
-            if (#getVisitCount("lizDWilRoot") > 1)
-            {
-            	#say("helloRepeat");
-            }
-			
-			#log("-- node lizDWilRoot -- waiting for speech");
-            wait
-            {
-                positiveSentiment
-                negativeSentiment
-                emptyTalk
-            };
-        }
-        else
-        {
-            #log("-- node lizDWilRoot -- caller is confused");
-
-        	wait
-        	{
-        		confusedAnswer
-        	};
-        }
+		#connectSafe($phone);
+		wait *;
 	}
-	
 	transitions
-	{		
-		positiveSentiment: goto helloRespond on #messageHasSentiment("positive");
-		negativeSentiment: goto helloRespond on #messageHasSentiment("negative");
-		emptyTalk: goto lizDWilRoot on timeout 5000;
-		confusedAnswer: goto helloRespond on timeout 500;
-	}
-	
-	onexit
 	{
-    	positiveSentiment: do
-    	{
-    		set $currentSentiment = "positive";
-    	}
-    	
-    	negativeSentiment: do
-    	{
-    		set $currentSentiment = "negative";
-
-    	}
-    	
-    	emptyTalk: do
-    	{
-    		set $currentSentiment = "confused";
-    	}
+		assistGreet: goto assistGreet on timeout 300;
 	}
 }
 
-node helloRespond {
+node assistGreet {
 	do
 	{
-        #log("-- node helloRespond -- initializing helloRespond");
-        #log("currentSentiment: " + $currentSentiment);
-        
-        if (#getVisitCount("helloRespond") < 4)
-        {
-			#log("-- node helloRespond -- introduction to caller");
-
-			if (#getVisitCount("helloRespond") == 1)
-			{
-				if ($currentSentiment == "positive")
-				{
-					#say("helloRespondPositive");
-				}
-				if ($currentSentiment == "negative")
-				{
-					#say("helloRespondNegative");
-				} 
-				if ($currentSentiment == "confused")
-				{
-					#log("-- node helloRespond -- caller is confused");
-					
-					#say("helloRespondConfused");
-					set $currentSentiment = "";
-				}
-			}
-			
-			#say("helloRespondStart");
-			wait *;
-		}
-        else
-        {
-        	exit;
-        }
-    }
-
-	transitions
-	{
-		emptyTalk: goto helloRespond on timeout 5000;
-	}
-}
-
-digression digTransfer {
-	conditions { on #messageHasIntent("transfer"); }
-
-	var fullGreeting = true;
-	var retriesLimit = 0;
-	var retriesTimeout = 5000;
-	var counter = 0;
-	
-	do {
-		#log("-- node helloStart -- initializing helloStart");
-		
-		#sayText("Hold one moment while I check if he's available");
-		wait
-		{
-			digTransferUnavailable
-		};
-	}
-	
-	transitions
-	{
-		digTransferUnavailable: goto transferHangUp on timeout 6000;
-	}
-}		
-
-node transferHangUp
-{
-	do
-	{
-		#say("transferRespondUnavailable");
-		wait 
-		{
-			hangUpPolite
-		};
-	}
-
-	transitions
-	{
-		hangUpPolite: goto @exit on timeout 250;
+		#say("assistGreet");
+		wait *;
 	}
 }
 
@@ -166,9 +30,6 @@ node @exit
 {
     do 
     {
-        #log("-- node @exit -- ending conversation");
-        
-        #say("hangUpRandom");
         exit;
     }
 }
