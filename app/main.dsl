@@ -25,7 +25,7 @@ node assistGreetAttempt {
 	do
 	{
 		var logNodeName: string = "assistGreetAttempt";
-		if (#getVisitCount(logNodeName) < 2)
+		if (#getVisitCount(logNodeName) <= 1)
 		{
 			var attemptCur: number = 0;
 			var attemptMax: number = 3;
