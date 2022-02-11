@@ -24,9 +24,9 @@ start node assist {
 node assistGreetAttempt {
 	do
 	{
-		if (#getVisitCount < 2)
+		var logNodeName: string = "assistGreetAttempt";
+		if (#getVisitCount(logNodeName) < 2)
 		{
-			var logNodeName: string = "assistGreetAttempt";
 			var attemptCur: number = 0;
 			var attemptMax: number = 3;
 			var attemptRepeat: boolean = false;
