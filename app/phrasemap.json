@@ -6,7 +6,7 @@
 			"lang": "en-US",
 			"speaker": "default",
 			"speed": 1.0,
-			"variation": 8
+			"variation": 5
 		},
 		
 		"phrases": 
@@ -20,11 +20,11 @@
 			
 			"assistGreetExplain": 
 			[
-				{"text": "Things I can assist with are"},
-				{"text": "Check if Chris is available"},
-				{"text": "Transfer your call"},
-				{"text": "Take a message"},
-				{"text": "Or you can try again later."}							
+				{"text": "Things I can assist with are..."},
+				{"text": "Check if Chris is available or..."},
+				{"text": "Transfer your call..."},
+				{"text": "I can even take messages..."},
+				{"text": "Also,,, you can try again later."}							
 			],
 
 			"assistGreetRepeat":

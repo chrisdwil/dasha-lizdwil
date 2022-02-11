@@ -37,12 +37,13 @@ node assistGreetAttempt {
 			#say("assistGreetAttempt");
 		}
 
-		if ((attemptCur < attemptMax) && (!#waitForSpeech(attemptTimeout)
+		if ((attemptCur < attemptMax) && (!#waitForSpeech(attemptTimeOut)))
 		{
 			#say("assistGreetExplain");
 			#say("assistGreetRepeat");
-			wait *;
 		}
+		
+		wait *;
 	}
 	
 	transitions
