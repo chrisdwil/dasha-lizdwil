@@ -27,19 +27,22 @@ node assistGreetAttempt {
 		var logNodeName: string = "assistGreetAttempt";
 		var attemptCur: number = #getVisitCount(logNodeName);
 		var attemptMax: number = 3;
+		var attemptRepeat: boolean = false;
+		var attemptTimeOut: number = 1500;
 		
 		#log(logNodeName + " --- " + #stringify(attemptCur) + " Attempt(s)");
 
-		if (attemptCur < 2)
+		if (!attemptRepeat)
 		{
-			#say("assistGreetAttempt",interruptible);
+			#say("assistGreetAttempt");
+			set attemptRepeat = true;
 		}
-		else  
+		
+		if ((attemptCur < attemptMax) && !attemptTimeOut && attemptRepeat)
 		{
 			#say("assistGreetRepeat",interruptible);
+			wait *;
 		}
-			
-		wait *;
 	}
 	
 	transitions
