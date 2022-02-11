@@ -6,7 +6,7 @@ context {
 	input forward: string = "sip:+12817829187@lizdwil.pstn.twilio.com;transport=udp";
 	input sprint: boolean;
 	
-	// will use various moods like sentiment pos/neg, confusion, ending 
+	// will use various moods like sentiment pos/neg, confusion, ending call
 	callMood: string = "positive";
 }
 
@@ -56,7 +56,7 @@ node assistGreetAttempt {
 				wait {
 					callHangUp
 					idleHangUp
-				}
+				};
 			}
 		}
 
