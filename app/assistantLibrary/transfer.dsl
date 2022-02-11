@@ -22,8 +22,4 @@ digression digTransfer
 		}
 		return;
 	}
-	transitions
-	{
-		digTransferTimeout: goto digTransferUnavailable on timeout 8000;
-	}
 }
