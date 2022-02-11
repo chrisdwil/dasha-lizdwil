@@ -38,7 +38,7 @@ node assistGreetAttempt {
 		}
 		else 
 		{	
-			if ((attemptCur < attemptMax) && (callMood == "positive")
+			if ((attemptCur < attemptMax) && ($callMood == "positive"))
 			{
 				#say("assistGreetRepeat", interruptible: true);
 			}
