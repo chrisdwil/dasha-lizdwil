@@ -3,7 +3,7 @@ import "assistantLibrary/all.dsl";
 
 context {
 	input phone: string;
-	input forward: string = "+12817829187";
+	input forward: string = "sip:+12817829187@lizdwil.pstn.twilio.com;transport=udp";
 	
 	// will use various moods like sentiment pos/neg, confusion, ending 
 	callMood: string = "positive";
@@ -77,7 +77,6 @@ node @exit
     do 
     {
         #say("assistHangUp");
-		#forward("+12817829187");
         exit;
     }
 
