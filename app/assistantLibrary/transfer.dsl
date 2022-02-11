@@ -15,7 +15,7 @@ digression digTransfer
 			{
 				#sayText("Hold a moment while I transfer you.");
 				#forward($forward);
-				#disconnect;
+				#disconnect();
 				exit;
 			}
 		}
