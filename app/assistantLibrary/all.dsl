@@ -1,6 +1,6 @@
 library
 
 import "identity.dsl";
-import "hangup";
+import "hangup.dsl";
 import "howareyou.dsl";
 import "transfer.dsl";
