@@ -38,7 +38,7 @@ node assistGreetAttempt {
 			set attemptRepeat = true;
 		}
 		
-		if ((attemptCur < attemptMax) && !attemptTimeOut && attemptRepeat)
+		if (!attemptTimeOut && (attemptRepeat == true))
 		{
 			#say("assistGreetRepeat",interruptible);
 			wait *;
