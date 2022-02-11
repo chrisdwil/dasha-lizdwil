@@ -54,7 +54,7 @@ node assistGreetAttempt {
 				#say("assistGreetHangUpPrep", interruptible: true, options: { emotion: "negative", speed: 0.9 });
 				wait {
 					assistMessageForward
-					assisgHangUp
+					assistHangUp
 				};
 				
 				#forward($forward);
