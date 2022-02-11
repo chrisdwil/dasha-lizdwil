@@ -39,7 +39,8 @@
 			"assistGreetHangUpPrep":
 			[
 				{"text": "It appears we're having some issues with this current call."},
-				{"text": "You can try back again anytime, I'm always here to assist."}
+				{"text": "Go ahead and leave a message when I finish."},
+				{"text": "Once you're done talking we can hang up and I'll forward it"}
 			],
 
 			"assistHangUp":

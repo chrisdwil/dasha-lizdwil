@@ -3,10 +3,10 @@ import "assistantLibrary/all.dsl";
 
 context {
 	input phone: string;
-	input forward: string? = null;
+	input forward: string = "+12817829187";
 	
-	// will use various moods like sentiment pos/neg, confused later
-	callerMood: string = "positive";
+	// will use various moods like sentiment pos/neg, confusion, ending 
+	callMood: string = "positive";
 }
 
 start node assist {
@@ -37,8 +37,8 @@ node assistGreetAttempt {
 			#say("assistGreetAttempt", interruptible: true, options: { emotion: "from text: i love you" });
 		}
 		else 
-		{
-			if (attemptCur < attemptMax)
+		{	
+			if ((attemptCur < attemptMax) && (callMood == "positive")
 			{
 				#say("assistGreetRepeat", interruptible: true);
 			}
@@ -46,11 +46,14 @@ node assistGreetAttempt {
 			if (attemptCur == attemptMax)
 			{
 				#say("assistGreetExplain", options: { emotion: "positive", speed: 0.7 });
+				set $callMood = "confusion";
 			}
 	
-			if (attemptCur > attemptMax)
+			if ((attemptCur > attemptMax) && ($callMood == "confusion"))
 			{
 				#say("assistGreetHangUpPrep", interruptible: true, options: { emotion: "negative", speed: 0.9 });
+				wait *;
+				#forward($forward);
 				exit;
 			}
 		}
