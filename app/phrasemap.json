@@ -84,6 +84,12 @@
 				]
 			},
 			
+			"digHowAreYouReturn": 
+			[
+				{"text": "So..." },
+				{"text": "How are you doing as well?"}
+			],
+			
 			"digWhoAreYou":
 			[
 				{"text": "Oh, hi, my name is Liz D Wil, you can call me Liz."},
@@ -108,6 +114,7 @@
 			"assistGreetHangUpPrep": {},
 			"assistHangUp": {},
 			"digHowAreYou": {},
+			"digHowAreYouReturn": {},
 			"digWhoAreYou": {},
 			"digSelf": {}	
 		}

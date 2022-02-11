@@ -45,7 +45,7 @@ node assistGreetAttempt {
 			
 			if (attemptCur == attemptMax)
 			{
-				#say("assistGreetExplain", interruptible: true, options: { emotion: "positive", speed: 0.7 });
+				#say("assistGreetExplain", options: { emotion: "positive", speed: 0.7 });
 			}
 	
 			if (attemptCur > attemptMax)
