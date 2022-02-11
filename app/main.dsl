@@ -24,6 +24,9 @@ node assistGreet {
 		#say("assistGreet");
 		wait *;
 	}
+	{
+		repeatGreet: goto assistGreet on timeout 5000;
+	}
 }
 
 node @exit 
@@ -46,4 +49,4 @@ digression @exit_dig
 			exit;
 		}
 }
-
+s
