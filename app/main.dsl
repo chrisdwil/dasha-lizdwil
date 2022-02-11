@@ -51,12 +51,6 @@ node assistGreetAttempt {
 	
 			if ((attemptCur > attemptMax) && ($callMood == "confusion"))
 			{
-				#say("assistGreetHangUpPrep", interruptible: true, options: { emotion: "negative", speed: 0.9 });
-				wait {
-					assistMessageForward
-					assistHangUp
-				};
-				
 				exit;
 			}
 		}
@@ -66,8 +60,6 @@ node assistGreetAttempt {
 	
 	transitions
 	{
-		assistHangUp: goto @exit on #messageHasIntent("bye");
-		assistMessageForward: goto @exit on timeout 30000;
 		idleGreetAttempt: goto assistGreetAttempt on timeout 7500;
 	}
 }
