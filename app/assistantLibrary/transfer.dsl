@@ -5,7 +5,7 @@ digression digTransfer
 	conditions { on #messageHasIntent("transfer"); }
 	do
 	{
-		#log("transferring to " + $number)
+		#log("transferring to " + $forward)
 		if ($forward is not null)
 		{
 			#say("digTransfer");
