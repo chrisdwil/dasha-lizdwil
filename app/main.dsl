@@ -39,7 +39,7 @@ node assistGreetAttempt {
 		}
 		else
 		{	
-			if ((attemptCur < attemptMax))
+			if ((attemptCur <= attemptMax))
 			{
 				#say("assistGreetRepeat", interruptible: true);
 			}
