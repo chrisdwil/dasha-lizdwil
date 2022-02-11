@@ -38,9 +38,9 @@ node assistGreetAttempt {
 			set attemptRepeat = true;
 		}
 		
-		if (!attemptTimeOut && (attemptRepeat == true))
+		if (!#waitForSpeech(attemptTimeOut) && (attemptRepeat))
 		{
-			#say("assistGreetRepeat",interruptible);
+			#say("assistGreetRepeat");
 			wait *;
 		}
 	}
