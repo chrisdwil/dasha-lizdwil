@@ -36,7 +36,10 @@ commander
     app.queue.on("ready", async (id, conv, info) => {
       if (info.sip !== undefined)
         console.log(`Captured sip call: ${JSON.stringify(info.sip)}`);
-      conv.input = { phone: "", forward: forward ?? null };
+      sprint = false;
+      if (JSON.stringify(info.sip).includes("sip:+12817829187"))
+        sprint = true;      
+      conv.input = { phone: "", forward: forward ?? null, sprint: sprint };
       if (verbose === true) {
         conv.on("debugLog", console.log);
       }

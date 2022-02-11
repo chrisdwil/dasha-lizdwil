@@ -7,23 +7,23 @@ digression digTransfer
 	{
 		if ($forward is not null)
 		{
-			#say("digTransfer");
-			wait *;
-			#sayText("it appears he's unavailable, you'll have to try again later");
+			if ($sprint) 
+			{
+				#sayText("it appears he's unavailable, you'll have to try again later");
+				return;
+			}
+			else
+			{
+				#sayText("Hold a moment while I transfer you.");
+				#forward($forward);
+				#disconnect;
+				exit;
+			}
 		}
 		return;
 	}
 	transitions
 	{
 		digTransferTimeout: goto digTransferUnavailable on timeout 8000;
-	}
-}
-
-node digTransferUnavailable
-{
-	do
-	{
-		#disconnect();
-		exit;
 	}
 }
