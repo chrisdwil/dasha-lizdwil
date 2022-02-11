@@ -25,19 +25,19 @@ node assistGreetAttempt {
 	do
 	{
 		var logNodeName: string = "assistGreetAttempt";
-		var assistGreetAttemptCur: number = 0;
-		var assistGreetAttemptMax: number = 3;
-		var assistGreetAttemptRepeat: boolean = false;
-		#log(logNodeName + "---"+ "initializing");
+		var AttemptCur: number = 0;
+		var AttemptMax: number = 3;
+		var AttemptRepeat: boolean = false;
+		#log(logNodeName + " --- " + AttemptCur?.string + " Attempt(s)");
 		
-		set assistGreetAttemptCur += 1;
+		set AttemptCur += 1;
 
-		if (assistGreetAttemptCur > 0)
+		if (AttemptCur > 0)
 		{
-			if (!assistGreetAttemptRepeat)
+			if (!AttemptRepeat)
 			{
 				#say("assistGreetAttempt");
-				set assistGreetAttemptRepeat = true;
+				set AttemptRepeat = true;
 			}
 			else
 			{
