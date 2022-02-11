@@ -5,10 +5,6 @@ context {
 	input phone: string;
 	input forward: string? = null;
 	
-	assistGreetAttemptCur: number = 0;
-	assistGreetAttemptMax: number = 3;
-	assistGreetAttemptRepeat: boolean = false;
-	
 	currentSentiment: string = "positive";
 }
 
@@ -28,14 +24,18 @@ start node assist {
 node assistGreetAttempt {
 	do
 	{
-		$assistGreetAttemptCur+=1;
+		var assistGreetAttemptCur: number = 0;
+		var assistGreetAttemptMax: number = 3;
+		var assistGreetAttemptRepeat: boolean = false;
+		
+		set assistGreetAttemptCur += 1;
 
-		if (!$assistGreetRepeat)
+		if (!assistGreetRepeat)
 		{
 			#say("assistGreetAttempt");
-			$assistGreetRepeat = true;
+			set assistGreetRepeat = true;
 		}
-		else if ($assistGreetAttemptCur > $assistGreetAttemptMax)
+		else if (assistGreetAttemptCur > assistGreetAttemptMax)
 		{
 			#sayText("Good bye");
 			exit;
@@ -43,11 +43,6 @@ node assistGreetAttempt {
 		else
 		{
 			#say("assistGreetRepeat");
-		}
-
-		if ($assistGreetAttemptCur > $assistGreetAttemptMax) 
-		{
-
 		}
 			
 		wait *;
