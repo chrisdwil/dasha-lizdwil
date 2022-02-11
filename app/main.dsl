@@ -56,7 +56,8 @@ node assistGreetAttempt {
 				#sayText("Are you sure you want to continue this call?");
 				wait
 				{
-					assistGreetHangUp
+					assistGreetHangUpYes
+					assistGreetHangUpNo
 					idleHangUp
 				};
 			}
@@ -83,6 +84,7 @@ node assistGreetAttempt {
 	transitions
 	{
 		assistGreetHangUp: goto assistGreetAttempt on #messageHasSentiment("positve");
+		assistGreetHangUp: goto @exit on timeout 1000;
 		callHangUp: goto @exit on #messageHasIntent("bye");
 		idleHangUp: goto @exit on timeout 1000;
 		idleGreetAttempt: goto assistGreetAttempt on timeout 8500;
