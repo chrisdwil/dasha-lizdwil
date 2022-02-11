@@ -35,8 +35,9 @@ node assistGreetAttempt {
 		if (attemptCur < 2)
 		{
 			#say("assistGreetAttempt", interruptible: true, options: { emotion: "from text: i love you" });
+			wait *;
 		}
-		else 
+		else
 		{	
 			if ((attemptCur < attemptMax))
 			{
@@ -45,12 +46,12 @@ node assistGreetAttempt {
 			else
 			{
 				#say("assistGreetExplain", options: { emotion: "positive", speed: 0.7 });
-				$setcallMood = "confusion";
+				set $callMood = "confusion";
 			}
 				
 			if ((attemptCur > attemptMax) && ($callMood == "confusion"))
 			{
-				say("assistHangUpPrep");
+				#say("assistGreetHangUpPrep");
 				exit;
 			}
 		}
