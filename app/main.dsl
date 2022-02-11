@@ -12,7 +12,7 @@ context {
 start node assist {
 	do
 	{	
-		#connectSafe($phone);
+		#connect($phone);
 		wait *;
 	}
 	

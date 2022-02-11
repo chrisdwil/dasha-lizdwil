@@ -8,7 +8,7 @@ digression digTransfer
 		if ($forward is not null)
 		{
 			#say("digTransfer");
-			#connectSafe($forward);
+			#connect($forward);
 			#sayText("Hey Chris do you want to this call?");
 			wait *;
 		}
