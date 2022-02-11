@@ -15,7 +15,7 @@ start node assist {
 	{	
 		#connect($phone);
 		wait {
-			idleGreetAttempt;
+			idleGreetAttempt
 		};
 	}
 	
