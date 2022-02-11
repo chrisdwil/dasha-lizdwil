@@ -83,7 +83,7 @@ node assistGreetAttempt {
 	
 	transitions
 	{
-		assistGreetHangUp: goto assistGreetAttempt on #messageHasSentiment("positve");
+		assistGreetHangUp: goto assistGreetAttempt on #messageHasSentiment("positive");
 		assistGreetHangUp: goto @exit on timeout 1000;
 		callHangUp: goto @exit on #messageHasIntent("bye");
 		idleHangUp: goto @exit on timeout 1000;
