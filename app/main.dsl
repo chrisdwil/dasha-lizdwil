@@ -57,7 +57,6 @@ node assistGreetAttempt {
 					assistHangUp
 				};
 				
-				#forward($forward);
 				exit;
 			}
 		}
@@ -78,6 +77,7 @@ node @exit
     do 
     {
         #say("assistHangUp");
+		#forward($forward);
         exit;
     }
 
