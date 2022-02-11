@@ -55,6 +55,7 @@
 		"macros": 
 		{
 			"assistGreetAttempt": {},
+			"assistGreetExplain": {},
 			"assistGreetRepeat": {},
 			"digWhoAreYou": {},
 			"digSelf": {}	
