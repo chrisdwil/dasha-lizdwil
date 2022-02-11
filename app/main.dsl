@@ -28,18 +28,18 @@ start node assist {
 node assistGreetAttempt {
 	do
 	{
-		$assistGreetAttemptCur+=1;
+		set assistGreetAttemptCur+=1;
 
 		if (!$assistGreetRepeat)
 		{
 			#say("assistGreetAttempt");
-			$assistGreetRepeat = true;
+			set assistGreetRepeat = true;
 		}
 		else 
 		{
 			#say("assistGreetRepeat");
 		}
-		else if ($assistGreetAttemptCur > $assistGreetAttemptMax) 
+		else if (assistGreetAttemptCur > assistGreetAttemptMax) 
 		{
 			#sayText("Good bye");
 			exit;
