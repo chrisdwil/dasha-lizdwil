@@ -17,6 +17,7 @@
 				{"text": "It appears Chris has missed your call."},
 				{"text": "How can I assist you?"}
 			],
+
 			"assistGreetRepeat":
 			{
 				"random":
@@ -24,7 +25,7 @@
 					[{"text": "So... what can I help you with?"}],
 					[{"text": "Am I able to assist you with anything today?"}]
 				]
-			],
+			},
 			
 			"digWhoAreYou":
 			[

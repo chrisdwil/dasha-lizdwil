@@ -32,11 +32,11 @@ node assistGreetAttempt {
 
 		if (attemptCur < 2)
 		{
-			#say("assistGreetAttempt");
+			#say("assistGreetAttempt",interruptable);
 		}
 		else  
 		{
-			#say("assistGreetRepeat");
+			#say("assistGreetRepeat",interruptable);
 		}
 			
 		wait *;
