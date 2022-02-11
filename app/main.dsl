@@ -34,7 +34,7 @@ node assistGreetAttempt {
 
 		if (attemptCur < 2)
 		{
-			#say("assistGreetAttempt", interruptible: true, options { emotion: "from text: i love you" });
+			#say("assistGreetAttempt", interruptible: true, options: { emotion: "from text: i love you" });
 		}
 		else 
 		{

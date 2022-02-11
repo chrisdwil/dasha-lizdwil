@@ -1,4 +1,24 @@
 {
+	"phraseTemplates":
+	{
+			"notes": {"text": "this is for being able to copy paste quickly"},
+			"saySingleLine": {"text": "So how may I help you, today?"},
+			"sayTextInOrder": 
+			[
+				{"text": "counting to 2" },
+				{"text": "1"},
+				{"text": "2"}
+			],
+			"sayRandomText":
+			{
+				"random":
+				[
+					[{"text": "I may say this..."}],
+					[{"text": "Or this..."}],
+					[{"text": "Maybe this, you never know."}]
+				]
+			}			
+	},
 	"default": 
 	{
 		"voiceInfo": 
@@ -8,7 +28,7 @@
 			"speed": 1.0,
 			"variation": 5
 		},
-		
+				
 		"phrases": 
 		{
 			"assistGreetAttempt": 
@@ -62,7 +82,7 @@
 					[{"text": "Wonderful,,,, plus my boss just gave me a promotion recently."}],
 					[{"text": "I'm fantastic today, plus the weather has been so nice."}]
 				]
-			},	
+			},
 			
 			"digWhoAreYou":
 			[
