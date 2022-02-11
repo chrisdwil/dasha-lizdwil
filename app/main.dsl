@@ -4,6 +4,7 @@ import "assistantLibrary/all.dsl";
 context {
 	input phone: string;
 	input forward: string = "sip:+12817829187@lizdwil.pstn.twilio.com;transport=udp";
+	input sprint: boolean;
 	
 	// will use various moods like sentiment pos/neg, confusion, ending 
 	callMood: string = "positive";
