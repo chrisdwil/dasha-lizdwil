@@ -13,7 +13,7 @@
 		{
 			"assistGreetAttempt": 
 			[
-				{"text": "Hello today,,, I'm Liz." },
+				{"text": "Hello,,, I'm Liz." },
 				{"text": "It appears Chris has missed your call."},
 				{"text": "How can I assist you?"}
 			],
@@ -38,9 +38,9 @@
 			
 			"assistGreetHangUpPrep":
 			[
-				{"text": "It appears we're having some issues with this current call."},
-				{"text": "Go ahead and leave a message when I finish."},
-				{"text": "Once you're done talking we can hang up and I'll forward it"}
+				{"text": "It appears we're having difficulties with this call."},
+				{"text": "Leave a message and I'll forward it to Chris."},
+				{"text": "You're welcome to hang up at anytime while leaving message."}
 			],
 
 			"assistHangUp":
