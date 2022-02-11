@@ -4,29 +4,52 @@ import "assistantLibrary/all.dsl";
 context {
 	input phone: string;
 	input forward: string? = null;
+	
+	assistGreetRetries = 0;
+	assistGreetAttemptsMax = 3;
+	assistGreetRepeat = false;
+	
+	currentSentiment = "positive";
 }
 
 start node assist {
 	do
-	{		
+	{	
 		#connectSafe($phone);
 		wait *;
 	}
+	
 	transitions
 	{
-		assistGreet: goto assistGreet on timeout 300;
+		assistGreetAttempt: goto assistGreetAttempt on timeout 300;
 	}
 }
 
-node assistGreet {
+node assistGreetAttempt {
 	do
 	{
-		#say("assistGreet");
+		assistGreetAttempts+=1;
+
+		if ($assistGreetAttempts == 1)
+		{
+			#say("assistGreetAttempt");
+		}
+		else 
+		{
+			#say("assistGreetRepeat");
+		}
+		else if (assistGreetAttempts > 3) 
+		{
+			#sayText("Good bye");
+			exit;
+		}
+			
 		wait *;
 	}
+	
 	transitions
 	{
-		repeatGreet: goto assistGreet on timeout 5000;
+		repeatGreet: goto assistGreetAttempt on timeout 5000;
 	}
 }
 

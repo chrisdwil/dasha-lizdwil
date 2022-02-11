@@ -11,11 +11,15 @@
 		
 		"phrases": 
 		{
-			"assistGreet": 
+			"assistGreetAttempt": 
 			[
 				{"text": "Hello today, I'm Liz." },
 				{"text": "It appears Chris has missed your call."},
 				{"text": "How can I assist you?"}
+			],
+			"assistGreetRepeat":
+			[
+				{"text": "So... what can I help you with?"}
 			],
 			
 			"digWhoAreYou":
@@ -31,14 +35,15 @@
 					[{"text": "I'm Liz Wil, the one and only. Of course." }],
 					[{"text": "I'm Liz Dee, having fun yet?" }]
 				]
-			}
-				
+			}	
 		},
 
 		"macros": 
 		{
-			"assistGreet": {},
-			"digWhoAreYou": {}		
+			"assistGreetAttempt": {},
+			"assistGreetRepeat": {},
+			"digWhoAreYou": {},
+			"digSelf": {}	
 		}
 	}
 }
