@@ -14,7 +14,9 @@ start node assist {
 	do
 	{	
 		#connect($phone);
-		wait *;
+		wait {
+			idleGreetAttempt;
+		};
 	}
 	
 	transitions
@@ -36,7 +38,9 @@ node assistGreetAttempt {
 		if (attemptCur < 2)
 		{
 			#say("assistGreetAttempt", interruptible: true, options: { emotion: "from text: i love you" });
-			wait *;
+			wait {
+				idleGreetAttempt
+			};
 		}
 		else
 		{	
@@ -60,7 +64,9 @@ node assistGreetAttempt {
 			}
 		}
 
-		wait *;
+		wait {
+			idleGreetAttempt
+		};
 	}
 	
 	transitions
