@@ -16,12 +16,20 @@
 				{"text": "Hello today, I'm Liz." },
 				{"text": "It appears Chris has missed your call."},
 				{"text": "How can I assist you?"}
+			],
+			
+			"digWhoAreYou":
+			[
+				{"text": "Oh, hi, my name is Liz D. Wil, you can call me Liz."},
+				{"text": "I'm Chris'z personal assistant."},
+				{"text": "How can he help you today?"}
 			]	
 		},
 
 		"macros": 
 		{
-			"assistGreet": {}			
+			"assistGreet": {},
+			"digWhoAreYou": {}		
 		}
 	}
 }
