@@ -9,6 +9,7 @@ digression digTransfer
 		{
 			#say("digTransfer");
 			#forward($forward);
+			exit;
 		}
 		wait *;
 		return;
