@@ -35,14 +35,19 @@ node assistGreetAttempt {
 			#say("assistGreetAttempt");
 			set assistGreetRepeat = true;
 		}
-		else 
-		{
-			#say("assistGreetRepeat");
-		}
-		else if (assistGreetAttemptCur > assistGreetAttemptMax) 
+		else if (assistGreetAttemptCur > assistGreetAttemptMax)
 		{
 			#sayText("Good bye");
 			exit;
+		}
+		else
+		{
+			#say("assistGreetRepeat");
+		}
+
+		if (assistGreetAttemptCur > assistGreetAttemptMax) 
+		{
+
 		}
 			
 		wait *;
