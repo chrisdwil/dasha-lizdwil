@@ -1,3 +1,3 @@
 library
 
-import "whoAreYou.dsl";
+import "identity.dsl";

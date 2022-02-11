@@ -9,6 +9,16 @@
 				"huh, who is"
 				]
 			},
+			
+		"self": {
+			"includes": [
+				"your name was",
+				"repeat your name",
+				"your name",
+				"your name again",
+				"say your name"
+				]
+			},
 		
 		"transfer": {
 	      	"includes": [

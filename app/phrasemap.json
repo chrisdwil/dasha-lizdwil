@@ -21,9 +21,18 @@
 			"digWhoAreYou":
 			[
 				{"text": "Oh, hi, my name is Liz D. Wil, you can call me Liz."},
-				{"text": "I'm Chris'z personal assistant."},
-				{"text": "How can he help you today?"}
-			]	
+				{"text": "I'm Chris'z personal assistant."}
+			]
+			
+			"digSelf": 
+			{
+				"random":
+				[
+					[{"text": "I'm Liz Wil, the one and only. Of course." }],
+					[{"text": "I'm Liz Dee, having fun yet?" }]
+				]
+			}
+				
 		},
 
 		"macros": 
