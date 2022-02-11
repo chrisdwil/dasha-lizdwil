@@ -8,8 +8,16 @@ digression digTransfer
 		if ($forward is not null)
 		{
 			#say("digTransfer");
-			#forward($forward);
+			#connectSafe($forward);
+			#sayText("Hey Chris do you want to this call?");
+			wait *;
 		}
 		return;
 	}
+	transitions
+	{
+		digTransferTimeout: goto digTransferUnavailable on timeout 5000;
+	}
 }
+
+node digTransferUnavailable
