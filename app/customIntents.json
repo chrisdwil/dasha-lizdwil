@@ -4,8 +4,8 @@
 		"who_are_you": {
 			"includes": [
 				"who is",
-				"hello, who is",
-				"hi, who is",
+				"who are",
+				"you are who",
 				"huh, who is",
 				"who are you",
 				"so who are",
@@ -20,7 +20,10 @@
 				"repeat your name",
 				"your name",
 				"your name again",
-				"say your name"
+				"say your name",
+				"i need your need",
+				"what did your mom name you",
+				"on your birth certificate",
 				]
 			},
 		
@@ -31,6 +34,7 @@
 		        "connect my",
 		        "I'm looking",
 		        "want to talk",
+		        "where's Chris",
 		        "Is Chris available?",
 		        "Is Chris around?"
 		        ]
