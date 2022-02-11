@@ -84,6 +84,13 @@
 					[{"text": "I'm Liz Dee, L O L, having fun yet?" }]
 				]
 			},
+			
+			"digTransfer": 
+			[
+				{"text": "Okay, I'm unsure if he's available but I'll check" },
+				{"text": "Please hold a moment."}
+			],			
+			
 			"saySingleLine": {"text": "So how may I help you, today?"},
 			"sayTextInOrder": 
 			[
@@ -113,6 +120,7 @@
 			"digHowAreYouReturn": {},
 			"digWhoAreYou": {},
 			"digSelf": {},
+			"digTransfer": {},
 			"saySingleLine": {},
 			"sayTextInOrder": {},
 			"sayRandomText": {}
