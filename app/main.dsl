@@ -28,26 +28,26 @@ node assistGreetAttempt {
 		var logNodeName: string = "assistGreetAttempt";
 		var attemptCur: number = #getVisitCount(logNodeName);
 		var attemptMax: number = 3;
-		var attemptTimeOut: number = 1500;
+		var attemptTimeOut: number = 500;
 		
 		#log(logNodeName + " --- " + #stringify(attemptCur) + " Attempt(s)");
 
 		if ((attemptCur < 2) && !#waitForSpeech(attemptTimeOut))
 		{
-			#say("assistGreetAttempt");
+			#say("assistGreetAttempt", interruptible: true);
 		}
 
 		if ((attemptCur < attemptMax) && !#waitForSpeech(attemptTimeOut))
 		{
-			#say("assistGreetRepeat");
+			#say("assistGreetRepeat", interruptible: true);
 		}
 		
 		if ((attemptCur == attemptMax))
 		{
-			#say("assistGreetExplain", options: { speed: 0.7 });
+			#say("assistGreetExplain", interruptible: true, options: { emotion: speed: 0.7 });
 		}
 
-		if ((attemptCur >= attemptMax))
+		if ((attemptCur > attemptMax))
 		{
 			#sayText("I'm sorry, it appears we're having issues with our call");
 			#sayText("You're welcome to try him again later.");

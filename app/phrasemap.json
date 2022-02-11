@@ -13,7 +13,7 @@
 		{
 			"assistGreetAttempt": 
 			[
-				{"text": "Hello today, I'm Liz." },
+				{"text": "Hello today,,, I'm Liz." },
 				{"text": "It appears Chris has missed your call."},
 				{"text": "How can I assist you?"}
 			],
@@ -24,7 +24,7 @@
 				{"text": "Check if Chris is available or..."},
 				{"text": "Transfer your call..."},
 				{"text": "I can even take messages..."},
-				{"text": "Also,,, you can try again later....."}							
+				{"text": "Also,,, you can try again later, if you prefer....."}							
 			],
 
 			"assistGreetRepeat":
@@ -47,7 +47,7 @@
 				"random":
 				[
 					[{"text": "I'm Liz Wil, the one and only. Of course." }],
-					[{"text": "I'm Liz Dee, having fun yet?" }]
+					[{"text": "I'm Liz Dee, L O L, having fun yet?" }]
 				]
 			}	
 		},
