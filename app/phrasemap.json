@@ -5,8 +5,8 @@
 		{
 			"lang": "en-US",
 			"speaker": "default",
-			"speed": 1.1,
-			"variation": 5
+			"speed": 1.0,
+			"variation": 8
 		},
 		
 		"phrases": 
@@ -18,13 +18,17 @@
 				{"text": "How can I assist you?"}
 			],
 			"assistGreetRepeat":
-			[
-				{"text": "So... what can I help you with?"}
+			{
+				"random":
+				[
+					[{"text": "So... what can I help you with?"}],
+					[{"text": "Am I able to assist you with anything today?"}]
+				]
 			],
 			
 			"digWhoAreYou":
 			[
-				{"text": "Oh, hi, my name is Liz D. Wil, you can call me Liz."},
+				{"text": "Oh, hi, my name is Liz D Wil, you can call me Liz."},
 				{"text": "I'm Chris'z personal assistant."}
 			],
 			
