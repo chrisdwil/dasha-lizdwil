@@ -9,8 +9,6 @@ digression digTransfer
 		{
 			#say("digTransfer");
 			#forward($forward);
-			wait *;
-			#sayText("It appears he's unavailable.");
 		}
 		return;
 	}
