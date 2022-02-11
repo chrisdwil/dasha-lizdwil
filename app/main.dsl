@@ -67,8 +67,8 @@ node assistGreetAttempt {
 	
 	transitions
 	{
-		assistHangUp: goto exit on #messageHasIntent("bye");
-		assistMessageForward: goto exit on timeout 30000;
+		assistHangUp: goto @exit on #messageHasIntent("bye");
+		assistMessageForward: goto @exit on timeout 30000;
 		idleGreetAttempt: goto assistGreetAttempt on timeout 7500;
 	}
 }
