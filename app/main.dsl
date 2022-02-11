@@ -27,13 +27,14 @@ node assistGreetAttempt {
 		var assistGreetAttemptCur: number = 0;
 		var assistGreetAttemptMax: number = 3;
 		var assistGreetAttemptRepeat: boolean = false;
+		#log ("*** assistGreetAttempt ***" + assistGreetAttemptCur as string);
 		
 		set assistGreetAttemptCur += 1;
 
-		if (!assistGreetRepeat)
+		if (!assistGreetAttemptRepeat)
 		{
 			#say("assistGreetAttempt");
-			set assistGreetRepeat = true;
+			set assistGreetAttemptRepeat = true;
 		}
 		else if (assistGreetAttemptCur > assistGreetAttemptMax)
 		{
