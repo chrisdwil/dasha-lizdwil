@@ -24,10 +24,14 @@ start node assist {
 node assistGreetAttempt {
 	do
 	{
-		var logNodeName: string = "assistGreetAttempt";
-		var attemptCur: number = 0;
-		var attemptMax: number = 3;
-		var attemptRepeat: boolean = false;
+		if (#getVisitCount < 2)
+		{
+			var logNodeName: string = "assistGreetAttempt";
+			var attemptCur: number = 0;
+			var attemptMax: number = 3;
+			var attemptRepeat: boolean = false;
+		}
+		
 		set attemptCur += 1;
 		#log(logNodeName + " --- " + #stringify(attemptCur) + " Attempt(s)");
 
