@@ -1,6 +1,15 @@
 {
   "version": "v2",
   "intents": {
+		"who_are_you": {
+			"includes": [
+				"who is",
+				"hello, who is",
+				"hi, who is",
+				"huh, who is"
+				]
+			},
+		
 		"transfer": {
 	      	"includes": [
 		        "transfer me",
