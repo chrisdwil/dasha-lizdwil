@@ -51,7 +51,7 @@ node assistGreetAttempt {
 				#say("assistGreetExplain", options: { emotion: "positive", speed: 0.7 });
 			}
 
-			if (attemptCur > max)
+			if (attemptCur > attemptMax)
 			{
 				#sayText("Are you sure you want to continue this call?");
 				wait
