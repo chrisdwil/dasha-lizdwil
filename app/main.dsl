@@ -25,19 +25,18 @@ node assistGreetAttempt {
 	do
 	{
 		var logNodeName: string = "assistGreetAttempt";
-		var AttemptCur: number = 0;
-		var AttemptMax: number = 3;
-		var AttemptRepeat: boolean = false;
-		#log(logNodeName + " --- " + AttemptCur?.string + " Attempt(s)");
-		
-		set AttemptCur += 1;
+		var attemptCur: number = 0;
+		var attemptMax: number = 3;
+		var attemptRepeat: boolean = false;
+		set attemptCur += 1;
+		#log(logNodeName + " --- " + #stringify(attemptCur) + " Attempt(s)");
 
-		if (AttemptCur > 0)
+		if (attemptCur >= 1)
 		{
-			if (!AttemptRepeat)
+			if (!attemptRepeat)
 			{
 				#say("assistGreetAttempt");
-				set AttemptRepeat = true;
+				set attemptRepeat = true;
 			}
 			else
 			{
