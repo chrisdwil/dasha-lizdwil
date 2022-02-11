@@ -38,8 +38,8 @@
 			
 			"assistGreetHangUpPrep":
 			[
-				{"text": "Oh, hi, my name is Liz D Wil, you can call me Liz."},
-				{"text": "I'm Chris'z personal assistant."}
+				{"text": "It appears we're having some issues with this current call."},
+				{"text": "You can try back again anytime, I'm always here to assist."}
 			],
 
 			"assistHangUp":
@@ -51,6 +51,16 @@
 					[{"text": "Good Bye."}],
 					[{"text": "Catch you later."}],
 					[{"text": "Bye Now."}]
+				]
+			},	
+			
+			"digHowAreYou":
+			{
+				"random":
+				[
+					[{"text": "I'm doing great today, I hope you are as well."}],
+					[{"text": "Wonderful,,,, plus my boss just gave me a promotion recently."}],
+					[{"text": "I'm fantastic today, plus the weather has been so nice."}]
 				]
 			},	
 			
@@ -67,7 +77,7 @@
 					[{"text": "I'm Liz Wil, the one and only. Of course." }],
 					[{"text": "I'm Liz Dee, L O L, having fun yet?" }]
 				]
-			}	
+			}
 		},
 
 		"macros": 
@@ -77,6 +87,7 @@
 			"assistGreetRepeat": {},
 			"assistGreetHangUpPrep": {},
 			"assistHangUp": {},
+			"digHowAreYou": {},
 			"digWhoAreYou": {},
 			"digSelf": {}	
 		}

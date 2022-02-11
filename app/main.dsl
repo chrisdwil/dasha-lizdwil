@@ -32,9 +32,9 @@ node assistGreetAttempt {
 		
 		#log(logNodeName + " --- " + #stringify(attemptCur) + " Attempt(s)");
 
-		if ((attemptCur < 2) && !#waitForSpeech(attemptTimeOut))
+		if (attemptCur < 2)
 		{
-			#say("assistGreetAttempt", interruptible: true);
+			#say("assistGreetAttempt", interruptible: true, options { emotion: "from text: i love you" });
 		}
 		else 
 		{
