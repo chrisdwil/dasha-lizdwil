@@ -14,8 +14,7 @@
 			"helloStart": 
 			[
 				{"text": "Hello I'm Chris'sz assistant." },
-				{"text": "My name is Liz D Wil."},
-				{"text": "Are you having a good day today?"}
+				{"text": "My name is Liz D Wil."}
 			],
 
 			"helloRepeat":

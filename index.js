@@ -18,6 +18,7 @@ commander
       conv.on("debugLog", console.log);
     }
     conv.audio.tts = "dasha";
+    conv.audio.noiseVolume = 0.1;
     conv.sip.config = config;
     await conv.execute();
 
