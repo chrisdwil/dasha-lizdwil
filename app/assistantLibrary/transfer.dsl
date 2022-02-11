@@ -21,3 +21,9 @@ digression digTransfer
 }
 
 node digTransferUnavailable
+{
+	do
+	{
+		
+	}
+}
