@@ -5,7 +5,8 @@ context {
 	input phone: string;
 	input forward: string? = null;
 	
-	currentSentiment: string = "positive";
+	// will use various moods like sentiment pos/neg, confused later
+	callerMood: string = "positive";
 }
 
 start node assist {
@@ -27,19 +28,18 @@ node assistGreetAttempt {
 		var logNodeName: string = "assistGreetAttempt";
 		var attemptCur: number = #getVisitCount(logNodeName);
 		var attemptMax: number = 3;
-		var attemptRepeat: boolean = false;
 		var attemptTimeOut: number = 1500;
 		
 		#log(logNodeName + " --- " + #stringify(attemptCur) + " Attempt(s)");
 
-		if (!attemptRepeat)
+		if (attemptCur < 2)
 		{
 			#say("assistGreetAttempt");
-			set attemptRepeat = true;
 		}
-		
-		if (!#waitForSpeech(attemptTimeOut) && (attemptRepeat))
+
+		if ((attemptCur < attemptMax) && (!#waitForSpeech(attemptTimeout)
 		{
+			#say("assistGreetExplain");
 			#say("assistGreetRepeat");
 			wait *;
 		}

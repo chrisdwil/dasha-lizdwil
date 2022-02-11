@@ -17,6 +17,15 @@
 				{"text": "It appears Chris has missed your call."},
 				{"text": "How can I assist you?"}
 			],
+			
+			"assistGreetExplain": 
+			[
+				{"text": "Things I can assist with are"},
+				{"text": "Check if Chris is available"},
+				{"text": "Transfer your call"},
+				{"text": "Take a message"},
+				{"text": "Or you can try again later."}							
+			],
 
 			"assistGreetRepeat":
 			{
@@ -25,7 +34,7 @@
 					[{"text": "So... what can I help you with?"}],
 					[{"text": "Am I able to assist you with anything today?"}]
 				]
-			},
+			},			
 			
 			"digWhoAreYou":
 			[
