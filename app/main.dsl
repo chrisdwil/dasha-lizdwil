@@ -38,19 +38,19 @@ node assistGreetAttempt {
 		}
 		else 
 		{	
-			if ((attemptCur < attemptMax) && ($callMood == "positive"))
+			if ((attemptCur < attemptMax))
 			{
 				#say("assistGreetRepeat", interruptible: true);
 			}
-			
-			if (attemptCur == attemptMax)
+			else
 			{
 				#say("assistGreetExplain", options: { emotion: "positive", speed: 0.7 });
-				set $callMood = "confusion";
+				$setcallMood = "confusion";
 			}
-	
+				
 			if ((attemptCur > attemptMax) && ($callMood == "confusion"))
 			{
+				say("assistHangUpPrep");
 				exit;
 			}
 		}
