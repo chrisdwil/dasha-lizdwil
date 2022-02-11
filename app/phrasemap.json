@@ -11,77 +11,17 @@
 		
 		"phrases": 
 		{
-			"helloStart": 
+			"assistGreet": 
 			[
-				{"text": "Hello I'm Chris'sz assistant." },
-				{"text": "My name is Liz D Wil."}
-			],
-
-			"helloRepeat":
-			{
-				"random":
-				[
-					[{"text": "I'm not sure I got that, are you having an oh-kay day?" }],
-					[{"text": "Were you able to hear my question clearly?" }],
-					[{"text": "Are you able to repeat that again?"}],
-					[{"text": "You may need to talk louder or more clearly"}]
-				]
-			},
-			
-			"helloRespondStart": {"text": "So how may I help you, today?"},
-			
-			"helloRespondPositive":
-			{
-				"random":
-				[
-					[{"text": "That's wonderful, I'm doing great myself today." }],
-					[{"text": "Nice! I'm enjoying the weather here." }]
-				]
-			},
-			
-			"helloRespondNegative":
-			{
-				"random":
-				[
-					[{"text": "Awwwww, well maybe Chris or I will be able to help." }],
-					[{"text": "Gotch yuh, I'll try to get you where you need A S A P." }]
-				]
-			},
-			
-			"helloRespondConfused": 
-			[
-				{"text": "I'm not sure I understand what you're communicating"},
-				{"text": "But hey I can transfer calls and leave messages for Chris"}
-			],
-
-			"hangUpRandom":
-			{ 
-				"random": 
-				[
-					[{"text": "Good bye!"}],
-					[{"text": "Bye now."}],
-					[{"text": "Have a nice day"}]
-				]
-			},
-			
-			"transferRespondUnavailable": 
-			[
-				{"text": "Unfortunately he's not available."},
-				{"text": "You'll have to try back later."}
+				{"text": "Hello today, I'm Liz." },
+				{"text": "It appears Chris has missed your call."},
+				{"text": "How can I assist you?"}
 			]	
 		},
 
 		"macros": 
 		{
-			"helloStart": {},
-			"helloRepeat": {},
-			"helloRespondStart": {},
-			"helloRespondPositive": {},
-			"helloRespondNegative": {},
-			"helloRespondConfused": {},
-			"hangUpRandom": {},
-			"transferRespondUnavailable": {}
-			
+			"assistGreet": {}			
 		}
 	}
 }
