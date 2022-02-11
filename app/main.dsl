@@ -7,9 +7,9 @@ context {
 	
 	assistGreetAttemptCur: number = 0;
 	assistGreetAttemptMax: number = 3;
-	assistGreetAttemptRepeat: string = false;
+	assistGreetAttemptRepeat: boolean = false;
 	
-	currentSentiment = "positive";
+	currentSentiment: string = "positive";
 }
 
 start node assist {
@@ -28,14 +28,14 @@ start node assist {
 node assistGreetAttempt {
 	do
 	{
-		set assistGreetAttemptCur+=1;
+		$assistGreetAttemptCur+=1;
 
 		if (!$assistGreetRepeat)
 		{
 			#say("assistGreetAttempt");
-			set assistGreetRepeat = true;
+			$assistGreetRepeat = true;
 		}
-		else if (assistGreetAttemptCur > assistGreetAttemptMax)
+		else if ($assistGreetAttemptCur > $assistGreetAttemptMax)
 		{
 			#sayText("Good bye");
 			exit;
@@ -45,7 +45,7 @@ node assistGreetAttempt {
 			#say("assistGreetRepeat");
 		}
 
-		if (assistGreetAttemptCur > assistGreetAttemptMax) 
+		if ($assistGreetAttemptCur > $assistGreetAttemptMax) 
 		{
 
 		}
