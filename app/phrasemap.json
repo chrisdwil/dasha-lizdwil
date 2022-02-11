@@ -1,24 +1,4 @@
 {
-	"phraseTemplates":
-	{
-			"notes": {"text": "this is for being able to copy paste quickly"},
-			"saySingleLine": {"text": "So how may I help you, today?"},
-			"sayTextInOrder": 
-			[
-				{"text": "counting to 2" },
-				{"text": "1"},
-				{"text": "2"}
-			],
-			"sayRandomText":
-			{
-				"random":
-				[
-					[{"text": "I may say this..."}],
-					[{"text": "Or this..."}],
-					[{"text": "Maybe this, you never know."}]
-				]
-			}			
-	},
 	"default": 
 	{
 		"voiceInfo": 
@@ -103,7 +83,23 @@
 					[{"text": "I'm Liz Wil, the one and only. Of course." }],
 					[{"text": "I'm Liz Dee, L O L, having fun yet?" }]
 				]
-			}
+			},
+			"saySingleLine": {"text": "So how may I help you, today?"},
+			"sayTextInOrder": 
+			[
+				{"text": "counting to 2" },
+				{"text": "1"},
+				{"text": "2"}
+			],
+			"sayRandomText":
+			{
+				"random":
+				[
+					[{"text": "I may say this..."}],
+					[{"text": "Or this..."}],
+					[{"text": "Maybe this, you never know."}]
+				]
+			}						
 		},
 
 		"macros": 
@@ -116,7 +112,10 @@
 			"digHowAreYou": {},
 			"digHowAreYouReturn": {},
 			"digWhoAreYou": {},
-			"digSelf": {}	
+			"digSelf": {},
+			"saySingleLine": {},
+			"sayTextInOrder": {},
+			"sayRandomText": {}
 		}
 	}
 }
