@@ -24,26 +24,25 @@ start node assist {
 node assistGreetAttempt {
 	do
 	{
+		var logNodeName: string = "assistGreetAttempt";
 		var assistGreetAttemptCur: number = 0;
 		var assistGreetAttemptMax: number = 3;
 		var assistGreetAttemptRepeat: boolean = false;
-		#log ("*** assistGreetAttempt ***" + assistGreetAttemptCur as string);
+		#log(logNodeName + "---"+ "initializing");
 		
 		set assistGreetAttemptCur += 1;
 
-		if (!assistGreetAttemptRepeat)
+		if (assistGreetAttemptCur > 0)
 		{
-			#say("assistGreetAttempt");
-			set assistGreetAttemptRepeat = true;
-		}
-		else if (assistGreetAttemptCur > assistGreetAttemptMax)
-		{
-			#sayText("Good bye");
-			exit;
-		}
-		else
-		{
-			#say("assistGreetRepeat");
+			if (!assistGreetAttemptRepeat)
+			{
+				#say("assistGreetAttempt");
+				set assistGreetAttemptRepeat = true;
+			}
+			else
+			{
+				#say("assistGreetRepeat");
+			}
 		}
 			
 		wait *;
