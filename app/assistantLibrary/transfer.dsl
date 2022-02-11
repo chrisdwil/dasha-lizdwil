@@ -24,6 +24,7 @@ node digTransferUnavailable
 {
 	do
 	{
-		
+		#disconnect();
+		exit;
 	}
 }
