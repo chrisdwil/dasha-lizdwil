@@ -1,5 +1,5 @@
 // Liz D. Wil
-import "lizdwilReactions/all.dsl";
+import "assistantLibrary/all.dsl";
 
 context {
 	input phone: string;

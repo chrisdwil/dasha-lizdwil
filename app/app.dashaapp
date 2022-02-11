@@ -6,6 +6,7 @@
 	"nlu": {
 		"language": "en-US",
 		"skills": [
+			"common_phrases",
 			"sentiment"
 		],
 		"customIntents": {
