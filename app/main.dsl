@@ -6,8 +6,11 @@ context {
 	input forward: string = "sip:+12817829187@lizdwil.pstn.twilio.com;transport=udp";
 	input sprint: boolean;
 	
-	// will use various moods like sentiment pos/neg, confusion, ending call
 	callMood: string = "positive";
+	callStepsCur: number = 1;
+	callStepsRisk: number = 5;
+	callStepsIdle: number = 0;
+	assistGreetFull: boolean = "true";
 }
 
 start node assist {
@@ -27,67 +30,64 @@ node assistGreetAttempt {
 	do
 	{
 		var logNodeName: string = "assistGreetAttempt";
-		var attemptCur: number = #getVisitCount(logNodeName);
-		var attemptMax: number = 3;
-		var attemptTimeOut: number = 500;
 		
-		#log(logNodeName + " --- " + #stringify(attemptCur) + " Attempt(s)");
+		#log(logNodeName + " --- " + #stringify($callCountSteps) + " Attempt(s)");
 
-		if (attemptCur < 2)
+		if ($assistGreetFull)
 		{
+			set $callStepsCur += 1;
+			
 			#say("assistGreetAttempt", interruptible: true, options: { emotion: "from text: i love you" });
-			wait {
-				idleGreetAttempt
+			wait 
+			{
+				greetAttemptIdle
 			};
 		}
 		else
 		{	
-			if ((attemptCur <= attemptMax))
+			//repeat
+			if (($callMood == "positive") | ($callMood == "negative") | ($callStepsCur == 3)
 			{
-				#say("assistGreetRepeat", interruptible: true);
-			}
-			else
-			{
-				#say("assistGreetExplain", options: { emotion: "positive", speed: 0.7 });
-			}
-
-			if (attemptCur > attemptMax)
-			{
-				#sayText("Are you sure you want to continue this call?");
+				set $callStepsCur += 1;
+				#say("assistGreetRepeat", interruptible: true, options: { emotion: $callMood });
 				wait
 				{
-					assistGreetHangUpYes
-					assistGreetHangUpNo
-					idleHangUp
-				};
+					greetAttemptIdle
+					greetAttemptPos
+					greetAttemptNeg
+				}
 			}
-
-			/*
+			
+			//explanation
 			if ($callMood == "confusion")
 			{
-				#say("assistGreetHangUpPrep");
-				wait 
-				{
-					callHangUp
-					idleHangUp
-				};
-			}
-			*/
-		}
+				#say("assistGreetExplain", options: { emotion: "positive", speed: 0.7 });
+			}	
+		}		
 
 		wait 
 		{
-			idleGreetAttempt
+			greetAttemptIdle
 		};
 	}
 	
 	transitions
 	{
-		assistGreetHangUpYes: goto assistGreetAttempt on #messageHasSentiment("positive");
-		assistGreetHangUpNo: goto @exit on timeout 8500;
-		callHangUp: goto @exit on #messageHasIntent("bye");
-		idleHangUp: goto @exit on timeout 5000;
-		idleGreetAttempt: goto assistGreetAttempt on timeout 8500;
+		greetAttemptIdle: goto assistGreetAttempt on timeout 10000;
+		greetAttemptPos: goto assistGreetAttempt on #messageHasSentimentI"positive");
+		greetAttemptNeg: goto assistGreetAttempt on #messageHasSentimentI"negative");
+	}
+	
+	onexit {
+		greetAttemptIdle: do { set $callStepsIdle += 1 };
+		greetAttemptPos: do 
+		{ 
+			set $callMood = "positive" 
+		};
+		greetAttemptNeg: do 
+		{ 
+			set $callMood = "negative" 
+		};
 	}
 }
 

@@ -34,7 +34,16 @@
 					[{"text": "So... what can I help you with?"}],
 					[{"text": "Am I able to assist you with anything today?"}]
 				]
-			},			
+			},
+			
+			"assistGreetContinue":
+			{
+				"random":
+				[
+					[{"text": "Do you still want to continue with our call?"}],
+					[{"text": "Are you still on the phone?"}]
+				]
+			},						
 			
 			"assistGreetHangUpPrep":
 			[
@@ -81,8 +90,9 @@
 			{
 				"random":
 				[
-					[{"text": "I'm Liz Wil, the one and only. Of course." }],
-					[{"text": "I'm Liz Dee, L O L, having fun yet?" }]
+					[{"text": "I'm Liz Wil, who? the one and only. You can't clone me."}],
+					[{"text": "Of course."}],
+					[{"text": "I'm Liz Dee,,, L O L, having fun yet?" }]
 				]
 			},
 			
