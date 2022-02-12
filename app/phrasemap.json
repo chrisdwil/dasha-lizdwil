@@ -7,7 +7,7 @@
 			"variation": 5
 	},
     "phrases": {		
-			"hello": [{"text":"Hello! "},
+			"hello": [{"text":"Hello! "}],
 			"introduction": {
 				"first": [
 					{"text": "I'm "},
