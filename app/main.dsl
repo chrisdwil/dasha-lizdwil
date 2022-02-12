@@ -31,7 +31,7 @@ node assistGreetAttempt {
 	{
 		var logNodeName: string = "assistGreetAttempt";
 		
-		#log(logNodeName + " mood " + #stringify($callMood) + " Attempt(s)");
+		#log(logNodeName + " mood " + $callMood + " Attempt(s)");
 		#log(logNodeName + " steps " + #stringify($callStepsCur) + " Attempt(s)");
 		#log(logNodeName + " idle" + #stringify($callStepsIdle) + " Attempt(s)");
 		
