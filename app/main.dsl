@@ -74,6 +74,13 @@ node assistGreetAttempt {
 					greetConfusedPos
 					greetConfusedNeg
 				};
+			}
+			
+			//hangup
+			if (($callMood == "hangup") || ($callStepsCur >= 3))
+			{
+				#say("assistGreetHangUpPrep");
+				exit;
 			}	
 		}		
 
