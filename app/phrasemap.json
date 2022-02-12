@@ -5,8 +5,8 @@
 		{
 			"lang": "en-US",
 			"speaker": "default",
-			"speed": 1.0,
-			"variation": 5
+			"speed": 1.2,
+			"variation": 40
 		},
 				
 		"phrases": 
@@ -14,17 +14,8 @@
 			"assistGreetAttempt": 
 			[
 				{"text": "Hello,,, I'm Liz." },
-				{"text": "It appears Chris has missed your call."},
-				{"text": "How can I assist you?"}
-			],
-			
-			"assistGreetExplain": 
-			[
-				{"text": "Things I can assist with are..."},
-				{"text": "Check if Chris is available or..."},
-				{"text": "Transfer your call..."},
-				{"text": "I can even take messages..."},
-				{"text": "Also,,, you can try again later, if you prefer....."}							
+				{"text": "It appears Chrisz.. has missed your call."},
+				{"text": "How are you doing today?"}
 			],
 
 			"assistGreetRepeat":
@@ -35,6 +26,16 @@
 					[{"text": "Am I able to assist you with anything today?"}]
 				]
 			},
+			
+			"assistGreetExplain": 
+			[
+				{"text": "Things I can assist with are..."},
+				{"text": "Check if Chris is available or..."},
+				{"text": "Transfer your call..."},
+				{"text": "In the future I'll be able to send him messages"},
+				{"text": "I promise those to be by text, voice, or paper plane"},
+				{"text": "Also,,, you can try again later, if you prefer....."}							
+			],			
 			
 			"assistGreetContinue":
 			{
@@ -48,8 +49,8 @@
 			"assistGreetHangUpPrep":
 			[
 				{"text": "It appears we're having difficulties with this call."},
-				{"text": "Leave a message and I'll forward it to Chris."},
-				{"text": "You're welcome to hang up at anytime while leaving message."}
+				{"text": "I'm taking down notes and sending them to Chris."},
+				{"text": "However feel free to call back again."}
 			],
 
 			"assistHangUp":
