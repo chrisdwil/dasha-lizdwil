@@ -2,7 +2,7 @@ library
 
 block introduction(): boolean
 {
-	node hello
+	start node hello
 	{
 		do 
 		{
