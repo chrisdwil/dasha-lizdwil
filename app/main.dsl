@@ -52,7 +52,7 @@ node assistGreetAttempt {
 		else
 		{	
 			//repeat
-			if (($callMood == "positive") || ($callMood == "negative") || ($callStepsCur == 3))
+			if ((($callMood == "positive") || ($callMood == "negative")) || ($callStepsCur < 3))
 			{
 				set $callStepsCur += 1;
 				#say("assistGreetRepeat", interruptible: true, options: { emotion: $callMood });
@@ -127,7 +127,7 @@ node @exit
 		#log(logNodeName + " steps " + #stringify($callStepsCur) + " Attempt(s)");
 		#log(logNodeName + " idle " + #stringify($callStepsIdle) + " Attempt(s)");
 		
-		if ($callMood == negative)
+		if ($callMood == "negative")
 		{
 			#log(logNodeName + " call was not rescued");
 		}
