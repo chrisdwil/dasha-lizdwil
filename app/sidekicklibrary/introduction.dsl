@@ -9,6 +9,7 @@ block introduction(): boolean
 			#log($sidekick.name);
 			if ($greetFirst)
 			{
+				set $greeFirst = false;
 				#waitForSpeech(10000);
 				#say("libIntroductionHello", {name: $sidekick.name});
 				wait 
@@ -16,7 +17,9 @@ block introduction(): boolean
 					idleHello
 				};
 			}
+			if (!$greetFirst) {
 			return true;
+			}
 		}
 
 		transitions
