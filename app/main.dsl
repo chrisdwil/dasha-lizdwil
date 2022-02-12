@@ -52,15 +52,12 @@ context {
 start node assist {
 	do
 	{	
-		var x: bool;
-		set x = introduction();
+		introduction();
 		#say("success!");
 		#connect($phone);
 		exit;
 
 	}
-}
-
 
 	transitions
 	{
