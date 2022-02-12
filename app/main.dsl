@@ -52,8 +52,7 @@ start node assist {
 	do
 	{	
 		#connect($phone);
-		introduction($sidekick, true);
-		wait *;
+		hello;
 	}
 	
 	transitions
