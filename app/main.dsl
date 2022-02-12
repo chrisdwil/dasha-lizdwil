@@ -10,7 +10,7 @@ context {
 	callStepsCur: number = 1;
 	callStepsRisk: number = 5;
 	callStepsIdle: number = 0;
-	callRescued: false;
+	callRescued: boolean = false;
 	assistGreetFull: boolean = true;
 }
 
