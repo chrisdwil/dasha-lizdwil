@@ -141,6 +141,7 @@
 	
 		"macros": 
 		{
+			"libIntroductionHello": {},
 			"assistGreetAttempt": {},
 			"assistGreetExplain": {},
 			"assistGreetRepeat": {},
