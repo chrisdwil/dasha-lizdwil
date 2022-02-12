@@ -11,7 +11,7 @@ context {
 	herGender: string = "multibit";
 	myName: string = "Chris D. Wil";
 	myNameNick: string = "Chris Dee";
-	myGender: string "male";
+	myGender: string = "male";
 	
 	callMood: string = "positive";
 	callStepsCur: number = 1;
