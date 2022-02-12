@@ -13,9 +13,10 @@ context {
 	input phone: string;
 	input forward: string = "sip:+12817829187@lizdwil.pstn.twilio.com;transport=udp";
 	input sprint: boolean;
-	
-	assistant: human = [{name: "Liz D. Wil", nick: "Liz", phonetic: "lizzz", gender: "female"}];
-	exec: human = [{name: "Chris D. Wil", nick: "Chris", phonetic: "chris", gender: "male"}]; 
+
+	host: human = [{name: "Chris D. Wil", nick: "Chris", phonetic: "chris", gender: "male"}]; 
+	help: human = [{name: "Liz D. Wil", nick: "Liz", phonetic: "lizzz", gender: "female"}];
+	guest: human;
 	
 	callMood: string = "positive";
 	callStepsCur: number = 1;
