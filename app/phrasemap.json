@@ -12,9 +12,6 @@
 		"phrases": 
 		{	
 			
-			"introduction": [
-				{"id:" : "nickName", "type": "dynamic" }, {"text": " speaking."}
-			],
 			"assistGreetAttempt": 
 			[
 				{"text": "Hello,,, I'm Liz." },
@@ -134,7 +131,6 @@
 	
 		"macros": 
 		{
-			"introduction": {},
 			"assistGreetAttempt": {},
 			"assistGreetExplain": {},
 			"assistGreetRepeat": {},
