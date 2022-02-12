@@ -17,7 +17,7 @@ context {
 	humans: human[] = [
 			{name: "Liz D. Wil", nick: "Liz", phonetic: "lizzz", gender: "female"},
 			{name: "Chris D. Wil", nick: "Chris", phonetic: "chris", gender: "male"}
-	]
+	];
 	
 	callMood: string = "positive";
 	callStepsCur: number = 1;
