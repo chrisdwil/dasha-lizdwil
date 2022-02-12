@@ -9,7 +9,8 @@ digression digTransfer
 		{
 			if ($sprint) 
 			{
-				#sayText("it appears he's unavailable, you'll have to try again later");
+				#say("digTransferCell");
+				exit;
 			}
 			else
 			{

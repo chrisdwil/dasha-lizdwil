@@ -102,6 +102,12 @@
 				{"text": "Hold a moment while I transfer you." },
 				{"text": "It was a pleasure speaking with you."}
 			],			
+
+			"digTransferCell": 
+			[
+				{"text": "I'd love to transfer you but you were forwarded from his cell." },
+				{"text": "I'd give him a try again later or call back some other time."}
+			],	
 			
 			"saySingleLine": {"text": "So how may I help you, today?"},
 			"sayTextInOrder": 
