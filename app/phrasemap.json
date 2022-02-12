@@ -131,7 +131,7 @@
 	
 		"macros": 
 		{
-=			"assistGreetAttempt": {},
+			"assistGreetAttempt": {},
 			"assistGreetExplain": {},
 			"assistGreetRepeat": {},
 			"assistGreetHangUpPrep": {},

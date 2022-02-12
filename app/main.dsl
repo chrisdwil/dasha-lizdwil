@@ -19,9 +19,7 @@ context {
 start node assist {
 	do
 	{	
-		#say("assistGreetAttempt", {name: $name});
 		#connect($phone);	
-		#say("assistGreetAttempt", {name: $name});
 		wait *;
 	}
 	
