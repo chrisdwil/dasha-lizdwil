@@ -52,7 +52,7 @@ start node assist {
 	do
 	{	
 		#connect($phone);
-		$guest = introduction($sidekick, true);
+		introduction($sidekick, true);
 		wait *;
 	}
 	
