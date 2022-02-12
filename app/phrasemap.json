@@ -4,7 +4,7 @@
 		"voiceInfo": 
 		{
 			"lang": "en-US",
-			"speaker": "default",
+			"speaker": "kate",
 			"speed": 1.2,
 			"variation": 40
 		},
@@ -29,12 +29,11 @@
 			
 			"assistGreetExplain": 
 			[
+				{"text": "To further assist, I should share."},
 				{"text": "Things I can assist with are..."},
-				{"text": "Check if Chris is available or..."},
-				{"text": "Transfer your call..."},
-				{"text": "In the future I'll be able to send him messages"},
-				{"text": "I promise those to be by text, voice, or paper plane"},
-				{"text": "Also,,, you can try again later, if you prefer....."}							
+				{"text": "His availability, call transfers..."},
+				{"text": "And soon I'll be able to send him messages"},
+				{"text": "Do you want to continue?"}
 			],			
 			
 			"assistGreetContinue":
