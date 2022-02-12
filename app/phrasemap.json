@@ -1,6 +1,5 @@
 {
-	"default":
-	{
+  "default": {
 		"voiceInfo": 
 		{
 				"lang": "en-US",
@@ -8,10 +7,7 @@
 				"speed": 1.1,
 				"variation": 5
 		},
-	
-		"phrases": 
-		{
-			
+    "phrases": {		
 			"hello": ["Hello! "],
 			"introduction": {
 				"first": [
@@ -24,33 +20,12 @@
 						[{"text": "Yo! It's me..."}, {"id:": "nickName", "type": "dynamic" }]
 					]
 				}
-			},
-			
-			"saySingleLine": {"text": "So how may I help you, today?"},
-			"sayTextInOrder": 
-			[
-				{"text": "counting to 2" },
-				{"text": "1"},
-				{"text": "2"}
-			],
-			
-			"sayRandomText":
-			{
-				"random":
-				[
-					[{"text": "I may say this..."}],
-					[{"text": "Or this..."}],
-					[{"text": "Maybe this, you never know."}]
-				]
-			}						
-		},
-	
-		"macros": 
-		{
-			"hello": {},
-			"saySingleLine": {},
-			"sayTextInOrder": {},
-			"sayRandomText": {}
-		}
-	}
+			}
+    },
+    "macros": {
+      "hello": {}
+    }
+  }
 }
+  
+
