@@ -41,7 +41,7 @@ node assistGreetAttempt {
 			set $assistGreetFull = false;
 			set $callStepsCur += 1;
 			
-			#say("assistGreetAttempt", interruptible: true, options: { emotion: "from text: i love you" });
+			#say("assistGreetAttempt", interruptible: true);
 			wait 
 			{
 				greetAttemptIdle
@@ -55,7 +55,7 @@ node assistGreetAttempt {
 			if ((($callMood == "positive") || ($callMood == "negative")) || ($callStepsCur < 3))
 			{
 				set $callStepsCur += 1;
-				#say("assistGreetRepeat", interruptible: true, options: { emotion: $callMood });
+				#say("assistGreetRepeat", interruptible: true);
 				wait
 				{
 					greetAttemptIdle
@@ -67,7 +67,7 @@ node assistGreetAttempt {
 			//explanation
 			if (($callMood == "confusion") || ($callStepsCur > 3))
 			{
-				#say("assistGreetExplain", options: { emotion: "positive", speed: 0.7 });
+				#say("assistGreetExplain");
 				wait
 				{
 					greetAttemptIdle
