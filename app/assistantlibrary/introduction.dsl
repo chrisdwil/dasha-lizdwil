@@ -24,7 +24,7 @@ node hello
 	
 	transitions
 	{
-		idleHello: goto hello on timeout 10000;
+		idleHello: goto hello on timeout $waitIdleTime;
 	}
 	
 	onexit
