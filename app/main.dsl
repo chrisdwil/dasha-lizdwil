@@ -17,6 +17,7 @@ context {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	host: human = 
 	{
 			name: "Chris, D. Will", 
@@ -42,6 +43,8 @@ context {
 			mood: "positive"
 	};
 =======
+=======
+>>>>>>> parent of 2641549 (.)
 =======
 >>>>>>> parent of 2641549 (.)
 	host: human = {name: "Chris D. Wil", nick: "Chris", phonetic: "chris", gender: "male"};
