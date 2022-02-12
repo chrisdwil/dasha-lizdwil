@@ -46,6 +46,8 @@ context {
 	callStepsIdle: number = 0;
 	callRescued: boolean = false;
 	assistGreetFull: boolean = true;
+	
+	greetFirst: boolean = true;
 }
 
 start node assist {

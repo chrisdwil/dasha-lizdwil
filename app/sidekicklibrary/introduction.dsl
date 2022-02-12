@@ -1,4 +1,7 @@
 library
+context {
+
+}
 
 node hello
 {
