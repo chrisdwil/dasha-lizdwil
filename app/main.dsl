@@ -10,7 +10,6 @@ type human =
 		mood: string;
 };
 
-
 context {
 	input phone: string;
 	input forward: string = "sip:+12817829187@lizdwil.pstn.twilio.com;transport=udp";
