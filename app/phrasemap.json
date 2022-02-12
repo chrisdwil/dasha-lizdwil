@@ -12,6 +12,7 @@
 		"phrases": 
 		{
 <<<<<<< HEAD
+<<<<<<< HEAD
 			"assistGreetAttempt": [{"text": "Hi, this is Lizzzzz speaking, how can I assist you today?"}],
 =======
 			"assistGreetAttempt": {
@@ -50,6 +51,15 @@
 >>>>>>> parent of 2641549 (.)
 =======
 >>>>>>> parent of 2641549 (.)
+=======
+			"assistGreetAttempt": {
+			{
+				"random":
+				[
+					[{"text": "Hi, this is Lizzzzz speaking, how can I assist you today?"}]
+				]				
+			},
+>>>>>>> parent of 594d3a0 (Update phrasemap.json)
 	
 			"assistGreetRepeat":
 			{
