@@ -10,7 +10,7 @@ context {
 	herNick: string = "Liz";
 	herGender: string = "multibit";
 	myName: string = "Chris D. Wil";
-	myNameNick: string: "Chris Dee";
+	myNameNick: string = "Chris Dee";
 	myGender: string "male";
 	
 	callMood: string = "positive";
@@ -43,8 +43,8 @@ node assistGreetAttempt {
 		#log(logNodeName + " steps " + #stringify($callStepsCur) + " Attempt(s)");
 		#log(logNodeName + " idle " + #stringify($callStepsIdle) + " Attempt(s)");
 		
-		#preparePhrase("hello", nickName: $);
-		#say("hello");
+		#preparePhrase("hello", {nickName: $herName});
+		#say("hello", {nickname: $herName});
 		
 		exit;
 		
