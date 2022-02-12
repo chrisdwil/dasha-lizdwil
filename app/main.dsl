@@ -6,7 +6,7 @@ context {
 	input forward: string = "sip:+12817829187@lizdwil.pstn.twilio.com;transport=udp";
 	input sprint: boolean;
 	
-	name = "Liz";
+	name: string = "Liz";
 
 	callMood: string = "positive";
 	callStepsCur: number = 1;
@@ -40,10 +40,11 @@ node assistGreetAttempt {
 		
 		if ($assistGreetFull)
 		{
+			#preparePhrase("assistGreetAttempt", {name: $name});
 			set $assistGreetFull = false;
 			set $callStepsCur += 1;
 			
-			#say("assistGreetAttempt", interruptible: true);
+			#say("assistGreetAttempt", {name: $name});
 			wait 
 			{
 				greetAttemptIdle

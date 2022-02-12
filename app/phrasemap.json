@@ -13,7 +13,8 @@
 		{	
 			"assistGreetAttempt": 
 			[
-				{"text": "Hello,,, I'm Liz." },
+				{"text": "Hello,,, I'm"},
+				{"id": "name", "type": "dynamic"},
 				{"text": "How are you doing today?"}
 			],
 	
