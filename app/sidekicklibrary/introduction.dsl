@@ -9,7 +9,7 @@ node hello
 
 		if ($greetFirst)
 		{
-			//#waitForSpeech($waitSpeechTime);
+			#waitForSpeech($waitSpeechTime);
 			//#say("libIntroductionHello", $sidekick.name);
 			wait 
 			{
