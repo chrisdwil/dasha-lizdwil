@@ -63,6 +63,10 @@
 			"digWhoAreYou": {},
 			"digSelf": {},
 			"digTransfer": {},
+<<<<<<< HEAD
+=======
+			"digTransfer": {},
+>>>>>>> parent of f5bebce (.)
 			"saySingleLine": {},
 			"sayTextInOrder": {},
 			"sayRandomText": {}
