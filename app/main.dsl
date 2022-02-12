@@ -10,6 +10,7 @@ context {
 	callStepsCur: number = 1;
 	callStepsRisk: number = 5;
 	callStepsIdle: number = 0;
+	callRescued: false;
 	assistGreetFull: boolean = true;
 }
 
@@ -44,6 +45,8 @@ node assistGreetAttempt {
 			wait 
 			{
 				greetAttemptIdle
+				greetAttemptPos
+				greetAttemptNeg
 			};
 		}
 		else
@@ -62,9 +65,15 @@ node assistGreetAttempt {
 			}
 			
 			//explanation
-			if ($callMood == "confusion")
+			if (($callMood == "confusion") || ($callStepsCur > 3)
 			{
 				#say("assistGreetExplain", options: { emotion: "positive", speed: 0.7 });
+				wait
+				{
+					greetAttemptIdle
+					greetConfusedPos
+					greetConfusedNeg
+				};
 			}	
 		}		
 
@@ -79,6 +88,8 @@ node assistGreetAttempt {
 		greetAttemptIdle: goto assistGreetAttempt on timeout 10000;
 		greetAttemptPos: goto assistGreetAttempt on #messageHasSentiment("positive");
 		greetAttemptNeg: goto assistGreetAttempt on #messageHasSentiment("negative");
+		greetConfusedPos: goto assistGreetAttempt on #messageHasIntents("yes");
+		greetConfusedNeg: goto assistGreetAttempt on #messageHasIntents("no");
 	}
 	
 	onexit {
@@ -91,6 +102,18 @@ node assistGreetAttempt {
 		{ 
 			set $callMood = "negative"; 
 		}
+		greetConfusedPos: do
+		{
+			set $callMood = "positive";
+			set $callStepsCur = 1;
+			set $callRescued = true;
+		}
+		greetConfusedNeg: do
+		{
+			set $callMood = "hangup";
+			set $callStepsCur = 1;
+			set $callRescued = false;
+		}		
 	}
 }
 
@@ -98,7 +121,14 @@ node @exit
 {
     do 
     {
-        #say("assistHangUp");
+		var logNodeName: string = "assistGreetAttempt";
+		
+		#log(logNodeName + " mood " + $callMood + " mood);
+		#log(logNodeName + " steps " + #stringify($callStepsCur) + " Attempt(s)");
+		#log(logNodeName + " idle " + #stringify($callStepsIdle) + " Attempt(s)");
+		#log(logNodeName + " idle " + #stringify($callRescued) + " Attempt(s)");
+		
+		#say("assistHangUp");
         exit;
     }
 
@@ -106,7 +136,7 @@ node @exit
 
 digression @exit_dig
 {
-		conditions 
+		conditions
 		{ 
 			on true tags: onclosed; 
 		}
