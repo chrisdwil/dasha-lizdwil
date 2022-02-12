@@ -51,15 +51,20 @@ context {
 
 start node assist {
 	do
+
 	{	
+		var x: bool;
+
 		#connect($phone);
 		wait *;
+
+		set x = introduction();
+
+		#say("success!");
+		exit;
+
 	}
-
-	set x = introduction();
-
-	#say("success!");
-	exit;
+}
 
 
 	transitions
