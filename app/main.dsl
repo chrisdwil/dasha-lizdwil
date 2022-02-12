@@ -1,22 +1,25 @@
 // Liz D. Wil
 import "assistantLibrary/all.dsl";
 
+type human = 
+{
+    name: string;
+    nick: string;
+    phonetic: string;
+    gender: string;
+};
+
 context {
 	input phone: string;
 	input forward: string = "sip:+12817829187@lizdwil.pstn.twilio.com;transport=udp";
 	input sprint: boolean;
 	
-	type human = 
+	humans: human[] = 
 	{
-	    name: string;
-	    nick: string;
-	    age: number;
-	    gender: string;
-	    phone: string?;
-	};
+			[{name: "Liz D. Wil", nick: "Liz", phonetic: "lizzz", gender: "female"}],
+			[{name: "Chris D. Wil", nick: "Chris", phonetic: "chris", gender: "male"}]
+	}
 	
-	name: string = "Liz";
-
 	callMood: string = "positive";
 	callStepsCur: number = 1;
 	callStepsRisk: number = 5;
