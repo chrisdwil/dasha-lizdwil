@@ -11,19 +11,20 @@
 				
 		"phrases": 
 		{
-			"assistGreetAttemptNew": ["Hello! "],
+			
+			"hello": ["Hello! "],
 			"introduction": {
 				"first": [
 					{"text": "I'm "},
-					{"id:" : "nickName", "type": "dynamic" }
+					{"id:": "nickName", "type": "dynamic" }
 				],
-			"repeat": {
-				"random": [
-					[{"id:" : "nickName", "type": "dynamic" }, {"text": "speaking."}],
-					[{"text": "Yo! It's me..."}, {"id:" : "nickName", "type": "dynamic" }]
-				]
-			}
-		
+				"repeat": {
+					"random": [
+						[{"id:" : "nickName", "type": "dynamic" }, {"text": " speaking."}],
+						[{"text": "Yo! It's me..."}, {"id:": "nickName", "type": "dynamic" }]
+					]
+				}
+			},
 			
 			"assistGreetAttempt": 
 			[
@@ -130,6 +131,7 @@
 				{"text": "1"},
 				{"text": "2"}
 			],
+			
 			"sayRandomText":
 			{
 				"random":
@@ -143,6 +145,7 @@
 
 		"macros": 
 		{
+			"hello": {},
 			"assistGreetAttempt": {},
 			"assistGreetExplain": {},
 			"assistGreetRepeat": {},
