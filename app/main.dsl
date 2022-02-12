@@ -19,6 +19,7 @@ context {
 start node assist {
 	do
 	{	
+		#preparePhrase("introduction", {name: $name});
 		#connect($phone);	
 		wait *;
 	}
@@ -40,7 +41,6 @@ node assistGreetAttempt {
 		
 		if ($assistGreetFull)
 		{
-			#preparePhrase("introduction", {name: $name});
 			set $assistGreetFull = false;
 			set $callStepsCur += 1;
 			

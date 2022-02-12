@@ -12,16 +12,8 @@
 		"phrases": 
 		{
             "introduction": {
-				"first": [
-					{"text": "I'm "},
-					{"id:": "name", "type": "dynamic" }
-				],
-				"repeat": {
-					"random": [
-						[{"id:" : "name", "type": "dynamic" }, {"text": " speaking."}],
-						[{"text": "Yo! It's me..."}, {"id:": "name", "type": "dynamic" }]
-					]
-				}
+				"first": [{"text": "I'm "},	{"id:": "name", "type": "dynamic" }],
+				"repeat":[{"id:" : "name", "type": "dynamic" }, {"text": " speaking."}]
 			},	
 			"assistGreetAttempt": 
 			[
