@@ -1,22 +1,21 @@
+
 {
-	"formatVersion": "2",
-	"dialogue": {
-		"file": "main.dsl"
-	},
-	"nlu": {
-		"language": "en-US",
-		"skills": [
-			"common_phrases",
-			"sentiment"
-		],
-		"customIntents": {
-			"file": "customIntents.json"
-		}
-	},
-	"nlg": {
-		"type": "phrases",
-		"file": "phrasemap.json",
-		"signatureFile": "phrasemap.json"
-	},
-	"name": "sip-test-app"
+    "formatVersion": "2",
+    "dialogue": {
+        "file": "main.dsl"
+    },
+    "nlu": {
+        "language": "en-US",
+        "skills": [],
+        "customIntents": {
+            "file": "customIntents.json"
+        }
+    },
+    "nlg": {
+        "type": "phrases",
+        "file": "phrasemap.json",
+        "signatureFile": "phrasemap.json"
+    },
+    "name": "notification",
+    "description": "Initial revision"
 }

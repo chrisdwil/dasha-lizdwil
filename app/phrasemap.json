@@ -1,30 +1,28 @@
+
 {
   "default": {
-	"voiceInfo": {
-			"lang": "en-US",
-			"speaker": "default",
-			"speed": 1.1,
-			"variation": 5
-	},
-    "phrases": {		
-			"hello": [{"text":"Hello! "}],
-			"introduction": {
-				"first": [
-					{"text": "I'm "},
-					{"id:": "nickName", "type": "dynamic" }
-				],
-				"repeat": {
-					"random": [
-						[{"id:" : "nickName", "type": "dynamic" }, {"text": " speaking."}],
-						[{"text": "Yo! It's me..."}, {"id:": "nickName", "type": "dynamic" }]
-					]
-				}
-			}
+    "voiceInfo": {
+      "lang": "en-US",
+      "speaker": "Linda"
+    },
+    "phrases": {
+      "hello": [
+        { "text": "Hello! " },
+        { "id": "name", "type": "dynamic" },
+        { "text": " you have a message!" }
+      ],
+      "message": [
+        { "id": "message", "type": "dynamic" },
+        { "text": ". Would you like to leave message for me?" }
+      ],
+      "listening": [{ "text": "I am listening" }],
+      "fine": [{ "text": "Fine, have a good day!" }]
     },
     "macros": {
-      "hello": {}
+      "hello": {},
+      "message": {},
+      "listening": {},
+      "fine": {}
     }
   }
 }
-  
-
