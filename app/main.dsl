@@ -1,10 +1,22 @@
 // Liz D. Wil
 import "assistantLibrary/all.dsl";
 
+type human = 
+{
+    name: string;
+    nick: string;
+    phonetic: string;
+    gender: string;
+};
+
 context {
 	input phone: string;
 	input forward: string = "sip:+12817829187@lizdwil.pstn.twilio.com;transport=udp";
 	input sprint: boolean;
+
+	host: human = {name: "Chris, D. Will", nick: "Chris", phonetic: "chris", gender: "male"};
+	sidekick: human = {name: "Liz, D. Will", nick: "Liz", phonetic: "lizzzzzz", gender: "female"};
+	guest: human = {name: "", nick: "", phonetic: "", gender: ""};
 	
 	callMood: string = "positive";
 	callStepsCur: number = 1;
@@ -17,7 +29,7 @@ context {
 start node assist {
 	do
 	{	
-		#connect($phone);
+		#connect($phone);	
 		wait *;
 	}
 	
@@ -36,12 +48,14 @@ node assistGreetAttempt {
 		#log(logNodeName + " steps " + #stringify($callStepsCur) + " Attempt(s)");
 		#log(logNodeName + " idle " + #stringify($callStepsIdle) + " Attempt(s)");
 		
+		#preparePhrase("assistGreetAttempt", {name: $sidekick.phonetic});
+
 		if ($assistGreetFull)
 		{
 			set $assistGreetFull = false;
 			set $callStepsCur += 1;
 			
-			#say("assistGreetAttempt", interruptible: true);
+			#say("assistGreetAttempt", {name: $sidekick.phonetic});
 			wait 
 			{
 				greetAttemptIdle

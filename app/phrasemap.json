@@ -1,22 +1,25 @@
 {
-	"default": 
+	"default":
 	{
 		"voiceInfo": 
 		{
-			"lang": "en-US",
-			"speaker": "default",
-			"speed": 1.1,
-			"variation": 5
+				"lang": "en-US",
+				"speaker": "default",
+				"speed": 1.1,
+				"variation": 5
 		},
-				
+	
 		"phrases": 
 		{
-			"assistGreetAttempt": 
-			[
-				{"text": "Hello,,, I'm Liz." },
-				{"text": "How are you doing today?"}
-			],
-
+			"assistGreetAttempt": {
+				"random": 
+				[
+					[{"text": "Hello!!!! "},{"id": "name", "type": "dynamic"},{"text": " here."}],
+					[{"id": "name", "type": "dynamic"},{"text": " speaking."}],
+					[{"text": "Heyyyy this is "},{"id": "name", "type": "dynamic"}]
+				]
+			},
+	
 			"assistGreetRepeat":
 			{
 				"random":
@@ -49,7 +52,7 @@
 				{"text": "I'm taking down notes and sending them to Chris."},
 				{"text": "However please call back again."}
 			],
-
+	
 			"assistHangUp":
 			{
 				"random":
@@ -102,7 +105,7 @@
 				{"text": "Hold a moment while I transfer you." },
 				{"text": "It was a pleasure speaking with you."}
 			],			
-
+	
 			"digTransferCell": 
 			[
 				{"text": "I'd love to transfer you but you were forwarded from his cell." },
@@ -116,6 +119,7 @@
 				{"text": "1"},
 				{"text": "2"}
 			],
+			
 			"sayRandomText":
 			{
 				"random":
@@ -126,7 +130,7 @@
 				]
 			}						
 		},
-
+	
 		"macros": 
 		{
 			"assistGreetAttempt": {},
