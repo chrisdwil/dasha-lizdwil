@@ -14,8 +14,8 @@ context {
 	input forward: string = "sip:+12817829187@lizdwil.pstn.twilio.com;transport=udp";
 	input sprint: boolean;
 	
-	human: robot = [{name: "Liz D. Wil", nick: "Liz", phonetic: "lizzz", gender: "female"}];
-	human: human = [{name: "Chris D. Wil", nick: "Chris", phonetic: "chris", gender: "male"}]; 
+	assistant: human = [{name: "Liz D. Wil", nick: "Liz", phonetic: "lizzz", gender: "female"}];
+	exec: human = [{name: "Chris D. Wil", nick: "Chris", phonetic: "chris", gender: "male"}]; 
 	
 	callMood: string = "positive";
 	callStepsCur: number = 1;
