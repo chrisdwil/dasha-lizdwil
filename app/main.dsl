@@ -32,7 +32,7 @@ node assistGreetAttempt {
 	{
 		var logNodeName: string = "assistGreetAttempt";
 		
-		#log(logNodeName + " mood " + $callMood + " mood);
+		#log(logNodeName + " mood " + $callMood + " mood");
 		#log(logNodeName + " steps " + #stringify($callStepsCur) + " Attempt(s)");
 		#log(logNodeName + " idle " + #stringify($callStepsIdle) + " Attempt(s)");
 		
@@ -65,7 +65,7 @@ node assistGreetAttempt {
 			}
 			
 			//explanation
-			if (($callMood == "confusion") || ($callStepsCur > 3)
+			if (($callMood == "confusion") || ($callStepsCur > 3))
 			{
 				#say("assistGreetExplain", options: { emotion: "positive", speed: 0.7 });
 				wait
@@ -88,8 +88,8 @@ node assistGreetAttempt {
 		greetAttemptIdle: goto assistGreetAttempt on timeout 10000;
 		greetAttemptPos: goto assistGreetAttempt on #messageHasSentiment("positive");
 		greetAttemptNeg: goto assistGreetAttempt on #messageHasSentiment("negative");
-		greetConfusedPos: goto assistGreetAttempt on #messageHasIntents("yes");
-		greetConfusedNeg: goto assistGreetAttempt on #messageHasIntents("no");
+		greetConfusedPos: goto assistGreetAttempt on #messageHasIntent("yes");
+		greetConfusedNeg: goto assistGreetAttempt on #messageHasIntent("no");
 	}
 	
 	onexit {
@@ -121,12 +121,16 @@ node @exit
 {
     do 
     {
-		var logNodeName: string = "assistGreetAttempt";
+		var logNodeName: string = "exit";
 		
-		#log(logNodeName + " mood " + $callMood + " mood);
+		#log(logNodeName + " mood " + $callMood + " mood");
 		#log(logNodeName + " steps " + #stringify($callStepsCur) + " Attempt(s)");
 		#log(logNodeName + " idle " + #stringify($callStepsIdle) + " Attempt(s)");
-		#log(logNodeName + " idle " + #stringify($callRescued) + " Attempt(s)");
+		
+		if ($callMood == negative)
+		{
+			#log(logNodeName + " call was not rescued");
+		}
 		
 		#say("assistHangUp");
         exit;
