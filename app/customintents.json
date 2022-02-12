@@ -1,49 +1,7 @@
 {
 	"version": "v2",
 	"intents": 
-	{
-		"questions": 
-		{
-			"includes": 
-			[
-				"who",
-				"what",
-				"when",
-				"where",
-				"why",
-				"how",
-				"huh",
-				"you mean"
-			]
-		},
-		"greetings":
-		{
-			"includes": 
-			[
-				"hi",
-				"hello",
-				"hey",
-				"howdy",
-				"whats up",
-				"yo",
-				"what's goin",
-				"what you",
-				"wuch you",
-				"you doin"
-			]
-		},
-		"confusion":
-		{
-			"includes": 
-			[
-				"huh",
-				"uh",
-				"err",
-				"i'm confused",
-				"need help"
-			]
-		},
-				
+	{			
 		"transfer": {
 	      	"includes": [
 		        "transfer me",
