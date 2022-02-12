@@ -11,21 +11,12 @@
 	
 		"phrases": 
 		{
-			"libIntroductionHello": {
-				"random": 
-				[
-					[{"text": "Hello!!!! "},{"id": "name", "type": "dynamic"},{"text": " here."}],
-					[{"id": "name", "type": "dynamic"},{"text": " speaking."}],
-					[{"text": "Heyyyy this is "},{"id": "name", "type": "dynamic"}]
-				]
-			},
 			"assistGreetAttempt": {
-				"random": 
+			{
+				"random":
 				[
-					[{"text": "Hello!!!! "},{"id": "name", "type": "dynamic"},{"text": " here."}],
-					[{"id": "name", "type": "dynamic"},{"text": " speaking."}],
-					[{"text": "Heyyyy this is "},{"id": "name", "type": "dynamic"}]
-				]
+					[{"text": "Hi, this is Lizzzzz speaking, how can I assist you today?"}]
+				]				
 			},
 	
 			"assistGreetRepeat":
