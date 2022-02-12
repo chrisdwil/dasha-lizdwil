@@ -11,10 +11,7 @@
 	
 		"phrases": 
 		{
-            "introduction": {
-				"first": [{"text": "I'm "},	{"id:": "name", "type": "dynamic" }],
-				"repeat":[{"id:" : "name", "type": "dynamic" }, {"text": " speaking."}]
-			},	
+            "introduction":[{"text": "I'm "}, {"id:": "name", "type": "dynamic" }],	
 			"assistGreetAttempt": 
 			[
 				{"text": "Hello,,, I'm"},
