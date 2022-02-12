@@ -18,7 +18,7 @@ block introduction(): boolean
 				};
 			}
 			if (!$greetFirst) {
-			return true;
+				return true;
 			}
 		}
 
