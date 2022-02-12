@@ -6,6 +6,15 @@ context {
 	input forward: string = "sip:+12817829187@lizdwil.pstn.twilio.com;transport=udp";
 	input sprint: boolean;
 	
+	type human = 
+	{
+	    name: string;
+	    nick: string;
+	    age: number;
+	    gender: string;
+	    phone: string?;
+	};
+	
 	name: string = "Liz";
 
 	callMood: string = "positive";
