@@ -11,7 +11,18 @@
 	
 		"phrases": 
 		{
+<<<<<<< HEAD
 			"assistGreetAttempt": [{"text": "Hi, this is Lizzzzz speaking, how can I assist you today?"}],
+=======
+			"assistGreetAttempt": {
+				"random": 
+				[
+					[{"text": "Hello,,, "},{"id": "name", "type": "dynamic"}],
+					[{"text": {"id": "name", "type": "dynamic"},{"text": " speaking."}],
+					[{"text": "Hey,,, this is "},{"id": "name", "type": "dynamic"}]
+				]
+			}
+>>>>>>> parent of 2641549 (.)
 	
 			"assistGreetRepeat":
 			{

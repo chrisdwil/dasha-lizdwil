@@ -15,6 +15,7 @@ context {
 	input forward: string = "sip:+12817829187@lizdwil.pstn.twilio.com;transport=udp";
 	input sprint: boolean;
 
+<<<<<<< HEAD
 	host: human = 
 	{
 			name: "Chris, D. Will", 
@@ -39,6 +40,11 @@ context {
 			gender: "", 
 			mood: "positive"
 	};
+=======
+	host: human = {name: "Chris D. Wil", nick: "Chris", phonetic: "chris", gender: "male"};
+	sidekick: human = {name: "Liz D. Wil", nick: "Liz", phonetic: "lizzz", gender: "female"};
+	guest: human = {name: "", nick: "", phonetic: "", gender: ""};
+>>>>>>> parent of 2641549 (.)
 	
 	callMood: string = "positive";
 	callStepsCur: number = 1;
