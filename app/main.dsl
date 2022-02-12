@@ -10,7 +10,7 @@ context {
 	callStepsCur: number = 1;
 	callStepsRisk: number = 5;
 	callStepsIdle: number = 0;
-	assistGreetFull: boolean = "true";
+	assistGreetFull: boolean = true;
 }
 
 start node assist {
@@ -31,10 +31,14 @@ node assistGreetAttempt {
 	{
 		var logNodeName: string = "assistGreetAttempt";
 		
-		#log(logNodeName + " --- " + #stringify($callCountSteps) + " Attempt(s)");
-
+		#log(logNodeName + " mood " + #stringify($callMood) + " Attempt(s)");
+		#log(logNodeName + " steps " + #stringify($callStepsCur) + " Attempt(s)");
+		#log(logNodeName + " idle" + #stringify($callStepsIdle) + " Attempt(s)");
+		
+		
 		if ($assistGreetFull)
 		{
+			set $assistGreetFull = false;
 			set $callStepsCur += 1;
 			
 			#say("assistGreetAttempt", interruptible: true, options: { emotion: "from text: i love you" });
@@ -46,7 +50,7 @@ node assistGreetAttempt {
 		else
 		{	
 			//repeat
-			if (($callMood == "positive") | ($callMood == "negative") | ($callStepsCur == 3)
+			if (($callMood == "positive") || ($callMood == "negative") || ($callStepsCur == 3))
 			{
 				set $callStepsCur += 1;
 				#say("assistGreetRepeat", interruptible: true, options: { emotion: $callMood });
@@ -55,7 +59,7 @@ node assistGreetAttempt {
 					greetAttemptIdle
 					greetAttemptPos
 					greetAttemptNeg
-				}
+				};
 			}
 			
 			//explanation
@@ -74,20 +78,20 @@ node assistGreetAttempt {
 	transitions
 	{
 		greetAttemptIdle: goto assistGreetAttempt on timeout 10000;
-		greetAttemptPos: goto assistGreetAttempt on #messageHasSentimentI"positive");
-		greetAttemptNeg: goto assistGreetAttempt on #messageHasSentimentI"negative");
+		greetAttemptPos: goto assistGreetAttempt on #messageHasSentiment("positive");
+		greetAttemptNeg: goto assistGreetAttempt on #messageHasSentiment("negative");
 	}
 	
 	onexit {
-		greetAttemptIdle: do { set $callStepsIdle += 1 };
+		greetAttemptIdle: do { set $callStepsIdle += 1; }
 		greetAttemptPos: do 
 		{ 
-			set $callMood = "positive" 
-		};
+			set $callMood = "positive";
+		}
 		greetAttemptNeg: do 
 		{ 
-			set $callMood = "negative" 
-		};
+			set $callMood = "negative"; 
+		}
 	}
 }
 
