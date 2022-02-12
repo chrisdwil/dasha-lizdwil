@@ -31,7 +31,7 @@ node hello
 	{
 		idleHello:
 		{
-			set $introduction.mood = "silent";
+			set $guest.mood = "silent";
 		}
 	}
 }
