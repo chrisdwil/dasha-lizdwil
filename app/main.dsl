@@ -37,6 +37,7 @@ node sayMessage
     }
 }
 
+<<<<<<< HEAD
 node leaveMessage
 {
     do
@@ -48,6 +49,64 @@ node leaveMessage
         @default: goto getMessage on true when confident;
     }
 }
+=======
+node assistGreetAttempt {
+	do
+	{
+		var logNodeName: string = "assistGreetAttempt";
+		
+		#log(logNodeName + " mood " + $callMood + " mood");
+		#log(logNodeName + " steps " + #stringify($callStepsCur) + " Attempt(s)");
+		#log(logNodeName + " idle " + #stringify($callStepsIdle) + " Attempt(s)");
+		
+		if ($assistGreetFull)
+		{
+			set $assistGreetFull = false;
+			set $callStepsCur += 1;
+			
+			#say("assistGreetAttempt", interruptible: true);
+			wait 
+			{
+				greetAttemptIdle
+				greetAttemptPos
+				greetAttemptNeg
+			};
+		}
+		else
+		{	
+			//repeat
+			f ((($callMood == "positive") || ($callMood == "negative")) && ($callStepsCur < 3))
+			{
+				set $callStepsCur += 1;
+				#say("assistGreetRepeat", interruptible: true);
+				wait
+				{
+					greetAttemptIdle
+					greetAttemptPos
+					greetAttemptNeg
+				};
+			}
+			
+			//explanation
+			if (($callMood == "confusion") || (($callStepsCur >= 3) && ($callMood != "positive"))
+			{
+				#say("assistGreetExplain");
+				wait
+				{
+					greetAttemptIdle
+					greetConfusedPos
+					greetConfusedNeg
+				};
+			}
+			
+			//hangup
+			if (($callMood == "hangup") && ($callStepsCur >= 3))
+			{
+				#say("assistGreetHangUpPrep");
+				exit;
+			}	
+		}		
+>>>>>>> parent of 52bbe3d (.)
 
 node getMessage
 {

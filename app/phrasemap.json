@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 {
   "default": {
     "voiceInfo": {
@@ -25,4 +26,47 @@
       "fine": {}
     }
   }
+=======
+			"digTransferCell": 
+			[
+				{"text": "I'd love to transfer you but you were forwarded from his cell." },
+				{"text": "I'd give him a try again later or call back some other time."}
+			],	
+			
+			"saySingleLine": {"text": "So how may I help you, today?"},
+			"sayTextInOrder": 
+			[
+				{"text": "counting to 2" },
+				{"text": "1"},
+				{"text": "2"}
+			],
+			"sayRandomText":
+			{
+				"random":
+				[
+					[{"text": "I may say this..."}],
+					[{"text": "Or this..."}],
+					[{"text": "Maybe this, you never know."}]
+				]
+			}						
+		},
+
+		"macros": 
+		{
+			"assistGreetAttempt": {},
+			"assistGreetExplain": {},
+			"assistGreetRepeat": {},
+			"assistGreetHangUpPrep": {},
+			"assistHangUp": {},
+			"digHowAreYou": {},
+			"digHowAreYouReturn": {},
+			"digWhoAreYou": {},
+			"digSelf": {},
+			"digTransfer": {},
+			"saySingleLine": {},
+			"sayTextInOrder": {},
+			"sayRandomText": {}
+		}
+	}
+>>>>>>> parent of 52bbe3d (.)
 }
