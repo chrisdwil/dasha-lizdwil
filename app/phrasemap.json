@@ -13,6 +13,7 @@
 		{
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 			"assistGreetAttempt": [{"text": "Hi, this is Lizzzzz speaking, how can I assist you today?"}],
 =======
 			"assistGreetAttempt": {
@@ -52,12 +53,23 @@
 =======
 >>>>>>> parent of 2641549 (.)
 =======
-			"assistGreetAttempt": {
-			{
-				"random":
+=======
+			"libIntroductionHello": {
+				"random": 
 				[
-					[{"text": "Hi, this is Lizzzzz speaking, how can I assist you today?"}]
-				]				
+					[{"text": "Hello!!!! "},{"id": "name", "type": "dynamic"},{"text": " here."}],
+					[{"id": "name", "type": "dynamic"},{"text": " speaking."}],
+					[{"text": "Heyyyy this is "},{"id": "name", "type": "dynamic"}]
+				]
+			},
+>>>>>>> parent of 4016ba2 (.)
+			"assistGreetAttempt": {
+				"random": 
+				[
+					[{"text": "Hello!!!! "},{"id": "name", "type": "dynamic"},{"text": " here."}],
+					[{"id": "name", "type": "dynamic"},{"text": " speaking."}],
+					[{"text": "Heyyyy this is "},{"id": "name", "type": "dynamic"}]
+				]
 			},
 >>>>>>> parent of 594d3a0 (Update phrasemap.json)
 	
