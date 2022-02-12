@@ -17,7 +17,8 @@ context {
 start node assist {
 	do
 	{	
-		#connect($phone);		
+		#connect($phone);	
+        #say("hello", {name: "Liz"});
 		wait *;
 	}
 	

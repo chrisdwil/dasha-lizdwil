@@ -11,7 +11,11 @@
 	
 		"phrases": 
 		{	
-			
+			"hello": [
+        { "text": "Hello! " },
+        { "id": "name", "type": "dynamic" },
+        { "text": " you have a message!" }
+      ],
 			"assistGreetAttempt": 
 			[
 				{"text": "Hello,,, I'm Liz." },
@@ -131,6 +135,7 @@
 	
 		"macros": 
 		{
+			"hello": {},
 			"assistGreetAttempt": {},
 			"assistGreetExplain": {},
 			"assistGreetRepeat": {},
