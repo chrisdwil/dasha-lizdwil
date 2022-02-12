@@ -5,6 +5,8 @@ context {
 	input phone: string;
 	input forward: string = "sip:+12817829187@lizdwil.pstn.twilio.com;transport=udp";
 	input sprint: boolean;
+	
+	name = "Liz";
 
 	callMood: string = "positive";
 	callStepsCur: number = 1;
@@ -17,6 +19,7 @@ context {
 start node assist {
 	do
 	{	
+		#say("assistGreetAttempt", {name: $name});
 		#connect($phone);	
 		#say("assistGreetAttempt", {name: $name});
 		wait *;
