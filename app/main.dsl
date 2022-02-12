@@ -48,14 +48,14 @@ node assistGreetAttempt {
 		#log(logNodeName + " steps " + #stringify($callStepsCur) + " Attempt(s)");
 		#log(logNodeName + " idle " + #stringify($callStepsIdle) + " Attempt(s)");
 		
-		#preparePhrase("assistGreetAttempt", {name: $sidekick.name});
+		#preparePhrase("assistGreetAttempt", {name: $sidekick.phonetic});
 
 		if ($assistGreetFull)
 		{
 			set $assistGreetFull = false;
 			set $callStepsCur += 1;
 			
-			#say("assistGreetAttempt", {name: $sidekick.name});
+			#say("assistGreetAttempt", {name: $sidekick.phonetic});
 			wait 
 			{
 				greetAttemptIdle
