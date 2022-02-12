@@ -8,7 +8,7 @@ node hello
 		if ($greetFirst)
 		{
 			#waitForSpeech(10000);
-			#say("libIntroductionHello", name: $sidekick.name);
+			#say("libIntroductionHello", {name: $sidekick.name});
 			wait 
 			{
 				idleHello
