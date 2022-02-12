@@ -9,7 +9,7 @@
 			"common_phrases",
 			"sentiment"
 		],
-		"customIntents": {
+		"customintents": {
 			"file": "customIntents.json"
 		}
 	},

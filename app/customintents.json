@@ -1,6 +1,61 @@
 {
-  "version": "v2",
-  "intents": {
+	"version": "v2",
+	"intents": 
+	{
+		"questions": 
+		{
+			"includes": 
+			[
+				"who",
+				"what",
+				"when",
+				"where",
+				"why",
+				"how",
+				"huh",
+				"you mean"
+			]
+		},
+		"greetings":
+		{
+			"includes": 
+			[
+				"hi",
+				"hello",
+				"hey",
+				"howdy",
+				"whats up",
+				"yo",
+				"what's goin",
+				"what you",
+				"wuch you",
+				"you doin"
+			]
+		},
+		"confusion":
+		{
+			"includes": 
+			[
+				"huh",
+				"uh",
+				"err",
+				"i'm confused",
+				"need help"
+			]
+		},
+				
+		"transfer": {
+	      	"includes": [
+		        "transfer me",
+		        "connect me",
+		        "connect my",
+		        "looking for",
+		        "want to talk",
+		        "where's Chris",
+		        "Chris available",
+		        "Chris around"
+		    ]
+    	},
 		"who_are_you": {
 			"includes": [
 				"who is",
@@ -12,8 +67,7 @@
 				"who dis",
 				"i don't know who you are"
 				]
-			},
-			
+			},	
 		"self": {
 			"includes": [
 				"your name was",
@@ -26,19 +80,6 @@
 				"on your birth certificate"
 				]
 			},
-		
-		"transfer": {
-	      	"includes": [
-		        "transfer me",
-		        "connect me",
-		        "connect my",
-		        "I'm looking for Chris",
-		        "want to talk",
-		        "where's Chris",
-		        "Is Chris available?",
-		        "Is Chris around?"
-		        ]
-	    	},
 	    "no": {
 			"includes": [
 				"no",
