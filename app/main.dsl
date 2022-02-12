@@ -14,8 +14,8 @@ context {
 	input forward: string = "sip:+12817829187@lizdwil.pstn.twilio.com;transport=udp";
 	input sprint: boolean;
 
-	host: human = {name: "Chris D. Wil", nick: "Chris", phonetic: "chris", gender: "male"};
-	sidekick: human = {name: "Liz D. Wil", nick: "Liz", phonetic: "lizzz", gender: "female"};
+	host: human = {name: "Chris, D. Will", nick: "Chris", phonetic: "chris", gender: "male"};
+	sidekick: human = {name: "Liz, D. Will", nick: "Liz", phonetic: "lizzzzzz", gender: "female"};
 	guest: human = {name: "", nick: "", phonetic: "", gender: ""};
 	
 	callMood: string = "positive";

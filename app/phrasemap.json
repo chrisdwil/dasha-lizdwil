@@ -14,11 +14,11 @@
 			"assistGreetAttempt": {
 				"random": 
 				[
-					[{"text": "Hello,,, "},{"id": "name", "type": "dynamic"}],
-					[{"text": {"id": "name", "type": "dynamic"},{"text": " speaking."}],
-					[{"text": "Hey,,, this is "},{"id": "name", "type": "dynamic"}]
+					[{"text": "Hello!!!! "},{"id": "name", "type": "dynamic"},{"text": " here."}],
+					[{"id": "name", "type": "dynamic"},{"text": " speaking."}],
+					[{"text": "Heyyyy this is "},{"id": "name", "type": "dynamic"}]
 				]
-			}
+			},
 	
 			"assistGreetRepeat":
 			{
