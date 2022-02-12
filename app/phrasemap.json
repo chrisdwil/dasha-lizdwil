@@ -11,11 +11,7 @@
 	
 		"phrases": 
 		{	
-			"hello": [
-        { "text": "Hello! " },
-        { "id": "name", "type": "dynamic" },
-        { "text": " you have a message!" }
-      ],
+			"hello": [{"text":"Hello! "}],
 			"assistGreetAttempt": 
 			[
 				{"text": "Hello,,, I'm Liz." },

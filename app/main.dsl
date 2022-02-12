@@ -18,7 +18,7 @@ start node assist {
 	do
 	{	
 		#connect($phone);	
-        #say("hello", {name: "Liz"});
+        #say("hello");
 		wait *;
 	}
 	
