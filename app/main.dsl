@@ -52,7 +52,7 @@ node assistGreetAttempt {
 		else
 		{	
 			//repeat
-			if ((($callMood == "positive") || ($callMood == "negative")) && ($callStepsCur < 3))
+			if ((($callMood == "positive") && ($callMood > $callRisk)) || ((($callMood == "negative") && ($callStepsCur < 4) && $callIdle > 1)))
 			{
 				set $callStepsCur += 1;
 				#say("assistGreetRepeat", interruptible: true);
