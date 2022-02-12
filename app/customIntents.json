@@ -1,48 +1,88 @@
 {
-    "version": "v2",
-    "intents": 
-    {
-      "agreement#pos": 
-      {
-        "includes": [
-          "yes",
-          "correct",
-          "sure",
-          "absolutely",
-          "yes siree bob",
-          "right",
-          "yep",
-          "you got it",
-          "I would",
-          "yeah",
-          "that's right", 
-          "I would",
-          "I want to leave a message"
-        ],
-        "excludes": [
-          "the message is",
-          "my message is"
-        ]
-      },
-      "agreement#neg": {
-        "includes": [
-          "no",
-          "definitely not",
-          "wrong",
-          "incorrect",
-          "I do not",
-          "I don't",
-          "I would not",
-          "I wouldn't"
-        ]
-      },
-      "repeat": {
-          "includes": [
-              "repeate please",
-              "I dont understand",
-              "can you repeat",
-              "repeate"
-          ]
-      }
-    }
+  "version": "v2",
+  "intents": {
+		"who_are_you": {
+			"includes": [
+				"who is",
+				"who are",
+				"you are who",
+				"huh, who is",
+				"who are you",
+				"so who are",
+				"who dis",
+				"i don't know who you are"
+				]
+			},
+			
+		"self": {
+			"includes": [
+				"your name was",
+				"repeat your name",
+				"your name",
+				"your name again",
+				"say your name",
+				"i need your need",
+				"what did your mom name you",
+				"on your birth certificate"
+				]
+			},
+		
+		"transfer": {
+	      	"includes": [
+		        "transfer me",
+		        "connect me",
+		        "connect my",
+		        "I'm looking for Chris",
+		        "want to talk",
+		        "where's Chris",
+		        "Is Chris available?",
+		        "Is Chris around?"
+		        ]
+	    	},
+	    "no": {
+			"includes": [
+				"no",
+				"definitely not",
+				"wrong",
+				"incorrect",
+				"I do not",
+				"I don't",
+				"I would not",
+				"I wouldn't",
+				"nope",
+				"no, I'm okay",
+				"not right now",
+				"not this time",
+				"nah",
+				"not this moment",
+				"not now"
+			]
+	    },
+		"yes": {
+			"includes": [
+				"yes",
+				"yeah",
+				"yee",
+				"definitely",
+				"absolutely",
+				"sure",
+				"fine",
+				"That's fine",
+				"Please do",
+				"Go ahead",
+				"Do it",
+				"Don't twist my arm"      
+			]
+		},
+		"endcall": {
+			"includes": [
+				"end call",
+				"goodbye",
+				"goodbye",
+				"I'm finished",
+				"I'm done",
+				"Ready to send"
+				]
+		}
+	}
 }

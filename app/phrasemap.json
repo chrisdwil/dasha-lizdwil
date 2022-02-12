@@ -1,32 +1,123 @@
-
-<<<<<<< HEAD
 {
-  "default": {
-    "voiceInfo": {
-      "lang": "en-US",
-      "speaker": "Linda"
-    },
-    "phrases": {
-      "hello": [
-        { "text": "Hello! " },
-        { "id": "name", "type": "dynamic" },
-        { "text": " you have a message!" }
-      ],
-      "message": [
-        { "id": "message", "type": "dynamic" },
-        { "text": ". Would you like to leave message for me?" }
-      ],
-      "listening": [{ "text": "I am listening" }],
-      "fine": [{ "text": "Fine, have a good day!" }]
-    },
-    "macros": {
-      "hello": {},
-      "message": {},
-      "listening": {},
-      "fine": {}
-    }
-  }
-=======
+	"default":
+	{
+		"voiceInfo": 
+		{
+				"lang": "en-US",
+				"speaker": "default",
+				"speed": 1.1,
+				"variation": 5
+		},
+	
+		"phrases": 
+		{
+			
+			"hello": ["Hello! "],
+			"introduction": {
+				"first": [
+					{"text": "I'm "},
+					{"id:": "nickName", "type": "dynamic" }
+				],
+				"repeat": {
+					"random": [
+						[{"id:" : "nickName", "type": "dynamic" }, {"text": " speaking."}],
+						[{"text": "Yo! It's me..."}, {"id:": "nickName", "type": "dynamic" }]
+					]
+				}
+			},
+			
+			"assistGreetAttempt": 
+			[
+				{"text": "Hello,,, I'm Liz." },
+				{"text": "How are you doing today?"}
+			],
+	
+			"assistGreetRepeat":
+			{
+				"random":
+				[
+					[{"text": "So... what can I help you with?"}]
+				]				
+			},
+			
+			"assistGreetExplain": 
+			[
+				{"text": "To further assist, I should share."},
+				{"text": "Things I can assist with are..."},
+				{"text": "His availability, call transfers..."},
+				{"text": "And soon I'll be able to send him messajehz."},
+				{"text": "Do you want to continue?"}
+			],			
+			
+			"assistGreetContinue":
+			{
+				"random":
+				[
+					[{"text": "Do you still want to continue with our call?"}],
+					[{"text": "Are you still on the phone?"}]
+				]
+			},						
+			
+			"assistGreetHangUpPrep":
+			[
+				{"text": "It appears we're having difficulties with this call."},
+				{"text": "I'm taking down notes and sending them to Chris."},
+				{"text": "However please call back again."}
+			],
+	
+			"assistHangUp":
+			{
+				"random":
+				[
+					[{"text": "I hope you have a good day."}],
+					[{"text": "Have a great day."}],
+					[{"text": "Good Bye."}],
+					[{"text": "Catch you later."}],
+					[{"text": "Bye Now."}]
+				]
+			},	
+			
+			"digHowAreYou":
+			{
+				"random":
+				[
+					[{"text": "I'm doing great today, I hope you are as well."}],
+					[{"text": "Wonderful,,,, plus my boss treated us all to lunch recently."}],
+					[{"text": "I'm fantastic today, plus the weather has been so nice."}],
+					[{"text": "Day is good, but I'd love to be outside having a picnic."}],
+					[{"text": "I haven't really had a chance to think about it yet, but so far so good."}]
+					
+				]
+			},
+			
+			"digHowAreYouReturn": 
+			[
+				{"text": "So..." },
+				{"text": "How are you doing as well??????????"}
+			],
+			
+			"digWhoAreYou":
+			[
+				{"text": "Oh, hi, my name is Liz D Wil, you can call me Liz."},
+				{"text": "I'm Chris'z personal assist ent."}
+			],
+			
+			"digSelf": 
+			{
+				"random":
+				[
+					[{"text": "I'm Liz Wil, who? the one and only. You can't clone me."}],
+					[{"text": "Of course."}],
+					[{"text": "I'm Liz Dee,,, L O L, having fun yet?" }]
+				]
+			},
+			
+			"digTransfer": 
+			[
+				{"text": "Hold a moment while I transfer you." },
+				{"text": "It was a pleasure speaking with you."}
+			],			
+	
 			"digTransferCell": 
 			[
 				{"text": "I'd love to transfer you but you were forwarded from his cell." },
@@ -40,6 +131,7 @@
 				{"text": "1"},
 				{"text": "2"}
 			],
+			
 			"sayRandomText":
 			{
 				"random":
@@ -50,9 +142,10 @@
 				]
 			}						
 		},
-
+	
 		"macros": 
 		{
+			"hello": {},
 			"assistGreetAttempt": {},
 			"assistGreetExplain": {},
 			"assistGreetRepeat": {},
@@ -63,38 +156,10 @@
 			"digWhoAreYou": {},
 			"digSelf": {},
 			"digTransfer": {},
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-			"digTransfer": {},
->>>>>>> parent of f5bebce (.)
-=======
-			"digTransfer": {},
->>>>>>> parent of f5bebce (.)
-=======
-			"digTransfer": {},
->>>>>>> parent of f5bebce (.)
-=======
-			"digTransfer": {},
->>>>>>> parent of f5bebce (.)
-=======
-			"digTransfer": {},
->>>>>>> parent of f5bebce (.)
-=======
-			"digTransfer": {},
->>>>>>> parent of f5bebce (.)
-=======
-			"digTransfer": {},
->>>>>>> parent of f5bebce (.)
+			"digTransferCell": {},
 			"saySingleLine": {},
 			"sayTextInOrder": {},
 			"sayRandomText": {}
 		}
 	}
->>>>>>> parent of 52bbe3d (.)
 }

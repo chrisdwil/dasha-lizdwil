@@ -1,55 +1,39 @@
+// Liz D. Wil
+import "assistantLibrary/all.dsl";
+
 context {
-    input phone: string;
-    input name: string = "";
-    input message: string;
-    output leavedMessage: string = "";
-    output status: string = "Failed";
+	input phone: string;
+	input forward: string = "sip:+12817829187@lizdwil.pstn.twilio.com;transport=udp";
+	input sprint: boolean;
+	
+	herName: string = "Liz D. Wil";
+	herNick: string = "Liz";
+	herGender: string = "multibit";
+	myName: string = "Chris D. Wil";
+	myNameNick: string = "Chris Dee";
+	myGender: string = "male";
+	
+	callMood: string = "positive";
+	callStepsCur: number = 1;
+	callStepsRisk: number = 5;
+	callStepsIdle: number = 0;
+	callRescued: boolean = false;
+	assistGreetFull: boolean = true;
 }
 
-start node root
-{
-    do
-    {
-        #preparePhrase("hello", {name: $name});
-        #preparePhrase("message", {message: $message});
-        var connected = #connectSafe($phone);
-        #say("hello", {name: $name});
-        wait *;
-    }
-    transitions
-    {
-        sayMessage: goto sayMessage on true;
-    }
+start node assist {
+	do
+	{	
+		#connect($phone);
+		wait *;
+	}
+	
+	transitions
+	{
+		assistGreetAttempt: goto assistGreetAttempt on timeout 300;
+	}
 }
 
-node sayMessage
-{
-    do
-    {
-        #say("message", {message: $message});
-        wait *;
-    } 
-    transitions
-    {
-        yes: goto leaveMessage on #messageHasIntent("agreement", "positive");
-        no: goto @exit on #messageHasIntent("agreement", "negative");
-        @default: goto getMessage on true;
-    }
-}
-
-<<<<<<< HEAD
-node leaveMessage
-{
-    do
-    {
-        #say("listening");
-        wait *;
-    } transitions
-    {
-        @default: goto getMessage on true when confident;
-    }
-}
-=======
 node assistGreetAttempt {
 	do
 	{
@@ -58,6 +42,11 @@ node assistGreetAttempt {
 		#log(logNodeName + " mood " + $callMood + " mood");
 		#log(logNodeName + " steps " + #stringify($callStepsCur) + " Attempt(s)");
 		#log(logNodeName + " idle " + #stringify($callStepsIdle) + " Attempt(s)");
+		
+		#preparePhrase("hello", {nickName: $herName});
+		#say("hello", {nickname: $herName});
+		
+		exit;
 		
 		if ($assistGreetFull)
 		{
@@ -75,7 +64,7 @@ node assistGreetAttempt {
 		else
 		{	
 			//repeat
-			f ((($callMood == "positive") || ($callMood == "negative")) && ($callStepsCur < 3))
+			if ((($callMood == "positive") || ($callMood == "negative")) && ($callStepsCur < 3))
 			{
 				set $callStepsCur += 1;
 				#say("assistGreetRepeat", interruptible: true);
@@ -88,36 +77,9 @@ node assistGreetAttempt {
 			}
 			
 			//explanation
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-			if (($callMood == "confusion") || (($callStepsCur >= 3) && ($callMood != "positive"))
-=======
-			if (($callMood == "confusion") || (($callStepsCur >= 3) && ($callMood != "positive")))
->>>>>>> parent of f5bebce (.)
-=======
-			if (($callMood == "confusion") || (($callStepsCur >= 3) && ($callMood != "positive")))
->>>>>>> parent of f5bebce (.)
-=======
-			if (($callMood == "confusion") || (($callStepsCur >= 3) && ($callMood != "positive")))
->>>>>>> parent of f5bebce (.)
-=======
-			if (($callMood == "confusion") || (($callStepsCur >= 3) && ($callMood != "positive")))
->>>>>>> parent of f5bebce (.)
-=======
-			if (($callMood == "confusion") || (($callStepsCur >= 3) && ($callMood != "positive")))
->>>>>>> parent of f5bebce (.)
-=======
-			if (($callMood == "confusion") || (($callStepsCur >= 3) && ($callMood != "positive")))
->>>>>>> parent of f5bebce (.)
-=======
-			if (($callMood == "confusion") || (($callStepsCur >= 3) && ($callMood != "positive")))
->>>>>>> parent of f5bebce (.)
+			if (($callMood == "confusion") || (($callStepsCur > 3) && ($callMood != "positive")))
 			{
+				set $callStepsCur += 1;
 				#say("assistGreetExplain");
 				wait
 				{
@@ -134,45 +96,76 @@ node assistGreetAttempt {
 				exit;
 			}	
 		}		
->>>>>>> parent of 52bbe3d (.)
 
-node getMessage
-{
-    do
-    {
-        set $leavedMessage = #getMessageText();
-        goto @default;
-    } transitions
-    {
-        @default: goto @exit;
-    }
+		wait 
+		{
+			greetAttemptIdle
+		};
+	}
+	
+	transitions
+	{
+		greetAttemptIdle: goto assistGreetAttempt on timeout 10000;
+		greetAttemptPos: goto assistGreetAttempt on #messageHasSentiment("positive");
+		greetAttemptNeg: goto assistGreetAttempt on #messageHasSentiment("negative");
+		greetConfusedPos: goto assistGreetAttempt on #messageHasIntent("yes");
+		greetConfusedNeg: goto assistGreetAttempt on #messageHasIntent("no");
+	}
+	
+	onexit {
+		greetAttemptIdle: do { set $callStepsIdle += 1; }
+		greetAttemptPos: do 
+		{ 
+			set $callMood = "positive";
+		}
+		greetAttemptNeg: do 
+		{ 
+			set $callMood = "negative"; 
+		}
+		greetConfusedPos: do
+		{
+			set $callMood = "positive";
+			set $callStepsCur = 1;
+			set $callRescued = true;
+		}
+		greetConfusedNeg: do
+		{
+			set $callMood = "hangup";
+			set $callRescued = false;
+		}		
+	}
 }
 
-node @exit
+node @exit 
 {
-    do
+    do 
     {
-        set $status = "Completed";
-        #say("fine");
+		var logNodeName: string = "exit";
+		
+		#log(logNodeName + " mood " + $callMood + " mood");
+		#log(logNodeName + " steps " + #stringify($callStepsCur) + " Attempt(s)");
+		#log(logNodeName + " idle " + #stringify($callStepsIdle) + " Attempt(s)");
+		
+		if ($callMood == "negative")
+		{
+			#log(logNodeName + " call was not rescued");
+		}
+		
+		#say("assistHangUp");
         exit;
     }
+
 }
 
-digression @exit
+digression @exit_dig
 {
-    conditions { on true tags: onclosed; }
-    do
-    {
-        exit;
-    }
-}
-
-digression repeat
-{
-    conditions { on #messageHasIntent("repeat"); }
-    do
-    {
-        #repeat();
-        return;
-    }
+		conditions
+		{ 
+			on true tags: onclosed; 
+		}
+		
+		do 
+		{
+			exit;
+		}
 }
