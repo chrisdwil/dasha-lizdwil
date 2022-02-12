@@ -89,7 +89,11 @@ node assistGreetAttempt {
 			
 			//explanation
 <<<<<<< HEAD
+<<<<<<< HEAD
 			if (($callMood == "confusion") || (($callStepsCur >= 3) && ($callMood != "positive"))
+=======
+			if (($callMood == "confusion") || (($callStepsCur >= 3) && ($callMood != "positive")))
+>>>>>>> parent of f5bebce (.)
 =======
 			if (($callMood == "confusion") || (($callStepsCur >= 3) && ($callMood != "positive")))
 >>>>>>> parent of f5bebce (.)
