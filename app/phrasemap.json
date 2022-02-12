@@ -11,7 +11,7 @@
 	
 		"phrases": 
 		{
-			"introduction": {
+			"libIntroductionHello": {
 				"random": 
 				[
 					[{"text": "Hello!!!! "},{"id": "name", "type": "dynamic"},{"text": " here."}],

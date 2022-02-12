@@ -4,10 +4,11 @@ node hello
 {
 	do 
 	{
+		#preparePhrase("libIntroductionHello", $sidekick.name);
 		if ($greetFirst)
 		{
 			#waitForSpeech(10000);
-			//#say("libIntroductionHello", $sidekick.name);
+			#say("libIntroductionHello", $sidekick.name);
 			wait 
 			{
 				idleHello
@@ -32,4 +33,3 @@ node hello
 		}
 	}
 }
-
