@@ -1,7 +1,4 @@
 library
-context {
-
-}
 
 node hello
 {
@@ -9,10 +6,10 @@ node hello
 	{
 		var waitSpeechTime: number = 1000;
 		var waitIdleTime: number = 10000;
-		//#phraseParse("libIntroductionHello", $sidekick.name);
+
 		if ($greetFirst)
 		{
-			#waitForSpeech($waitSpeechTime);
+			//#waitForSpeech($waitSpeechTime);
 			//#say("libIntroductionHello", $sidekick.name);
 			wait 
 			{
