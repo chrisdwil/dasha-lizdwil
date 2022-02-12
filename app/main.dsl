@@ -1,6 +1,8 @@
 // Liz D. Wil
 import "sidekicklibrary/all.dsl";
 
+type 
+
 type human = 
 {
 		name: string;
@@ -27,7 +29,7 @@ context {
 	{
 				name: "Liz, D. Will",
 				nick: "Liz",
-				phonetic: "lizzzzzz",
+				phonetic: "lihhzzzzzz",
 				gender: "female",
 				mood: "positive"
 	};
@@ -46,20 +48,20 @@ context {
 	callStepsIdle: number = 0;
 	callRescued: boolean = false;
 	assistGreetFull: boolean = true;
-	
 	greetFirst: boolean = true;
 }
 
 start node assist {
 	do
 	{	
-		#connect($phone);	
+		#connect($phone);
 		wait *;
 	}
 	
 	transitions
 	{
-		assistGreetAttempt: goto assistGreetAttempt on timeout 300;
+//		assistGreetAttempt: goto assistGreetAttempt on timeout 300;
+		assistGreetAttempt: goto hello on timeout 300;
 	}
 }
 
