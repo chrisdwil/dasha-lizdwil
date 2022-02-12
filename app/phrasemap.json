@@ -11,6 +11,20 @@
 				
 		"phrases": 
 		{
+			"assistGreetAttemptNew": ["Hello! "],
+			"introduction": {
+				"first": [
+					{"text": "I'm "},
+					{"id:" : "nickName", "type": "dynamic" }
+				],
+			"repeat": {
+				"random": [
+					[{"id:" : "nickName", "type": "dynamic" }, {"text": "speaking."}],
+					[{"text": "Yo! It's me..."}, {"id:" : "nickName", "type": "dynamic" }]
+				]
+			}
+		
+			
 			"assistGreetAttempt": 
 			[
 				{"text": "Hello,,, I'm Liz." },
