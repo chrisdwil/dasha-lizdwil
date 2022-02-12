@@ -21,10 +21,7 @@ block introduction(): boolean
 			{
 				return true;
 			}
-			else
-			{
-				return false;
-			}
+			return false;
 		}
 	}
 }
