@@ -14,7 +14,7 @@
 			"assistGreetAttempt": {
 				"random": 
 				[
-					[{"text": "Hello,,, I'm"},{"id": "name", "type": "dynamic"},{"text": "How are you doing today?"}],
+					[{"text": "Hello,,, "},{"id": "name", "type": "dynamic"}],
 					[{"text": {"id": "name", "type": "dynamic"},{"text": " speaking."}],
 					[{"text": "Hey,,, this is "},{"id": "name", "type": "dynamic"}]
 				]
