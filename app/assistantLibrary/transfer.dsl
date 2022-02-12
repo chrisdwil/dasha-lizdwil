@@ -13,7 +13,7 @@ digression digTransfer
 			}
 			else
 			{
-				#sayText("Hold a moment while I transfer you.");
+				#say("digTransfer");
 				#forward($forward);
 				#disconnect();
 				exit;

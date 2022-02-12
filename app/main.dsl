@@ -52,7 +52,7 @@ node assistGreetAttempt {
 		else
 		{	
 			//repeat
-			if ((($callMood == "positive") || ($callMood == "negative")) || ($callStepsCur < 3))
+			if ((($callMood == "positive") || ($callMood == "negative")) && ($callStepsCur < 3))
 			{
 				set $callStepsCur += 1;
 				#say("assistGreetRepeat", interruptible: true);
@@ -65,7 +65,7 @@ node assistGreetAttempt {
 			}
 			
 			//explanation
-			if (($callMood == "confusion") || ($callStepsCur > 3))
+			if (($callMood == "confusion") || ($callStepsCur >= 3))
 			{
 				#say("assistGreetExplain");
 				wait
@@ -111,7 +111,6 @@ node assistGreetAttempt {
 		greetConfusedNeg: do
 		{
 			set $callMood = "hangup";
-			set $callStepsCur = 1;
 			set $callRescued = false;
 		}		
 	}
