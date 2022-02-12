@@ -65,8 +65,9 @@ node assistGreetAttempt {
 			}
 			
 			//explanation
-			if (($callMood == "confusion") || (($callStepsCur >= 3) && ($callMood != "positive")))
+			if (($callMood == "confusion") || (($callStepsCur > 3) && ($callMood != "positive")))
 			{
+				set $callStepsCur += 1;
 				#say("assistGreetExplain");
 				wait
 				{
