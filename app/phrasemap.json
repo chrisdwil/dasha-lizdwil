@@ -11,13 +11,7 @@
 	
 		"phrases": 
 		{
-			"assistGreetAttempt": {
-			{
-				"random":
-				[
-					[{"text": "Hi, this is Lizzzzz speaking, how can I assist you today?"}]
-				]				
-			},
+			"assistGreetAttempt": [{"text": "Hi, this is Lizzzzz speaking, how can I assist you today?"}],
 	
 			"assistGreetRepeat":
 			{
