@@ -55,11 +55,16 @@ start node assist {
 		#connect($phone);
 		wait *;
 	}
+
+	if (!introduction())
+	{
+		#say("success!");
+		exit;
+	}
 	
 	transitions
 	{
-//		assistGreetAttempt: goto assistGreetAttempt on timeout 300;
-		assistGreetAttempt: goto hello on timeout 300;
+		assistGreetAttempt: goto assistGreetAttempt on timeout 300;
 	}
 }
 
