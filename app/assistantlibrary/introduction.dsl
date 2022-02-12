@@ -29,7 +29,7 @@ node hello
 	
 	onexit
 	{
-		idleHello: do
+		idleHello:
 		{
 			set $guest.mood = "silent";
 		}
