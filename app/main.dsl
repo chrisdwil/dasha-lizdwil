@@ -57,11 +57,11 @@ start node assist {
 	}
 
 	set x = introduction();
-	{
-		#say("success!");
-		exit;
-	}
-	
+
+	#say("success!");
+	exit;
+
+
 	transitions
 	{
 		assistGreetAttempt: goto assistGreetAttempt on timeout 300;
