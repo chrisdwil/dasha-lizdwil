@@ -1,35 +1,35 @@
 library
 
-node hello
+block introduction(): boolean
 {
-	do 
+	node hello
 	{
-		#log($sidekick.name);
-		if ($greetFirst)
+		do 
 		{
-			#waitForSpeech(10000);
-			#say("libIntroductionHello", {name: $sidekick.name});
-			wait 
+			#log($sidekick.name);
+			if ($greetFirst)
 			{
-				idleHello
-			};
+				#waitForSpeech(10000);
+				#say("libIntroductionHello", {name: $sidekick.name});
+				wait 
+				{
+					idleHello
+				};
+			}
+			return true;
 		}
-		else
+
+		transitions
 		{
-			wait *;
+			idleHello: goto hello on timeout 10000;
 		}
-	}
 
-	transitions
-	{
-		idleHello: goto hello on timeout 10000;
-	}
-
-	onexit
-	{
-		idleHello: do
+		onexit
 		{
-			set $guest.mood = "silent";
+			idleHello: do
+			{
+				set $guest.mood = "silent";
+			}
 		}
 	}
 }
