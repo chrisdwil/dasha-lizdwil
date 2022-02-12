@@ -19,7 +19,6 @@ context {
 start node assist {
 	do
 	{	
-		#preparePhrase("introduction", {name: $name});
 		#connect($phone);	
 		wait *;
 	}
@@ -39,12 +38,14 @@ node assistGreetAttempt {
 		#log(logNodeName + " steps " + #stringify($callStepsCur) + " Attempt(s)");
 		#log(logNodeName + " idle " + #stringify($callStepsIdle) + " Attempt(s)");
 		
+		#preparePhrase("assistGreetAttempt", {name: $name});
+
 		if ($assistGreetFull)
 		{
 			set $assistGreetFull = false;
 			set $callStepsCur += 1;
 			
-			#say("introduction", {name: $name});
+			#say("assistGreetAttempt", {name: $name});
 			wait 
 			{
 				greetAttemptIdle
