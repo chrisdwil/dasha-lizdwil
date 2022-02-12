@@ -4,12 +4,9 @@ node hello
 {
 	do 
 	{
-		var waitSpeechTime: number = 1000;
-		var waitIdleTime: number = 10000;
-
 		if ($greetFirst)
 		{
-			#waitForSpeech($waitSpeechTime);
+			#waitForSpeech(10000);
 			//#say("libIntroductionHello", $sidekick.name);
 			wait 
 			{
