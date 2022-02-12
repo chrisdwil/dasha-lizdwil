@@ -4,8 +4,8 @@
 		"voiceInfo": 
 		{
 			"lang": "en-US",
-			"speaker": "kate",
-			"speed": 1.9,
+			"speaker": "dasha",
+			"speed": 1.1,
 			"variation": 5
 		},
 				
@@ -22,9 +22,8 @@
 			{
 				"random":
 				[
-					[{"text": "So... what can I help you with?"}],
-					[{"text": "Am I able to assist you with anything today?"}]
-				]
+					[{"text": "So... what can I help you with?"}]
+				]				]
 			},
 			
 			"assistGreetExplain": 
