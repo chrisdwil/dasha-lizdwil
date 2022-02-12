@@ -18,6 +18,9 @@ start node assist {
 	do
 	{	
 		#connect($phone);
+		#preparePhrase("introduction",{nickName: "Liz"});
+		#say("introduction",{nickName: "Liz"});
+		
 		wait *;
 	}
 	
