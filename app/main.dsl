@@ -56,7 +56,7 @@ start node assist {
 		wait *;
 	}
 
-	x = introduction();
+	set x = introduction();
 	{
 		#say("success!");
 		exit;
