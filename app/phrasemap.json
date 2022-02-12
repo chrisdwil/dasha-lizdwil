@@ -1,14 +1,13 @@
 {
   "default": {
-		"voiceInfo": 
-		{
-				"lang": "en-US",
-				"speaker": "dasha",
-				"speed": 1.1,
-				"variation": 5
-		},
+	"voiceInfo": {
+			"lang": "en-US",
+			"speaker": "default",
+			"speed": 1.1,
+			"variation": 5
+	},
     "phrases": {		
-			"hello": ["Hello! "],
+			"hello": [{"text":"Hello! "},
 			"introduction": {
 				"first": [
 					{"text": "I'm "},
