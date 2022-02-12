@@ -18,7 +18,7 @@ start node assist {
 	do
 	{	
 		#connect($phone);	
-        #say("hello");
+		#say("assistGreetAttempt", {name: $name});
 		wait *;
 	}
 	
