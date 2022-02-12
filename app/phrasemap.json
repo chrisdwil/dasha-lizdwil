@@ -13,9 +13,8 @@
 		{	
 			"assistGreetAttempt": 
 			[
-				{"text": "Hello."},
-				{"id": "name", "type": "dynamic"}, 
-				{"text": "Speaking, how are you doing today?"}
+				{"text": "Hello,,, I'm Liz." },
+				{"text": "How are you doing today?"}
 			],
 	
 			"assistGreetRepeat":
