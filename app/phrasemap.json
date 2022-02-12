@@ -10,7 +10,19 @@
 		},
 	
 		"phrases": 
-		{	
+		{
+            "introduction": {
+				"first": [
+					{"text": "I'm "},
+					{"id:": "name", "type": "dynamic" }
+				],
+				"repeat": {
+					"random": [
+						[{"id:" : "name", "type": "dynamic" }, {"text": " speaking."}],
+						[{"text": "Yo! It's me..."}, {"id:": "name", "type": "dynamic" }]
+					]
+				}
+			},	
 			"assistGreetAttempt": 
 			[
 				{"text": "Hello,,, I'm"},
@@ -131,6 +143,7 @@
 	
 		"macros": 
 		{
+			"introduction": {},
 			"assistGreetAttempt": {},
 			"assistGreetExplain": {},
 			"assistGreetRepeat": {},

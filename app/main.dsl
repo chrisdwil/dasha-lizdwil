@@ -40,11 +40,11 @@ node assistGreetAttempt {
 		
 		if ($assistGreetFull)
 		{
-			#preparePhrase("assistGreetAttempt", {name: $name});
+			#preparePhrase("introduction", {name: $name});
 			set $assistGreetFull = false;
 			set $callStepsCur += 1;
 			
-			#say("assistGreetAttempt", {name: $name});
+			#say("introduction", {name: $name});
 			wait 
 			{
 				greetAttemptIdle
