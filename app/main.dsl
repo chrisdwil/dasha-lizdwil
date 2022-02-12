@@ -15,7 +15,7 @@ context {
 	input sprint: boolean;
 
 	host: human = [{name: "Chris D. Wil", nick: "Chris", phonetic: "chris", gender: "male"}]; 
-	help: human = [{name: "Liz D. Wil", nick: "Liz", phonetic: "lizzz", gender: "female"}];
+	sidekick: human = [{name: "Liz D. Wil", nick: "Liz", phonetic: "lizzz", gender: "female"}];
 	guest: human;
 	
 	callMood: string = "positive";
