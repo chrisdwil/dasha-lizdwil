@@ -5,14 +5,7 @@ context {
 	input phone: string;
 	input forward: string = "sip:+12817829187@lizdwil.pstn.twilio.com;transport=udp";
 	input sprint: boolean;
-	
-	herName: string = "Liz D. Wil";
-	herNick: string = "Liz";
-	herGender: string = "multibit";
-	myName: string = "Chris D. Wil";
-	myNameNick: string = "Chris Dee";
-	myGender: string = "male";
-	
+
 	callMood: string = "positive";
 	callStepsCur: number = 1;
 	callStepsRisk: number = 5;
@@ -42,11 +35,6 @@ node assistGreetAttempt {
 		#log(logNodeName + " mood " + $callMood + " mood");
 		#log(logNodeName + " steps " + #stringify($callStepsCur) + " Attempt(s)");
 		#log(logNodeName + " idle " + #stringify($callStepsIdle) + " Attempt(s)");
-		
-		#preparePhrase("hello", {nickName: $herName});
-		#say("hello", {nickname: $herName});
-		
-		exit;
 		
 		if ($assistGreetFull)
 		{
