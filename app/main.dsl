@@ -1,5 +1,5 @@
 // Liz D. Wil
-import "assistantLibrary/all.dsl";
+import "assistantlibrary/all.dsl";
 
 type human = 
 {
