@@ -1,6 +1,6 @@
 library
 
-block introduction(): void
+block introduction(): boolean
 {
 	start node hello
 	{
