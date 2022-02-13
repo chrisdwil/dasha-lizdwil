@@ -53,7 +53,7 @@ start node assist {
 	do
 	{	
 		#connectSafe($phone);
-		$guest = blockcall introduction($sidekick, $guest, true);
+		blockcall introduction($sidekick, $guest, true);
 		wait *;
 	}
 
