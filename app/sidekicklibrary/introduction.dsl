@@ -23,10 +23,10 @@ block introduction(me: human, guest: human, greetFirst: boolean): boolean
 			}
 			return false;
 		}
-	}
-	
-	transitions
-	{
-		idleHello: goto hello on timeout 10000
+		
+		transitions
+		{
+			idleHello: goto hello on timeout 10000
+		}
 	}
 }
