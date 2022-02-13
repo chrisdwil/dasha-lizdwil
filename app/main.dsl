@@ -52,11 +52,10 @@ context {
 start node assist {
 	do
 	{	
-		//introduction();
-		#sayText("success!");
 		#connect($phone);
+		$guest = introduction($sidekick, $guest, true);
+		#sayText("success!");
 		exit;
-
 	}
 
 	transitions
