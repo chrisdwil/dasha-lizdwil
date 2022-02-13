@@ -14,9 +14,9 @@
 			"libIntroductionHello": {
 				"random": 
 				[
-					[{"text": "Hello!!!! "},{"id": "name", "type": "dynamic"},{"text": " here."}],
-					[{"id": "name", "type": "dynamic"},{"text": " speaking, what's up?"}],
-					[{"text": "Heyyyy this is "},{"id": "name", "type": "dynamic"}]
+					[{"text": "Hello!!!! Lizzz... here."}],
+					[{"text": "Lizzz speaking,,, what's up?"}],
+					[{"text": "Heyyyy this is Lizzz."}]
 				]
 			},
 			"assistGreetAttempt": {
