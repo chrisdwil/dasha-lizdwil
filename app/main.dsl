@@ -54,7 +54,6 @@ start node assist {
 	{	
 		#connect($phone);
 		$guest = introduction($sidekick, $guest, true);
-		#sayText("success!");
 		exit;
 	}
 
