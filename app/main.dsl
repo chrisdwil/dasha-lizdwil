@@ -17,7 +17,7 @@ context {
 
 	host: human =
 	{
-				name: "Chris, D. Will",
+				name: "Chris, D. Wheel",
 				nick: "Chris",
 				phonetic: "chris",
 				gender: "male",
@@ -25,7 +25,7 @@ context {
 	};
 	sidekick: human =
 	{
-				name: "Liz, D. Will",
+				name: "Liz, D. Wheel",
 				nick: "Liz",
 				phonetic: "Lizzz",
 				gender: "female",
@@ -53,6 +53,7 @@ start node assist {
 	do
 	{	
 		#connectSafe($phone);
+		$guest = blockcall introduction($sidekick, $guest, true);
 		wait *;
 	}
 
@@ -71,8 +72,6 @@ node assistGreetAttempt {
 		#log(logNodeName + " steps " + #stringify($callStepsCur) + " Attempt(s)");
 		#log(logNodeName + " idle " + #stringify($callStepsIdle) + " Attempt(s)");
 		
-		#preparePhrase("assistGreetAttempt", {name: $sidekick.phonetic});
-
 		if ($assistGreetFull)
 		{
 			set $assistGreetFull = false;
