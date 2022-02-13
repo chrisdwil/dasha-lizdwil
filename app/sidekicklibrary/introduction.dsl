@@ -6,26 +6,12 @@ block introduction(name: string, greetFirst: boolean): boolean
 	{
 		do 
 		{
-			if ($greetFirst)
-			{
-				set $greetFirst = false;
-				#waitForSpeech(10000);
-				#say("libIntroductionHello", "Lizzzz");
-				wait 
-				{
-					idleHello
-				};
-			}
-			if (!$greetFirst) 
-			{
-				return true;
-			}
+			#say("libIntroductionHello", "Lizzzz");
 			return false;
 		}
 		
 		transitions
 		{
-			idleHello: goto hello on timeout 10000;
 		}
 	}
 }
