@@ -1,6 +1,6 @@
 library
 
-block introduction(sidekick: human, guest: human, greetFirst: boolean): human
+block introduction(me: human, them: human, greetFirst: boolean): human
 {
 	start node hello
 	{
@@ -8,16 +8,15 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 		{
 			if ($greetFirst)
 			{
-				#preparePhrase("libIntroductionHello", {name: $sidekick.phonetic});
 				#waitForSpeech(1000);
-				#say("libIntroductionHello", {name: $sidekick.phonetic});
+				#say("libIntroductionHello");
 				wait *;				
 			}
 			else
 			{
 				wait *;
 			}
-			return $guest;
+			return $them;
 		}
 		
 		transitions
@@ -32,6 +31,7 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 		do
 		{
 			#sayText("are you there?");
+			wait *;
 		}
 	}
 }

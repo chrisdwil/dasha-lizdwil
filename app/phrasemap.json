@@ -6,7 +6,8 @@
 				"lang": "en-US",
 				"speaker": "default",
 				"speed": 1.1,
-				"variation": 5
+				"variation": 5,
+				"emotion": "positive"
 		},
 	
 		"phrases": 
