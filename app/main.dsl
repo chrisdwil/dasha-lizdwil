@@ -53,7 +53,7 @@ start node assist {
 	do
 	{	
 		#connect($phone);
-		$sidekick = blockcall introduction("Lizzzzz", true);
+		blockcall introduction("Lizzzzz", true);
 		exit;
 	}
 
