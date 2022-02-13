@@ -9,7 +9,7 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 			if ($greetFirst)
 			{
 				#waitForSpeech(1000);
-				#say("libIntroductionHello", {name: $me.name});
+				#say("libIntroductionHello", {name: $me.phonetic});
 				wait *;				
 			}
 			else
