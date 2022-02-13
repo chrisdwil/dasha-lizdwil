@@ -23,7 +23,7 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 		transitions
 		{
 			idle: goto hello on timeout 5000;
-			confusion: goto helloConfused on #messageHasAnyIntents(["questions","confusion"])
+			confusion: goto helloConfused on #messageHasAnyIntents(["questions","confusion"]);
 		}
 	}
 	
