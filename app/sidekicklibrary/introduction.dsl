@@ -6,6 +6,7 @@ block introduction(name: string, greetFirst: boolean): boolean
 	{
 		do 
 		{
+			#preparePhrase("libIntroductionHello", {name: "Lizzzz");
 			#say("libIntroductionHello", {name: "Lizzzz"});
 			return false;
 		}
