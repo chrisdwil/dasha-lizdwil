@@ -1,17 +1,17 @@
 library
 
-block introduction(): boolean
+block introduction(me: human): boolean
 {
 	start node hello
 	{
 		do 
 		{
-			#log($sidekick.name);
+			#log($me.name);
 			if ($greetFirst)
 			{
 				set $greetFirst = false;
 				#waitForSpeech(10000);
-				#say("libIntroductionHello", {name: $sidekick.name});
+				#say("libIntroductionHello", {name: $me.name});
 				wait 
 				{
 					idleHello
