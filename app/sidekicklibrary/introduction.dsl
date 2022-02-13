@@ -18,20 +18,25 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 			}
 			return $them;
 		}
-		
+
 		transitions
 		{
 			idle: goto hello on timeout 5000;
 			confusion: goto helloConfused on #messageHasAnyIntent(["questions","confusion"]);
 		}
-		
+
 		onexit 
 		{
 			idle: do { set $them.mood = "confusion"; }
 			confusion: do { set $them.mood = "confusion"; }
 		}
 	}
-	
+
+	node @return 
+	{
+		do { return $them; }
+	}
+			
 	node helloConfused
 	{
 		do
@@ -39,10 +44,15 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 			#say("libIntroductionHelloConfusion");
 			wait *;
 		}
-		
+
 		transitions
 		{
-			idle: goto hangUp on timeout 10000;
+			idle: goto @return on timeout 10000;
+		}
+
+		onexit
+		{
+			idle: do { set $them.mood = "silent"; }
 		}
 	}
 }
