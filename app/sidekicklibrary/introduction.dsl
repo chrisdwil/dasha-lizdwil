@@ -2,18 +2,40 @@ library
 
 block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 {
+	context
+	{
+		
+	}
+	
 	start node hello
 	{
 		do 
 		{
-			#preparePhrase("libIntroductionHello", {name: $sidekick.phonetic});
-			#waitForSpeech(1000);
-			#say("libIntroductionHello", {name: $sidekick.phonetic});
-			return $guest;
+			if (greetFirst)
+			{
+				#preparePhrase("libIntroductionHello", {name: $sidekick.phonetic});
+				#waitForSpeech(1000);
+				#say("libIntroductionHello", {name: $sidekick.phonetic});
+				wait *;				
+			}
+			else
+			{
+				wait *;
+			}
 		}
 		
 		transitions
 		{
+			idle: goto hello on timeout 5000;
+			confusion: goto helloConfused on #messageHasAnyIntents(["questions","confusion"])
+		}
+	}
+	
+	node helloConfused
+	{
+		do
+		{
+			#sayText("are you there?");
 		}
 	}
 }

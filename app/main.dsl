@@ -8,6 +8,8 @@ type human =
 		phonetic: string;
 		gender: string;
 		mood: string;
+		responses: number;
+		unknown: number;
 };
 
 context {
@@ -21,7 +23,9 @@ context {
 				nick: "Chris",
 				phonetic: "chris",
 				gender: "male",
-				mood: "positive"
+				mood: "positive",
+				responses: 0,
+				unknown: 0
 	};
 	sidekick: human =
 	{
@@ -29,7 +33,9 @@ context {
 				nick: "Liz",
 				phonetic: "Lizzz",
 				gender: "female",
-				mood: "positive"
+				mood: "positive",
+				responses: 0,
+				unknown: 0
 	};
 	guest: human =
 	{
@@ -37,7 +43,9 @@ context {
 				nick: "",
 				phonetic: "",
 				gender: "",
-				mood: "positive"
+				mood: "positive",
+				responses: 0,
+				unknown: 0
 	};
 	
 	callMood: string = "positive";
