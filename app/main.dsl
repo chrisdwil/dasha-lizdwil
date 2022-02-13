@@ -53,7 +53,7 @@ start node assist {
 	do
 	{	
 		//introduction();
-		#say("success!");
+		#sayText("success!");
 		#connect($phone);
 		exit;
 
