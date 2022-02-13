@@ -7,6 +7,7 @@ block introduction(me: human, greetFirst: boolean): human
 		do 
 		{
 			#preparePhrase("libIntroductionHello", {name: "Lizzzz"});
+			#waitForSpeech(1000);
 			#say("libIntroductionHello", {name: "Lizzzz"});
 			return $me;
 		}
