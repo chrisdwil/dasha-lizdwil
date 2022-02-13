@@ -1,6 +1,6 @@
 library
 
-block introduction(me: human, guest: human, greetFirst: boolean): boolean
+block introduction(me: human, guest: human, greetFirst: boolean): human
 {
 	start node hello
 	{
@@ -19,9 +19,9 @@ block introduction(me: human, guest: human, greetFirst: boolean): boolean
 			}
 			if (!$greetFirst) 
 			{
-				return true;
+				return $guest;
 			}
-			return false;
+			return $guest;
 		}
 		
 		transitions
