@@ -12,12 +12,14 @@
 	
 		"phrases": 
 		{
-			"libIntroductionHello": [
-					{"text": "Hello!!!! This is Lizzz... speaking. How may I assist you?"},
-					{"text": "Hi, what can I help with you with??? Whoops, forgot to mention, I'm Liz"},
-					{"text": "Heyyyyyyyyyyyyy this is Lizzz. What can I help with?"}
-			],	
-			
+			"libIntroductionHello": {
+				"random": 
+				[
+					[{"text": "Hello!!!! Lizzz... here."}],
+					[{"text": "Lizzz speaking,,, what's up?"}],
+					[{"text": "Heyyyy this is Lizzz."}]
+				]
+			},
 			"libIntroductionHelloConfusion": {
 				"random": 
 				[
