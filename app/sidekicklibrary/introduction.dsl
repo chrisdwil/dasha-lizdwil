@@ -21,13 +21,13 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 
 		transitions
 		{
-			idle: goto hello on timeout 5000;
+			idle: goto hello on timeout 7500;
 			confusion: goto helloConfused on #messageHasAnyIntent(["questions","confusion"]);
 		}
 
 		onexit 
 		{
-			idle: do { set $them.mood = "confusion"; }
+			idle: do { set $them.mood = "silent"; }
 			confusion: do { set $them.mood = "confusion"; }
 		}
 	}
@@ -48,11 +48,14 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 		transitions
 		{
 			idle: goto @return on timeout 10000;
+			confusion: goto @return on #messageHasAnyIntent(["questions","confusion"]);
 		}
 
 		onexit
 		{
 			idle: do { set $them.mood = "silent"; }
+			confusion: do { set $them.mood = "confusion"; }
+			
 		}
 	}
 	
