@@ -52,8 +52,9 @@ context {
 start node assist {
 	do
 	{	
+		var guest = introduction($sidekick, $guest, true);
+
 		#connect($phone);
-		$guest = introduction($sidekick, $guest, true);
 		exit;
 	}
 
