@@ -62,7 +62,7 @@ start node assist {
 	{	
 		#connectSafe($phone);
 		set $guest = blockcall introduction($sidekick, $guest, true);
-		#log("returned from introduction, guest's mood was " + #stringify($guest.mood));
+		#log("introduction: guest's mood was " + $guest.mood);
 		wait *;
 	}
 
