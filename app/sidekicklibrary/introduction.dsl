@@ -27,8 +27,8 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 		
 		onexit 
 		{
-			idle: do { set $them.mood = "confusion" };
-			confusion: do { set $them.mood = "confusion" };
+			idle: do { set $them.mood = "confusion" }
+			confusion: do { set $them.mood = "confusion" }
 		}
 	}
 	
