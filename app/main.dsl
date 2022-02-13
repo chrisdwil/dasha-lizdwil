@@ -27,7 +27,7 @@ context {
 	{
 				name: "Liz, D. Will",
 				nick: "Liz",
-				phonetic: "lihhzzzzzz",
+				phonetic: "liiizzzzzz",
 				gender: "female",
 				mood: "positive"
 	};
