@@ -1,6 +1,6 @@
 library
 
-block introduction(me: human, guest: human, greetFirst): boolean
+block introduction(me: human, guest: human, greetFirst: boolean): boolean
 {
 	start node hello
 	{
