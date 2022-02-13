@@ -52,7 +52,7 @@ context {
 start node assist {
 	do
 	{	
-		introduction();
+		//introduction();
 		#say("success!");
 		#connect($phone);
 		exit;
