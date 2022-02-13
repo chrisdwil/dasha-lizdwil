@@ -17,6 +17,7 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 			{
 				wait *;
 			}
+			return $guest;
 		}
 		
 		transitions

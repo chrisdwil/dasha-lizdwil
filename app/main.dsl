@@ -9,7 +9,7 @@ type human =
 		gender: string;
 		mood: string;
 		responses: number;
-		unknown: number;
+		errors: number;
 };
 
 context {
@@ -25,7 +25,7 @@ context {
 				gender: "male",
 				mood: "positive",
 				responses: 0,
-				unknown: 0
+				errors: 0
 	};
 	sidekick: human =
 	{
@@ -35,7 +35,7 @@ context {
 				gender: "female",
 				mood: "positive",
 				responses: 0,
-				unknown: 0
+				errors: 0
 	};
 	guest: human =
 	{
@@ -45,7 +45,7 @@ context {
 				gender: "",
 				mood: "positive",
 				responses: 0,
-				unknown: 0
+				errors: 0
 	};
 	
 	callMood: string = "positive";
