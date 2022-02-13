@@ -6,7 +6,7 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 	{
 		do 
 		{
-			if (greetFirst)
+			if ($greetFirst)
 			{
 				#preparePhrase("libIntroductionHello", {name: $sidekick.phonetic});
 				#waitForSpeech(1000);
