@@ -53,12 +53,12 @@ start node assist {
 	do
 	{	
 		#connectSafe($phone);
-		#sayText("Hello!");
+		wait *;
 	}
 
 	transitions
 	{
-		next: goto assistGreetAttempt;
+		idle: goto assistGreetAttempt on timeout 300;
 	}
 }
 
