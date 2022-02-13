@@ -21,7 +21,7 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 
 		transitions
 		{
-			idle: goto hello on timeout 5000;
+			idle: goto hello on timeout 10000;
 			confusion: goto helloConfused on #messageHasAnyIntent(["questions","confusion"]);
 		}
 
