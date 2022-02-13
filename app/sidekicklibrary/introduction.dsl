@@ -10,7 +10,7 @@ block introduction(name: string, greetFirst: boolean): boolean
 			{
 				set $greetFirst = false;
 				#waitForSpeech(10000);
-				#say("libIntroductionHello", $name);
+				#say("libIntroductionHello", {name: $name});
 				wait 
 				{
 					idleHello
