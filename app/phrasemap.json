@@ -159,7 +159,7 @@
 		"macros": 
 		{
 			"libIntroductionHello": {},
-			"libIntroductionHelloConfused": {},
+			"libIntroductionHelloConfusion": {},
 			"assistGreetAttempt": {},
 			"assistGreetExplain": {},
 			"assistGreetRepeat": {},
