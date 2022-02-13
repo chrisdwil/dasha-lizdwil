@@ -55,4 +55,17 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 			idle: do { set $them.mood = "silent"; }
 		}
 	}
+	
+	digression @return_dig
+	{
+			conditions
+			{ 
+				on true tags: onclosed; 
+			}
+			
+			do 
+			{
+				return;
+			}
+	}
 }
