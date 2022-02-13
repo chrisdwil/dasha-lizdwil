@@ -12,7 +12,7 @@
 	
 		"phrases": 
 		{
-			"libIntroductionHello": [
+			"libIntroductionHello": {
 				"random": 
 				[
 					[{"text": "Hello!!!! This is Lizzz... speaking. How may I assist you?"}],
