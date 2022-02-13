@@ -52,8 +52,8 @@ context {
 start node assist {
 	do
 	{	
-		#connect($phone);
-
+		#connectSafe($phone);
+		introduction($sidekick.name, true);
 		exit;
 	}
 
