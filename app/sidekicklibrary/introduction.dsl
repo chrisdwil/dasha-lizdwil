@@ -6,12 +6,12 @@ block introduction(name: string, greetFirst: boolean): boolean
 	{
 		do 
 		{
-			#log($me.name);
+			#log(name);
 			if ($greetFirst)
 			{
 				set $greetFirst = false;
 				#waitForSpeech(10000);
-				#say("libIntroductionHello", {name: $me.name});
+				#say("libIntroductionHello", {name: $name});
 				wait 
 				{
 					idleHello
