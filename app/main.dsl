@@ -53,6 +53,7 @@ start node assist {
 	do
 	{	
 		#connectSafe($phone);
+		sayText("Hello!");
 	}
 
 	transitions
