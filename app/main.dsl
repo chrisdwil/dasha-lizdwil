@@ -52,14 +52,12 @@ context {
 start node assist {
 	do
 	{	
-		#connect($phone);
-		blockcall introduction($sidekick, $guest, true);
-		exit;
+		#connectSafe($phone);
 	}
 
 	transitions
 	{
-//		assistGreetAttempt: goto assistGreetAttempt on timeout 300;
+		next: goto assistGreetAttempt;
 	}
 }
 
