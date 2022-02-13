@@ -26,7 +26,7 @@ block introduction(me: human, guest: human, greetFirst: boolean): boolean
 		
 		transitions
 		{
-			idleHello: goto hello on timeout 10000
+			idleHello: goto hello on timeout 10000;
 		}
 	}
 }
