@@ -53,7 +53,7 @@ start node assist {
 	do
 	{	
 		#connectSafe($phone);
-		introduction($sidekick.name, true);
+		introduction("Lizzzzz", true);
 		exit;
 	}
 
