@@ -2,11 +2,6 @@ library
 
 block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 {
-	context
-	{
-		
-	}
-	
 	start node hello
 	{
 		do 
