@@ -20,6 +20,22 @@
 					[{"text": "Heyyyy this is Lizzz."}]
 				]
 			},
+			"libIntroductionHelloConfusion": {
+				"random": 
+				[
+					[{"text": "I'm not sure if you said anything, or I couldn't hear you, are you still with me?"}],
+					[{"text": "Hey, you may need to speak louder or if you're not around anymore I'll have to let you go."}],
+					[{"text": "Are you there still?"}]
+				]
+			},
+			"libIntroductionHello": {
+				"random": 
+				[
+					[{"text": "Hello!!!! Lizzz... here."}],
+					[{"text": "Lizzz speaking,,, what's up?"}],
+					[{"text": "Heyyyy this is Lizzz."}]
+				]
+			},			
 			"assistGreetAttempt": {
 				"random": 
 				[
@@ -143,6 +159,7 @@
 		"macros": 
 		{
 			"libIntroductionHello": {},
+			"libIntroductionHelloConfused": {},
 			"assistGreetAttempt": {},
 			"assistGreetExplain": {},
 			"assistGreetRepeat": {},

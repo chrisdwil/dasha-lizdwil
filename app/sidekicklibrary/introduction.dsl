@@ -24,14 +24,24 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 			idle: goto hello on timeout 5000;
 			confusion: goto helloConfused on #messageHasAnyIntent(["questions","confusion"]);
 		}
+		
+		onexit {
+			idle: do { $guest.mood = "confusion" };
+			confusion: do { $guest.mood = "confusion" };
+		}
 	}
 	
 	node helloConfused
 	{
 		do
 		{
-			#sayText("are you there?");
+			#say("libIntroductionHelloConfusion");
 			wait *;
+		}
+		
+		transitions
+		{
+			idle: goto hangUp on timeout 10000;
 		}
 	}
 }
