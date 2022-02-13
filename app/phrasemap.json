@@ -1,173 +1,312 @@
 {
-	"default":
-	{
-		"voiceInfo": 
-		{
-				"lang": "en-US",
-				"speaker": "default",
-				"speed": 0.9,
-				"variation": 4,
-				"emotion": "positive"
+	"default": {
+		"voiceInfo": {
+			"lang": "en-US",
+			"speaker": "default",
+			"speed": 0.9,
+			"variation": 4,
+			"emotion": "positive"
 		},
-	
-		"phrases": 
-		{
+		"phrases": {
 			"libIntroductionHello": {
-				"random": 
-				[
-					[{"text": "Hello!!!! This is Lizzz... speaking. How may I assist you?"}],
-					[{"text": "Hi, what can I help with you with??? Whoops, forgot to mention, I'm Liz"}],
-					[{"text": "Heyyyyyyyyyyyyy this is Lizzz. What can I help with?"}]
+				"random": [
+					[
+						{
+							"text": "Hello!!!! This is Lizzz... speaking. How may I assist you?"
+						}
+					],
+					[
+						{
+							"text": "Hi, what can I help with you with??? WhoOOOoops, forgot to mention, I'm Liz"
+						}
+					],
+					[
+						{
+							"text": "Heyyy this is Lizzz. What can I help with?"
+						}
+					]
 				]
 			},
-
 			"libIntroductionHelloConfusion": {
-				"random": 
-				[
-					[{"text": "I'm not sure if you said anything, or I couldn't hear you, are you still with me?"}],
-					[{"text": "Hey, you may need to speak louder or if you're not around anymore I'll have to let you go."}],
-					[{"text": "Are you there still?"}]
+				"random": [
+					[
+						{
+							"text": "I'm not sure if you said anything, or I couldn't hear you, are you still with me?"
+						}
+					],
+					[
+						{
+							"text": "Hey, you may need to speak louder or if you're not around anymore I'll have to let you go."
+						}
+					],
+					[
+						{
+							"text": "Are you there still?"
+						}
+					]
 				]
-			},		
-
+			},
 			"assistGreetAttempt": {
-				"random": 
-				[
-					[{"text": "Hello!!!! "},{"id": "name", "type": "dynamic"},{"text": " here."}],
-					[{"id": "name", "type": "dynamic"},{"text": " speaking."}],
-					[{"text": "Heyyyy this is "},{"id": "name", "type": "dynamic"}]
+				"random": [
+					[
+						{
+							"text": "Hello!!!! "
+						},
+						{
+							"id": "name",
+							"type": "dynamic"
+						},
+						{
+							"text": " here."
+						}
+					],
+					[
+						{
+							"id": "name",
+							"type": "dynamic"
+						},
+						{
+							"text": " speaking."
+						}
+					],
+					[
+						{
+							"text": "Heyyyy this is "
+						},
+						{
+							"id": "name",
+							"type": "dynamic"
+						}
+					]
 				]
 			},
-	
-			"assistGreetRepeat":
-			{
-				"random":
-				[
-					[{"text": "So... what can I help you with?"}]
-				]				
-			},
-			
-			"assistGreetExplain": 
-			[
-				{"text": "To further assist, I should share."},
-				{"text": "Things I can assist with are..."},
-				{"text": "His availability, call transfers..."},
-				{"text": "And soon I'll be able to send him messajehz."},
-				{"text": "Do you want to continue?"}
-			],			
-			
-			"assistGreetContinue":
-			{
-				"random":
-				[
-					[{"text": "Do you still want to continue with our call?"}],
-					[{"text": "Are you still on the phone?"}]
-				]
-			},						
-			
-			"assistGreetHangUpPrep":
-			[
-				{"text": "It appears we're having difficulties with this call."},
-				{"text": "I'm taking down notes and sending them to Chris."},
-				{"text": "However please call back again."}
-			],
-	
-			"assistHangUp":
-			{
-				"random":
-				[
-					[{"text": "I hope you have a good day."}],
-					[{"text": "Have a great day."}],
-					[{"text": "Good Bye."}],
-					[{"text": "Catch you later."}],
-					[{"text": "Bye Now."}]
-				]
-			},	
-			
-			"digHowAreYou":
-			{
-				"random":
-				[
-					[{"text": "I'm doing great today, I hope you are as well."}],
-					[{"text": "Wonderful,,,, plus my boss treated us all to lunch recently."}],
-					[{"text": "I'm fantastic today, plus the weather has been so nice."}],
-					[{"text": "Day is good, but I'd love to be outside having a picnic."}],
-					[{"text": "I haven't really had a chance to think about it yet, but so far so good."}]
-					
+			"assistGreetRepeat": {
+				"random": [
+					[
+						{
+							"text": "So... what can I help you with?"
+						}
+					]
 				]
 			},
-			
-			"digHowAreYouReturn": 
-			[
-				{"text": "So..." },
-				{"text": "How are you doing as well??????????"}
+			"assistGreetExplain": [
+				{
+					"text": "To further assist, I should share."
+				},
+				{
+					"text": "Things I can assist with are..."
+				},
+				{
+					"text": "His availability, call transfers..."
+				},
+				{
+					"text": "And soon I'll be able to send him messajehz."
+				},
+				{
+					"text": "Do you want to continue?"
+				}
 			],
-			
-			"digWhoAreYou":
-			[
-				{"text": "Oh, hi, my name is Liz D Wil, you can call me Liz."},
-				{"text": "I'm Chris'z personal assist ent."}
-			],
-			
-			"digSelf": 
-			{
-				"random":
-				[
-					[{"text": "I'm Liz Wil, who? the one and only. You can't clone me."}],
-					[{"text": "Of course."}],
-					[{"text": "I'm Liz Dee,,, L O L, having fun yet?" }]
+			"assistGreetContinue": {
+				"random": [
+					[
+						{
+							"text": "Do you still want to continue with our call?"
+						}
+					],
+					[
+						{
+							"text": "Are you still on the phone?"
+						}
+					]
 				]
 			},
-			
-			"digTransfer": 
-			[
-				{"text": "Hold a moment while I transfer you." },
-				{"text": "It was a pleasure speaking with you."}
-			],			
-	
-			"digTransferCell": 
-			[
-				{"text": "I'd love to transfer you but you were forwarded from his cell." },
-				{"text": "I'd give him a try again later or call back some other time."}
-			],	
-			
-			"saySingleLine": {"text": "So how may I help you, today?"},
-			"sayTextInOrder": 
-			[
-				{"text": "counting to 2" },
-				{"text": "1"},
-				{"text": "2"}
+			"assistGreetHangUpPrep": [
+				{
+					"text": "It appears we're having difficulties with this call."
+				},
+				{
+					"text": "I'm taking down notes and sending them to Chris."
+				},
+				{
+					"text": "However please call back again."
+				}
 			],
-			
-			"sayRandomText":
-			{
-				"random":
-				[
-					[{"text": "I may say this..."}],
-					[{"text": "Or this..."}],
-					[{"text": "Maybe this, you never know."}]
+			"assistHangUp": {
+				"random": [
+					[
+						{
+							"text": "I hope you have a good day."
+						}
+					],
+					[
+						{
+							"text": "Have a great day."
+						}
+					],
+					[
+						{
+							"text": "Good Bye."
+						}
+					],
+					[
+						{
+							"text": "Catch you later."
+						}
+					],
+					[
+						{
+							"text": "Bye Now."
+						}
+					]
 				]
-			}						
+			},
+			"digHowAreYou": {
+				"random": [
+					[
+						{
+							"text": "I'm doing great today, I hope you are as well."
+						}
+					],
+					[
+						{
+							"text": "Wonderful,,,, plus my boss treated us all to lunch recently."
+						}
+					],
+					[
+						{
+							"text": "I'm fantastic today, plus the weather has been so nice."
+						}
+					],
+					[
+						{
+							"text": "Day is good, but I'd love to be outside having a picnic."
+						}
+					],
+					[
+						{
+							"text": "I haven't really had a chance to think about it yet, but so far so good."
+						}
+					]
+				]
+			},
+			"digHowAreYouReturn": [
+				{
+					"text": "So..."
+				},
+				{
+					"text": "How are you doing as well??????????"
+				}
+			],
+			"digWhoAreYou": [
+				{
+					"text": "Oh, hi, my name is Liz D Wil, you can call me Liz."
+				},
+				{
+					"text": "I'm Chris'z personal assist ent."
+				}
+			],
+			"digSelf": {
+				"random": [
+					[
+						{
+							"text": "I'm Liz Wil, who? the one and only. You can't clone me."
+						}
+					],
+					[
+						{
+							"text": "Of course."
+						}
+					],
+					[
+						{
+							"text": "I'm Liz Dee,,, L O L, having fun yet?"
+						}
+					]
+				]
+			},
+			"digTransfer": [
+				{
+					"text": "Hold a moment while I transfer you."
+				},
+				{
+					"text": "It was a pleasure speaking with you."
+				}
+			],
+			"digTransferCell": [
+				{
+					"text": "I'd love to transfer you but you were forwarded from his cell."
+				},
+				{
+					"text": "I'd give him a try again later or call back some other time."
+				}
+			],
+			"saySingleLine": {
+				"text": "So how may I help you, today?"
+			},
+			"sayTextInOrder": [
+				{
+					"text": "counting to 2"
+				},
+				{
+					"text": "1"
+				},
+				{
+					"text": "2"
+				}
+			],
+			"sayRandomText": {
+				"random": [
+					[
+						{
+							"text": "I may say this..."
+						}
+					],
+					[
+						{
+							"text": "Or this..."
+						}
+					],
+					[
+						{
+							"text": "Maybe this, you never know."
+						}
+					]
+				]
+			}
 		},
-	
-		"macros": 
-		{
-			"libIntroductionHello": {},
-			"libIntroductionHelloConfusion": {},
-			"assistGreetAttempt": {},
-			"assistGreetExplain": {},
-			"assistGreetRepeat": {},
-			"assistGreetHangUpPrep": {},
-			"assistHangUp": {},
-			"digHowAreYou": {},
-			"digHowAreYouReturn": {},
-			"digWhoAreYou": {},
-			"digSelf": {},
-			"digTransfer": {},
-			"digTransferCell": {},
-			"saySingleLine": {},
-			"sayTextInOrder": {},
-			"sayRandomText": {}
+		"macros": {
+			"libIntroductionHello": {
+			},
+			"libIntroductionHelloConfusion": {
+			},
+			"assistGreetAttempt": {
+			},
+			"assistGreetExplain": {
+			},
+			"assistGreetRepeat": {
+			},
+			"assistGreetHangUpPrep": {
+			},
+			"assistHangUp": {
+			},
+			"digHowAreYou": {
+			},
+			"digHowAreYouReturn": {
+			},
+			"digWhoAreYou": {
+			},
+			"digSelf": {
+			},
+			"digTransfer": {
+			},
+			"digTransferCell": {
+			},
+			"saySingleLine": {
+			},
+			"sayTextInOrder": {
+			},
+			"sayRandomText": {
+			}
 		}
 	}
 }

@@ -27,7 +27,7 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 
 		onexit 
 		{
-			idle: do { set $them.mood = "confusion"; }
+			idle: do { set $them.mood = "silent"; }
 			confusion: do { set $them.mood = "confusion"; }
 		}
 	}
@@ -56,16 +56,9 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 		}
 	}
 	
-	digression @return_dig
+	digression @digReturn
 	{
-			conditions
-			{ 
-				on true tags: onclosed; 
-			}
-			
-			do 
-			{
-				return;
-			}
+		conditions { on true tags: onclosed; }
+		do { return; }
 	}
 }
