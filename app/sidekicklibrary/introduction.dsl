@@ -1,6 +1,6 @@
 library
 
-block introduction(name: string, greetFirst: boolean): boolean
+block introduction(name: string, greetFirst: boolean): human
 {
 	start node hello
 	{
