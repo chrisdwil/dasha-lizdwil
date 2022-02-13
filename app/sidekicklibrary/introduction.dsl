@@ -25,9 +25,10 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 			confusion: goto helloConfused on #messageHasAnyIntent(["questions","confusion"]);
 		}
 		
-		onexit {
-			idle: do { $guest.mood = "confusion" };
-			confusion: do { $guest.mood = "confusion" };
+		onexit 
+		{
+			idle: do { $them.mood = "confusion" };
+			confusion: do { $them.mood = "confusion" };
 		}
 	}
 	
