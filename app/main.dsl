@@ -52,10 +52,11 @@ context {
 start node assist {
 	do
 	{	
-		var guest: human;
-
 		#connect($phone);
-		guest = introduction($sidekick, $guest, true);
+		if (introduction($sidekick, $guest, true)
+		{
+			#sayText("success!");
+		}
 		exit;
 	}
 
