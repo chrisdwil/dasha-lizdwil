@@ -15,9 +15,9 @@
 			"libIntroductionHello": {
 				"random": 
 				[
-					[{"text": "Hello!!!! Lizzz... here."}],
-					[{"text": "Lizzz speaking,,, what's up?"}],
-					[{"text": "Heyyyy this is Lizzz."}]
+					[{"text": "Hello!!!! "},{"id": "name", "type": "dynamic"},{"text": " here."}],
+					[{"id": "name", "type": "dynamic"},{"text": " speaking, what's up?"}],
+					[{"text": "Heyyyy this is "},{"id": "name", "type": "dynamic"}]
 				]
 			},
 			"libIntroductionHelloConfusion": {
@@ -27,15 +27,7 @@
 					[{"text": "Hey, you may need to speak louder or if you're not around anymore I'll have to let you go."}],
 					[{"text": "Are you there still?"}]
 				]
-			},
-			"libIntroductionHello": {
-				"random": 
-				[
-					[{"text": "Hello!!!! Lizzz... here."}],
-					[{"text": "Lizzz speaking,,, what's up?"}],
-					[{"text": "Heyyyy this is Lizzz."}]
-				]
-			},			
+			},		
 			"assistGreetAttempt": {
 				"random": 
 				[
