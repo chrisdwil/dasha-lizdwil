@@ -89,62 +89,66 @@
 					"text": "It appears he is busy at the moment and you'll need to try him again later."
 				},
 				{
-					"text": "Have a good day, bye now!"
-				}
-			],
-			"saySingleLine": {
-				"text": "This is a single line of text."
-			},
-			"sayTextInOrder": [
-				{
-					"text": "counting to 2"
+					"text": "Have a good day!"
 				},
 				{
-					"text": "1"
-				},
-				{
-					"text": "2"
+					"text": "Bye now!"
 				}
-			],
-			"sayRandomText": {
-				"random": [
-					[
-						{
-							"text": "I may say this..."
-						}
-					],
-					[
-						{
-							"text": "Or this..."
-						}
-					],
-					[
-						{
-							"text": "Maybe this, you never know."
-						}
-					]
-				]
 			}
+		],
+		"saySingleLine": {
+			"text": "This is a single line of text."
 		},
-		"macros": {
-			"assistTransfer": {
+		"sayTextInOrder": [
+			{
+				"text": "counting to 2"
 			},
-			"libIntroductionHelloFarewell": {
+			{
+				"text": "1"
 			},
-			"libIntroductionHello": {
-			},
-			"libIntroductionHelloAssist": {
-			},
-			"libIntroductionHelloIdle": {
-			},
-			"libIntroductionHelloMenu": {
-			},
-			"libIntroductionHelloTransfer": {
-			},
-			"libIntroductionHelloUnavailable": {
-			},
-			"assistHangUp": {
+			{
+				"text": "2"
 			}
+		],
+		"sayRandomText": {
+			"random": [
+				[
+					{
+						"text": "I may say this..."
+					}
+				],
+				[
+					{
+						"text": "Or this..."
+					}
+				],
+				[
+					{
+						"text": "Maybe this, you never know."
+					}
+				]
+			]
+		}
+	},
+	"macros": {
+		"assistTransfer": {
+		},
+		"libIntroductionHelloFarewell": {
+		},
+		"libIntroductionHello": {
+		},
+		"libIntroductionHelloAssist": {
+		},
+		"libIntroductionHelloIdle": {
+		},
+		"libIntroductionHelloMenu": {
+		},
+		"libIntroductionHelloTransfer": {
+		},
+		"libIntroductionHelloUnavailable": {
+		},
+		"assistHangUp": {
 		}
 	}
+}
 }
