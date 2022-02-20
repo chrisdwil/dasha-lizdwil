@@ -17,6 +17,8 @@ context {
 	input forward: string;
 	input reason: string;
 	
+	people[]?;
+	
 	host: human = 
 	{
 				name: "Chris, D. Wheel",
