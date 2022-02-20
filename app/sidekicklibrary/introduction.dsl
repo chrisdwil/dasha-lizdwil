@@ -80,11 +80,11 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 		
 		transitions
 		{
-			confirmedYes: goto hello on #messageHasAnyIntent("yes");
+			confirmedYes: goto hello on #messageHasIntent("yes");
 
 			confusion: goto helloMenu on #messageHasAnyIntent(["questions","confusion"]);
 			idle: goto hello on timeout 10000;
-			sentinmentYes: goto hello on #messageHasAnySentiment("positive");
+			sentinmentYes: goto hello on #messageHasSentiment("positive");
 
 			transfer: goto @return on #messageHasIntent("transfer");
 		}
