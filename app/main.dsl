@@ -56,13 +56,13 @@ start node assist {
 		idle: goto assistGreetAttempt on timeout 300;
 	}
 }
-
+/*
 node assistGreetAttempt {
 	do
 	{
 		var logNodeName: string = "assistGreetAttempt";
 		
-		set $guest = blockcall introduction($attendees[0], $attendees[1], $reason);
+		set $attendees[1] = blockcall introduction($attendees[0], $attendees[1], $reason);
 		
 		if ($reason != "busy")
 		{	
@@ -83,7 +83,7 @@ node assistGreetAttempt {
 		greetAttemptIdle: goto assistGreetAttempt on timeout 10000;
 	}
 }
-
+*/
 node @exit 
 {
     do 
