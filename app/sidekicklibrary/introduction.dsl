@@ -54,7 +54,7 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 			{
 				var sentenceType = #getSentenceType();
 
-				#log(recognitions);
+				#log($recognitions);
 				
 				if (sentenceType is not null)
 				{
