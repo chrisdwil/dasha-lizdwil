@@ -113,7 +113,7 @@ block introduction(sidekick: human, guest: human, reason: string): human
 		 
 		transitions
 		{
-			confusion: goto helloInterpret on #messageHasAnyIntent(["questions","confusion"]) priority 5;
+			confusion: goto helloMenu on #messageHasAnyIntent(["questions","confusion"]) priority 5;
 			farewell: goto helloFarewell on #messageHasAnyIntent(["farewell"]) priority 10;
 			idle: goto helloInterpret on timeout 10000;
 			listen: goto helloInterpret on true priority 1;
@@ -190,5 +190,25 @@ block introduction(sidekick: human, guest: human, reason: string): human
 			return $guest;
 		}
 	}
+	
+	node helloMenu
+	{
+		do
+		{
+			var logNodeName: string = "helloConfusion";
+	        #log(logNodeName + " has been initialized");
+	        
+			set $guest.mood = "confusion";
+			set $guest.request = "";
+			#say("libIntroductionHelloMenu");
+			
+			goto repeat;
+		}
+		
+		transition
+		{
+			repeat: goto helloRepeat on true;
+		}
+	}	
 }
 	
