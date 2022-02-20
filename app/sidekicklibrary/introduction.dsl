@@ -54,8 +54,6 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 			default: do 
 			{
 				var sentenceType = #getSentenceType();
-
-				#log($recognitions);
 				
 				if (sentenceType is not null)
 				{
@@ -65,7 +63,9 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 				else
 				{
 					set $guest.errors += 1;
-				}			
+				}	
+				
+				#log($recognitions);
 			}
 		}
 	}
@@ -91,7 +91,7 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 		do 
 		{
 		set $guest.request = "transfer";
-		exit $guest;
+		goto @return;
 		}		
 	}
 }
