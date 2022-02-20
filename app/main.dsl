@@ -27,15 +27,9 @@ context {
 			mood: "",
 			request: ""
 	    },
-	     {	
-	    	role: "guest",
-			name: "Liz, D. Wheel",
-			nick: "Liz",
-			phonetic: "Lizzz",
-			gender: "female",
-			mood: "",
-			request: ""
-	    }
+	    {	
+	    	role: "guest"	    
+		}
 	   ];
 }
 
