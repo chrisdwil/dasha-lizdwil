@@ -86,6 +86,7 @@ block introduction(sidekick: human, guest: human, greeted: boolean): human
 		
 		transitions
 		{
+			transfer: goto helloRepeat on #messageHasIntent("transfer");
 			idle: goto helloRepeat on timeout 10000;
 		}
 	}
