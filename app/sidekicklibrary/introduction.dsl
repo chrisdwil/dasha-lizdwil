@@ -55,7 +55,7 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 					set $guest.errors += 1;
 				}	
 				
-				#log("exiting default onexit");
+				#log($recognitions);
 			}
 		}
 	}
