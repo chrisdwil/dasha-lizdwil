@@ -62,9 +62,11 @@ start node assist {
 	{	
 		#connectSafe($phone);
 
-		//	#say("assistUnavailable");
+		if ($unavailable)
+			{
+			#say("assistUnavailable");
 			exit;
-		
+			}
 		wait *;
 	}
 
