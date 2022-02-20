@@ -44,9 +44,9 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 		
 		onexit 
 		{
-			set $recognitions.sentenceType = #getSentenceType();
-	        if (sentenceType is not null) {
-	            #sayText("I think it is " + sentenceType + " sentence.");
+			set $recognitions.sentencetype = #getSentenceType();
+	        if (sentencetype is not null) {
+	            #sayText("I think it is " + sentencetype + " sentence.");
 	            $recognitions[sentenceType]?.push(#getMessageText());
 	        } else {
 	            #sayText("Strange, I could not recognize this sentence type.");
