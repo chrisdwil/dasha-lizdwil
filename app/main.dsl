@@ -35,6 +35,12 @@ context {
 				gender: "male",
 				mood: "positive",
 				request: "none",
+				requests: {
+				    statement: string[],
+				    request: string[],
+				    question: string[],
+				    other: string[]
+				},
 				responses: 0,
 				errors: 0
 	};
