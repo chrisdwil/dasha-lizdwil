@@ -72,7 +72,7 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 	{
 		do
 		{
-			#log(recognitions);
+			#log($recognitions);
 			return $guest;
 		}
 	}
