@@ -131,7 +131,7 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 		{
 			#say("libIntroductionHelloTransfer");
 			set $them.request = "transfer";
-			@return;
+			goto @return;
 		}
 	}
 	
