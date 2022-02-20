@@ -8,6 +8,9 @@
 			"emotion": "positive"
 		},
 		"phrases": {
+			"assistTransfer": {
+				"text": "Okay, please hold a moment while I transfer you."
+			},		
 			"libIntroductionHello": {
 				"random": [
 					[
@@ -80,9 +83,6 @@
 					"text": "Are you still there and were you able to get all that?"
 				}
 			],
-			"libIntroductionTransfer": {
-				"text": "Okay, please hold a moment while I transfer you."
-			},
 			"libFarewell": {
 				"text": "Understood, have a good day, bye now!"
 			},
