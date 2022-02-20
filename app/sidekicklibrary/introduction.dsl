@@ -29,7 +29,7 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 			#log(logNodeName + " responses: " + #stringify($guest.responses));			
 			#log(logNodeName + " errors: " + #stringify($guest.errors));
 			
-			if ($greetFirst && #waitForSpeech(2000))
+			if ($greetFirst)
 			{
 				set $greetFirst = false;
 				#say("libIntroductionHello", {name: $sidekick.phonetic});
