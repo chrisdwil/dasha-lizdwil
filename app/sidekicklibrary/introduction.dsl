@@ -61,10 +61,6 @@ block introduction(sidekick: human, guest: human, greeted: boolean): human
 		}
 	}
 	
-	context {
-		sentenceType: string?;
-	}
-	
 	node helloRepeat
 	{
 		do
@@ -75,7 +71,7 @@ block introduction(sidekick: human, guest: human, greeted: boolean): human
 			
 			wait *;
 			
-			set $sentenceType = #getSentenceType(); 
+			var $sentenceType = #getSentenceType(); 
 			
 			if (sentenceType is not null) 
 	        {
