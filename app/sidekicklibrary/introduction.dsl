@@ -80,7 +80,7 @@ block introduction(attendeelist: human[], reason: string): human[]
 		{
 			var logNodeName: string = "helloRepeat";
 	        #log(logNodeName + " has been initialized");
- 			#log(logNodeName + " " + $attendeelist[2]);
+ 			#log($attendeelist[2]);
 	        
 			var sentenceType = #getSentenceType(); 
 
