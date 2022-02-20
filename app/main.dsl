@@ -8,7 +8,6 @@ type human = {
 		gender: string;
 		mood: string; // positive, negative, idle, confused
 		request: string; // transfer, farewell
-		responses: number;
 		errors: number;
 }
 
@@ -88,11 +87,6 @@ node assistGreetAttempt {
 	transitions
 	{
 		greetAttemptIdle: goto assistGreetAttempt on timeout 10000;
-	}
-	
-	onexit 
-	{
-
 	}
 }
 
