@@ -16,8 +16,7 @@ type human =
 context {
 	input phone: string;
 	input forward: string;
-	input sprint: boolean;
-	input unavailable: boolean;
+	input unavailable: string;
 
 	host: human =
 	{
@@ -60,6 +59,7 @@ context {
 start node assist {
 	do
 	{	
+		#log("call information: " + $phone + " " + $forward + " " + 4unavailable);
 		#connectSafe($phone);
 
 		if ($unavailable)
@@ -67,6 +67,7 @@ start node assist {
 			#say("assistUnavailable");
 			exit;
 			}
+		
 		wait *;
 	}
 
