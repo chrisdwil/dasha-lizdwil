@@ -109,7 +109,7 @@ block introduction(sidekick: human, guest: human, reason: string): human
 			confusion: goto helloInterpret on #messageHasAnyIntent(["questions","confusion"]) priority 5;
 			idle: goto helloInterpret on timeout 10000;
 			listen: goto helloInterpret on true priority 1;
-			transfer: goto @return on #messageHasAnyIntent(["transfer"]) priority 10;
+			transfer: goto helloTransfer on #messageHasAnyIntent(["transfer"]) priority 10;
 		}
 		
 		onexit
@@ -122,13 +122,6 @@ block introduction(sidekick: human, guest: human, reason: string): human
 			idle: do
 			{
 				set $guest.mood = "idle";
-			}
-			
-			transfer: do
-			{
-				set $guest.mood = "positive";
-				set $guest.request = "transfer";
-				#say("libIntroductionTransfer");
 			}
 		}
 	}
@@ -160,6 +153,20 @@ block introduction(sidekick: human, guest: human, reason: string): human
 		{
 			listen: goto helloListen;
 		}
+	}
+	
+	node helloTransfer
+	{
+		do
+		{
+			var logNodeName: string = "helloTransfer";
+	        #log(logNodeName + " has been initalized");
+	        
+			set $guest.mood = "positive";
+			set $guest.request = "transfer";
+			#say("libIntroductionTransfer");
+		}
+		
 	}
 }
 	
