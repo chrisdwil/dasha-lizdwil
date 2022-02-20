@@ -188,26 +188,19 @@ block introduction(sidekick: human, guest: human, reason: string): human
 	
 	digression helloConfusion
 	{
+		conditions {
+			on #messageHasAnyIntent(["confusion","questions"]);
+		}
+		
 		do
 		{
 			var logNodeName: string = "helloConfusion";
 	        #log(logNodeName + " has been initialized");
+
+	        set $guest.mood = "confusion";
+			set $guest.request = "digression";
 	        			
-			goto repeat;
-		}
-		
-		transitions
-		{
-			repeat: goto helloInterpret;
-		}
-		
-		onexit
-		{
-			default: do
-			{
-				set $guest.mood = "confusion";
-				set $guest.request = "";
-			}
+			goto helloInterpret;
 		}
 	}	
 }
