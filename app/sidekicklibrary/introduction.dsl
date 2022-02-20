@@ -86,17 +86,7 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 			}
 		}
 	}	
-	
-	node helloIdle
-	{
-		do
-		{
-			#say("libIntroductionHelloTransfer");
-			set $them.request = "transfer";
-			@return;
-		}
-	}
-	
+		
 	node helloIdle
 	{
 		do
@@ -132,6 +122,16 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 		{
 			#say("libIntroductionHelloMenu");
 			wait *;
+		}
+	}
+	
+	node helloTransfer
+	{
+		do
+		{
+			#say("libIntroductionHelloTransfer");
+			set $them.request = "transfer";
+			@return;
 		}
 	}
 	
