@@ -39,7 +39,8 @@ block introduction(sidekick: human, guest: human, greeted: boolean): human
 
 		transitions
 		{
-			helloRepeat: goto helloRepeat on true;
+			greet: goto helloRepeat on true;
+			greetForce: goto helloRepeat;
 		}
 	}
 	
