@@ -22,21 +22,17 @@
 				"what you",
 				"wuch you",
 				"you doin"
-			],
-			"excludes": [
-				"where's chris"
 			]
 		},
 		"farewell": {
 			"includes": [
-				"end call",
-				"goodbye",
 				"bye",
+				"goodbye",
+				"good bye",
 				"farewell",
-				"I'm finished",
-				"I'm done",
-				"Ready to send"
-			]
+				"see you later",
+				"talk to you later"
+				]
 		},
 		"identification": {
 			"includes": [
