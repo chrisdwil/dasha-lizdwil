@@ -71,7 +71,7 @@ block introduction(sidekick: human, guest: human, greeted: boolean): human
 			
 			wait *;
 			
-			var $sentenceType = #getSentenceType(); 
+			var sentenceType = #getSentenceType(); 
 			
 			if (sentenceType is not null) 
 	        {
