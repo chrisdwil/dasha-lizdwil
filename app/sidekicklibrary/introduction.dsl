@@ -1,11 +1,10 @@
 library
 
-block introduction(sidekick: human, guest: human, reason: string): human
+block introduction(attendeelist: human[], reason: string): human
 {	
 	context
 	{
 		greeted: boolean = false;
-	    greetedFirst: boolean = false;
 	    
 	    recognitions: 
 	    {
@@ -62,7 +61,7 @@ block introduction(sidekick: human, guest: human, reason: string): human
 			var logNodeName: string = "@return";
 	        #log(logNodeName + " has been initialized");
 	        
-			return $guest;
+			return $attendeelist[2];
 		}
 	}
 	
@@ -89,9 +88,9 @@ block introduction(sidekick: human, guest: human, reason: string): human
 	            $recognitions[sentenceType]?.push(#getMessageText());
 	        }
 			
- 			#log(logNodeName + " mood: " + $guest.mood);
-			#log(logNodeName + " requested: " + $guest.request);
-			#log(logNodeName + " errors: " + #stringify($guest.errors));
+ 			#log(logNodeName + " mood: " + $attendeelist[2].mood);
+			#log(logNodeName + " requested: " + $attendeelist[2].request);
+			#log(logNodeName + " errors: " + #stringify($attendeelist[2].errors));
 	        #log($recognitions);
 			
 			if (!$greeted) 
@@ -101,12 +100,12 @@ block introduction(sidekick: human, guest: human, reason: string): human
 				#say("libIntroductionHelloAssist");
 			}
 			
-			if ($guest.mood == "idle")
+			if ($attendeelist[2].mood == "idle")
 			{
 				#say("libIntroductionHelloAssist");
 			}
 			
-			if ($guest.mood == "confused")
+			if ($attendeelist[2].mood == "confused")
 			{
 				#say("libIntroductionHelloMenu");
 			}
@@ -144,14 +143,12 @@ block introduction(sidekick: human, guest: human, reason: string): human
 		{	
 			confusion: do 
 			{
-				set $guest.mood = "confused";
-		        set $guest.errors += 1;
+				set $attendeelist[2].mood = "confused";
 			}
 			
 			idle: do
 			{
-				set $guest.mood = "idle";
-		        set $guest.errors += 1;
+				set $attendeelist[2].mood = "idle";
 
 			}
 		}
@@ -164,10 +161,10 @@ block introduction(sidekick: human, guest: human, reason: string): human
 			var logNodeName: string = "helloTransfer";
 	        #log(logNodeName + " has been initialized");
 	        
-			set $guest.mood = "positive";
-			set $guest.request = "transfer";
+			set $attendeelist[2].mood = "positive";
+			set $attendeelist[2].request = "transfer";
 			#say("libIntroductionHelloTransfer");
-			return $guest;
+			return $attendeelist[2];
 		}
 	}
 	
@@ -178,10 +175,10 @@ block introduction(sidekick: human, guest: human, reason: string): human
 			var logNodeName: string = "helloFarewell";
 	        #log(logNodeName + " has been initialized");
 	        
-			set $guest.mood = "positive";
-			set $guest.request = "farewell";
+			set $attendeelist[2].mood = "positive";
+			set $attendeelist[2].request = "farewell";
 			#say("libIntroductionHelloFarewell");
-			return $guest;
+			return $attendeelist[2];
 		}
 	}
 }

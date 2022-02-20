@@ -48,7 +48,6 @@ context {
 	];
 }
 
-
 start node assist {
 	do
 	{	
@@ -62,37 +61,10 @@ start node assist {
 
 	transitions
 	{
-		//idle: goto assistGreetAttempt on timeout 300;
+		idle: goto assistGreetAttempt on timeout 300;
 	}
 }
-/*
-node assistGreetAttempt {
-	do
-	{
-		var logNodeName: string = "assistGreetAttempt";
-		
-		set $attendees[1] = blockcall introduction($attendees[0], $attendees[1], $reason);
-		
-		if ($reason != "busy")
-		{	
-			if ($guest.request == "transfer")
-			{
-				#forward($forward);
-				exit;
-			}
-			else
-			{
-				exit;
-			}
-		}
-	}
-	
-	transitions
-	{
-		greetAttemptIdle: goto assistGreetAttempt on timeout 10000;
-	}
-}
-*/
+
 node @exit 
 {
     do 
@@ -113,4 +85,31 @@ digression @exit_dig
 		{
 			exit;
 		}
+}
+
+node assistGreetAttempt {
+	do
+	{
+		var logNodeName: string = "assistGreetAttempt";
+		
+		set $attendees = blockcall introduction($attendees, $reason);
+		
+		if ($reason != "busy")
+		{	
+			if ($attendees[2].request == "transfer")
+			{
+				#forward($forward);
+				exit;
+			}
+			else
+			{
+				exit;
+			}
+		}
+	}
+	
+	transitions
+	{
+		greetAttemptIdle: goto assistGreetAttempt on timeout 10000;
+	}
 }
