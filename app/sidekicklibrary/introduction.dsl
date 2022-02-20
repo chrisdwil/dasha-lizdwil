@@ -93,12 +93,12 @@ block introduction(sidekick: human, them: human, greetFirst: boolean): human
 	        
 	        if (sentenceType is not null) 
 	        {
-	            $them.requests[sentenceType]?.push(#getMessageText());
+	            $recognitions[sentenceType]?.push(#getMessageText());
 	        } 
 	        else 
 	        {
 	            #sayText("Sorry, I could not recognize this sentence type.");
-	            $them.requests.other.push(#getMessageText());
+	            $recognitions.other.push(#getMessageText());
 	        }
 		}
 	}
