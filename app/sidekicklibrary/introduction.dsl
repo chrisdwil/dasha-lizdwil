@@ -102,8 +102,9 @@ block introduction(sidekick: human, guest: human): human
 		 
 		transitions
 		{
+			idle: goto helloRepeat on timeout 10000;
 			listen: goto helloInterpret on true;
-			idle: goto helloRepeat on timeout 5000;
+			transfer: goto @return on #messageHasIntent("transfer");
 		}
 	}
 	
