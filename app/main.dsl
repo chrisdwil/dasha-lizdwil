@@ -68,7 +68,7 @@ start node assist {
 		#log("call information: " + $phone + " " + $forward + " " + $reason);
 		#connectSafe($phone);
 
-		#log($people);
+		#log($attendees);
 		exit;
 		wait *;
 	}
