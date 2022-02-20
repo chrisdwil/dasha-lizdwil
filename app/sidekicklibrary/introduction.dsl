@@ -50,7 +50,20 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 				set $them.mood = "idle"; 
 				set $them.errors += 1;
 			}
+			transfer: do
+			{
+				set $them.request = "transfer";
+			}
 		}
+	}
+	
+	node @return
+	{
+		do
+		{
+			return $them;
+		}
+		
 	}
 	
 	node helloConfused
@@ -117,16 +130,6 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 		{
 			#say("libIntroductionHelloMenu");
 			wait *;
-		}
-	}
-	
-	node helloTransfer
-	{
-		do
-		{
-			#say("libIntroductionHelloTransfer");
-			set $them.request = "transfer";
-			@return $them;
 		}
 	}
 	
