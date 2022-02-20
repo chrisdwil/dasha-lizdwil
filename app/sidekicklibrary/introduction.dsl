@@ -79,7 +79,7 @@ block introduction(attendeelist: human[], reason: string): human[]
 		do
 		{
 			var logNodeName: string = "helloRepeat";
-=	        #log(logNodeName + " has been initialized");
+	        #log(logNodeName + " has been initialized");
  			#log(logNodeName + " " + $attendeelist[2]);
 	        
 			var sentenceType = #getSentenceType(); 
