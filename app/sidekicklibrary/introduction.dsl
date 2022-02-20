@@ -35,7 +35,7 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 
 		transitions
 		{
-			transfer: goto @return on #messageHasIntent("transfer");
+			transfer: goto hello on #messageHasIntent("transfer");
 		}
 		
 		onexit
