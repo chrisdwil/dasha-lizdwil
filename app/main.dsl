@@ -17,6 +17,7 @@ type human =
 		gender: string;
 		mood: string; // positive, negative, idle, confusion
 		request: string;
+		requests: string;
 		responses: number;
 		errors: number;
 };
