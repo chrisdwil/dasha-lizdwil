@@ -1,6 +1,6 @@
 library
 
-block introduction(sidekick: human, them: human, greetFirst: boolean): human
+block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 {	
 	context
 	{
@@ -24,12 +24,10 @@ block introduction(sidekick: human, them: human, greetFirst: boolean): human
 		{
 			var logNodeName: string = "assistGreetAttempt";
 			
-			#log($recognitions);
-
-			#log(logNodeName + " mood: " + $them.mood);
-			#log(logNodeName + " requested: " + $them.request);
-			#log(logNodeName + " responses: " + #stringify($them.responses));			
-			#log(logNodeName + " errors: " + #stringify($them.errors));
+			#log(logNodeName + " mood: " + $guest.mood);
+			#log(logNodeName + " requested: " + $guest.request);
+			#log(logNodeName + " responses: " + #stringify($guest.responses));			
+			#log(logNodeName + " errors: " + #stringify($guest.errors));
 			
 			if ($greetFirst && #waitForSpeech(2000))
 			{
@@ -39,22 +37,23 @@ block introduction(sidekick: human, them: human, greetFirst: boolean): human
 			}
 			else
 			{
-				if ($them.mood == "idle")
+				if ($guest.errors)
 				{
 					#say("libIntroductionHelloIdle");
 				}
-				if (($them.mood == "positive") || ($them.mood == "negative") || ($them.mood == "confusion"))
+				else
 				{
 					#say("libIntroductionHelloConfusion");
 				}
+				
 				wait *;
 			}
-			return $them;
+			
+			return $guest;
 		}
 
 		transitions
 		{
-			confusion: goto hello on #messageHasAnyIntent(["questions","confusion"]);
 			idle: goto hello on timeout 10000;
 			transfer: goto @return on #messageHasIntent("transfer");
 		}
@@ -64,6 +63,7 @@ block introduction(sidekick: human, them: human, greetFirst: boolean): human
 			default: do 
 			{
 				var sentenceType = #getSentenceType();
+				
 				if (sentenceType is not null)
 				{
 					$recognitions[sentenceType]?.push(#getMessageText());
@@ -73,6 +73,17 @@ block introduction(sidekick: human, them: human, greetFirst: boolean): human
 		            $recognitions.other.push(#getMessageText());
 				}
 			}
+			
+			idle: do
+			{
+				set $guest.errors +=1;
+			}
+			
+			transfer: do
+			{
+				set $guest.request = "transfer";
+				set $guest.request = "positive";
+			}
 		}
 	}
 	
@@ -80,29 +91,24 @@ block introduction(sidekick: human, them: human, greetFirst: boolean): human
 	{
 		do
 		{
-			return $them;
+			#log(recognitions);
+			return $guest;
 		}
 		
 	}
 	
-/*
-	node recognition {
-		do
+	digression @digReturn
+	{
+		conditions { on true tags: onclosed; }
+		do 
 		{
-	        var sentenceType = #getSentenceType();
-	        
-	        if (sentenceType is not null) 
-	        {
-	            $recognitions[sentenceType]?.push(#getMessageText());
-	        } 
-	        else 
-	        {
-	            $recognitions.other.push(#getMessageText());
-	        }
+			#log($recognitions);
+			exit; 
 		}
 	}
-*/
-	
+}
+
+/*
 	node helloMenu
 	{
 		do
@@ -126,21 +132,15 @@ block introduction(sidekick: human, them: human, greetFirst: boolean): human
 		{
 			confusion: do 
 			{ 
-				set $them.mood = "confusion"; 
-				set $them.responses += 1;
+				set $guest.mood = "confusion"; 
+				set $guest.responses += 1;
 			}
 			idle: do 
 			{ 
-				set $them.mood = "idle"; 
-				set $them.errors += 1;
+				set $guest.mood = "idle"; 
+				set $guest.errors += 1;
 			}
 		}
 	}
+*/
 	
-	digression @digReturn
-	{
-		conditions { on true tags: onclosed; }
-		do { exit; }
-	}
-	
-}
