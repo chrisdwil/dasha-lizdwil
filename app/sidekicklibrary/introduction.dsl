@@ -1,6 +1,6 @@
 library
 
-block introduction(me: human, them: human, greetFirst: boolean): human
+block introduction(sidekick: human, them: human, greetFirst: boolean): human
 {	
 	start node hello
 	{
@@ -15,7 +15,7 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 			if (($greetFirst) && ()#waitForSpeech(2000))
 			{
 				set $greetFirst = false;
-				#say("libIntroductionHello", {name: $me.phonetic});
+				#say("libIntroductionHello", {name: $sidekick.phonetic});
 				wait *;				
 			}
 			else
