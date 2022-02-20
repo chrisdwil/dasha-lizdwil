@@ -44,7 +44,7 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 
 		transitions
 		{
-			idle: goto hello on timeout 10000;
+//			idle: goto hello on timeout 10000;
 			transfer: goto @return on #messageHasIntent("transfer");
 		}
 		
@@ -53,7 +53,9 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 			default: do 
 			{
 				var sentenceType = #getSentenceType();
-								
+
+				#log(recognitions);
+				
 				if (sentenceType is not null)
 				{
 					set $guest.responses += 1;
@@ -74,7 +76,6 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 	{
 		do
 		{
-			#log($recognitions);
 			return $guest;
 		}
 	}
@@ -84,7 +85,6 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 		conditions { on true tags: onclosed; }
 		do 
 		{
-			#log($recognitions);
 			exit; 
 		}
 	}
