@@ -54,7 +54,7 @@ start node assist {
 		#log("call information: " + $phone + " " + $forward + " " + $reason);
 		#connectSafe($phone);
 
-		#log($attendees);
+		//#log($attendees);
 		exit;
 		wait *;
 	}
@@ -93,6 +93,7 @@ node assistGreetAttempt {
 		var logNodeName: string = "assistGreetAttempt";
 		
 		set $attendees = blockcall introduction($attendees, $reason);
+		#log($attendees);
 		
 		if ($reason != "busy")
 		{	
