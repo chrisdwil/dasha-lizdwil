@@ -83,7 +83,7 @@ block introduction(sidekick: human, guest: human, greeted: boolean): human
 		{
 			wait *;
 		}
-		
+		 
 		transitions
 		{
 			listen: goto helloInterpret on true;
