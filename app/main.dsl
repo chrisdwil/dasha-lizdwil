@@ -16,8 +16,6 @@ context {
 	input phone: string;
 	input forward: string;
 	input reason: string;
-
-	//people: human[];
 	
 	host: human = 
 	{
@@ -27,7 +25,6 @@ context {
 				gender: "male",
 				mood: "positive",
 				request: "none",
-				responses: 0,
 				errors: 0	
 	};
 	sidekick: human =
@@ -38,7 +35,6 @@ context {
 				gender: "female",
 				mood: "positive",
 				request: "none",
-				responses: 0,
 				errors: 0
 	};
 	guest: human =
@@ -49,7 +45,6 @@ context {
 				gender: "",
 				mood: "positive",
 				request: "none",
-				responses: 0,
 				errors: 0
 	};
 }
