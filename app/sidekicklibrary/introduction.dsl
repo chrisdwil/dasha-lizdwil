@@ -199,8 +199,6 @@ block introduction(sidekick: human, guest: human, reason: string): human
 
 	        set $guest.mood = "confusion";
 			set $guest.request = "digression";
-	        			
-			goto helloInterpret;
 		}
 	}	
 }
