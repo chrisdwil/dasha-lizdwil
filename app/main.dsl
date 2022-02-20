@@ -98,11 +98,6 @@ node assistGreetAttempt {
 		{	
 				#forward($forward);
 				exit;
-			}
-			else
-			{
-				exit;
-			}
 		}
 	}
 	
