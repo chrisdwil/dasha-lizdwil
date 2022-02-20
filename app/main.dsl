@@ -1,7 +1,7 @@
 // Liz D. Wil 
 import "sidekicklibrary/all.dsl";
 
-type human = 
+type human[] = 
 {
 		name: string;
 		nick: string;
@@ -23,27 +23,21 @@ context {
 				name: "Chris, D. Wheel",
 				nick: "Chris",
 				phonetic: "chris",
-				gender: "male",
-				mood: "positive",
-				request: "none"
+				gender: "male"	
 	};
 	sidekick: human =
 	{
 				name: "Liz, D. Wheel",
 				nick: "Liz",
 				phonetic: "Lizzz",
-				gender: "female",
-				mood: "positive",
-				request: "none"
+				gender: "female"
 	};
 	guest: human =
 	{
 				name: "",
 				nick: "",
 				phonetic: "",
-				gender: "",
-				mood: "positive",
-				request: "none"
+				gender: ""
 	};
 }
 
@@ -52,17 +46,7 @@ start node assist {
 	{	
 		#log("call information: " + $phone + " " + $forward + " " + $reason);
 		#connectSafe($phone);
-		set $people["host"] = 
-		[
-			{
-				name: "Chris, D. Wheel",
-				nick: "Chris",
-				phonetic: "chris",
-				gender: "male",
-				mood: "positive",
-				request: "none"	
-			}
-		];
+
 		#log($people["host"]);
 		wait *;
 	}
