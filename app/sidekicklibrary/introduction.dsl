@@ -142,9 +142,6 @@ block introduction(sidekick: human, guest: human): human
 			if (sentenceType is not null)
 	        {
 	            $recognitions[sentenceType]?.push(#getMessageText());
-	        } else 
-	        {
-	            $recognitions.other.push(#getMessageText());
 	        }
 	        
  			#log(logNodeName + " mood: " + $guest.mood);
