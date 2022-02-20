@@ -79,10 +79,8 @@ block introduction(attendeelist: human[], reason: string): human[]
 		do
 		{
 			var logNodeName: string = "helloRepeat";
-			var guest: string? = $attendeelist[2];
-	        #log(logNodeName + " has been initialized");
- 			#log(logNodeName + " mood: " + guest.mood);
-			#log(logNodeName + " requested: " + guest.request);
+=	        #log(logNodeName + " has been initialized");
+ 			#log(logNodeName + " " + $attendeelist[2]);
 	        
 			var sentenceType = #getSentenceType(); 
 
