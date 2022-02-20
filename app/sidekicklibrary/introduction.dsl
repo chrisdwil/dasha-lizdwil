@@ -9,18 +9,12 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 	        request: string[];
 	        question: string[];
 	        other: string[];
-	    } = {
-	        statement: [],
-	        request: [],
-	        question: [],
-	        other: []
-	    };	
+	    }
 	}
 	
 	start node hello
 	{
 		do 
-		{
 			var logNodeName: string = "assistGreetAttempt";
 
 			#log(logNodeName + " mood: " + $them.mood);
