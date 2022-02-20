@@ -1,7 +1,5 @@
 library
 
-import "farewell.dsl";
-
 block introduction(sidekick: human, guest: human, reason: string): human
 {	
 	context
@@ -175,6 +173,20 @@ block introduction(sidekick: human, guest: human, reason: string): human
 			set $guest.mood = "positive";
 			set $guest.request = "transfer";
 			#say("libIntroductionHelloTransfer");
+			return $guest;
+		}
+	}
+	
+	node helloFarewell
+	{
+		do
+		{
+			var logNodeName: string = "helloFarewell";
+	        #log(logNodeName + " has been initalized");
+	        
+			set $guest.mood = "positive";
+			set $guest.request = "farewell";
+			#say("libIntroductionHelloFarewell");
 			return $guest;
 		}
 	}
