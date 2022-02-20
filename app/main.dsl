@@ -52,11 +52,6 @@ context {
 				errors: 0
 	};
 	
-	callMood: string = "positive";
-	callStepsCur: number = 1;
-	callStepsRisk: number = 5;
-	callStepsIdle: number = 0;
-	callRescued: boolean = false;
 	assistGreetFull: boolean = true;
 	greetFirst: boolean = true;
 }
@@ -81,7 +76,7 @@ node assistGreetAttempt {
 		
 		set $guest = blockcall introduction($sidekick, $guest, true);
 		#log(logNodeName + " mood: " + $guest.mood);
-		#log(logNodeName + " requested: " + $guest.requsted);
+		#log(logNodeName + " requested: " + $guest.request);
 	}
 	
 	transitions
@@ -99,17 +94,6 @@ node @exit
 {
     do 
     {
-		var logNodeName: string = "exit";
-		
-		#log(logNodeName + " mood " + $callMood + " mood");
-		#log(logNodeName + " steps " + #stringify($callStepsCur) + " Attempt(s)");
-		#log(logNodeName + " idle " + #stringify($callStepsIdle) + " Attempt(s)");
-		
-		if ($callMood == "negative")
-		{
-			#log(logNodeName + " call was not rescued");
-		}
-		
         exit;
     }
 
