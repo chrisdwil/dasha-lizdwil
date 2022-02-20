@@ -25,7 +25,7 @@ context {
 				mood: "",
 				request: ""
 			};
-	};
+	}
 					
 			
 	
