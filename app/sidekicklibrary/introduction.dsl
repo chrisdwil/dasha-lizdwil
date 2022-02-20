@@ -9,7 +9,7 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 	        request: string[];
 	        question: string[];
 	        other: string[];
-	    }
+	    };
 	}
 	
 	start node hello
