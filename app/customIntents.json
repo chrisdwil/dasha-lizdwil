@@ -17,7 +17,8 @@
 				"good bye",
 				"farewell",
 				"see you later",
-				"talk to you later"
+				"talk to you later",
+				"you later"
 			]
 		},
 		"no": {
@@ -49,10 +50,10 @@
 		},
 		"transfer": {
 			"includes": [
-				"transfer",
-				"connect me",
-				"connect my",
-				"I'm looking for"
+				"transfer me to",
+				"connect me to",
+				"connect my call",
+				"i'm looking for"
 			],
 			"excludes": [
 				"connect"
