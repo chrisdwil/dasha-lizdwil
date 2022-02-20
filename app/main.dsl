@@ -26,7 +26,7 @@ context {
 				gender: "female",
 				mood: "",
 				request: ""
-		}
+		};
 	};
 			
 	
