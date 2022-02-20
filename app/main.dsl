@@ -1,5 +1,5 @@
 // Liz D. Wil 
-import "sidekicklibrary/all.dsl";
+//import "sidekicklibrary/all.dsl";
 
 type human = {
 	role: string;
@@ -90,7 +90,7 @@ digression @exit_dig
 			exit;
 		}
 }
-
+/*
 node assistGreetAttempt {
 	do
 	{
@@ -111,3 +111,4 @@ node assistGreetAttempt {
 		greetAttemptIdle: goto assistGreetAttempt on timeout 10000;
 	}
 }
+*/
