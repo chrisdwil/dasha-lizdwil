@@ -92,7 +92,7 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 		do
 		{
 			#say("libIntroductionHelloTransfer");
-			$them.request = "transfer";
+			set $them.request = "transfer";
 			@return;
 		}
 	}
