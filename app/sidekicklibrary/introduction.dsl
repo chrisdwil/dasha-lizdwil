@@ -52,11 +52,6 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 			}
 		}
 	}
-
-	node @return 
-	{
-		do { return $them; }
-	}
 	
 	node helloConfused
 	{
@@ -131,7 +126,7 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 		{
 			#say("libIntroductionHelloTransfer");
 			set $them.request = "transfer";
-			goto @return;
+			return $them;
 		}
 	}
 	
