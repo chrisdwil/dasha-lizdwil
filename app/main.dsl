@@ -19,7 +19,7 @@ context {
 	input forward: string;
 	input reason: string;
 
-	people: human[];
+	//people: human[];
 	
 	host: human = 
 	{
@@ -30,8 +30,7 @@ context {
 				mood: "positive",
 				request: "none",
 				responses: 0,
-				errors: 0,
-				errorsMax: 4
+				errors: 0	
 	};
 	sidekick: human =
 	{
@@ -42,9 +41,7 @@ context {
 				mood: "positive",
 				request: "none",
 				responses: 0,
-				errors: 0,
-				errorsMax: 4
-
+				errors: 0
 	};
 	guest: human =
 	{
@@ -55,8 +52,7 @@ context {
 				mood: "positive",
 				request: "none",
 				responses: 0,
-				errors: 0,
-				errorsMax: 4
+				errors: 0
 	};
 	
 	assistGreetFull: boolean = true;
