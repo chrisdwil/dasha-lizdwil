@@ -10,8 +10,8 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 
 			#log(logNodeName + " mood: " + $them.mood);
 			#log(logNodeName + " requested: " + $them.request);
-			#log(logNodeName + " errors: " + $them.responses);			
-			#log(logNodeName + " errors: " + $them.errors);			
+			#log(logNodeName + " errors: " + #stringify($them.responses));			
+			#log(logNodeName + " errors: " + #stringify($them.errors));			
 
 			
 			if ($greetFirst)
