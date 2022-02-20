@@ -103,6 +103,7 @@ block introduction(sidekick: human, guest: human): human
 		transitions
 		{
 			listen: goto helloInterpret on true;
+			idle: goto helloRepeat on timeout 5000;
 		}
 	}
 	
