@@ -56,9 +56,11 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 		}
 	}
 	
+	/*
 	digression @digReturn
 	{
 		conditions { on true tags: onclosed; }
 		do { return; }
 	}
+	*/
 }
