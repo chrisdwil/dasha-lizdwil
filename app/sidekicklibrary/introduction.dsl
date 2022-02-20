@@ -65,17 +65,6 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 		            $recognitions.other.push(#getMessageText());
 				}
 			}
-			
-			idle: do
-			{
-				set $guest.errors += 1;
-			}
-			
-			transfer: do
-			{
-				set $guest.request = "transfer";
-				set $guest.request = "positive";
-			}
 		}
 	}
 	
