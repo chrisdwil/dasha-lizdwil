@@ -37,18 +37,8 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 			}
 			else
 			{
-				if ($guest.errors)
-				{
-					#say("libIntroductionHelloIdle");
-				}
-				else
-				{
-					#say("libIntroductionHelloConfusion");
-				}
-				
 				wait *;
 			}
-			
 			return $guest;
 		}
 
@@ -74,18 +64,18 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 				{
 		            $recognitions.other.push(#getMessageText());
 				}
-			};
+			}
 			
 			idle: do
 			{
 				set $guest.errors += 1;
-			};
+			}
 			
 			transfer: do
 			{
 				set $guest.request = "transfer";
 				set $guest.request = "positive";
-			};
+			}
 		}
 	}
 	
@@ -96,7 +86,6 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 			#log(recognitions);
 			return $guest;
 		}
-		
 	}
 	
 	digression @digReturn
