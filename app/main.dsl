@@ -1,6 +1,14 @@
 // Liz D. Wil
 import "sidekicklibrary/all.dsl";
 
+type recognitions = 
+{
+    statement: [],
+    request: [],
+    question: [],
+    other: []
+};
+
 type human = 
 {
 		name: string;
@@ -27,7 +35,7 @@ context {
 				gender: "male",
 				mood: "positive",
 				sentencetype: "",
-				request: "none",
+				request: "none",	
 				responses: 0,
 				errors: 0
 	};
