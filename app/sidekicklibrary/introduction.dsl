@@ -69,6 +69,7 @@ block introduction(sidekick: human, guest: human, greeted: boolean): human
 	        #log(logNodeName + " has been initalized");
 			#log($recognitions);
 			#say("libIntroductionHelloIdle");
+			goto listen;
 		}
 		
 		transitions
