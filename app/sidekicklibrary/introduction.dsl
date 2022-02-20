@@ -67,6 +67,63 @@ block introduction(sidekick: human, guest: human, greeted: boolean): human
 		{
 			var logNodeName: string = "helloRepeat";
 	        #log(logNodeName + " has been initalized");
+			#log($recognitions);
+			#say("libIntroductionHelloRepeat");
+		}
+		
+		transitions
+	
+			listen: goto helloListen;
+		}
+	}
+	
+	node helloListen
+	{
+		do
+		{
+			listen *;
+		}
+		
+		transition
+		{
+			listen: goto helloInterpret on true;
+		}
+	}
+	
+	node helloInterpret
+	{
+		do
+		{	
+			var sentenceType = #getSentenceType(); 
+			
+			if (sentenceType is not null) 
+	        {
+	            $recognitions[sentenceType]?.push(#getMessageText());
+	        } else 
+	        {
+	            $recognitions.other.push(#getMessageText());
+	        }
+	        
+	        #log($recognitions);
+	        
+	        goto listen;
+		}
+		
+		transition 
+		{
+			listen: goto listen;
+		}
+	}
+}
+
+
+
+/*
+ 
+ 		do
+		{
+			var logNodeName: string = "helloRepeat";
+	        #log(logNodeName + " has been initalized");
 			#log($recognitions);	
 			
 			wait *;
@@ -89,10 +146,6 @@ block introduction(sidekick: human, guest: human, greeted: boolean): human
 			transfer: goto @return on #messageHasIntent("transfer");
 			idle: goto helloRepeat on timeout 10000;
 		}
-	}
-}
-
-/*
  
  			#log(logNodeName + " mood: " + $guest.mood);
 			#log(logNodeName + " requested: " + $guest.request);
