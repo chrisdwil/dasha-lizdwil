@@ -29,6 +29,8 @@ context {
 				mood: "positive",
 				sentencetype: "",
 				request: "none",
+				requestdata: ""; // none, transfer, message, endcall
+				requesttype: "";
 				responses: 0,
 				errors: 0
 	};
@@ -39,8 +41,9 @@ context {
 				phonetic: "Lizzz",
 				gender: "female",
 				mood: "positive",
-				sentencetype: "",
 				request: "none",
+				requestdata: ""; // none, transfer, message, endcall
+				requesttype: "";
 				responses: 0,
 				errors: 0
 	};
@@ -51,8 +54,9 @@ context {
 				phonetic: "",
 				gender: "",
 				mood: "positive",
-				sentencetype: "",
 				request: "none",
+				requestdata: ""; // none, transfer, message, endcall
+				requesttype: "";
 				responses: 0,
 				errors: 0
 	};
