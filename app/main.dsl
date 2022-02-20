@@ -15,7 +15,8 @@ type human =
 
 context {
 	input phone: string;
-	input forward: string = "sip:+12817829187@lizdwil.pstn.twilio.com;transport=udp";
+	input forward: string? = "sip:+12817829187@lizdwil.pstn.twilio.com;transport=udp";
+	input unavailable: string;
 
 	host: human =
 	{
@@ -60,7 +61,7 @@ start node assist {
 	{	
 		#connectSafe($phone);
 
-			#say("assistUnavailable");
+		//	#say("assistUnavailable");
 			exit;
 		
 		wait *;
