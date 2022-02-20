@@ -29,8 +29,8 @@ context {
 				mood: "positive",
 				sentencetype: "",
 				request: "none",
-				requestdata: ""; // none, transfer, message, endcall
-				requesttype: "";
+				requestdata: "", // none, transfer, message, endcall
+				requesttype: "",
 				responses: 0,
 				errors: 0
 	};
@@ -42,8 +42,8 @@ context {
 				gender: "female",
 				mood: "positive",
 				request: "none",
-				requestdata: ""; // none, transfer, message, endcall
-				requesttype: "";
+				requestdata: "", // none, transfer, message, endcall
+				requesttype: "",
 				responses: 0,
 				errors: 0
 	};
@@ -55,8 +55,8 @@ context {
 				gender: "",
 				mood: "positive",
 				request: "none",
-				requestdata: ""; // none, transfer, message, endcall
-				requesttype: "";
+				requestdata: "", // none, transfer, message, endcall
+				requesttype: "",
 				responses: 0,
 				errors: 0
 	};
