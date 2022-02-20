@@ -135,7 +135,7 @@ block introduction(sidekick: human, guest: human, reason: string): human
 			confusion: goto helloRepeat on #messageHasAnyIntent(["questions","confusion"]) priority 5;
 			farewell: goto helloFarewell on #messageHasAnyIntent(["farewell"]) priority 10;
 			idle: goto helloRepeat on timeout 10000;
-			listen: goto helloInterpret on true priority 1;
+			listen: goto helloListen on true priority 1;
 			transfer: goto helloTransfer on #messageHasAnyIntent(["transfer"]) priority 9;
 		}
 		
