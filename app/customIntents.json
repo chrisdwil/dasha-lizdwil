@@ -1,16 +1,13 @@
 {
 	"version": "v2",
 	"intents": {
-		"questions": {
+		"confusion": {
 			"includes": [
-				"who",
-				"what",
-				"when",
-				"where",
-				"why",
-				"how",
 				"huh",
-				"you mean"
+				"uh",
+				"err",
+				"i'm confused",
+				"need help"
 			]
 		},
 		"greetings": {
@@ -27,28 +24,18 @@
 				"you doin"
 			]
 		},
-		"confusion": {
+		"farewell": {
 			"includes": [
-				"huh",
-				"uh",
-				"err",
-				"i'm confused",
-				"need help"
+				"end call",
+				"goodbye",
+				"bye",
+				"farewell",
+				"I'm finished",
+				"I'm done",
+				"Ready to send"
 			]
 		},
-		"who_are_you": {
-			"includes": [
-				"who is",
-				"who are",
-				"you are who",
-				"huh, who is",
-				"who are you",
-				"so who are",
-				"who dis",
-				"i don't know who you are"
-			]
-		},
-		"self": {
+		"identification": {
 			"includes": [
 				"your name was",
 				"repeat your name",
@@ -57,19 +44,15 @@
 				"say your name",
 				"i need your need",
 				"what did your mom name you",
-				"on your birth certificate"
-			]
-		},
-		"transfer": {
-			"includes": [
-				"transfer me",
-				"connect me",
-				"connect my",
-				"I'm looking for Chris",
-				"want to talk",
-				"where's Chris",
-				"Is Chris available?",
-				"Is Chris around?"
+				"on your birth certificate",
+				"who is",
+				"who are",
+				"you are who",
+				"huh, who is",
+				"who are you",
+				"so who are",
+				"who dis",
+				"i don't know who you are"
 			]
 		},
 		"no": {
@@ -91,6 +74,30 @@
 				"not now"
 			]
 		},
+		"questions": {
+			"includes": [
+				"who",
+				"what",
+				"when",
+				"where",
+				"why",
+				"how",
+				"huh",
+				"you mean"
+			]
+		},
+		"transfer": {
+			"includes": [
+				"transfer me",
+				"connect me",
+				"connect my",
+				"I'm looking for Chris",
+				"want to talk",
+				"where's Chris",
+				"Is Chris available?",
+				"Is Chris around?"
+			]
+		},
 		"yes": {
 			"includes": [
 				"yes",
@@ -105,17 +112,6 @@
 				"Go ahead",
 				"Do it",
 				"Don't twist my arm"
-			]
-		},
-		"farewell": {
-			"includes": [
-				"end call",
-				"goodbye",
-				"bye",
-				"farewell",
-				"I'm finished",
-				"I'm done",
-				"Ready to send"
 			]
 		}
 	}

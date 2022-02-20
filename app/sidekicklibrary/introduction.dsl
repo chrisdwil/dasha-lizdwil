@@ -10,7 +10,7 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 
 			#log(logNodeName + " mood: " + $them.mood);
 			#log(logNodeName + " requested: " + $them.request);
-			#log(logNodeName + " errors: " + #stringify($them.responses));			
+			#log(logNodeName + " responses: " + #stringify($them.responses));			
 			#log(logNodeName + " errors: " + #stringify($them.errors));			
 
 			
@@ -78,6 +78,8 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 		{
 			confusion: goto helloMenu on #messageHasAnyIntent(["questions","confusion"]);
 			idle: goto @return on timeout 10000;
+			transfer: goto @return on #messageHasIntent("transfer");
+
 		}
 
 		onexit 
@@ -107,6 +109,7 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 		{
 			confusion: goto helloMenu on #messageHasAnyIntent(["questions","confusion"]);
 			idle: goto @return on timeout 10000;
+			transfer: goto @return on #messageHasIntent("transfer");
 		}
 
 		onexit 
