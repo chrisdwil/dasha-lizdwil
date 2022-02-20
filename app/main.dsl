@@ -1,7 +1,6 @@
 // Liz D. Wil 
 import "sidekicklibrary/all.dsl";
 
-type attendee = <"host"|"sidekick"|"guest">;
 type human = {
 	role: attendee;
 	name: string;
@@ -18,14 +17,26 @@ context {
 	input reason: string;
 	
 	people[]: human = 
-	    [{	role: "host"
+	    [
+	     {	
+	    	role: "host"
 			name: "Liz, D. Wheel",
 			nick: "Liz",
 			phonetic: "Lizzz",
 			gender: "female",
 			mood: "",
 			request: ""
-	    }];
+	    },
+	    {
+	    	role: "guest"
+			name: "",
+			nick: "",
+			phonetic: "",
+			gender: "",
+			mood: "",
+			request: ""
+	    }
+	   ];
 	}
 	
 /*
