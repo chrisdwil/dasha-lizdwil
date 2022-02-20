@@ -72,7 +72,7 @@ block introduction(sidekick: human, guest: human, greeted: boolean): human
 		}
 		
 		transitions
-	
+		{
 			listen: goto helloListen;
 		}
 	}
