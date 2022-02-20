@@ -46,6 +46,23 @@
 					]
 				]
 			},
+			"libIntroductionHelloMenu": [
+				{
+					"text": "To further assist, I should share."
+				},
+				{
+					"text": "Things I can assist with are..."
+				},
+				{
+					"text": "His availability, call transfers..."
+				},
+				{
+					"text": "And soon I'll be able to send him messajehz."
+				},
+				{
+					"text": "Do you want to continue?"
+				}
+			],
 			"assistGreetExplain": [
 				{
 					"text": "To further assist, I should share."
@@ -235,6 +252,8 @@
 			"libIntroductionHello": {
 			},
 			"libIntroductionHelloConfusion": {
+			},
+			"libIntroductionHelloMenu": {
 			},
 			"assistGreetAttempt": {
 			},
