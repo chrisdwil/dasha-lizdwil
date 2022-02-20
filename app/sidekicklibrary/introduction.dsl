@@ -58,7 +58,7 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 	
 	digression @digReturn
 	{
-		conditions { on true tags: onfinished, oninterrupt; }
+		conditions { on true tags: oninterrupt; }
 		do { return; }
 	}
 }
