@@ -108,15 +108,7 @@ block introduction(sidekick: human, guest: human, reason: string): human
 			
 			if ($guest.mood == "confused")
 			{
-				if ($guest.errors <= 5)
-				{
-					#say("libIntroductionHelloMenu");
-				}
-				else
-				{
-					#say("Sorry, it appears we're having communication issues.");
-					goto farewell;
-				}	
+				#say("libIntroductionHelloMenu");
 			}
 
 			goto listen;
@@ -193,4 +185,3 @@ block introduction(sidekick: human, guest: human, reason: string): human
 		}
 	}
 }
-	
