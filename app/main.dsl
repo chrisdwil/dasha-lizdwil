@@ -80,7 +80,7 @@ node assistGreetAttempt {
 		var logNodeName: string = "assistGreetAttempt";
 		
 		set $guest = blockcall introduction($sidekick, $guest, true);
-		#log("introduction: guest's mood was " + $guest.mood);		
+		#log("introduction: guest's mood was " + $guest.mood);	
 	}
 	
 	transitions

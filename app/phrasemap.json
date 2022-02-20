@@ -85,6 +85,9 @@
 					"text": "Are you still there and were you able to get all that?"
 				}
 			],
+			"hangUp": {
+				"text": "Understood, have a good day, bye now."
+			},
 			"saySingleLine": {
 				"text": "So how may I help you, today?"
 			},
