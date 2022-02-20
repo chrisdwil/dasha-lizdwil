@@ -4,6 +4,7 @@ block introduction(sidekick: human, guest: human, greeted: boolean): human
 {	
 	context
 	{
+		sentenceType: string?;
 	    recognitions: 
 	    {
 	    	statement: string[];
@@ -25,7 +26,7 @@ block introduction(sidekick: human, guest: human, greeted: boolean): human
 			var logNodeName: string = "hello";
 			#log(logNodeName + " has been initalized");
 			
-			if (#waitForSpeech(5000) && !$greeted)
+			if (#waitForSpeech(1000) && !$greeted)
 			{
 				#log(logNodeName + " caller has been detected");
 				set $greeted = true;
@@ -66,9 +67,12 @@ block introduction(sidekick: human, guest: human, greeted: boolean): human
 		do
 		{
 			var logNodeName: string = "helloRepeat";
-	        var sentenceType: string? = #getSentenceType(); 
-			#log(logNodeName + " has been initalized");
+	        #log(logNodeName + " has been initalized");
 			#log($recognitions);	
+			
+			wait *;
+			
+			$sentenceType = #getSentenceType(); 
 			
 			if (sentenceType is not null) 
 	        {
@@ -79,9 +83,6 @@ block introduction(sidekick: human, guest: human, greeted: boolean): human
 	        }
 	        
 	        #log($recognitions);
-			
-			#say("libIntroductionHelloIdle");
-			wait *;
 		}
 		
 		transitions
