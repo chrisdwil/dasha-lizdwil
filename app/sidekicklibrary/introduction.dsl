@@ -108,7 +108,7 @@ block introduction(sidekick: human, guest: human): human
 			confusion: goto helloInterpret on #messageHasAnyIntent(["questions","confusion"]) priority 5;
 			idle: goto helloRepeat on timeout 10000;
 			listen: goto helloInterpret on true priority 1;
-			transfer: goto return on #messageHasAnyIntent(["transfer"]) priority 5;
+			transfer: goto @return on #messageHasAnyIntent(["transfer"]) priority 5;
 		}
 		
 		onexit
