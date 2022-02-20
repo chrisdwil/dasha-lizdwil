@@ -17,7 +17,7 @@ context {
 	input reason: string;
 	
 	people: human[]? = 
-	{
+	[
 		"host": 
 		{
 				name: "Liz, D. Wheel",
@@ -26,8 +26,8 @@ context {
 				gender: "female",
 				mood: "",
 				request: ""
-		};
-	};
+		}
+	]
 			
 	
 /*
