@@ -29,7 +29,7 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 			
 			if (#waitForSpeech(5000) && $greetFirst)
 			{
-				#log(logNodeName + " caller has been deteced");
+				#log(logNodeName + " caller has been detected");
 				set $greetFirst = false;
 				wait *;
 			}
@@ -48,13 +48,17 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 		{
 			default: do
 			{
-				#log(#getSentenceType());
-				/*
-		        if ($recognitions.sentencetype is not null) {
+				set $recognitions.sentencetype = #getSentenceType();
+				
+		        if ($recognitions.sentencetype is not null) 
+		        {
 		            $recognitions[$recognitions.sentencetype]?.push(#getMessageText());
-		        } else {
-		            $recognitions.other.push(#getMessageText());*/
-		     	
+		        } else 
+		        {
+		            $recognitions.other.push(#getMessageText());
+		        }
+		        
+		        #log($recognitions);
 			}
 		}
 
