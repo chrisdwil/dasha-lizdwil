@@ -17,7 +17,7 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 			if ($greetFirst && #waitForSpeech(2000))
 
 			{
-				set $greetFirst = "false";
+				set $greetFirst = false;
 				#say("libIntroductionHello", {name: $me.phonetic});
 				wait *;				
 			}
