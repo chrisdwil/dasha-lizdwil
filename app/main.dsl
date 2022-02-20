@@ -30,7 +30,7 @@ context {
 				mood: "positive",
 				request: "none",
 				responses: 0,
-				errors: 0
+				errors: 0,
 				errorsMax: 4
 	};
 	sidekick: human =
@@ -42,7 +42,7 @@ context {
 				mood: "positive",
 				request: "none",
 				responses: 0,
-				errors: 0
+				errors: 0,
 				errorsMax: 4
 
 	};
