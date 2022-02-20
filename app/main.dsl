@@ -1,7 +1,7 @@
 // Liz D. Wil 
 import "sidekicklibrary/all.dsl";
 
-type human[] = 
+type human = 
 {
 	name: string;
 	nick: string;
