@@ -48,10 +48,8 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 			{
 				set $recognitions.sentencetype = #getSentenceType();
 		        if ($recognitions.sentencetype is not null) {
-		            #sayText("I think it is " + $recognitions.sentencetype + " sentence.");
 		            $recognitions[$recognitions.sentenceType]?.push(#getMessageText());
 		        } else {
-		            #sayText("Strange, I could not recognize this sentence type.");
 		            $recognitions.other.push(#getMessageText());
 		        }	
 			}
