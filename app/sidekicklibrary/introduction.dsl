@@ -35,7 +35,7 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 		{
 			confusion: goto helloConfused on #messageHasAnyIntent(["questions","confusion"]);
 			idle: goto hello on timeout 10000;
-			transfer: goto helloTransfer on #messageHasIntent("transfer");
+			transfer: goto @return on #messageHasIntent("transfer");
 		}
 
 		onexit 
