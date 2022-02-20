@@ -8,11 +8,11 @@
 			"emotion": "positive"
 		},
 		"phrases": {
+			"libFarewell": {
+				"text": "Understood, have a good day, bye now!"
+			},
 			"libIntroductionTransfer": {
 				"text": "Okay, please hold a moment while I transfer you."
-			},
-			"libIntroductionFarewell": {
-				"text": "Understood, have a good day, bye now!"
 			},
 			"libIntroductionHello": {
 				"random": [
