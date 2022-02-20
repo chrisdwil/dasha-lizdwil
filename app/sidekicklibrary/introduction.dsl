@@ -126,7 +126,8 @@ block introduction(sidekick: human, guest: human): human
 			
 			transfer: do
 			{
-				set $guest.mood = "transfer";
+				set $guest.mood = "positive";
+				set $guest.request = "transfer";
 			}
 		}
 	}
