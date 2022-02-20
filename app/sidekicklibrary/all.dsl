@@ -1,6 +1,6 @@
 library
 
-import "hangup.dsl";
+import "farewell.dsl";
 //import "howareyou.dsl";
 //import "identity.dsl";
 import "introduction.dsl";
