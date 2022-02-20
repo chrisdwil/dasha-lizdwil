@@ -44,14 +44,17 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 		
 		onexit 
 		{
-			set $recognitions.sentencetype = #getSentenceType();
-	        if (sentencetype is not null) {
-	            #sayText("I think it is " + sentencetype + " sentence.");
-	            $recognitions[sentenceType]?.push(#getMessageText());
-	        } else {
-	            #sayText("Strange, I could not recognize this sentence type.");
-	            $recognitions.other.push(#getMessageText());
-	        }
+			default: do
+			{
+				set $recognitions.sentencetype = #getSentenceType();
+		        if (sentencetype is not null) {
+		            #sayText("I think it is " + sentencetype + " sentence.");
+		            $recognitions[sentenceType]?.push(#getMessageText());
+		        } else {
+		            #sayText("Strange, I could not recognize this sentence type.");
+		            $recognitions.other.push(#getMessageText());
+		        }	
+			}
 		}
 
 	}
