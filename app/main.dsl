@@ -62,6 +62,12 @@ start node assist {
 		#log("call information: " + $phone + " " + $forward + " " + $unavailable);
 		#connectSafe($phone);
 		
+		if ($unavailable == "busy")
+		{
+			#say("assistUnavailable");
+			exit;
+		}
+		
 		wait *;
 	}
 
