@@ -11,6 +11,12 @@ type human = {
 	request: string; // transfer, farewell
 };
 
+type people = {
+	host: human,
+	sidekick: human,
+	guest: human
+}:
+
 context {
 	input phone: string;
 	input forward: string;
