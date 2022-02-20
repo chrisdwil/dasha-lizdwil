@@ -59,14 +59,8 @@ context {
 start node assist {
 	do
 	{	
-		#log("call information: " + $phone + " " + $forward + " " + 4unavailable);
+		#log("call information: " + $phone + " " + $forward + " " + $unavailable);
 		#connectSafe($phone);
-
-		if ($unavailable)
-			{
-			#say("assistUnavailable");
-			exit;
-			}
 		
 		wait *;
 	}
