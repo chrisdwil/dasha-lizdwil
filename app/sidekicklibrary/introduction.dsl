@@ -90,7 +90,7 @@ block introduction(sidekick: human, guest: human, reason: string): human
 	        }
 			
  			#log(logNodeName + " mood: " + $guest.mood);
-			#log(logNodeName + " requested: " + $guest.request);
+			#log(logNodeName + " requests: " + $guest.request);
 			#log(logNodeName + " errors: " + #stringify($guest.errors));
 	        #log($recognitions);
 			
@@ -108,7 +108,15 @@ block introduction(sidekick: human, guest: human, reason: string): human
 			
 			if ($guest.mood == "confused")
 			{
-				#say("libIntroductionHelloMenu");
+				if ($guest.errors <= $guest.errorMax)
+				{
+					#say("libIntroductionHelloMenu");
+				}
+				else
+				{
+					#say("Sorry, it appears we're having communication issues.");
+					goto farewell;
+				}	
 			}
 
 			goto listen;
@@ -117,6 +125,7 @@ block introduction(sidekick: human, guest: human, reason: string): human
 		transitions
 		{
 			listen: goto helloListen;
+			farewell: goto @return;
 		}
 	}
 	
