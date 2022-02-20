@@ -114,7 +114,7 @@ block introduction(sidekick: human, guest: human, reason: string): human
 			var logNodeName: string = "helloListen";
 	        #log(logNodeName + " has been initialized");
 	        set $guest.mood = "";
-	        
+	        set $guest.responses += 1;
 			wait *;
 		}
 		 
@@ -132,10 +132,14 @@ block introduction(sidekick: human, guest: human, reason: string): human
 			confusion: do 
 			{
 				set $guest.mood = "confused";
+		        set $guest.errors += 1;
+
 			}
 			idle: do
 			{
 				set $guest.mood = "idle";
+		        set $guest.errors += 1;
+
 			}
 		}
 	}
