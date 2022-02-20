@@ -17,20 +17,35 @@ context {
 	input reason: string;
 	
 	attendees: human[] = 
-	    [
-	     {	
-	    	role: "host",
+	[
+		{	
+			role: "host",
+			name: "",
+			nick: "",
+			phonetic: "",
+			gender: "",
+			mood: "",
+			request: ""
+		},
+		{	
+			role: "sidekick",
 			name: "Liz, D. Wheel",
 			nick: "Liz",
 			phonetic: "Lizzz",
 			gender: "female",
 			mood: "",
 			request: ""
-	    },
-	    {	
-	    	role: "guest"	    
+		},
+		{	
+			role: "guest",
+			name: "",
+			nick: "",
+			phonetic: "",
+			gender: "",
+			mood: "",
+			request: ""
 		}
-	   ];
+	];
 }
 
 
