@@ -109,7 +109,7 @@ block introduction(attendeelist: human[], reason: string): human[]
 				#say("libIntroductionHelloMenu");
 			}
 			*/
-
+			goto farewell;
 			goto listen;
 		}
 		
