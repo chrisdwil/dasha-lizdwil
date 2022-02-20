@@ -107,7 +107,7 @@ block introduction(sidekick: human, guest: human): human
 		{
 			idle: goto helloRepeat on timeout 10000;
 			listen: goto helloInterpret on true priority 1;
-			confusion: goto helloInterpret on #messageHasAnyIntents(["questions","confusion"]) priority 10;
+			confusion: goto helloInterpret on #messageHasAnyIntent(["questions","confusion"]) priority 10;
 		}
 	}
 	
