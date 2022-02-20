@@ -41,25 +41,6 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 		{
 			helloRepeat: goto helloRepeat;
 		}
-		
-		onexit 
-		{
-			default: do
-			{				
-		        var sentenceType: string? = #getSentenceType(); 
-				
-				if (sentenceType is not null) 
-		        {
-		            $recognitions[sentenceType]?.push(#getMessageText());
-		        } else 
-		        {
-		            $recognitions.other.push(#getMessageText());
-		        }
-		        
-		        #log($recognitions);
-			}
-		}
-
 	}
 	
 	node @return
@@ -84,8 +65,20 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 		do
 		{
 			var logNodeName: string = "helloRepeat";
+	        var sentenceType: string? = #getSentenceType(); 
 			#log(logNodeName + " has been initalized");
-			#log($recognitions);
+			#log($recognitions);	
+			
+			if (sentenceType is not null) 
+	        {
+	            $recognitions[sentenceType]?.push(#getMessageText());
+	        } else 
+	        {
+	            $recognitions.other.push(#getMessageText());
+	        }
+	        
+	        #log($recognitions);
+		}
 			
 			#say("libIntroductionHelloIdle");
 			wait *;
