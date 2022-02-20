@@ -37,6 +37,27 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 		do { return $them; }
 	}
 			
+	node helloSilent
+	{
+		do
+		{
+			#say("libIntroductionHelloConfusion");
+			wait *;
+		}
+
+		transitions
+		{
+			idle: goto @return on timeout 10000;
+			confusion: goto helloMenu on #messageHasAnyIntent(["questions","confusion"]);
+		}
+
+		onexit
+		{
+			idle: do { set $them.mood = "silent"; }
+			confusion: do { set $them.mood = "confusion"; }
+		}
+	}
+	
 	node helloConfused
 	{
 		do
