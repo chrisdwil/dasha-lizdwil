@@ -4,7 +4,7 @@ block introduction(sidekick: human, guest: human, greeted: boolean): human
 {	
 	context
 	{
-		sentenceType: string[]?;
+		sentenceType: string?;
 	    recognitions: 
 	    {
 	    	statement: string[];
