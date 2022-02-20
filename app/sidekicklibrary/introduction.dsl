@@ -81,6 +81,20 @@ block introduction(sidekick: human, guest: human, reason: string): human
 		{
 			var logNodeName: string = "helloRepeat";
 	        #log(logNodeName + " has been initialized");
+	        
+			var sentenceType = #getSentenceType(); 
+			
+			if (sentenceType is not null)
+	        {
+	            $recognitions[sentenceType]?.push(#getMessageText());
+	        }
+	        
+ 			#log(logNodeName + " mood: " + $guest.mood);
+			#log(logNodeName + " requested: " + $guest.request);
+			#log(logNodeName + " responses: " + #stringify($guest.responses));			
+			#log(logNodeName + " errors: " + #stringify($guest.errors));
+	        #log($recognitions);
+	        
 			if (!$greeted) 
 			{
 				set $greeted = true;
@@ -97,7 +111,7 @@ block introduction(sidekick: human, guest: human, reason: string): human
 			{
 				#say("libIntroductionHelloMenu");
 			}
-	
+
 			goto listen;
 		}
 		
@@ -151,18 +165,7 @@ block introduction(sidekick: human, guest: human, reason: string): human
 			var logNodeName: string = "helloInterpret";
 	        #log(logNodeName + " has been initialized");
 			
-			var sentenceType = #getSentenceType(); 
-			
-			if (sentenceType is not null)
-	        {
-	            $recognitions[sentenceType]?.push(#getMessageText());
-	        }
-	        
- 			#log(logNodeName + " mood: " + $guest.mood);
-			#log(logNodeName + " requested: " + $guest.request);
-			#log(logNodeName + " responses: " + #stringify($guest.responses));			
-			#log(logNodeName + " errors: " + #stringify($guest.errors));
-	        #log($recognitions);
+// interpreter
 	        
 	        goto listen;
 		}
