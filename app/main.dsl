@@ -15,8 +15,9 @@ type human =
 
 context {
 	input phone: string;
-	input forward: string?;
-	input unavailable: string?;
+	input forward: string;
+	input sprint: boolean;
+	input unavailable: boolean;
 
 	host: human =
 	{
