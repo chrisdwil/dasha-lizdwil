@@ -26,7 +26,7 @@ block introduction(sidekick: human, guest: human, reason: string): human
 		do 
 		{
 			var logNodeName: string = "hello";
-			#log(logNodeName + " has been initalized");
+			#log(logNodeName + " has been initalized" + " " + $sidekick + " " + $guest + " " + $reason);
 			
 			if (#waitForSpeech(5000))
 			{
