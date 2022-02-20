@@ -61,9 +61,10 @@ block introduction(sidekick: human, them: human, greetFirst: boolean): human
 		{
 			default: do 
 			{
-				if (#getSentenceType() is not null)
+				var sentenceType = #getSentenceType();
+				if (sentenceType is not null)
 				{
-					$recognitions[#getSentenceType()]?.push(#getMessageText());
+					$recognitions[]?.push(#getMessageText());
 				}
 				else
 				{
