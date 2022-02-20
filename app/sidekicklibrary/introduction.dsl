@@ -106,12 +106,12 @@ block introduction(sidekick: human, guest: human, greeted: boolean): human
 	        
 	        #log($recognitions);
 	        
-	        goto listen;
+	        goto helloListen;
 		}
 		
 		transitions 
 		{
-			listen: goto listen;
+			listen: goto helloListen;
 		}
 	}
 }
