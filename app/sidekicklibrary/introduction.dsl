@@ -47,12 +47,10 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 		onexit 
 		{
 			default: do
-			{
-				var sentencetype = #getSentenceType();
-				
-		        if (sentencetype is not null) 
+			{				
+		        if (#getSentenceType() is not null) 
 		        {
-		            $recognitions[sentencetype]?.push(#getMessageText());
+		            $recognitions[#getSentenceType()]?.push(#getMessageText());
 		        } else 
 		        {
 		            $recognitions.other.push(#getMessageText());
