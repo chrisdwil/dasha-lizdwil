@@ -80,7 +80,7 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 			goto hello;
 		}
 		
-		transition
+		transitions
 		{
 			hello: goto hello on true;
 		}
