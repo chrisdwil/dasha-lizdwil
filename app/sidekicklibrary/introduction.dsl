@@ -6,6 +6,9 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 	{
 		do 
 		{
+			#log(logNodeName + " mood: " + $guest.mood);
+			#log(logNodeName + " requested: " + $guest.request);			
+			
 			if ($greetFirst)
 			{
 				#waitForSpeech(1000);
