@@ -1,7 +1,7 @@
 // Liz D. Wil
 import "sidekicklibrary/all.dsl";
 
-type recognitions = 
+type responsedata = 
 {
     statement: string[],
     request: string[],
