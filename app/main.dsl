@@ -1,9 +1,14 @@
 // Liz D. Wil 
 import "sidekicklibrary/all.dsl";
 
-type human = 
+type human[] = 
 {
-
+	name: string;
+	nick: string;
+	phonetic: string;
+	gender: string;
+	mood: string; // positive, negative, idle, confused
+	request: string; // transfer, farewell
 };
 
 context {
@@ -11,15 +16,8 @@ context {
 	input forward: string;
 	input reason: string;
 	
-	people[]: {
-		name: string;
-		nick: string;
-		phonetic: string;
-		gender: string;
-		mood: string; // positive, negative, idle, confused
-		request: string; // transfer, farewell
-	} = {
-		"host": 
+	people: human {
+		host: 
 		    {
 				name: "Liz, D. Wheel",
 				nick: "Liz",
@@ -28,7 +26,7 @@ context {
 				mood: "",
 				request: ""
 			},
-		"sidekick":
+		sidekick:
 		    {
 				name: "Liz, D. Wheel",
 				nick: "Liz",
