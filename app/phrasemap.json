@@ -128,6 +128,8 @@
 		},
 		"macros": {
 			"assistTransfer": {
+			},
+			"assistUnavailable": {
 			},		
 			"libIntroductionHello": {
 			},
