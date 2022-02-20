@@ -17,7 +17,6 @@ type human =
 		gender: string;
 		mood: string; // positive, negative, idle, confusion
 		request: string;
-		requests: recognitions;
 		responses: number;
 		errors: number;
 };
@@ -34,7 +33,6 @@ context {
 				phonetic: "chris",
 				gender: "male",
 				mood: "positive",
-				sentencetype: "",
 				request: "none",	
 				responses: 0,
 				errors: 0
@@ -47,7 +45,6 @@ context {
 				gender: "female",
 				mood: "positive",
 				request: "none",
-
 				responses: 0,
 				errors: 0
 	};
