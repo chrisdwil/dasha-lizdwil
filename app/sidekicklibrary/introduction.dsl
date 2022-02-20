@@ -79,19 +79,19 @@ block introduction(attendeelist: human[], reason: string): human[]
 		do
 		{
 			var logNodeName: string = "helloRepeat";
+			var guest: string? = $attendeelist[2];
 	        #log(logNodeName + " has been initialized");
+ 			#log(logNodeName + " mood: " + guest.mood);
+			#log(logNodeName + " requested: " + guest.request);
 	        
 			var sentenceType = #getSentenceType(); 
 
 	        if (sentenceType is not null)
 	        {
 	            $recognitions[sentenceType]?.push(#getMessageText());
+		        #log($recognitions);
 	        }
-			
- 			#log(logNodeName + " mood: " + $attendeelist.mood);
-			//#log(logNodeName + " requested: " + $attendeelist[2].request);
-	        #log($recognitions);
-			
+						
 			if (!$greeted) 
 			{
 				set $greeted = true;
