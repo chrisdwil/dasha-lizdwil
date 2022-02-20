@@ -17,7 +17,7 @@ context {
 	input forward: string;
 	input reason: string;
 	
-	people[]?;
+	people[]?: human;
 	
 	host: human = 
 	{
