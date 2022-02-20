@@ -52,6 +52,9 @@ block introduction(sidekick: human, guest: human): human
 	{
 		do
 		{
+			var logNodeName: string = "@return";
+	        #log(logNodeName + " has been initalized");
+	        
 			return $guest;
 		}
 	}
@@ -103,8 +106,8 @@ block introduction(sidekick: human, guest: human): human
 		transitions
 		{
 			idle: goto helloRepeat on timeout 10000;
-			//listen: goto helloInterpret on true priority 1;
-			transfer: goto @return on true;// on #messageHasIntent("transfer") priority 3;
+			listen: goto helloInterpret on true priority 1;
+			confusion: goto helloInterpret on #messageHasAnyIntents(["questions","confusion"]) priority 10;
 		}
 	}
 	
@@ -117,7 +120,7 @@ block introduction(sidekick: human, guest: human): human
 			
 			var sentenceType = #getSentenceType(); 
 			
-			if (sentenceType is not null) 
+			if (sentenceType is not null)
 	        {
 	            $recognitions[sentenceType]?.push(#getMessageText());
 	        } else 
