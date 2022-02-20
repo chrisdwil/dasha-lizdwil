@@ -85,7 +85,7 @@
 					"text": "Are you still there and were you able to get all that?"
 				}
 			],
-			"hangUp": {
+			"assistHangUp": {
 				"text": "Understood, have a good day, bye now."
 			},
 			"saySingleLine": {
