@@ -9,13 +9,10 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 
 			#log(logNodeName + " mood: " + $them.mood);
 			#log(logNodeName + " requested: " + $them.request);
-			#log(logNodeName + " requestdata: " + $them.requestdata);
-			#log(logNodeName + " requesttype: " + $them.requesttype);
 			#log(logNodeName + " responses: " + #stringify($them.responses));			
 			#log(logNodeName + " errors: " + #stringify($them.errors));
 			
-			if ($greetFirst && #waitForSpeech(2000))
-
+			if (($greetFirst) && ()#waitForSpeech(2000))
 			{
 				set $greetFirst = false;
 				#say("libIntroductionHello", {name: $me.phonetic});
