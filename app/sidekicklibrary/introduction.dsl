@@ -89,7 +89,14 @@ block introduction(sidekick: human, guest: human, reason: string): human
 			}
 			else
 			{
-				#say("libIntroductionHelloAssist");
+				if ($guest.mood == "idle")
+				{
+					#say("libIntroductionHelloAssist");
+				}
+				else if ($guest.mood == "confusion")
+				{
+					#say("libIntroductionHelloMenu");
+				}
 			}
 			goto listen;
 		}
