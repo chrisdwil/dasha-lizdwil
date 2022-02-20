@@ -39,7 +39,7 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 
 		transitions
 		{
-			helloRepeat: goto helloRepeat on true;
+			helloRepeat: goto helloRepeat;
 		}
 		
 		onexit 
