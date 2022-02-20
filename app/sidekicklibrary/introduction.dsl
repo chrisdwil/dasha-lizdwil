@@ -99,7 +99,7 @@ block introduction(sidekick: human, guest: human): human
 		{
 			var logNodeName: string = "helloListen";
 	        #log(logNodeName + " has been initalized");
-	        $guest.mood = "";
+	        set $guest.mood = "";
 	        
 			wait *;
 		}
