@@ -1,6 +1,6 @@
 library
 
-block introduction(attendeelist: human[], reason: string): human
+block introduction(attendeelist: human[], reason: string): human[]
 {	
 	context
 	{
