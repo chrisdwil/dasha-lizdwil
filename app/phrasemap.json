@@ -130,8 +130,6 @@
 			}
 		},
 		"macros": {
-			"assistTransfer": {
-			},
 			"libIntroductionHelloFarewell": {
 			},
 			"libIntroductionHello": {
@@ -145,8 +143,6 @@
 			"libIntroductionHelloTransfer": {
 			},
 			"libIntroductionHelloUnavailable": {
-			},
-			"assistHangUp": {
 			}
 		}
 	}
