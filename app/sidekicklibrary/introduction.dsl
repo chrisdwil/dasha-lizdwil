@@ -1,6 +1,6 @@
 library
 
-block introduction(sidekick: human, guest: human, greetFirst: boolean): human
+block introduction(sidekick: human, guest: human, greeted: boolean): human
 {	
 	context
 	{
