@@ -106,7 +106,7 @@ block introduction(sidekick: human, guest: human, greeted: boolean): human
 	        
 	        #log($recognitions);
 	        
-	        goto helloListen;
+	        goto listen;
 		}
 		
 		transitions 
