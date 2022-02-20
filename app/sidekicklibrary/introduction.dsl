@@ -81,6 +81,9 @@ block introduction(sidekick: human, guest: human, greeted: boolean): human
 	{
 		do
 		{
+			var logNodeName: string = "helloListen";
+	        #log(logNodeName + " has been initalized");
+
 			wait *;
 		}
 		 
@@ -94,6 +97,9 @@ block introduction(sidekick: human, guest: human, greeted: boolean): human
 	{
 		do
 		{	
+			var logNodeName: string = "helloInterpret";
+	        #log(logNodeName + " has been initalized");
+			
 			var sentenceType = #getSentenceType(); 
 			
 			if (sentenceType is not null) 
