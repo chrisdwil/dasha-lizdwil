@@ -8,8 +8,8 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 		{
 			var logNodeName: string = "assistGreetAttempt";
 
-			#log(logNodeName + " mood: " + them.mood);
-			#log(logNodeName + " requested: " + them.request);			
+			#log(logNodeName + " mood: " + $them.mood);
+			#log(logNodeName + " requested: " + $them.request);			
 			
 			if ($greetFirst)
 			{
