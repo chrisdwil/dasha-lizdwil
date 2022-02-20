@@ -90,7 +90,6 @@ block introduction(attendeelist: human[], reason: string): human[]
 			
  			#log(logNodeName + " mood: " + $attendeelist[2].mood);
 			#log(logNodeName + " requested: " + $attendeelist[2].request);
-			#log(logNodeName + " errors: " + #stringify($attendeelist[2].errors));
 	        #log($recognitions);
 			
 			if (!$greeted) 
