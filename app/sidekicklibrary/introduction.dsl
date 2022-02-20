@@ -103,8 +103,8 @@ block introduction(sidekick: human, guest: human): human
 		transitions
 		{
 			idle: goto helloRepeat on timeout 10000;
-			listen: goto helloInterpret on true priority 1;
-			transfer: goto @return on #messageHasIntent("transfer") priority 3;
+			//listen: goto helloInterpret on true priority 1;
+			transfer: goto @return on true;// on #messageHasIntent("transfer") priority 3;
 		}
 	}
 	
