@@ -26,7 +26,7 @@ block introduction(sidekick: human, guest: human, reason: string): human
 		do 
 		{
 			var logNodeName: string = "hello";
-			#log(logNodeName + " has been initalized for reason: " + $reason);
+			#log(logNodeName + " has been initialized for reason: " + $reason);
 			
 			if ($reason == "busy")
 			{
@@ -60,7 +60,7 @@ block introduction(sidekick: human, guest: human, reason: string): human
 		do
 		{
 			var logNodeName: string = "@return";
-	        #log(logNodeName + " has been initalized");
+	        #log(logNodeName + " has been initialized");
 	        
 			return $guest;
 		}
@@ -80,7 +80,7 @@ block introduction(sidekick: human, guest: human, reason: string): human
 		do
 		{
 			var logNodeName: string = "helloRepeat";
-	        #log(logNodeName + " has been initalized");
+	        #log(logNodeName + " has been initialized");
 			if (!$greeted) 
 			{
 				set $greeted = true;
@@ -105,7 +105,7 @@ block introduction(sidekick: human, guest: human, reason: string): human
 		do
 		{
 			var logNodeName: string = "helloListen";
-	        #log(logNodeName + " has been initalized");
+	        #log(logNodeName + " has been initialized");
 	        set $guest.mood = "";
 	        
 			wait *;
@@ -139,7 +139,7 @@ block introduction(sidekick: human, guest: human, reason: string): human
 		do
 		{	
 			var logNodeName: string = "helloInterpret";
-	        #log(logNodeName + " has been initalized");
+	        #log(logNodeName + " has been initialized");
 			
 			var sentenceType = #getSentenceType(); 
 			
@@ -168,7 +168,7 @@ block introduction(sidekick: human, guest: human, reason: string): human
 		do
 		{
 			var logNodeName: string = "helloTransfer";
-	        #log(logNodeName + " has been initalized");
+	        #log(logNodeName + " has been initialized");
 	        
 			set $guest.mood = "positive";
 			set $guest.request = "transfer";
@@ -182,7 +182,7 @@ block introduction(sidekick: human, guest: human, reason: string): human
 		do
 		{
 			var logNodeName: string = "helloFarewell";
-	        #log(logNodeName + " has been initalized");
+	        #log(logNodeName + " has been initialized");
 	        
 			set $guest.mood = "positive";
 			set $guest.request = "farewell";

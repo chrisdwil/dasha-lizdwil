@@ -8,7 +8,7 @@
 			"emotion": "positive"
 		},
 		"phrases": {
-			"libFarewell": {
+			"libIntroductionHelloFarewell": {
 				"text": "Understood, have a good day, bye now!"
 			},
 			"libIntroductionHello": {
@@ -129,7 +129,7 @@
 		"macros": {
 			"assistTransfer": {
 			},
-			"libFarewell": {
+			"libIntroductionHelloFarewell": {
 			},
 			"libIntroductionHello": {
 			},
