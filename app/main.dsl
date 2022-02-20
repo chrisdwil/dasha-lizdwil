@@ -2,7 +2,7 @@
 import "sidekicklibrary/all.dsl";
 
 type human = {
-	role: attendee;
+	role: string;
 	name: string;
 	nick: string;
 	phonetic: string;
@@ -52,7 +52,6 @@ context {
 				gender: ""
 	};
 */
-}
 
 start node assist {
 	do
