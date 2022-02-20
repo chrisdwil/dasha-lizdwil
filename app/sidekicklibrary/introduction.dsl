@@ -1,6 +1,6 @@
 library
 
-block introduction(attendeelist: human[], reason: string): human
+block introduction(attendeelist: human[], reason: string): human[]
 {	
 	context
 	{
@@ -61,7 +61,7 @@ block introduction(attendeelist: human[], reason: string): human
 			var logNodeName: string = "@return";
 	        #log(logNodeName + " has been initialized");
 	        
-			return $attendeelist[2];
+			return $attendeelist;
 		}
 	}
 	
@@ -164,7 +164,7 @@ block introduction(attendeelist: human[], reason: string): human
 			set $attendeelist[2].mood = "positive";
 			set $attendeelist[2].request = "transfer";
 			#say("libIntroductionHelloTransfer");
-			return $attendeelist[2];
+			return $attendeelist;
 		}
 	}
 	
@@ -178,7 +178,7 @@ block introduction(attendeelist: human[], reason: string): human
 			set $attendeelist[2].mood = "positive";
 			set $attendeelist[2].request = "farewell";
 			#say("libIntroductionHelloFarewell");
-			return $attendeelist[2];
+			return $attendeelist;
 		}
 	}
 }
