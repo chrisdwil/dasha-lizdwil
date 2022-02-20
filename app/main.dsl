@@ -22,10 +22,9 @@ context {
 	input forward: string;
 	input reason: string;
 
-/*
 	attendees: human[] = 
 	[
-		{	
+		host: {	
 			role: "host",
 			name: "",
 			nick: "",
@@ -34,7 +33,7 @@ context {
 			mood: "positive",
 			request: "none"
 		},
-		{	
+		sidekick: {	
 			role: "sidekick",
 			name: "Liz, D. Wheel",
 			nick: "Liz",
@@ -43,7 +42,7 @@ context {
 			mood: "positive",
 			request: "none"
 		},
-		{	
+		guest: {	
 			role: "guest",
 			name: "",
 			nick: "",
@@ -53,7 +52,6 @@ context {
 			request: "none"
 		}
 	];
-*/
 }
 
 start node assist {
@@ -62,6 +60,8 @@ start node assist {
 		#log("call information: " + $phone + " " + $forward + " " + $reason);
 		#connectSafe($phone);
 
+		#log($attendees);
+		exit;
 		wait *;
 	}
 
