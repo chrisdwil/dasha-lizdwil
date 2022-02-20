@@ -6,13 +6,11 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 	{
 	    recognitions: 
 	    {
-	        sentencetype: string;
 	    	statement: string[];
 	        request: string[];
 	        question: string[];
 	        other: string[];
 	    } = {
-	    		sentencetype: "",
 	            statement: [],
 	            request: [],
 	            question: [],
