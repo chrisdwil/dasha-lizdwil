@@ -121,6 +121,8 @@
 			}
 		},
 		"macros": {
+			"assistTransfer": {
+			},		
 			"libIntroductionHello": {
 			},
 			"libIntroductionHelloConfusion": {
