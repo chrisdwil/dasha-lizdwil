@@ -1,6 +1,6 @@
 // Liz D. Wil 
 import "sidekicklibrary/all.dsl";
-
+	
 type human = 
 {
 	name: string;
@@ -16,16 +16,7 @@ context {
 	input forward: string;
 	input reason: string;
 	
-	people[]: 
-		    {
-				name: "Liz, D. Wheel",
-				nick: "Liz",
-				phonetic: "Lizzz",
-				gender: "female",
-				mood: "",
-				request: ""
-			};
-	people[]: 
+	people: human[] = 
 		    {
 				name: "Liz, D. Wheel",
 				nick: "Liz",
