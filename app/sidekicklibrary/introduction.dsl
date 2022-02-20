@@ -78,7 +78,6 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 	        }
 	        
 	        #log($recognitions);
-		}
 			
 			#say("libIntroductionHelloIdle");
 			wait *;
