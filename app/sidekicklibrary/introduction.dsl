@@ -191,23 +191,28 @@ block introduction(sidekick: human, guest: human, reason: string): human
 		}
 	}
 	
-	node helloMenu
+	node helloConfusion
 	{
 		do
 		{
 			var logNodeName: string = "helloConfusion";
 	        #log(logNodeName + " has been initialized");
-	        
-			set $guest.mood = "confusion";
-			set $guest.request = "";
-			#say("libIntroductionHelloMenu");
-			
+	        			
 			goto repeat;
 		}
 		
 		transitions
 		{
-			repeat: goto helloRepeat;
+			repeat: goto helloInterpret;
+		}
+		
+		onexit
+		{
+			default: do
+			{
+				set $guest.mood = "confusion";
+				set $guest.request = "";
+			}
 		}
 	}	
 }
