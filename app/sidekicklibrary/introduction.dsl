@@ -2,16 +2,6 @@ library
 
 block introduction(me: human, them: human, greetFirst: boolean): human
 {	
-	context
-	{
-	    output recognitions: {
-	        statement: string[];
-	        request: string[];
-	        question: string[];
-	        other: string[];
-	    };
-	}
-	
 	start node hello
 	{
 		do 
@@ -49,7 +39,6 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 		transitions
 		{
 			confusion: goto hello on #messageHasAnyIntent(["questions","confusion"]) priority 3;
-			guess: goto recognition on true priority 1;
 			idle: goto hello on timeout 10000;
 			transfer: goto @return on #messageHasIntent("transfer") priority 3;
 		}
@@ -80,27 +69,6 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 			return $them;
 		}
 		
-	}
-	
-	node recognition 
-	{
-		do
-		{
-	        var sentenceType = #getSentenceType();
-	        
-	        if (sentenceType is not null) {
-	            $recognitions[sentenceType]?.push(#getMessageText());
-	        } else {
-	            $recognitions.other.push(#getMessageText());
-	        }
-			
-	        goto hello;
-		}
-		
-		transitions
-		{
-			hello: goto hello on true;
-		}
 	}
 	
 	node helloMenu
