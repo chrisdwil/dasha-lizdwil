@@ -68,7 +68,7 @@ block introduction(sidekick: human, guest: human, greeted: boolean): human
 			var logNodeName: string = "helloRepeat";
 	        #log(logNodeName + " has been initalized");
 			#log($recognitions);
-			#say("libIntroductionHelloRepeat");
+			#say("libIntroductionHelloIdle");
 		}
 		
 		transitions
