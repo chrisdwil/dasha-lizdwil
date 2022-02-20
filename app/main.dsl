@@ -17,7 +17,7 @@ context {
 	input reason: string;
 	
 	people: human[] = [
-	    {
+	    "sidekick": {
 			name: "Liz, D. Wheel",
 			nick: "Liz",
 			phonetic: "Lizzz",
