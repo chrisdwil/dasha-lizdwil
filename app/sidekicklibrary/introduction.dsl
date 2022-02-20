@@ -38,6 +38,7 @@ block introduction(sidekick: human, them: human, greetFirst: boolean): human
 		{
 			confusion: goto hello on #messageHasAnyIntent(["questions","confusion"]) priority 3;
 			idle: goto hello on timeout 10000;
+			recognition: goto recognition on true priority 1;
 			transfer: goto @return on #messageHasIntent("transfer") priority 3;
 		}
 
