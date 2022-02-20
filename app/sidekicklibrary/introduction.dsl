@@ -9,11 +9,6 @@ block introduction(sidekick: human, them: human, greetFirst: boolean): human
 	        request: string[];
 	        question: string[];
 	        other: string[];
-	    } = {
-	        statement: [],
-	        request: [],
-	        question: [],
-	        other: []
 	    };
 	}
 	
