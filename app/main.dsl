@@ -92,12 +92,10 @@ node assistGreetAttempt {
 	{
 		var logNodeName: string = "assistGreetAttempt";
 		
-		set $attendees = blockcall introduction($attendees, $reason);
+		set $attendees[] = blockcall introduction($attendees, $reason);
 		
 		if ($reason != "busy")
 		{	
-			if ($attendees[2].request == "transfer")
-			{
 				#forward($forward);
 				exit;
 			}
