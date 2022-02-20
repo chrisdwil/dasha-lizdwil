@@ -36,8 +36,16 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 
 		onexit 
 		{
-			confusion: do { set $them.mood = "confusion"; }
-			idle: do { set $them.mood = "idle"; }
+			confusion: do 
+			{ 
+				set $them.mood = "confusion"; 
+				set $them.errors += 1;
+			}
+			idle: do 
+			{ 
+				set $them.mood = "idle"; 
+				set $them.errors += 1;
+			}
 		}
 	}
 
@@ -60,10 +68,18 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 			idle: goto @return on timeout 10000;
 		}
 
-		onexit
+		onexit 
 		{
-			confusion: do { set $them.mood = "confusion"; }
-			idle: do { set $them.mood = "idle"; }
+			confusion: do 
+			{ 
+				set $them.mood = "confusion"; 
+				set $them.errors += 1;
+			}
+			idle: do 
+			{ 
+				set $them.mood = "idle"; 
+				set $them.errors += 1;
+			}
 		}
 	}	
 	
