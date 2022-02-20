@@ -5,6 +5,7 @@ block introduction(sidekick: human, them: human, greetFirst: boolean): human
 	start node hello
 	{
 		do 
+		{
 			var logNodeName: string = "assistGreetAttempt";
 
 			#log(logNodeName + " mood: " + $them.mood);
