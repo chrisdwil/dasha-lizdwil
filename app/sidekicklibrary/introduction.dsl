@@ -14,9 +14,10 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 			#log(logNodeName + " errors: " + #stringify($them.errors));			
 
 			
-			if ($greetFirst)
+			if ($greetFirst && #waitForSpeech(2000))
+
 			{
-				#waitForSpeech(1000);
+				set $greetFirst = "false";
 				#say("libIntroductionHello", {name: $me.phonetic});
 				wait *;				
 			}
@@ -26,7 +27,7 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 				{
 					#say("libIntroductionHelloIdle");
 				}
-				if ($them.mood == "positive")
+				if (($them.mood == "positive") || ($them.mood == "negative") || ($them.mood == "confusion"))
 				{
 					#say("libIntroductionHelloConfusion");
 				}
@@ -37,9 +38,10 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 
 		transitions
 		{
-			confusion: goto hello on #messageHasAnyIntent(["questions","confusion"]);
+			confusion: goto hello on #messageHasAnyIntent(["questions","confusion"]) priority 3;
+			guess: goto guess on true priority 1;
 			idle: goto hello on timeout 10000;
-			transfer: goto @return on #messageHasIntent("transfer");
+			transfer: goto @return on #messageHasIntent("transfer") priority 3;
 		}
 
 		onexit 
@@ -68,6 +70,20 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 			return $them;
 		}
 		
+	}
+	
+	node guess 
+	{
+		do
+		{
+			#log("testing unknown sentence types: " + #getSentenceType());
+			goto hello;
+		}
+		
+		transition
+		{
+			hello: goto hello on true;
+		}
 	}
 	
 	node helloMenu
