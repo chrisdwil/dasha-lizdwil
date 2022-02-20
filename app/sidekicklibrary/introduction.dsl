@@ -29,7 +29,7 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 			
 			if (#waitForSpeech(5000) && $greetFirst)
 			{
-				#log(logNodeName + " caller has been deteced")
+				#log(logNodeName + " caller has been deteced");
 				set $greetFirst = false;
 				wait *;
 			}
