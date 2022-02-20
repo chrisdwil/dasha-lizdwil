@@ -16,7 +16,7 @@ context {
 	input forward: string;
 	input reason: string;
 	
-	people[]: human = 
+	people: human[] = 
 	    [
 	     {	
 	    	role: "host"
@@ -24,15 +24,6 @@ context {
 			nick: "Liz",
 			phonetic: "Lizzz",
 			gender: "female",
-			mood: "",
-			request: ""
-	    },
-	    {
-	    	role: "guest"
-			name: "",
-			nick: "",
-			phonetic: "",
-			gender: "",
 			mood: "",
 			request: ""
 	    }
@@ -70,6 +61,7 @@ start node assist {
 		#connectSafe($phone);
 
 		#log($people);
+		exit;
 		wait *;
 	}
 
