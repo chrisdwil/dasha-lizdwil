@@ -53,15 +53,17 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 			default: do 
 			{
 				var sentenceType = #getSentenceType();
-				
-				set $guest.responses += 1;
-				
+								
 				if (sentenceType is not null)
 				{
+					set $guest.responses += 1;
+
 					$recognitions[sentenceType]?.push(#getMessageText());
 				}
 				else
 				{
+					set $guest.errors += 1;
+					
 		            $recognitions.other.push(#getMessageText());
 				}
 			}
