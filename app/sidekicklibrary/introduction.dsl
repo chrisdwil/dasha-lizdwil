@@ -84,7 +84,7 @@ block introduction(sidekick: human, guest: human, greeted: boolean): human
 			wait *;
 		}
 		
-		transition
+		transitions
 		{
 			listen: goto helloInterpret on true;
 		}
@@ -109,7 +109,7 @@ block introduction(sidekick: human, guest: human, greeted: boolean): human
 	        goto listen;
 		}
 		
-		transition 
+		transitions 
 		{
 			listen: goto listen;
 		}
