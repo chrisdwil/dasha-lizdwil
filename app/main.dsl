@@ -53,7 +53,7 @@ start node assist {
 
 	transitions
 	{
-		idle: goto assistGreetAttempt on timeout 300;
+		//idle: goto assistGreetAttempt on timeout 300;
 	}
 }
 /*
