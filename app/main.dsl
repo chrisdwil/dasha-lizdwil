@@ -11,7 +11,6 @@ type human =
 		request: string; // transfer, farewell
 		responses: number;
 		errors: number;
-		errorsMax: number; // can change this value prior to going into a library call and set threshold on dasha's or guests max errors
 }
 
 context {
