@@ -1,22 +1,22 @@
 library
 
-block introduction(me: human, them: human, greetFirst: boolean): human
+context
 {
-	context
-	{
-	    output recognitions: {
-	        statement: string[];
-	        request: string[];
-	        question: string[];
-	        other: string[];
-	    } = {
-	        statement: [],
-	        request: [],
-	        question: [],
-	        other: []
-	    };	
-	}
-	
+    output recognitions: {
+        statement: string[];
+        request: string[];
+        question: string[];
+        other: string[];
+    } = {
+        statement: [],
+        request: [],
+        question: [],
+        other: []
+    };	
+}
+
+block introduction(me: human, them: human, greetFirst: boolean): human
+{	
 	start node hello
 	{
 		do 
