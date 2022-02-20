@@ -33,7 +33,7 @@ block introduction(sidekick: human, guest: human, greeted: boolean): human
 			}
 			else
 			{
-			goto helloRepeat;
+			goto greetForce;
 			}
 		}
 
