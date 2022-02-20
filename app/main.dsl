@@ -78,7 +78,6 @@ node assistGreetAttempt {
 		var logNodeName: string = "assistGreetAttempt";
 		
 		set $guest = blockcall introduction($sidekick, $guest, $reason);
-		#log($guest);
 		
 		if ($reason != "busy")
 		{	
