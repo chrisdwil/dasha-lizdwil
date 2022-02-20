@@ -52,28 +52,10 @@ block introduction(sidekick: human, them: human, greetFirst: boolean): human
 
 		transitions
 		{
-			confusion: goto hello on #messageHasAnyIntent(["questions","confusion"]) priority 3;
+			confusion: goto hello on #messageHasIntents("questions","confusion");
 			idle: goto hello on timeout 10000;
-			recognition: goto recognition on true priority 1;
-			transfer: goto @return on #messageHasIntent("transfer") priority 3;
-		}
-
-		onexit 
-		{
-			confusion: do 
-			{ 
-				set $them.mood = "confusion"; 
-				set $them.responses += 1;
-			}
-			idle: do 
-			{ 
-				set $them.mood = "idle"; 
-				set $them.errors += 1;
-			}
-			transfer: do
-			{
-				set $them.request = "transfer";
-			}
+			recognition: goto recognition on true;
+			transfer: goto @return on #messageHasIntent("transfer");
 		}
 	}
 	
@@ -97,7 +79,7 @@ block introduction(sidekick: human, them: human, greetFirst: boolean): human
 	        } 
 	        else 
 	        {
-	            #sayText("Sorry, I could not recognize this sentence type.");
+	            #sayText("Sorry, I did not understand your statement.");
 	            $recognitions.other.push(#getMessageText());
 	        }
 		}
