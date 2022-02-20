@@ -28,7 +28,7 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 			#log(logNodeName + " requested: " + $guest.request);
 			#log(logNodeName + " responses: " + #stringify($guest.responses));			
 			#log(logNodeName + " errors: " + #stringify($guest.errors));
-			#log(logNodeName + " statements: " + $recognitions);
+			#log($recognitions);
 			
 			if ($greetFirst)
 			{
