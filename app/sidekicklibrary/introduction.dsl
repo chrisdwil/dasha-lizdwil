@@ -12,7 +12,7 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 	        question: string[];
 	        other: string[];
 	    } = {
-	    		sentencetype:?,
+	    		sentencetype: "",
 	            statement: [],
 	            request: [],
 	            question: [],
