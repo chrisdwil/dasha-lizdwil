@@ -24,22 +24,12 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 		{
 			var logNodeName: string = "assistGreetAttempt";
 			
-			#log(logNodeName + " mood: " + $guest.mood);
-			#log(logNodeName + " requested: " + $guest.request);
-			#log(logNodeName + " responses: " + #stringify($guest.responses));			
-			#log(logNodeName + " errors: " + #stringify($guest.errors));
-			#log($recognitions);
-			
 			if ($greetFirst)
 			{
 				set $greetFirst = false;
-				#say("libIntroductionHello");
-				wait *;		
+				#say("libIntroductionHello");	
 			}
-			else
-			{
-				wait *;
-			}
+			wait *;
 			return $guest;
 		}
 
@@ -65,7 +55,7 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 					set $guest.errors += 1;
 				}	
 				
-				#log($recognitions);
+				#log(logNodeName + " exiting default onexit");
 			}
 		}
 	}
@@ -101,6 +91,13 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 }
 
 /*
+ 
+ 			#log(logNodeName + " mood: " + $guest.mood);
+			#log(logNodeName + " requested: " + $guest.request);
+			#log(logNodeName + " responses: " + #stringify($guest.responses));			
+			#log(logNodeName + " errors: " + #stringify($guest.errors));
+			#log($recognitions);
+ 
 	node helloMenu
 	{
 		do
