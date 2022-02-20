@@ -23,6 +23,7 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 		do 
 		{
 			var logNodeName: string = "hello";
+			var sentenceType: string?;
 			#log(logNodeName + " has been initalized");
 			
 			if (#waitForSpeech(5000) && $greetFirst)
@@ -46,7 +47,9 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 		{
 			default: do
 			{				
-		        if (#getSentenceType() is not null) 
+		        set $sentenceType = #getSentenceType(); 
+				
+				if (#getSentenceType() is not null) 
 		        {
 		            $recognitions[#getSentenceType()]?.push(#getMessageText());
 		        } else 
