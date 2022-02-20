@@ -25,15 +25,17 @@ block introduction(sidekick: human, guest: human, greeted: boolean): human
 			var logNodeName: string = "hello";
 			#log(logNodeName + " has been initalized");
 			
-			if (#waitForSpeech(1000) && !$greeted)
+			if (#waitForSpeech(5000) && !$greeted)
 			{
+				#say("libIntroductionHello");
 				#log(logNodeName + " caller has been detected");
 				set $greeted = true;
 				wait *;
 			}
 			else
 			{
-			goto greetForce;
+				#say("libIntroductionHello")
+				goto greetForce;
 			}
 		}
 
