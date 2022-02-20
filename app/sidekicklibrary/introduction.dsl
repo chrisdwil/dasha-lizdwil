@@ -52,7 +52,7 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 		            $recognitions[$recognitions.sentencetype]?.push(#getMessageText());
 		        } else {
 		            $recognitions.other.push(#getMessageText());*/
-		        }	
+		     	
 			}
 		}
 
