@@ -24,8 +24,8 @@ context {
 			nick: "",
 			phonetic: "",
 			gender: "",
-			mood: "",
-			request: ""
+			mood: "positive",
+			request: "none"
 		},
 		{	
 			role: "sidekick",
@@ -33,8 +33,8 @@ context {
 			nick: "Liz",
 			phonetic: "Lizzz",
 			gender: "female",
-			mood: "",
-			request: ""
+			mood: "positive",
+			request: "none"
 		},
 		{	
 			role: "guest",
@@ -42,8 +42,8 @@ context {
 			nick: "",
 			phonetic: "",
 			gender: "",
-			mood: "",
-			request: ""
+			mood: "positive",
+			request: "none"
 		}
 	];
 }

@@ -142,12 +142,12 @@ block introduction(attendeelist: human[], reason: string): human[]
 		{	
 			confusion: do 
 			{
-				set $attendeelist[2].mood = "confused";
+			//	set $attendeelist[2].mood = "confused";
 			}
 			
 			idle: do
 			{
-				set $attendeelist[2].mood = "idle";
+			//	set $attendeelist[2].mood = "idle";
 
 			}
 		}
@@ -160,8 +160,8 @@ block introduction(attendeelist: human[], reason: string): human[]
 			var logNodeName: string = "helloTransfer";
 	        #log(logNodeName + " has been initialized");
 	        
-			set $attendeelist[2].mood = "positive";
-			set $attendeelist[2].request = "transfer";
+			//set $attendeelist[2].mood = "positive";
+			//set $attendeelist[2].request = "transfer";
 			#say("libIntroductionHelloTransfer");
 			return $attendeelist;
 		}
@@ -174,8 +174,8 @@ block introduction(attendeelist: human[], reason: string): human[]
 			var logNodeName: string = "helloFarewell";
 	        #log(logNodeName + " has been initialized");
 	        
-			set $attendeelist[2].mood = "positive";
-			set $attendeelist[2].request = "farewell";
+			//set $attendeelist[2].mood = "positive";
+			//set $attendeelist[2].request = "farewell";
 			#say("libIntroductionHelloFarewell");
 			return $attendeelist;
 		}
