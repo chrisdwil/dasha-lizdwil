@@ -100,6 +100,7 @@
 		},
 		"transfer": {
 			"includes": [
+				"transfer",
 				"transfer me",
 				"Transfer me.",
 				"connect me",
@@ -107,8 +108,8 @@
 				"I'm looking for Chris",
 				"want to talk",
 				"where's Chris",
-				"Is Chris available?",
-				"Is Chris around?"
+				"Chris available",
+				"Chris around"
 			]
 		},
 		"yes": {
