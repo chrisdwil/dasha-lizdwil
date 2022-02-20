@@ -12,16 +12,6 @@
 		},
 		"greetings": {
 			"includes": [
-				"hi",
-				"hello",
-				"hey",
-				"howdy",
-				"whats up",
-				"yo",
-				"what's goin",
-				"what you",
-				"wuch you",
-				"you doin"
 			]
 		},
 		"farewell": {
@@ -36,27 +26,11 @@
 		},
 		"identification": {
 			"includes": [
-				"your name was",
-				"repeat your name",
-				"your name",
-				"your name again",
-				"say your name",
-				"what did your mom name you",
-				"on your birth certificate",
-				"who is",
-				"who are",
-				"you are who",
-				"huh who is",
-				"who are you",
-				"so who are",
-				"who dis",
-				"i don't know who you are"
 			]
 		},
 		"no": {
 			"includes": [
 				"no",
-				"definitely not",
 				"wrong",
 				"incorrect",
 				"I do not",
@@ -67,7 +41,6 @@
 				"no, I'm okay",
 				"not right now",
 				"not this time",
-				"nah",
 				"not this moment",
 				"not now"
 			]
@@ -79,30 +52,24 @@
 				"when",
 				"where",
 				"why",
-				"how",
-				"huh",
-				"you mean"
+				"how"
 			]
 		},
 		"transfer": {
 			"includes": [
 				"transfer",
-				"transfer me",
-				"Transfer me.",
 				"connect me",
 				"connect my",
-				"I'm looking for Chris",
-				"want to talk",
-				"where's Chris",
-				"Chris available",
-				"Chris around"
-			]
+				"I'm looking for Chris"	
+			],
+			"excludes": [
+				"connect"
+				]
 		},
 		"yes": {
 			"includes": [
 				"yes",
 				"yeah",
-				"yee",
 				"definitely",
 				"absolutely",
 				"sure",
@@ -111,7 +78,6 @@
 				"Please do",
 				"Go ahead",
 				"Do it",
-				"Don't twist my arm"
 			]
 		}
 	}
