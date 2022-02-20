@@ -3,10 +3,10 @@ import "sidekicklibrary/all.dsl";
 
 type recognitions = 
 {
-    statement: [],
-    request: [],
-    question: [],
-    other: []
+    statement: string[],
+    request: string[],
+    question: string[],
+    other: string[]
 };
 
 type human = 
