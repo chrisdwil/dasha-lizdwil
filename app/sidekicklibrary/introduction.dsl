@@ -1,5 +1,7 @@
 library
- 
+
+import "farewell.dsl";
+
 block introduction(sidekick: human, guest: human, reason: string): human
 {	
 	context

@@ -8,7 +8,7 @@ type human =
 		phonetic: string;
 		gender: string;
 		mood: string; // positive, negative, idle, confusion
-		request: string;
+		request: string; // transfer, farewell
 		responses: number;
 		errors: number;
 };
