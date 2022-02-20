@@ -28,12 +28,13 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 			#log(logNodeName + " requested: " + $guest.request);
 			#log(logNodeName + " responses: " + #stringify($guest.responses));			
 			#log(logNodeName + " errors: " + #stringify($guest.errors));
+			#log(logNodeName + " statements: " + $recognitions);
 			
 			if ($greetFirst)
 			{
 				set $greetFirst = false;
-				#say("libIntroductionHello", {name: $sidekick.phonetic});
-				wait *;				
+				#say("libIntroductionHello");
+				wait *;		
 			}
 			else
 			{
@@ -44,8 +45,8 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 
 		transitions
 		{
-//			idle: goto hello on timeout 10000;
-			transfer: goto @return on #messageHasIntent("transfer");
+			transfer: goto hello on true;
+			
 		}
 		
 		onexit
