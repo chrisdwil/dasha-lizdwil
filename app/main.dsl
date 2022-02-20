@@ -37,30 +37,8 @@ context {
 			request: ""
 	    }
 	   ];
-	}
-	
-/*
-	{
-				name: "Chris, D. Wheel",
-				nick: "Chris",
-				phonetic: "chris",
-				gender: "male"	
-	};
-	sidekick: human =
-	{
-				name: "Liz, D. Wheel",
-				nick: "Liz",
-				phonetic: "Lizzz",
-				gender: "female"
-	};
-	guest: human =
-	{
-				name: "",
-				nick: "",
-				phonetic: "",
-				gender: ""
-	};
-*/
+}
+
 
 start node assist {
 	do
@@ -84,7 +62,7 @@ node assistGreetAttempt {
 	{
 		var logNodeName: string = "assistGreetAttempt";
 		
-		set $guest = blockcall introduction($sidekick, $guest, $reason);
+		set $guest = blockcall introduction($attendees[0], $attendees[1], $reason);
 		
 		if ($reason != "busy")
 		{	
