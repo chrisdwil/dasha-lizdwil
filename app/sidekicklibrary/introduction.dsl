@@ -48,11 +48,22 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 		transitions
 		{
 			idle: goto @return on timeout 10000;
+			confusion: goto helloMenu on #messageHasAnyIntent(["questions","confusion"]);
 		}
 
 		onexit
 		{
 			idle: do { set $them.mood = "silent"; }
+			confusion: do { set $them.mood = "confusion"; }
+		}
+	}
+	
+	node helloMenu
+	{
+		do
+		{
+			#say("libIntroductionHelloMenu");
+			wait *;
 		}
 	}
 	
