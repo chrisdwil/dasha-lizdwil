@@ -1,6 +1,6 @@
 library
 
-block introduction(sidekick: human, guest: human): human
+block introduction(sidekick: human, guest: human, reason: string): human
 {	
 	context
 	{
@@ -27,6 +27,12 @@ block introduction(sidekick: human, guest: human): human
 		{
 			var logNodeName: string = "hello";
 			#log(logNodeName + " has been initalized");
+			
+			if ($reason == "busy")
+			{
+				#say("libIntroductionHelloUnavailable");
+				exit;
+			}
 			
 			if (#waitForSpeech(5000))
 			{

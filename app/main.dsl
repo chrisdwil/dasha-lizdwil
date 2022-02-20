@@ -16,7 +16,7 @@ type human =
 context {
 	input phone: string;
 	input forward: string;
-	input unavailable: string;
+	input reason: string;
 
 	host: human =
 	{
@@ -59,14 +59,8 @@ context {
 start node assist {
 	do
 	{	
-		#log("call information: " + $phone + " " + $forward + " " + $unavailable);
+		#log("call information: " + $phone + " " + $forward + " " + $reason);
 		#connectSafe($phone);
-		
-		if ($unavailable == "busy")
-		{
-			#say("assistUnavailable");
-			exit;
-		}
 		
 		wait *;
 	}
@@ -82,13 +76,20 @@ node assistGreetAttempt {
 	{
 		var logNodeName: string = "assistGreetAttempt";
 		
-		set $guest = blockcall introduction($sidekick, $guest);
-		
-		if ($guest.request == "transfer")
-		{
-			#say("assistTransfer");
-			#forward($forward);
-			exit;
+		set $guest = blockcall introduction($sidekick, $guest, $reason);
+
+		if ($reason != "busy")
+		{	
+			if ($guest.request == "transfer")
+			{
+				#say("assistTransfer");
+				#forward($forward);
+				exit;
+			}
+			else
+			{
+				exit;
+			}
 		}
 	}
 	
