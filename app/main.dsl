@@ -16,9 +16,20 @@ context {
 	input forward: string;
 	input reason: string;
 	
-	people: human[]?;
+	people: human[]?; 
+	[
+	 {
+			name: "Liz, D. Wheel",
+			nick: "Liz",
+			phonetic: "Lizzz",
+			gender: "female",
+			mood: "",
+			request: ""
+	 }
+	]
+			
 	
-	host: human = 
+/*
 	{
 				name: "Chris, D. Wheel",
 				nick: "Chris",
@@ -39,6 +50,7 @@ context {
 				phonetic: "",
 				gender: ""
 	};
+*/
 }
 
 start node assist {
