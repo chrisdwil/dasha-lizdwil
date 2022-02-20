@@ -1,7 +1,8 @@
 // Liz D. Wil 
 import "sidekicklibrary/all.dsl";
 
-type human = {
+type human = 
+{
 		name: string;
 		nick: string;
 		phonetic: string;
@@ -9,7 +10,7 @@ type human = {
 		mood: string; // positive, negative, idle, confused
 		request: string; // transfer, farewell
 		errors: number;
-}
+};
 
 context {
 	input phone: string;
