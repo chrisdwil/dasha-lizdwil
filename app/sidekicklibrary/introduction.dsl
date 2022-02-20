@@ -69,6 +69,23 @@ block introduction(sidekick: human, them: human, greetFirst: boolean): human
 		
 	}
 	
+	node recognition {
+		do
+		{
+	        var sentenceType = #getSentenceType();
+	        
+	        if (sentenceType is not null) 
+	        {
+	            $recognitions[sentenceType]?.push(#getMessageText());
+	        } 
+	        else 
+	        {
+	            #sayText("Sorry, I could not recognize this sentence type.");
+	            $recognitions.other.push(#getMessageText());
+	        }
+		}
+	}
+	
 	node helloMenu
 	{
 		do
