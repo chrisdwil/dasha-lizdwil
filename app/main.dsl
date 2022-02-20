@@ -3,12 +3,7 @@ import "sidekicklibrary/all.dsl";
 
 type human = 
 {
-		name: string;
-		nick: string;
-		phonetic: string;
-		gender: string;
-		mood: string; // positive, negative, idle, confused
-		request: string; // transfer, farewell
+
 };
 
 context {
@@ -16,9 +11,24 @@ context {
 	input forward: string;
 	input reason: string;
 	
-	people[]: human = {
+	people: {
+		name: string;
+		nick: string;
+		phonetic: string;
+		gender: string;
+		mood: string; // positive, negative, idle, confused
+		request: string; // transfer, farewell
+	} = {
 		"host": 
-		[
+		    {
+				name: "Liz, D. Wheel",
+				nick: "Liz",
+				phonetic: "Lizzz",
+				gender: "female",
+				mood: "",
+				request: ""
+			},
+		"sidekick":
 		    {
 				name: "Liz, D. Wheel",
 				nick: "Liz",
@@ -27,18 +37,6 @@ context {
 				mood: "",
 				request: ""
 			}
-		],
-		"sidekick":
-			[
-			    {
-					name: "Liz, D. Wheel",
-					nick: "Liz",
-					phonetic: "Lizzz",
-					gender: "female",
-					mood: "",
-					request: ""
-				}
-			]
 	};
 					
 			
