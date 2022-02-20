@@ -2,6 +2,21 @@ library
 
 block introduction(me: human, them: human, greetFirst: boolean): human
 {
+	context
+	{
+	    output recognitions: {
+	        statement: string[];
+	        request: string[];
+	        question: string[];
+	        other: string[];
+	    } = {
+	        statement: [],
+	        request: [],
+	        question: [],
+	        other: []
+	    };	
+	}
+	
 	start node hello
 	{
 		do 
@@ -10,9 +25,10 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 
 			#log(logNodeName + " mood: " + $them.mood);
 			#log(logNodeName + " requested: " + $them.request);
+			#log(logNodeName + " requestdata: " + $them.requestdata);
+			#log(logNodeName + " requesttype: " + $them.requesttype);
 			#log(logNodeName + " responses: " + #stringify($them.responses));			
-			#log(logNodeName + " errors: " + #stringify($them.errors));			
-
+			#log(logNodeName + " errors: " + #stringify($them.errors));
 			
 			if ($greetFirst && #waitForSpeech(2000))
 
@@ -38,7 +54,7 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 
 		transitions
 		{
-			confusion: goto hello on #messageHasAnyIntent(["questions","confusion"]) priority 3;
+			//confusion: goto hello on #messageHasAnyIntent(["questions","confusion"]) priority 3;
 			guess: goto guess on true priority 1;
 			idle: goto hello on timeout 10000;
 			transfer: goto @return on #messageHasIntent("transfer") priority 3;
@@ -72,12 +88,20 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 		
 	}
 	
-	node guess 
+	node recognition 
 	{
 		do
 		{
-			#log("testing unknown sentence types: " + #stringify(#getSentenceType()));
-			goto hello;
+	        var sentenceType = #getSentenceType();
+	        
+	        if (sentenceType is not null) {
+	            $recognitions[sentenceType]?.push(#getMessageText());
+	        } else {
+	            #sayText("Strange, I could not recognize this sentence type.");
+	            $recognitions.other.push(#getMessageText());
+	        }
+			
+	        goto hello;
 		}
 		
 		transitions

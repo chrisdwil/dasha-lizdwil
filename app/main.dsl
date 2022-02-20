@@ -8,7 +8,9 @@ type human =
 		phonetic: string;
 		gender: string;
 		mood: string; // positive, negative, idle, confusion
-		request: string; // none, transfer, message, endcall
+		request: string;
+		requestdata: string; // none, transfer, message, endcall
+		requesttype: string;
 		responses: number;
 		errors: number;
 };
@@ -25,6 +27,7 @@ context {
 				phonetic: "chris",
 				gender: "male",
 				mood: "positive",
+				sentencetype: "",
 				request: "none",
 				responses: 0,
 				errors: 0
@@ -36,6 +39,7 @@ context {
 				phonetic: "Lizzz",
 				gender: "female",
 				mood: "positive",
+				sentencetype: "",
 				request: "none",
 				responses: 0,
 				errors: 0
@@ -47,6 +51,7 @@ context {
 				phonetic: "",
 				gender: "",
 				mood: "positive",
+				sentencetype: "",
 				request: "none",
 				responses: 0,
 				errors: 0
