@@ -31,31 +31,26 @@
 				"random": [
 					[
 						{
-							"text": "I'm not sure if you said anything, or I couldn't hear you, are you still with me?"
+							"text": "Hi, I'm here to answer your questions, how may I help you?"
 						}
 					],
 					[
 						{
-							"text": "Hey, you may need to speak louder or if you're not around anymore I'll have to let you go."
-						}
-					],
-					[
-						{
-							"text": "Are you there still?"
+							"text": "Yes hi, what can I help you with?"
 						}
 					]
 				]
 			},
-			"libIntroductionHelloConfusion": {
+			"libIntroductionHelloIdle": {
 				"random": [
 					[
 						{
-							"text": "I'm not sure if you said anything, or I couldn't hear you, are you still with me?"
+							"text": "Hello, are you there?"
 						}
 					],
 					[
 						{
-							"text": "Hey, you may need to speak louder or if you're not around anymore I'll have to let you go."
+							"text": "I'm not sure if our connection is good, can you repeat that?"
 						}
 					],
 					[
@@ -89,7 +84,7 @@
 				"text": "Understood, have a good day, bye now!"
 			},
 			"saySingleLine": {
-				"text": "So how may I help you, today?"
+				"text": "This is a single line of text."
 			},
 			"sayTextInOrder": [
 				{
@@ -127,9 +122,9 @@
 			},
 			"libIntroductionHelloConfusion": {
 			},
-			"libIntroductionHelloMenu": {
+			"libIntroductionHelloIdle": {
 			},
-			"libIntroductionHelloConfusion": {
+			"libIntroductionHelloMenu": {
 			},
 			"libFarewell": {
 			},

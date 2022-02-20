@@ -7,7 +7,7 @@ type human =
 		nick: string;
 		phonetic: string;
 		gender: string;
-		mood: string; // positive, negative, silent, confusion
+		mood: string; // positive, negative, idle, confusion
 		request: string; // transfer, message, endcall
 		responses: number;
 		errors: number;

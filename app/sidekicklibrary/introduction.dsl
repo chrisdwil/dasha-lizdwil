@@ -14,6 +14,10 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 			}
 			else
 			{
+				if ($them.mood == "silent")
+				{
+					#say("")
+				}
 				wait *;
 			}
 			return $them;
@@ -21,41 +25,20 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 
 		transitions
 		{
-			idle: goto hello on timeout 10000;
 			confusion: goto helloConfused on #messageHasAnyIntent(["questions","confusion"]);
+			idle: goto hello on timeout 10000;
 		}
 
 		onexit 
 		{
-			idle: do { set $them.mood = "silent"; }
 			confusion: do { set $them.mood = "confusion"; }
+			idle: do { set $them.mood = "idle"; }
 		}
 	}
 
 	node @return 
 	{
 		do { return $them; }
-	}
-			
-	node helloSilent
-	{
-		do
-		{
-			#say("libIntroductionHelloConfusion");
-			wait *;
-		}
-
-		transitions
-		{
-			idle: goto @return on timeout 10000;
-			confusion: goto helloMenu on #messageHasAnyIntent(["questions","confusion"]);
-		}
-
-		onexit
-		{
-			idle: do { set $them.mood = "silent"; }
-			confusion: do { set $them.mood = "confusion"; }
-		}
 	}
 	
 	node helloConfused
@@ -68,17 +51,39 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 
 		transitions
 		{
-			idle: goto @return on timeout 10000;
 			confusion: goto helloMenu on #messageHasAnyIntent(["questions","confusion"]);
+			idle: goto @return on timeout 10000;
 		}
 
 		onexit
 		{
-			idle: do { set $them.mood = "silent"; }
 			confusion: do { set $them.mood = "confusion"; }
+			idle: do { set $them.mood = "idle"; }
+		}
+	}	
+	
+	node helloIdle
+	{
+		do
+		{
+			#say("libIntroductionHelloIdle");
+			wait *;
+		}
+
+		transitions
+		{
+			confusion: goto helloMenu on #messageHasAnyIntent(["questions","confusion"]);
+			idle: goto @return on timeout 10000;
+		}
+
+		onexit
+		{
+			confusion: do { set $them.mood = "confusion"; }
+			idle: do { set $them.mood = "idle"; }
 		}
 	}
 	
+
 	node helloMenu
 	{
 		do
