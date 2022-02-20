@@ -35,8 +35,7 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 
 		transitions
 		{
-			idle: goto hello on timeout 10000;
-			transfer: goto helloTransfer on #messageHasIntent("transfer");
+			transfer: goto @return on #messageHasIntent("transfer");
 		}
 		
 		onexit
@@ -74,18 +73,6 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 		do 
 		{
 			exit;
-		}
-	}
-	
-	node helloTransfer {
-		do 
-		{
-		set $guest.request = "transfer";
-		}
-		
-		transitions
-		{
-			next: goto @return on true;
 		}
 	}
 }
