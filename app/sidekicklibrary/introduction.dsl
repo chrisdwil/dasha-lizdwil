@@ -88,7 +88,7 @@ block introduction(attendeelist: human[], reason: string): human[]
 	            $recognitions[sentenceType]?.push(#getMessageText());
 	        }
 			
- 			#log(logNodeName + " mood: " + $attendeelist.mood[2]);
+ 			#log(logNodeName + " mood: " + $attendeelist.mood);
 			//#log(logNodeName + " requested: " + $attendeelist[2].request);
 	        #log($recognitions);
 			
