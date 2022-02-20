@@ -10,7 +10,21 @@
 		"phrases": {
 			"assistTransfer": {
 				"text": "Okay, please hold a moment while I transfer you."
-			},		
+			},
+			"assistUnavailable": [
+				{
+					"text": "Heyyy it's Lizzz again."
+				},
+				{
+					"text": "It appears he is busy at the moment and you'll need to try him again later."
+				},
+				{
+					"text": "Have a good day, bye now!"
+				}
+			],
+			"libFarewell": {
+				"text": "Understood, have a good day, bye now!"
+			},	
 			"libIntroductionHello": {
 				"random": [
 					[
@@ -78,9 +92,6 @@
 					"text": "Are you still there and were you able to get all that?"
 				}
 			],
-			"libFarewell": {
-				"text": "Understood, have a good day, bye now!"
-			},
 			"saySingleLine": {
 				"text": "This is a single line of text."
 			},
