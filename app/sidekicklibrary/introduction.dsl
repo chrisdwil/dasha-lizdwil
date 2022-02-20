@@ -164,9 +164,9 @@ block introduction(sidekick: human, guest: human, reason: string): human
 	        
 			set $guest.mood = "positive";
 			set $guest.request = "transfer";
-			#say("libIntroductionHelloTransfer");
+			//#say("libIntroductionHelloTransfer");
+			return $guest;
 		}
-		
 	}
 }
 	

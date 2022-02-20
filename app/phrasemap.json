@@ -11,9 +11,6 @@
 			"libFarewell": {
 				"text": "Understood, have a good day, bye now!"
 			},
-			"libIntroductionTransfer": {
-				"text": "Okay, please hold a moment while I transfer you."
-			},
 			"libIntroductionHello": {
 				"random": [
 					[
@@ -81,6 +78,9 @@
 					"text": "Are you still there and were you able to get all that?"
 				}
 			],
+			"libIntroductionHelloTransfer": {
+				"text": "Okay, please hold a moment while I transfer you."
+			},
 			"libIntroductionHelloUnavailable": [
 				{
 					"text": "Heyyy it's Lizzz again."
