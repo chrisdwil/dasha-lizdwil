@@ -207,7 +207,7 @@ block introduction(sidekick: human, guest: human, reason: string): human
 		
 		transitions
 		{
-			repeat: goto helloRepeat on true;
+			repeat: goto helloRepeat;
 		}
 	}	
 }
