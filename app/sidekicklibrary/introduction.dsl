@@ -99,7 +99,7 @@ block introduction(attendeelist: human[], reason: string): human[]
 				#say("libIntroductionHelloAssist");
 			}
 			
-			if ($attendeelist[2].mood == "idle")
+			/*
 			{
 				#say("libIntroductionHelloAssist");
 			}
@@ -108,6 +108,7 @@ block introduction(attendeelist: human[], reason: string): human[]
 			{
 				#say("libIntroductionHelloMenu");
 			}
+			*/
 
 			goto listen;
 		}
