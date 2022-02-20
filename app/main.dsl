@@ -1,14 +1,6 @@
 // Liz D. Wil 
 import "sidekicklibrary/all.dsl";
 
-type sentences = 
-{
-    statement: string[];
-    request: string[];
-    question: string[];
-    other: string[];
-};
-
 type human = 
 {
 		name: string;
@@ -17,7 +9,6 @@ type human =
 		gender: string;
 		mood: string; // positive, negative, idle, confusion
 		request: string;
-		requests: sentences;
 		responses: number;
 		errors: number;
 };
@@ -35,12 +26,6 @@ context {
 				gender: "male",
 				mood: "positive",
 				request: "none",
-				requests: {
-				    statement: string[],
-				    request: string[],
-				    question: string[],
-				    other: string[]
-				},
 				responses: 0,
 				errors: 0
 	};

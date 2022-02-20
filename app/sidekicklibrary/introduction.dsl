@@ -2,6 +2,21 @@ library
 
 block introduction(sidekick: human, them: human, greetFirst: boolean): human
 {	
+	context
+	{
+	    output recognitions: {
+	        statement: string[];
+	        request: string[];
+	        question: string[];
+	        other: string[];
+	    } = {
+	        statement: [],
+	        request: [],
+	        question: [],
+	        other: []
+	    };
+	}
+	
 	start node hello
 	{
 		do 
