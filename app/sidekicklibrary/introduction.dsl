@@ -1,5 +1,5 @@
 library
-
+ 
 block introduction(sidekick: human, guest: human, reason: string): human
 {	
 	context
