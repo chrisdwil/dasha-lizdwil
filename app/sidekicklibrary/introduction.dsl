@@ -52,9 +52,9 @@ block introduction(sidekick: human, them: human, greetFirst: boolean): human
 
 		transitions
 		{
-			confusion: goto hello on #messageHasAnyIntent(["questions","confusion"]) priority 3;
-			idle: goto hello on timeout 10000 priority -3;
-			transfer: goto @return on #messageHasIntent("transfer") priority 3;
+			confusion: goto hello on #messageHasAnyIntent(["questions","confusion"]);
+			idle: goto hello on timeout 10000;
+			transfer: goto @return on #messageHasIntent("transfer");
 		}
 		
 		onexit
