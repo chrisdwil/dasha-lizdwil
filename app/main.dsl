@@ -3,10 +3,10 @@ import "sidekicklibrary/all.dsl";
 
 type responsedata = 
 {
-    statement: string[],
-    request: string[],
-    question: string[],
-    other: string[]
+    statement: string[];
+    request: string[];
+    question: string[];
+    other: string[];
 };
 
 type human = 
