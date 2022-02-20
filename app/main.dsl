@@ -8,7 +8,7 @@ type human =
 		phonetic: string;
 		gender: string;
 		mood: string; // positive, negative, idle, confusion
-		request: string; // transfer, message, endcall
+		request: string; // none, transfer, message, endcall
 		responses: number;
 		errors: number;
 };
@@ -25,7 +25,7 @@ context {
 				phonetic: "chris",
 				gender: "male",
 				mood: "positive",
-				request: "",
+				request: "none",
 				responses: 0,
 				errors: 0
 	};
@@ -36,7 +36,7 @@ context {
 				phonetic: "Lizzz",
 				gender: "female",
 				mood: "positive",
-				request: "",
+				request: "none",
 				responses: 0,
 				errors: 0
 	};
@@ -47,7 +47,7 @@ context {
 				phonetic: "",
 				gender: "",
 				mood: "positive",
-				request: "",
+				request: "none",
 				responses: 0,
 				errors: 0
 	};
@@ -75,8 +75,6 @@ node assistGreetAttempt {
 		var logNodeName: string = "assistGreetAttempt";
 		
 		set $guest = blockcall introduction($sidekick, $guest, true);
-		#log(logNodeName + " mood: " + $guest.mood);
-		#log(logNodeName + " requested: " + $guest.request);
 	}
 	
 	transitions
