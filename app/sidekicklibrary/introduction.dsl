@@ -26,6 +26,10 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 				{
 					#say("libIntroductionHelloIdle");
 				}
+				if ($them.mood == "positive")
+				{
+					#say("libIntroductionHelloConfusion");
+				}
 				wait *;
 			}
 			return $them;
@@ -66,73 +70,37 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 		
 	}
 	
-	node helloConfused
-	{
-		do
-		{
-			#say("libIntroductionHelloConfusion");
-			wait *;
-		}
-
-		transitions
-		{
-			confusion: goto helloMenu on #messageHasAnyIntent(["questions","confusion"]);
-			idle: goto @return on timeout 10000;
-			transfer: goto @return on #messageHasIntent("transfer");
-
-		}
-
-		onexit 
-		{
-			confusion: do 
-			{ 
-				set $them.mood = "confusion"; 
-				set $them.responses += 1;
-			}
-			idle: do 
-			{ 
-				set $them.mood = "idle"; 
-				set $them.errors += 1;
-			}
-		}
-	}	
-		
-	node helloIdle
-	{
-		do
-		{
-			#say("libIntroductionHelloIdle");
-			wait *;
-		}
-
-		transitions
-		{
-			confusion: goto helloMenu on #messageHasAnyIntent(["questions","confusion"]);
-			idle: goto @return on timeout 10000;
-			transfer: goto @return on #messageHasIntent("transfer");
-		}
-
-		onexit 
-		{
-			confusion: do 
-			{ 
-				set $them.mood = "confusion"; 
-				set $them.responses += 1;
-			}
-			idle: do 
-			{ 
-				set $them.mood = "idle"; 
-				set $them.errors += 1;
-			}
-		}
-	}
-	
 	node helloMenu
 	{
 		do
 		{
 			#say("libIntroductionHelloMenu");
 			wait *;
+		}
+		
+		transitions
+		{
+			confirmedYes: goto hello on #messageHasAnyIntent("yes");
+
+			confusion: goto helloMenu on #messageHasAnyIntent(["questions","confusion"]);
+			idle: goto hello on timeout 10000;
+			sentinmentYes: goto hello on #messageHasAnySentiment("positive");
+
+			transfer: goto @return on #messageHasIntent("transfer");
+		}
+
+		onexit 
+		{
+			confusion: do 
+			{ 
+				set $them.mood = "confusion"; 
+				set $them.responses += 1;
+			}
+			idle: do 
+			{ 
+				set $them.mood = "idle"; 
+				set $them.errors += 1;
+			}
 		}
 	}
 	
