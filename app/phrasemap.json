@@ -12,7 +12,7 @@
 				"random": [
 					[
 						{
-							"text": "Hello!!!! This is Lizzz... speaking. How may I assist you?"
+							"text": "Hello!!!! This is Lizz- speaking. How may I assist you?"
 						}
 					],
 					[
@@ -48,7 +48,10 @@
 			},
 			"libIntroductionHelloMenu": [
 				{
-					"text": "To further assist, I should share."
+					"text": "Oh, I should share, I'm Chris'sz digital assistant."
+				},
+				{
+					"text": "I hope you're able to hear me..."
 				},
 				{
 					"text": "Things I can assist with are..."
@@ -60,7 +63,7 @@
 					"text": "And soon I'll be able to send him messajehz."
 				},
 				{
-					"text": "Do you want to continue?"
+					"text": "Are you still there and were you able to get all that?"
 				}
 			],
 			"assistGreetExplain": [
