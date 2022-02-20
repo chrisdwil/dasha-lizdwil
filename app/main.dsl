@@ -10,7 +10,8 @@ type human =
 		mood: string; // positive, negative, idle, confused
 		request: string; // transfer, farewell
 		responses: number;
-		errors: number;
+		errors: number = 0;
+		errorsMax: number = 4; // can change this value prior to going into a library call and set threshold on dasha's or guests max errors
 };
 
 context {

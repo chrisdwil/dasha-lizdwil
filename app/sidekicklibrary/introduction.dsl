@@ -90,7 +90,7 @@ block introduction(sidekick: human, guest: human, reason: string): human
 	        }
 			
  			#log(logNodeName + " mood: " + $guest.mood);
-			#log(logNodeName + " requests: " + $guest.request);
+			#log(logNodeName + " requested: " + $guest.request);
 			#log(logNodeName + " errors: " + #stringify($guest.errors));
 	        #log($recognitions);
 			
