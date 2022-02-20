@@ -53,7 +53,7 @@ start node assist {
 		#log("call information: " + $phone + " " + $forward + " " + $reason);
 		#connectSafe($phone);
 		set $people["host"] = 
-		{
+		[
 			{
 				name: "Chris, D. Wheel",
 				nick: "Chris",
@@ -62,7 +62,7 @@ start node assist {
 				mood: "positive",
 				request: "none"	
 			}
-		};
+		];
 		#log($people["host"]);
 		wait *;
 	}
