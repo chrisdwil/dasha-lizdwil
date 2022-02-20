@@ -28,12 +28,6 @@ block introduction(sidekick: human, guest: human, reason: string): human
 			var logNodeName: string = "hello";
 			#log(logNodeName + " has been initalized");
 			
-			if ($reason == "busy")
-			{
-				#say("libIntroductionHelloUnavailable");
-				exit;
-			}
-			
 			if (#waitForSpeech(5000))
 			{
 				#log(logNodeName + " caller has been detected");
@@ -134,6 +128,7 @@ block introduction(sidekick: human, guest: human, reason: string): human
 			{
 				set $guest.mood = "positive";
 				set $guest.request = "transfer";
+				#say("libIntroductionTransfer");
 			}
 		}
 	}
