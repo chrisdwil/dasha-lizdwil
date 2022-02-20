@@ -52,11 +52,24 @@ block introduction(sidekick: human, them: human, greetFirst: boolean): human
 
 		transitions
 		{
-			default: goto recognition on true;
-
-			confusion: goto hello on #messageHasAnyIntent(["questions","confusion"]);
-			idle: goto hello on timeout 10000;
-			transfer: goto @return on #messageHasIntent("transfer");
+			confusion: goto hello on #messageHasAnyIntent(["questions","confusion"]) priority 3;
+			idle: goto hello on timeout 10000 priority -3;
+			transfer: goto @return on #messageHasIntent("transfer") priority 3;
+		}
+		
+		onexit
+		{
+			default: do 
+			{
+				if (#getSentenceType() is not null)
+				{
+					$recognitions[sentenceType]?.push(#getMessageText());
+				}
+				else
+				{
+		            $recognitions.other.push(#getMessageText());
+				}
+			}
 		}
 	}
 	
@@ -69,6 +82,7 @@ block introduction(sidekick: human, them: human, greetFirst: boolean): human
 		
 	}
 	
+/*
 	node recognition {
 		do
 		{
@@ -80,11 +94,11 @@ block introduction(sidekick: human, them: human, greetFirst: boolean): human
 	        } 
 	        else 
 	        {
-	            #sayText("Sorry, I did not understand your statement.");
 	            $recognitions.other.push(#getMessageText());
 	        }
 		}
 	}
+*/
 	
 	node helloMenu
 	{
