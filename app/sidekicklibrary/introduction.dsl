@@ -4,7 +4,6 @@ block introduction(sidekick: human, guest: human, greeted: boolean): human
 {	
 	context
 	{
-		sentenceType: string?;
 	    recognitions: 
 	    {
 	    	statement: string[];
@@ -60,6 +59,10 @@ block introduction(sidekick: human, guest: human, greeted: boolean): human
 		{
 			exit;
 		}
+	}
+	
+	context {
+		sentenceType: string?;
 	}
 	
 	node helloRepeat
