@@ -105,17 +105,27 @@ block introduction(sidekick: human, guest: human): human
 		 
 		transitions
 		{
+			confusion: goto helloInterpret on #messageHasAnyIntent(["questions","confusion"]) priority 5;
 			idle: goto helloRepeat on timeout 10000;
 			listen: goto helloInterpret on true priority 1;
-			transfer: goto @return on #messageHasAnyIntent(["transfer"]) priority 5;
-			confusion: goto helloInterpret on #messageHasAnyIntent(["questions","confusion"]) priority 5;
+			transfer: goto return on #messageHasAnyIntent(["transfer"]) priority 5;
 		}
 		
 		onexit
 		{
 			confusion: do
 			{
-				#log("caller is confused");
+				set $guest.mood = "confusion";
+			}
+			
+			idle: do
+			{
+				set $guest.mood = "idle";
+			}
+			
+			transfer: do
+			{
+				set $guest.mood = "transfer";
 			}
 		}
 	}
@@ -137,6 +147,10 @@ block introduction(sidekick: human, guest: human): human
 	            $recognitions.other.push(#getMessageText());
 	        }
 	        
+ 			#log(logNodeName + " mood: " + $guest.mood);
+			#log(logNodeName + " requested: " + $guest.request);
+			#log(logNodeName + " responses: " + #stringify($guest.responses));			
+			#log(logNodeName + " errors: " + #stringify($guest.errors));
 	        #log($recognitions);
 	        
 	        goto listen;
