@@ -85,6 +85,7 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 		{
 			var logNodeName: string = "helloRepeat";
 			#log(logNodeName + " has been initalized");
+			#log(#recognitions);
 			
 			#say("libIntroductionHelloIdle");
 			wait *;
