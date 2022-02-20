@@ -72,7 +72,7 @@ block introduction(sidekick: human, guest: human, greeted: boolean): human
 			
 			wait *;
 			
-			$sentenceType = #getSentenceType(); 
+			set $sentenceType = #getSentenceType(); 
 			
 			if (sentenceType is not null) 
 	        {
