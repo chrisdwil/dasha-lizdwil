@@ -87,6 +87,7 @@ block introduction(sidekick: human, guest: human, reason: string): human
 				#say("libIntroductionHello");
 				#say("libIntroductionHelloAssist");
 			}
+			
 			if ($guest.mood == "idle")
 			{
 				#say("libIntroductionHelloAssist");
@@ -121,7 +122,7 @@ block introduction(sidekick: human, guest: human, reason: string): human
 		{
 			confusion: goto helloInterpret on #messageHasAnyIntent(["questions","confusion"]) priority 5;
 			farewell: goto helloFarewell on #messageHasAnyIntent(["farewell"]) priority 10;
-			idle: goto helloInterpret on timeout 10000;
+			idle: goto helloRepeat on timeout 10000;
 			listen: goto helloInterpret on true priority 1;
 			transfer: goto helloTransfer on #messageHasAnyIntent(["transfer"]) priority 9;
 		}
