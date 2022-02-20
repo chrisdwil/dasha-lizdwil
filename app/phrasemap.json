@@ -20,17 +20,12 @@
 					],
 					[
 						{
-							"text": "Hi, what can I help with you with??? Ohhhhh, I forgot to mention, I'm Liz!"
-						}
-					],
-					[
-						{
-							"text": "Heyyy this is Lizzz. What can I help you with?"
+							"text": "Heyyy this is Lizzz."
 						}
 					]
 				]
 			},
-			"libIntroductionHelloConfusion": {
+			"libIntroductionHelloAssist": {
 				"random": [
 					[
 						{
@@ -39,7 +34,7 @@
 					],
 					[
 						{
-							"text": "Yes hi, what can I help you with?"
+							"text": "What can I help you with?"
 						}
 					]
 				]
@@ -125,7 +120,7 @@
 			},		
 			"libIntroductionHello": {
 			},
-			"libIntroductionHelloConfusion": {
+			"libIntroductionHelloAssist": {
 			},
 			"libIntroductionHelloIdle": {
 			},

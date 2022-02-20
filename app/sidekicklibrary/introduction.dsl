@@ -1,9 +1,12 @@
 library
 
-block introduction(sidekick: human, guest: human, greeted: boolean): human
+block introduction(sidekick: human, guest: human): human
 {	
 	context
 	{
+		greeted: boolean = false;
+	    greetedFirst: boolean = false;
+	    
 	    recognitions: 
 	    {
 	    	statement: string[];
@@ -25,16 +28,15 @@ block introduction(sidekick: human, guest: human, greeted: boolean): human
 			var logNodeName: string = "hello";
 			#log(logNodeName + " has been initalized");
 			
-			if (#waitForSpeech(5000) && !$greeted)
+			if (#waitForSpeech(5000))
 			{
-				#say("libIntroductionHello");
 				#log(logNodeName + " caller has been detected");
+				#say("libIntroductionHello");
 				set $greeted = true;
 				wait *;
 			}
 			else
 			{
-				#say("libIntroductionHello")
 				goto greetForce;
 			}
 		}
@@ -69,8 +71,16 @@ block introduction(sidekick: human, guest: human, greeted: boolean): human
 		{
 			var logNodeName: string = "helloRepeat";
 	        #log(logNodeName + " has been initalized");
-			#log($recognitions);
-			#say("libIntroductionHelloIdle");
+			if (!$greeted) 
+			{
+				set $greeted = true;
+				#say("libIntroductionHello");
+				#say("libIntroductionHelloAssist");
+			}
+			else
+			{
+				#say("libIntroductionHelloAssist");
+			}
 			goto listen;
 		}
 		
