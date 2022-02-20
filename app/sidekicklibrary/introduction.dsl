@@ -4,7 +4,7 @@ block introduction(sidekick: human, guest: human, greeted: boolean): human
 {	
 	context
 	{
-		sentenceType: string?;
+		sentenceType: string[]?;
 	    recognitions: 
 	    {
 	    	statement: string[];
@@ -72,7 +72,7 @@ block introduction(sidekick: human, guest: human, greeted: boolean): human
 			
 			wait *;
 			
-			set sentenceType = #getSentenceType(); 
+			set $sentenceType = #getSentenceType(); 
 			
 			if (sentenceType is not null) 
 	        {
