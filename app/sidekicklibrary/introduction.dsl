@@ -48,7 +48,7 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 			{
 				set $recognitions.sentencetype = #getSentenceType();
 		        if ($recognitions.sentencetype is not null) {
-		            $recognitions[$recognitions.sentenceType]?.push(#getMessageText());
+		            $recognitions[$recognitions.sentencetype]?.push(#getMessageText());
 		        } else {
 		            $recognitions.other.push(#getMessageText());
 		        }	
