@@ -64,6 +64,8 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 			{
 				var sentenceType = #getSentenceType();
 				
+				set $guest.responses += 1;
+				
 				if (sentenceType is not null)
 				{
 					$recognitions[sentenceType]?.push(#getMessageText());
@@ -76,7 +78,7 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 			
 			idle: do
 			{
-				set $guest.errors +=1;
+				set $guest.errors += 1;
 			}
 			
 			transfer: do
