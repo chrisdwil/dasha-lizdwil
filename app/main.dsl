@@ -32,11 +32,8 @@ context {
 			gender: "",
 			mood: "positive",
 			request: "none"
-		}];
-		]
-
-
-		
+		}]
+		];		
 }
 
 start node assist {
