@@ -93,7 +93,7 @@ block introduction(sidekick: human, guest: human, reason: string): human
 				{
 					#say("libIntroductionHelloAssist");
 				}
-				else if ($guest.mood == "confusion")
+				else if ($guest.mood == "confused")
 				{
 					#say("libIntroductionHelloMenu");
 				}
@@ -120,7 +120,7 @@ block introduction(sidekick: human, guest: human, reason: string): human
 		 
 		transitions
 		{
-			confusion: goto helloMenu on #messageHasAnyIntent(["questions","confusion"]) priority 5;
+			confusion: goto helloInterpret on #messageHasAnyIntent(["questions","confusion"]) priority 5;
 			farewell: goto helloFarewell on #messageHasAnyIntent(["farewell"]) priority 10;
 			idle: goto helloInterpret on timeout 10000;
 			listen: goto helloInterpret on true priority 1;
