@@ -28,20 +28,24 @@ block introduction(sidekick: human, guest: human, reason: string): human
 			var logNodeName: string = "hello";
 			#log(logNodeName + " has been initalized for reason: " + $reason);
 			
-			if (!$reason == "busy")
+			if ($reason == "busy")
 			{
-				if (#waitForSpeech(5000))
-				{
-					#log(logNodeName + " caller has been detected");
-					#say("libIntroductionHello");
-					set $greeted = true;
-					wait *;
-				}
-				else
-				{
-					goto greetForce;
-				}
-			} 
+				#say("libIntroductionHelloUnavailable");
+				exit;
+			}
+			
+			if (#waitForSpeech(5000))
+			{
+				#log(logNodeName + " caller has been detected");
+				#say("libIntroductionHello");
+				set $greeted = true;
+				wait *;
+			}
+			else
+			{
+				goto greetForce;
+			}
+			 
 		}
 
 		transitions
