@@ -116,11 +116,12 @@
 				"Don't twist my arm"      
 			]
 		},
-		"endcall": {
+		"farewell": {
 			"includes": [
 				"end call",
 				"goodbye",
-				"goodbye",
+				"bye",
+				"farewell",
 				"I'm finished",
 				"I'm done",
 				"Ready to send"

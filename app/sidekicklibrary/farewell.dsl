@@ -1,6 +1,6 @@
 library
 
-digression digHangUp
+digression digFarewell
 {
 	conditions 
 	{ 
@@ -9,6 +9,7 @@ digression digHangUp
 	}
 	do
 	{
+		#say("libFarewell")
 		exit;
 	}
 }

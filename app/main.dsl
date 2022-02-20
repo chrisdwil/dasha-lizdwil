@@ -7,8 +7,8 @@ type human =
 		nick: string;
 		phonetic: string;
 		gender: string;
-		mood: string;
-		request: string;
+		mood: string; // positive, negative, silent, confusion
+		request: string; // transfer, message, endcall
 		responses: number;
 		errors: number;
 };
@@ -80,7 +80,8 @@ node assistGreetAttempt {
 		var logNodeName: string = "assistGreetAttempt";
 		
 		set $guest = blockcall introduction($sidekick, $guest, true);
-		#log("introduction: guest's mood was " + $guest.mood);	
+		#log(logNodeName + " mood: " + $guest.mood);
+		#log(logNodeName + " requested: " + $guest.requsted);
 	}
 	
 	transitions
@@ -109,7 +110,6 @@ node @exit
 			#log(logNodeName + " call was not rescued");
 		}
 		
-		#say("assistHangUp");
         exit;
     }
 
