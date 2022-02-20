@@ -17,15 +17,15 @@ context {
 	input reason: string;
 	
 	people: human[]? =  
-	[
-	 {
-			name: "Liz, D. Wheel",
-			nick: "Liz",
-			phonetic: "Lizzz",
-			gender: "female",
-			mood: "",
-			request: ""
-	 }
+		"host": [ 
+		{
+				name: "Liz, D. Wheel",
+				nick: "Liz",
+				phonetic: "Lizzz",
+				gender: "female",
+				mood: "",
+				request: ""
+		}
 	];
 			
 	
