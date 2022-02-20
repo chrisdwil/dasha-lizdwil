@@ -51,16 +51,6 @@
 				"so who are",
 				"who dis",
 				"i don't know who you are"
-			],
-			"excludes": [
-				"who",
-				"what",
-				"when",
-				"where",
-				"why",
-				"how",
-				"huh",
-				"you mean"
 			]
 		},
 		"no": {
