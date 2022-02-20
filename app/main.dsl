@@ -12,9 +12,9 @@ type human = {
 };
 
 type people = {
-	host: human;
-	sidekick: human;
-	guest: human;
+	host: human?;
+	sidekick: human?;
+	guest: human?;
 }:
 
 context {
