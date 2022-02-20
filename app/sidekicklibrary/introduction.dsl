@@ -78,6 +78,7 @@ block introduction(sidekick: human, them: human, greetFirst: boolean): human
 	{
 		do
 		{
+			#log($recognitions);
 			return $them;
 		}
 		
