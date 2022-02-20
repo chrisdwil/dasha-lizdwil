@@ -75,6 +75,12 @@ node assistGreetAttempt {
 		var logNodeName: string = "assistGreetAttempt";
 		
 		set $guest = blockcall introduction($sidekick, $guest, true);
+		
+		if ($guest.request == "transfer")
+		{
+			#forward($forward);
+			exit;
+		}
 	}
 	
 	transitions

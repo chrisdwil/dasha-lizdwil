@@ -9,7 +9,10 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 			var logNodeName: string = "assistGreetAttempt";
 
 			#log(logNodeName + " mood: " + $them.mood);
-			#log(logNodeName + " requested: " + $them.request);			
+			#log(logNodeName + " requested: " + $them.request);
+			#log(logNodeName + " errors: " + $them.responses);			
+			#log(logNodeName + " errors: " + $them.errors);			
+
 			
 			if ($greetFirst)
 			{
@@ -32,6 +35,7 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 		{
 			confusion: goto helloConfused on #messageHasAnyIntent(["questions","confusion"]);
 			idle: goto hello on timeout 10000;
+			transfer: goto helloTransfer on #messageHasIntent("transfer");
 		}
 
 		onexit 
@@ -39,7 +43,7 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 			confusion: do 
 			{ 
 				set $them.mood = "confusion"; 
-				set $them.errors += 1;
+				set $them.responses += 1;
 			}
 			idle: do 
 			{ 
@@ -73,7 +77,7 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 			confusion: do 
 			{ 
 				set $them.mood = "confusion"; 
-				set $them.errors += 1;
+				set $them.responses += 1;
 			}
 			idle: do 
 			{ 
@@ -82,6 +86,16 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 			}
 		}
 	}	
+	
+	node helloIdle
+	{
+		do
+		{
+			#say("libIntroductionHelloTransfer");
+			$them.request = "transfer";
+			@return;
+		}
+	}
 	
 	node helloIdle
 	{
@@ -97,14 +111,21 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 			idle: goto @return on timeout 10000;
 		}
 
-		onexit
+		onexit 
 		{
-			confusion: do { set $them.mood = "confusion"; }
-			idle: do { set $them.mood = "idle"; }
+			confusion: do 
+			{ 
+				set $them.mood = "confusion"; 
+				set $them.responses += 1;
+			}
+			idle: do 
+			{ 
+				set $them.mood = "idle"; 
+				set $them.errors += 1;
+			}
 		}
 	}
 	
-
 	node helloMenu
 	{
 		do

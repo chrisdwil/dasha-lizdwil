@@ -1,10 +1,8 @@
 {
-  "version": "v2",
-  "intents": {
-  		"questions": 
-		{
-			"includes": 
-			[
+	"version": "v2",
+	"intents": {
+		"questions": {
+			"includes": [
 				"who",
 				"what",
 				"when",
@@ -15,10 +13,8 @@
 				"you mean"
 			]
 		},
-		"greetings":
-		{
-			"includes": 
-			[
+		"greetings": {
+			"includes": [
 				"hi",
 				"hello",
 				"hey",
@@ -31,10 +27,8 @@
 				"you doin"
 			]
 		},
-		"confusion":
-		{
-			"includes": 
-			[
+		"confusion": {
+			"includes": [
 				"huh",
 				"uh",
 				"err",
@@ -42,7 +36,6 @@
 				"need help"
 			]
 		},
-  
 		"who_are_you": {
 			"includes": [
 				"who is",
@@ -53,9 +46,8 @@
 				"so who are",
 				"who dis",
 				"i don't know who you are"
-				]
-			},
-			
+			]
+		},
 		"self": {
 			"includes": [
 				"your name was",
@@ -66,22 +58,21 @@
 				"i need your need",
 				"what did your mom name you",
 				"on your birth certificate"
-				]
-			},
-		
+			]
+		},
 		"transfer": {
-	      	"includes": [
-		        "transfer me",
-		        "connect me",
-		        "connect my",
-		        "I'm looking for Chris",
-		        "want to talk",
-		        "where's Chris",
-		        "Is Chris available?",
-		        "Is Chris around?"
-		        ]
-	    	},
-	    "no": {
+			"includes": [
+				"transfer me",
+				"connect me",
+				"connect my",
+				"I'm looking for Chris",
+				"want to talk",
+				"where's Chris",
+				"Is Chris available?",
+				"Is Chris around?"
+			]
+		},
+		"no": {
 			"includes": [
 				"no",
 				"definitely not",
@@ -99,7 +90,7 @@
 				"not this moment",
 				"not now"
 			]
-	    },
+		},
 		"yes": {
 			"includes": [
 				"yes",
@@ -113,7 +104,7 @@
 				"Please do",
 				"Go ahead",
 				"Do it",
-				"Don't twist my arm"      
+				"Don't twist my arm"
 			]
 		},
 		"farewell": {
@@ -125,7 +116,7 @@
 				"I'm finished",
 				"I'm done",
 				"Ready to send"
-				]
+			]
 		}
 	}
 }

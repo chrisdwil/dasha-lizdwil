@@ -41,6 +41,9 @@
 					]
 				]
 			},
+			"libIntroductionForward": {
+				"text": "Okay, please hold a moment while I transfer you."
+			},
 			"libIntroductionHelloIdle": {
 				"random": [
 					[
