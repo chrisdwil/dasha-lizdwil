@@ -6,13 +6,13 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 	{
 	    recognitions: 
 	    {
-	        sentencetype: string;
+	        sentencetype: string[];
 	    	statement: string[];
 	        request: string[];
 	        question: string[];
 	        other: string[];
 	    } = {
-	    		sentencetype: "",
+	    		sentencetype: [],
 	            statement: [],
 	            request: [],
 	            question: [],
@@ -48,7 +48,7 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 			{
 				set $recognitions.sentencetype = #getSentenceType();
 		        if (sentencetype is not null) {
-		            #sayText("I think it is " + sentencetype + " sentence.");
+		            #sayText("I think it is " + $recognitions.sentencetype + " sentence.");
 		            $recognitions[$recognitions.sentenceType]?.push(#getMessageText());
 		        } else {
 		            #sayText("Strange, I could not recognize this sentence type.");
