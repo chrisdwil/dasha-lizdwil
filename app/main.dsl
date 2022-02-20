@@ -24,7 +24,7 @@ context {
 
 	attendees: human[] = 
 		{
-		host: {	
+		"host": {	
 			role: "host",
 			name: "",
 			nick: "",
@@ -33,7 +33,7 @@ context {
 			mood: "positive",
 			request: "none"
 		},
-		sidekick: {	
+		"sidekick": {	
 			role: "sidekick",
 			name: "Liz, D. Wheel",
 			nick: "Liz",
@@ -42,7 +42,7 @@ context {
 			mood: "positive",
 			request: "none"
 		},
-		guest: {	
+		"guest": {	
 			role: "guest",
 			name: "",
 			nick: "",
