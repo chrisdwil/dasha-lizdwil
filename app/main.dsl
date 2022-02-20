@@ -16,8 +16,7 @@ context {
 	input forward: string;
 	input reason: string;
 	
-	people: human = {
-		host: 
+	people[]: 
 		    {
 				name: "Liz, D. Wheel",
 				nick: "Liz",
@@ -25,8 +24,8 @@ context {
 				gender: "female",
 				mood: "",
 				request: ""
-			},
-		sidekick:
+			};
+	people[]: 
 		    {
 				name: "Liz, D. Wheel",
 				nick: "Liz",
@@ -34,7 +33,7 @@ context {
 				gender: "female",
 				mood: "",
 				request: ""
-			}
+			};
 	};
 					
 			
