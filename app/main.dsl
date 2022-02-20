@@ -11,7 +11,7 @@ type human =
 	request: string; // transfer, farewell
 };
 
-context {
+context: {
 	input phone: string;
 	input forward: string;
 	input reason: string;
@@ -25,9 +25,6 @@ context {
 				mood: "",
 				request: ""
 			};
-	}
-					
-			
 	
 /*
 	{
