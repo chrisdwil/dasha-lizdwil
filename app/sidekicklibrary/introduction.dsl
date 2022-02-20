@@ -4,7 +4,7 @@ block introduction(sidekick: human, them: human, greetFirst: boolean): human
 {	
 	context
 	{
-	    input recognitions: {
+	    recognitions: {
 	        statement: string[];
 	        request: string[];
 	        question: string[];
