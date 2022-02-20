@@ -45,6 +45,7 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 
 		transitions
 		{
+			idle: goto hello on true;
 			transfer: goto hello on true;
 			
 		}
