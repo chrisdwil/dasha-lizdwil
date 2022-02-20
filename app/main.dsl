@@ -16,17 +16,31 @@ context {
 	input forward: string;
 	input reason: string;
 	
-	people[]: human = 
+	people[]: human = {
+		"host": 
 		[
-		"host": {
+		    {
 				name: "Liz, D. Wheel",
 				nick: "Liz",
 				phonetic: "Lizzz",
 				gender: "female",
 				mood: "",
 				request: ""
-			};
-		]
+			}
+		],
+		"sidekick":
+			[
+			    {
+					name: "Liz, D. Wheel",
+					nick: "Liz",
+					phonetic: "Lizzz",
+					gender: "female",
+					mood: "",
+					request: ""
+				}
+			]
+	};
+					
 			
 	
 /*
