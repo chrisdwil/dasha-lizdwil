@@ -67,7 +67,7 @@ start node assist {
 			errors: 0	
 		};
 	
-		#log($people["host"]));
+		#log($people["host"]);
 		wait *;
 	}
 
