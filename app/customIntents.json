@@ -101,6 +101,7 @@
 		"transfer": {
 			"includes": [
 				"transfer me",
+				"Transfer me.",
 				"connect me",
 				"connect my",
 				"I'm looking for Chris",
