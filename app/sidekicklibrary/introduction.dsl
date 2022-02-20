@@ -109,6 +109,14 @@ block introduction(sidekick: human, guest: human): human
 			listen: goto helloInterpret on true priority 1;
 			confusion: goto helloInterpret on #messageHasAnyIntent(["questions","confusion"]) priority 10;
 		}
+		
+		onexit
+		{
+			confusion: do
+			{
+				#log("caller is confused");
+			}
+		}
 	}
 	
 	node helloInterpret
