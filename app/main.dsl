@@ -10,16 +10,18 @@ type human =
 		mood: string; // positive, negative, idle, confused
 		request: string; // transfer, farewell
 		responses: number;
-		errors: number = 0;
-		errorsMax: number = 4; // can change this value prior to going into a library call and set threshold on dasha's or guests max errors
-};
+		errors: number;
+		errorsMax: number; // can change this value prior to going into a library call and set threshold on dasha's or guests max errors
+}
 
 context {
 	input phone: string;
 	input forward: string;
 	input reason: string;
 
-	host: human =
+	people: human[]?;
+	
+	host: human = 
 	{
 				name: "Chris, D. Wheel",
 				nick: "Chris",
@@ -29,6 +31,7 @@ context {
 				request: "none",
 				responses: 0,
 				errors: 0
+				errorsMax: 4
 	};
 	sidekick: human =
 	{
@@ -40,6 +43,8 @@ context {
 				request: "none",
 				responses: 0,
 				errors: 0
+				errorsMax: 4
+
 	};
 	guest: human =
 	{
@@ -50,7 +55,8 @@ context {
 				mood: "positive",
 				request: "none",
 				responses: 0,
-				errors: 0
+				errors: 0,
+				errorsMax: 4
 	};
 	
 	assistGreetFull: boolean = true;
@@ -62,6 +68,10 @@ start node assist {
 	{	
 		#log("call information: " + $phone + " " + $forward + " " + $reason);
 		#connectSafe($phone);
+		
+		people["guest"] = {
+				
+		}
 		
 		wait *;
 	}

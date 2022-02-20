@@ -108,7 +108,7 @@ block introduction(sidekick: human, guest: human, reason: string): human
 			
 			if ($guest.mood == "confused")
 			{
-				if ($guest.errors <= $guest.errorMax)
+				if ($guest.errors <= 5)
 				{
 					#say("libIntroductionHelloMenu");
 				}
