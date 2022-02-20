@@ -6,7 +6,7 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 	{
 	    recognitions: 
 	    {
-	        sentencetype: string?;
+	        sentencetype: string;
 	    	statement: string[];
 	        request: string[];
 	        question: string[];
@@ -48,11 +48,11 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 		{
 			default: do
 			{
-				set $recognitions.sentencetype = #getSentenceType();
+				var sentencetype = #getSentenceType();
 				
-		        if ($recognitions.sentencetype is not null) 
+		        if (sentencetype is not null) 
 		        {
-		            $recognitions[$recognitions.sentencetype]?.push(#getMessageText());
+		            $recognitions[sentencetype]?.push(#getMessageText());
 		        } else 
 		        {
 		            $recognitions.other.push(#getMessageText());
