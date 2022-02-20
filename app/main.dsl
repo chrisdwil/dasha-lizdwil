@@ -52,9 +52,6 @@ context {
 				responses: 0,
 				errors: 0
 	};
-	
-	assistGreetFull: boolean = true;
-	greetFirst: boolean = true;
 }
 
 start node assist {
