@@ -23,6 +23,8 @@ block introduction(sidekick: human, them: human, greetFirst: boolean): human
 		do 
 		{
 			var logNodeName: string = "assistGreetAttempt";
+			
+			#log($recognitions);
 
 			#log(logNodeName + " mood: " + $them.mood);
 			#log(logNodeName + " requested: " + $them.request);
@@ -78,7 +80,6 @@ block introduction(sidekick: human, them: human, greetFirst: boolean): human
 	{
 		do
 		{
-			#log($recognitions);
 			return $them;
 		}
 		
