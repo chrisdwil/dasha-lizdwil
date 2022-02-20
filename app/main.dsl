@@ -55,7 +55,6 @@ start node assist {
 		#connectSafe($phone);
 
 		//#log($attendees);
-		exit;
 		wait *;
 	}
 
