@@ -76,6 +76,7 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 	{
 		do
 		{
+			set $guest.request = transfer;
 			return $guest;
 		}
 	}
