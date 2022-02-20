@@ -9,8 +9,7 @@ type human =
 		gender: string;
 		mood: string; // positive, negative, idle, confusion
 		request: string;
-		requestdata: string; // none, transfer, message, endcall
-		requesttype: string;
+		requests: recognitions;
 		responses: number;
 		errors: number;
 };
@@ -29,8 +28,6 @@ context {
 				mood: "positive",
 				sentencetype: "",
 				request: "none",
-				requestdata: "", // none, transfer, message, endcall
-				requesttype: "",
 				responses: 0,
 				errors: 0
 	};
@@ -42,8 +39,7 @@ context {
 				gender: "female",
 				mood: "positive",
 				request: "none",
-				requestdata: "", // none, transfer, message, endcall
-				requesttype: "",
+
 				responses: 0,
 				errors: 0
 	};
@@ -55,8 +51,6 @@ context {
 				gender: "",
 				mood: "positive",
 				request: "none",
-				requestdata: "", // none, transfer, message, endcall
-				requesttype: "",
 				responses: 0,
 				errors: 0
 	};

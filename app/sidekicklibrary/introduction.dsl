@@ -91,7 +91,6 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 	        if (sentenceType is not null) {
 	            $recognitions[sentenceType]?.push(#getMessageText());
 	        } else {
-	            #sayText("Strange, I could not recognize this sentence type.");
 	            $recognitions.other.push(#getMessageText());
 	        }
 			
