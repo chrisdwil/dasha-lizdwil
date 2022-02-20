@@ -82,7 +82,6 @@ node assistGreetAttempt {
 		{	
 			if ($guest.request == "transfer")
 			{
-				#say("assistTransfer");
 				#forward($forward);
 				exit;
 			}

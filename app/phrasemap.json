@@ -8,10 +8,10 @@
 			"emotion": "positive"
 		},
 		"phrases": {
-			"assistTransfer": {
+			"libIntroductionTransfer": {
 				"text": "Okay, please hold a moment while I transfer you."
 			},
-			"libFarewell": {
+			"libIntroductionFarewell": {
 				"text": "Understood, have a good day, bye now!"
 			},
 			"libIntroductionHello": {
@@ -132,6 +132,8 @@
 			"libIntroductionHello": {
 			},
 			"libIntroductionHelloAssist": {
+			},
+			"libIntroductionHelloFarewell": {
 			},
 			"libIntroductionHelloIdle": {
 			},
