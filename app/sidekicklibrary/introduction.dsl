@@ -6,11 +6,13 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 	{
 	    recognitions: 
 	    {
-	        statement: string[];
+	        sentencetype: string[];
+	    	statement: string[];
 	        request: string[];
 	        question: string[];
 	        other: string[];
 	    } = {
+	    		sentencetype: "",
 	            statement: [],
 	            request: [],
 	            question: [],
@@ -22,41 +24,29 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 	{
 		do 
 		{
-			var logNodeName: string = "assistGreetAttempt";
-			
-			if ($greetFirst)
+			var logNodeName: string = "hello";
+			#log(logNodeName + " has been initalized");
+			if (#waitForSpeech(10000) && $greetFirst)
 			{
 				set $greetFirst = false;
-				#say("libIntroductionHello");	
+				wait *;
 			}
-			wait *;
-			return $guest;
+			else
+			{
+			goto helloRepeat;
+			}
 		}
 
 		transitions
 		{
-			transfer: goto hello on #messageHasIntent("transfer");
+			helloRepeat: goto helloRepeat on true;
 		}
 		
-		onexit
+		onexit 
 		{
-			default: do 
-			{
-				var sentenceType = #getSentenceType();
-				
-				if (sentenceType is not null)
-				{
-					set $guest.responses += 1;
-					$recognitions[sentenceType]?.push(#getMessageText());
-				}
-				else
-				{
-					set $guest.errors += 1;
-				}	
-				
-				#log($recognitions);
-			}
+
 		}
+
 	}
 	
 	node @return
@@ -73,6 +63,23 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 		do 
 		{
 			exit;
+		}
+	}
+	
+	node helloRepeat
+	{
+		do
+		{
+			var logNodeName: string = "helloRepeat";
+			#log(logNodeName + " has been initalized");
+			
+			#say("libIntroductionHelloIdle");
+			wait *;
+		}
+		
+		transitions
+		{
+			idle: goto helloRepeat on timeout 10000;
 		}
 	}
 }
