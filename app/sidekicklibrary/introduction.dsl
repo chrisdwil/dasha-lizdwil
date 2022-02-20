@@ -81,7 +81,7 @@ block introduction(sidekick: human, guest: human, greeted: boolean): human
 	{
 		do
 		{
-			listen *;
+			wait *;
 		}
 		
 		transition
