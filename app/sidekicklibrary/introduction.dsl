@@ -76,7 +76,7 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 	{
 		do
 		{
-			#log("testing unknown sentence types: " + #stringify()#getSentenceType()));
+			#log("testing unknown sentence types: " + #stringify()#getSentenceType());
 			goto hello;
 		}
 		
