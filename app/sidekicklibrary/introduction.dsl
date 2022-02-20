@@ -46,7 +46,7 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 		{
 			default: do
 			{				
-		        var sentenceType = #getSentenceType(); 
+		        var sentenceType: string? = #getSentenceType(); 
 				
 				if (#getSentenceType() is not null) 
 		        {
