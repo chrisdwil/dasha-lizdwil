@@ -19,7 +19,7 @@ context {
 	people: human[] = 
 	    [
 	     {	
-	    	role: "host"
+	    	role: "host",
 			name: "Liz, D. Wheel",
 			nick: "Liz",
 			phonetic: "Lizzz",
