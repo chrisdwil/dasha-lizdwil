@@ -14,7 +14,7 @@ block introduction(me: human, them: human, greetFirst: boolean): human
 			}
 			else
 			{
-				if ($them.mood == "silent")
+				if ($them.mood == "idle")
 				{
 					#say("libIntroductionHelloIdle");
 				}
