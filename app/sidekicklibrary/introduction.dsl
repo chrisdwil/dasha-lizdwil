@@ -26,8 +26,10 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 		{
 			var logNodeName: string = "hello";
 			#log(logNodeName + " has been initalized");
-			if (#waitForSpeech(10000) && $greetFirst)
+			
+			if (#waitForSpeech(5000) && $greetFirst)
 			{
+				#log(logNodeName + " caller has been deteced")
 				set $greetFirst = false;
 				wait *;
 			}
