@@ -9,7 +9,6 @@ type human =
 		gender: string;
 		mood: string; // positive, negative, idle, confused
 		request: string; // transfer, farewell
-		errors: number;
 };
 
 context {
@@ -17,7 +16,7 @@ context {
 	input forward: string;
 	input reason: string;
 	
-	people: human[];
+	people: human[]?;
 	
 	host: human = 
 	{
@@ -26,8 +25,7 @@ context {
 				phonetic: "chris",
 				gender: "male",
 				mood: "positive",
-				request: "none",
-				errors: 0	
+				request: "none"
 	};
 	sidekick: human =
 	{
@@ -36,8 +34,7 @@ context {
 				phonetic: "Lizzz",
 				gender: "female",
 				mood: "positive",
-				request: "none",
-				errors: 0
+				request: "none"
 	};
 	guest: human =
 	{
@@ -46,8 +43,7 @@ context {
 				phonetic: "",
 				gender: "",
 				mood: "positive",
-				request: "none",
-				errors: 0
+				request: "none"
 	};
 }
 
@@ -63,8 +59,7 @@ start node assist {
 			phonetic: "chris",
 			gender: "male",
 			mood: "positive",
-			request: "none",
-			errors: 0	
+			request: "none"	
 		};
 	
 		#log($people["host"]);
