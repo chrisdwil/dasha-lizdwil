@@ -74,7 +74,7 @@ node assistGreetAttempt {
 	{
 		var logNodeName: string = "assistGreetAttempt";
 		
-		set $guest = blockcall introduction($sidekick, $guest, true);
+		set $guest = blockcall introduction($sidekick, $guest, false);
 		
 		if ($guest.request == "transfer")
 		{

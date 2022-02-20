@@ -25,10 +25,10 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 			var logNodeName: string = "hello";
 			#log(logNodeName + " has been initalized");
 			
-			if (#waitForSpeech(5000) && $greetFirst)
+			if (#waitForSpeech(5000) && !$greeted)
 			{
 				#log(logNodeName + " caller has been detected");
-				set $greetFirst = false;
+				set $greeted = true;
 				wait *;
 			}
 			else
@@ -39,7 +39,7 @@ block introduction(sidekick: human, guest: human, greetFirst: boolean): human
 
 		transitions
 		{
-			helloRepeat: goto helloRepeat;
+			helloRepeat: goto helloRepeat on true;
 		}
 	}
 	
