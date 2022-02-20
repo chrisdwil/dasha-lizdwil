@@ -91,7 +91,6 @@ block introduction(sidekick: human, guest: human, reason: string): human
 			
  			#log(logNodeName + " mood: " + $guest.mood);
 			#log(logNodeName + " requested: " + $guest.request);
-			#log(logNodeName + " responses: " + #stringify($guest.responses));			
 			#log(logNodeName + " errors: " + #stringify($guest.errors));
 	        #log($recognitions);
 			
@@ -128,13 +127,12 @@ block introduction(sidekick: human, guest: human, reason: string): human
 			var logNodeName: string = "helloListen";
 	        #log(logNodeName + " has been initialized");
 
-	        set $guest.responses += 1;
 			wait *;
 		}
 		 
 		transitions
 		{
-			confusion: goto helloInterpret on #messageHasAnyIntent(["questions","confusion"]) priority 5;
+			confusion: goto helloRepeat on #messageHasAnyIntent(["questions","confusion"]) priority 5;
 			farewell: goto helloFarewell on #messageHasAnyIntent(["farewell"]) priority 10;
 			idle: goto helloRepeat on timeout 10000;
 			listen: goto helloInterpret on true priority 1;
@@ -147,34 +145,14 @@ block introduction(sidekick: human, guest: human, reason: string): human
 			{
 				set $guest.mood = "confused";
 		        set $guest.errors += 1;
-
 			}
+			
 			idle: do
 			{
 				set $guest.mood = "idle";
 		        set $guest.errors += 1;
 
 			}
-		}
-	}
-	
-	node helloInterpret
-	{
-		do
-		{	
-			var logNodeName: string = "helloInterpret";
-	        #log(logNodeName + " has been initialized");
-			
-	        set $guest.responses += 1;
-	        
-
-	        
-	        goto listen;
-		}
-		
-		transitions 
-		{
-			listen: goto helloListen;
 		}
 	}
 	
