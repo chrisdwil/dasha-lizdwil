@@ -52,7 +52,7 @@ block introduction(sidekick: human, them: human, greetFirst: boolean): human
 
 		transitions
 		{
-			confusion: goto hello on #messageHasAnyIntent("questions","confusion");
+			confusion: goto hello on #messageHasAnyIntent(["questions","confusion"]);
 			idle: goto hello on timeout 10000;
 			recognition: goto recognition on true;
 			transfer: goto @return on #messageHasIntent("transfer");
