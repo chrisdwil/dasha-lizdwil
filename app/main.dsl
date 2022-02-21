@@ -62,7 +62,7 @@ context {
 				other: []
 			}
 		}
-	}	
+	};
 }
 
 start node assist {
