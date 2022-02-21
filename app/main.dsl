@@ -21,15 +21,16 @@ context {
 	input reason: string;
 
 	attendees[]: human[] = 
-		[host: { 	
-			role: "host",
+		{
+		host: {
 			name: "",
 			nick: "",
 			phonetic: "",
 			gender: "",
 			mood: "positive",
 			request: "none"
-		}];
+			}
+		};
 }
 
 start node assist {
