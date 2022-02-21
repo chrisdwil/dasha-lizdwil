@@ -1,17 +1,10 @@
 // Liz D. Wil 
 //import "sidekicklibrary/all.dsl";
 
-type sentence = {
-		text: string;
-		type: string;
-};
-
-/*
-
 type interpretation = {
 		request: string; // examples: transfer, message, farewell, unknown
 		behavior: string; // examples: positive, negative, idle, confused
-		journal: sentence[]; // log for all things discussed during function/library
+//		journal: sentence[]; // log for all things discussed during function/library
 };
 
 type discussion = {
