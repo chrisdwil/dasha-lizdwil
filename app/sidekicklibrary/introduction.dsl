@@ -126,7 +126,7 @@ block introduction(helloAttendees: people, helloReason: string): people
 			//listen: goto helloListen on true priority 1;
 			transfer: goto helloTransfer on #messageHasAnyIntent(["transfer"]) priority 9;
 		}
-		
+/*		
 		onexit
 		{	
 			confusion: do 
@@ -139,6 +139,7 @@ block introduction(helloAttendees: people, helloReason: string): people
 				//set $helloAttendees["guest"]["mood"] = "idle";
 			}
 		}
+*/
 	}
 	
 	node helloTransfer
