@@ -89,16 +89,15 @@ block introduction(helloAttendees: people, helloReason: string): people
 				#say("libIntroductionHelloAssist");
 			}
 			
-/*
+			if ($helloAttendees["guest"]["mood"] == "idle")
 			{
 				#say("libIntroductionHelloAssist");
 			}
 			
-			if ($attendeelist[2].mood == "confused")
+			if ($helloAttendees["guest"]["mood"] == "confused")
 			{
 				#say("libIntroductionHelloMenu");
 			}
-			*/
 
 			goto listen;
 		}
@@ -137,7 +136,7 @@ block introduction(helloAttendees: people, helloReason: string): people
 			
 			idle: do
 			{
-				//set $helloAttendee["guest"]["mood"] = "idle";
+				set $helloAttendees["guest"]["mood"] = "idle";
 			}
 		}
 	}
@@ -149,8 +148,8 @@ block introduction(helloAttendees: people, helloReason: string): people
 			var logNodeName: string = "helloTransfer";
 	        #log(logNodeName + " has been initialized");
 	        
-			//set $attendeelist[2].mood = "positive";
-			//set $attendeelist[2].request = "transfer";
+	        set $helloAttendees["guest"]["mood"] = "positive";
+	        set $helloAttendees["guest"]["ask"] = "transfer";
 			#say("libIntroductionHelloTransfer");
 			return $helloAttendees;
 		}
@@ -163,8 +162,8 @@ block introduction(helloAttendees: people, helloReason: string): people
 			var logNodeName: string = "helloFarewell";
 	        #log(logNodeName + " has been initialized");
 	        
-			//set $attendeelist[2].mood = "positive";
-			//set $attendeelist[2].request = "farewell";
+	        set $helloAttendees["guest"]["mood"] = "positive";
+	        set $helloAttendees["guest"]["ask"] = "farewell";
 			#say("libIntroductionHelloFarewell");
 			return $helloAttendees;
 		}

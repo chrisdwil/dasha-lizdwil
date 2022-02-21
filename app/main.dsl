@@ -12,7 +12,7 @@ type human = {
 	name: string;
 	nick: string;
 	mood: string; // positive, negative, idle, confused
-	ask: string; // transfer, farewell
+	ask: string; // transfer, message, farewell
 	said: recognitions;
 };
 
