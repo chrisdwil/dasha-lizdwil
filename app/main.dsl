@@ -71,7 +71,7 @@ node @exit
 {
     do 
     {
-
+    	#log($attendees);
         exit;
     }
 }

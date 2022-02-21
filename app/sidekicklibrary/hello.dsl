@@ -8,6 +8,8 @@ block hello(group: people, conversation: discussion): discussion
 		{
 			var logNodeName: string = "-- hello: ";
 	        #log(logNodeName + "has been executed");
+	        
+	        exit;
 		}
 	}
 	
