@@ -34,7 +34,7 @@ start node assist
 	{	
 		#connect($phone);
 		
-		goto idle;
+		wait *;
 	}
 	
 	transitions
