@@ -149,8 +149,8 @@ block introduction(helloAttendees: people, helloReason: string): people
 		        $helloAttendees["guest"]["said"][sentenceType]?.push(#getMessageText());
 		    }
 			
-//	        set $helloAttendees["guest"]["mood"] = "positive";
-//	        set $helloAttendees["guest"]["ask"] = "transfer";
+	        set $helloAttendees["guest"]["mood"] = "positive";
+	        set $helloAttendees["guest"]["ask"] = "transfer";
 			#say("libIntroductionHelloTransfer");
 			return $helloAttendees;
 		}
