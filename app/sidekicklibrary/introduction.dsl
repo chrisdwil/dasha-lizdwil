@@ -27,7 +27,6 @@ block introduction(helloAttendees: people, helloReason: string): people
 			var logNodeName: string = "hello";
 			#log(logNodeName + " has been initialized for reason: " + $helloReason);
 			#log(logNodeName + " with following attendees:");
-			set $helloAttendees["guest"].name = "Bob";
 			#log($helloAttendees);
 			
 			if ($helloReason == "busy")
@@ -43,19 +42,19 @@ block introduction(helloAttendees: people, helloReason: string): people
 				set $greeted = true;
 				wait *;
 			}
-			/*
+			
 			else
 			{
 				goto greetForce;
 			}
-			*/
+			
 			 
 		}
 
 		transitions
 		{
-//			greet: goto helloRepeat on true;
-//			greetForce: goto helloRepeat;
+			greet: goto helloRepeat on true;
+			greetForce: goto helloRepeat;
 		}
 	}
 	
@@ -79,14 +78,13 @@ block introduction(helloAttendees: people, helloReason: string): people
 		}
 	}
 
-	/*
+	
 	node helloRepeat
 	{
 		do
 		{
 			var logNodeName: string = "helloRepeat";
 			#log(logNodeName + " has been initialized");
- 			#log($attendeelist[2]);
 	        
 			var sentenceType = #getSentenceType(); 
 
