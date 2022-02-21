@@ -4,6 +4,7 @@
 type interpretation = {
 		request: string; // examples: transfer, message, farewell, unknown
 		behavior: string; // examples: positive, negative, idle, confused
+		journal: string[];
 };
 
 type discussion = {
@@ -31,7 +32,7 @@ context {
 				name: "Chris D. Wil",
 				nick: "Chris",
 				discussions: [
-				              {agenda: "", result: { request: "", behavior: "" }}
+				              {agenda: "", result: { request: "", behavior: "", journal: []}}
 				]
 			}
 	};
