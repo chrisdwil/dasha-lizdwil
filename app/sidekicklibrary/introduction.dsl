@@ -75,7 +75,7 @@ block introduction(helloAttendees: people, helloReason: string): people
 		conditions { on true tags: onclosed; }
 		do 
 		{
-			exit;
+			return $helloAttendees;
 		}
 	}
 
