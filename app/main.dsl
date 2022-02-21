@@ -6,7 +6,8 @@ type human = {
 };
 
 type people = {
-	host: human;
+	hosts: human[];
+	guests: human[];
 };
 
 context {
@@ -14,7 +15,8 @@ context {
 	input forward: string;
 	input reason: string;
 	attendees: people = {
-			host: { name: "Chris D. Wil" }
+			hosts: [{ name: "Chris D. Wil" }, { name: "Liz D. Wil" }],
+			guests: [{ name: "" }]
 	};
 }
 
