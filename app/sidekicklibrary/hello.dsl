@@ -21,13 +21,16 @@ block hello(group: people, conversation: discussion): discussion
 				set $greeted = true;
 				wait *;
 	        }
-	        wait *;
+	        else
+	        {
+	        	goto greet;
+	        }
 		}
 		
 		transitions
 		{
-			idle: goto talk on true;
-			talk: goto talk;
+			greeted: goto talk on true;
+			greet: goto talk;
 		}
 	}
 	
