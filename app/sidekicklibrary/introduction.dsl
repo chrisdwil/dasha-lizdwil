@@ -148,13 +148,16 @@ block introduction(helloAttendees: people, helloReason: string): people
 		    {
 		        $helloAttendees["guest"]["said"][sentenceType]?.push(#getMessageText());
 		    }
+			else
+			{
+				set $helloAttendees["guest"]["ask"] = ["transfer"] 
+			}
 			
-	        set $helloAttendees["guest"]["mood"]["positive"];
-	        set $helloAttendees["guest"]["ask"]["transfer"];
 			#say("libIntroductionHelloTransfer");
 			return $helloAttendees;
 		}
 	}
+	
 /*		        
 	node helloFarewell
 	{
@@ -163,8 +166,6 @@ block introduction(helloAttendees: people, helloReason: string): people
 			var logNodeName: string = "helloFarewell";
 	        #log(logNodeName + " has been initialized");
 	        
-        	set $helloAttendees["guest"]["mood"] = "positive";
-	        set $helloAttendees["guest"]["ask"] = "farewell";
 			#say("libIntroductionHelloFarewell");
 			return $helloAttendees;
 		}
