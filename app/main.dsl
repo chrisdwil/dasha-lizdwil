@@ -57,22 +57,15 @@ digression @exit_dig
 		}
 }
 
-context {
-	input phone: string;
-	input forward: string;
-	input reason: string;
-	attendees: people = {
-			hosts: [{ name: "Chris D. Wil" }, { name: "Liz D. Wil" }],
-			guests: [{ name: "" }]
-	};
-}
-
 node assistGreetAttempt {
 	do
 	{
 		var logNodeName: string = "assistGreetAttempt";
-		
-		blockcall introduction($attendees, $reason);
+		var attendees: people = {
+				hosts: [{ name: "Chris D. Wil" }, { name: "Liz D. Wil" }],
+				guests: [{ name: "" }]
+		};
+		blockcall introduction(attendees, $reason);
 		
 		if ($reason != "busy")
 		{	
