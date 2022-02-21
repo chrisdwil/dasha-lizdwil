@@ -1,17 +1,5 @@
 library
 
-block setSentenceType(): string
-{
-	var sentenceType = #getSentenceType(); 
-
-    if (sentenceType is not null)
-    {
-    	return sentenceType
-        //$helloAttendees["guest"]["said"][sentenceType]?.push(#getMessageText());
-    }
-    return "other";
-}
-
 block introduction(helloAttendees: people, helloReason: string): people
 {	
 	context
@@ -152,25 +140,22 @@ block introduction(helloAttendees: people, helloReason: string): people
 		do
 		{
 			var logNodeName: string = "helloTransfer";
-	        #log(logNodeName + " has been initialized");
+			var sentenceType = #getSentenceType(); 
 
-	        blockcall setSentenceType();
+			#log(logNodeName + " has been initialized");
+ 			
+			if (sentenceType is not null)
+		    {
+		        $helloAttendees["guest"]["said"][sentenceType]?.push(#getMessageText());
+		    }
+			
 //	        set $helloAttendees["guest"]["mood"] = "positive";
 //	        set $helloAttendees["guest"]["ask"] = "transfer";
 			#say("libIntroductionHelloTransfer");
 			return $helloAttendees;
 		}
 	}
-/*	
- 
- 
- 			var sentenceType = #getSentenceType(); 
-
-	        if (sentenceType is not null)
-	        {
-	            $helloAttendees["guest"]["said"][sentenceType]?.push(#getMessageText());
-	        }
-	        
+/*		        
 	node helloFarewell
 	{
 		do
