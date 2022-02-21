@@ -27,7 +27,7 @@ block introduction(helloAttendees: people, helloReason: string): people
 			var logNodeName: string = "hello";
 			#log(logNodeName + " has been initialized for reason: " + $helloReason);
 			#log(logNodeName + " with following attendees:");
-			set $helloAttendees[guest].name = "Bob";
+			set $helloAttendees["guest"].name = "Bob";
 			#log($helloAttendees);
 			
 			if ($helloReason == "busy")
