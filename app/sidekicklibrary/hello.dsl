@@ -99,7 +99,6 @@ block hello(group: people, conversation: discussion): discussion
 			{
 				set $conversation["request"] = "transfer";
 				set $conversation["behavior"] = "neutral";
-				$conversation["journal"].push(#getMessageText());
 			}
 		}
 	}
