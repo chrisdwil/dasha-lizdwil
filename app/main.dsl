@@ -22,7 +22,7 @@ context {
 	input forward: string;
 	input reason: string;
 
-	attendees: human[] = 
+	attendees[]: human = 
 		[{
 		host: 
 		[{ 	
