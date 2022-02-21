@@ -23,7 +23,7 @@ context {
 	input reason: string;
 
 	attendees: human[] = 
-		[
+		[{
 		host: 
 		[{ 	
 			role: "host",
@@ -34,7 +34,7 @@ context {
 			mood: "positive",
 			request: "none"
 		}]
-		];
+		}];
 }
 
 start node assist {
