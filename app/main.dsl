@@ -35,7 +35,8 @@ context {
 	input reason: string;
 }
 
-start node assist {
+start node assist 
+{
 	do
 	{	
 		#log("call information: " + $phone + " " + $forward + " " + $reason + "with following attendees: ");
