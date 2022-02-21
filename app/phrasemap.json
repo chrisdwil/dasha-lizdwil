@@ -25,38 +25,39 @@
 					}
 				]
 			},
-					"saySingleLine": {
-			"text": "This is a single line of text."
-		},
-		"sayTextInOrder": [
-			{
-				"text": "counting to 2"
+			"saySingleLine": {
+				"text": "This is a single line of text."
 			},
-			{
-				"text": "1"
-			},
-			{
-				"text": "2"
-			}
-		],
-		"sayRandomText": {
-			"random": [
-				[
-					{
-						"text": "I may say this..."
-					}
-				],
-				[
-					{
-						"text": "Or this..."
-					}
-				],
-				[
-					{
-						"text": "Maybe this, you never know."
-					}
+			"sayTextInOrder": [
+				{
+					"text": "counting to 2"
+				},
+				{
+					"text": "1"
+				},
+				{
+					"text": "2"
+				}
+			],
+			"sayRandomText": {
+				"random": [
+					[
+						{
+							"text": "I may say this..."
+						}
+					],
+					[
+						{
+							"text": "Or this..."
+						}
+					],
+					[
+						{
+							"text": "Maybe this, you never know."
+						}
+					]
 				]
-			]
+			}
 		},
 		"macros": {
 			"hello": {
