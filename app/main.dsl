@@ -5,7 +5,7 @@ type sentence = {
 		sentence: string;
 		type: string;
 };
-
+/*
 type interpretation = {
 		request: string; // examples: transfer, message, farewell, unknown
 		behavior: string; // examples: positive, negative, idle, confused
@@ -27,7 +27,7 @@ type people = {
 		primary: person;
 		sidekick: person;
 		incoming: person;
-};
+};*/
 
 context {
 	input phone: string;
