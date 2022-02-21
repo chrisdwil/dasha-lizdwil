@@ -80,12 +80,12 @@ block introduction(helloAttendees: people, helloReason: string): people
 				#say("libIntroductionHelloAssist");
 			}
 			
-			if ($helloAttendees["guest"]["status"] == "idle")
+			if ($helloAttendees["guest"]["said"]["status"] == "idle")
 			{
 				#say("libIntroductionHelloAssist");
 			}
 			
-			if ($helloAttendees["guest"]["status"] == "confused")
+			if ($helloAttendees["guest"]["said"]["status"] == "confused")
 			{
 				#say("libIntroductionHelloMenu");
 			}
