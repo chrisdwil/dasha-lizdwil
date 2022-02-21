@@ -1,9 +1,17 @@
 // Liz D. Wil 
 import "sidekicklibrary/all.dsl";
 
+type recognitions = {
+	statement: string[];
+    request: string[];
+    question: string[];
+    other: string[];
+}
+
 type human = {
 	name: string;
-	nickname: string;
+	nick: string;
+	said: recognitions; 
 };
 
 type people = {
@@ -18,9 +26,43 @@ context {
 	input reason: string;
 
 	attendees: people = {
-			host: { name: "Chris D. Wil", nickname: "Chris'sz" }, 
-			sidekick: { name: "Liz D. Wil", nickname: "Lizzz." },
-			guest: { name: "", nickname: "" }
+			host: { 
+				name: "Chris D. Wil", 
+				nick: "Chris'sz", 
+				said: 
+				{
+					statement: [],
+					request: [],
+					question: [],
+					other: []
+					}
+				},
+			sidekick: 
+			{ 
+				name: "Liz D. Wil", 
+				nick: "Lizzz", 
+				said: 
+				{
+					statement: [],
+					request: [],
+					question: [],
+					other: []
+					}
+				},
+			},
+			guest: 
+			{ 
+				name: "", 
+				nick: "", 
+				said: 
+				{
+					statement: [],
+					request: [],
+					question: [],
+					other: []
+					}
+				},
+			}
 	};
 }
 
