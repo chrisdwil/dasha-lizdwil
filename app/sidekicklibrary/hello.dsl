@@ -63,7 +63,7 @@ block hello(group: people, conversation: discussion): discussion
 	        #log($logNodeName + " - [" + logNodeNameSub + "] has been executed");
 	        #log($conversation);
 			
-	        if (!greeted)
+	        if (!$greeted)
 	        {
 				#say("hello");
 				set $greeted = true;
