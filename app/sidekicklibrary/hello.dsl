@@ -105,8 +105,8 @@ block hello(group: people, conversation: discussion): discussion
 			{
 				set $conversation = {
 						agenda: $conversation["agenda"],
-						request: "transfer";
-						behavior: "neutral";
+						request: "transfer",
+						behavior: "neutral",
 						journal: $conversation["journal"]
 				}
 			}
