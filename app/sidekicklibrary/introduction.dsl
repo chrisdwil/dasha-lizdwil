@@ -69,10 +69,13 @@ block introduction(helloAttendees: people, helloReason: string): people
 		do
 		{
 			var logNodeName: string = "helloRepeat";
+			var saidStatus = $helloAttendees["guest"]["said"]["status"]?.unshift();
+			var saidStatus = $helloAttendees["guest"]["said"]["ask"]?.unshift();
+			
 			#log(logNodeName + " has been initialized for repeat reason: unknown");
 			#log(logNodeName + " with following attendees:");
 			#log($helloAttendees);
-						
+			
 			if (!$greeted)
 			{
 				set $greeted = true;
@@ -80,16 +83,19 @@ block introduction(helloAttendees: people, helloReason: string): people
 				#say("libIntroductionHelloAssist");
 			}
 			
-			if ($helloAttendees["guest"]["said"]["status"].shift == "idle")
-			{
-				#say("libIntroductionHelloAssist");
-			}
-			
-			if ($helloAttendees["guest"]["said"]["status"].shift() == "confused")
-			{
-				#say("libIntroductionHelloMenu");
-			}
-
+			if (saidStatus is not null) 
+		    {		
+				if (saidStatus == "idle")
+				{
+					#say("libIntroductionHelloAssist");
+				}
+				
+				if (saidStatus == "confused")
+				{
+					#say("libIntroductionHelloMenu");
+				}
+		    }
+						
 			goto listen;
 		}
 		
@@ -144,7 +150,6 @@ block introduction(helloAttendees: people, helloReason: string): people
  			
 			if (sentenceType is not null)
 		    {
-
 				$helloAttendees["guest"]["said"][sentenceType]?.unshift(#getMessageText());
 				$helloAttendees["guest"]["said"]["status"]?.unshift("positive");
 				$helloAttendees["guest"]["said"]["ask"]?.unshift("transfer");
