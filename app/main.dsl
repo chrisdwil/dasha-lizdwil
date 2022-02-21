@@ -92,7 +92,9 @@ node @exit
 {
     do 
     {
-		#log(logNodeName + " call completed with following attendees");
+		var logNodeName: string = "@exit";
+
+    	#log(logNodeName + " call completed with following attendees");
 		#log($attendees);
         exit;
     }
@@ -108,6 +110,8 @@ digression @exit_dig
 		
 		do 
 		{
+			var logNodeName: string = "@exit_dig";
+
 			#log(logNodeName + " call completed with following attendees");
 			#log($attendees);
 			exit;
