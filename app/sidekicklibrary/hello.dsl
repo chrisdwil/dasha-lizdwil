@@ -13,7 +13,7 @@ block hello(group: people, conversation: discussion): discussion
 		{
 			var logNodeNameSub = "@";
 	        #log($logNodeName + " - [" + logNodeNameSub + "] has been executed");
-	        #log(conversation);
+	        #log($conversation);
 	        	        
 	        if (#waitForSpeech(5000))
 	        {
