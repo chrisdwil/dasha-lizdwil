@@ -182,7 +182,6 @@ block introduction(helloAttendees: people, helloReason: string): people
 			return $attendeelist;
 		}
 	}
-	*/
 }
 
 
