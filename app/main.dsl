@@ -108,7 +108,7 @@ node handler
 {
 	do
 	{
-		/*var conversation: discussion = {
+		var conversation: discussion = {
 				agenda: "hello",
 				request: "", 
 				behavior: "",
@@ -121,7 +121,7 @@ node handler
     	#log($attendees["incoming"]);
 		
 		set conversation = blockcall hello($attendees, conversation);
-		#log(conversation);*/
+		#log(conversation);
 		
 		if ($reason != "busy")
 		{
