@@ -3,6 +3,7 @@ import "sidekicklibrary/all.dsl";
 
 type human = {
 	name: string;
+	nickname: string;
 };
 
 type people = {
@@ -17,9 +18,9 @@ context {
 	input reason: string;
 
 	attendees: people = {
-			host: { name: "Chris D. Wil" }, 
-			sidekick: { name: "Liz D. Wil" },
-			guest: { name: "" }
+			host: { name: "Chris D. Wil", nickname: "Chris'sz" }, 
+			sidekick: { name: "Liz D. Wil", nickname: "Lizzz." },
+			guest: { name: "", nickname: "" }
 	};
 }
 
