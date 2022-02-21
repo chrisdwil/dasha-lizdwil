@@ -25,7 +25,7 @@ context {
 	attendees: human[] = 
 		[
 		{
-		"host": 
+		host: 
 		[{ 	
 			role: "host",
 			name: "",
