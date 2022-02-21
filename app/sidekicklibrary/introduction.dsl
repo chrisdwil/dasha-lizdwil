@@ -1,5 +1,17 @@
 library
 
+block setSentenceType(): string
+{
+	var sentenceType = #getSentenceType(); 
+
+    if (sentenceType is not null)
+    {
+    	return sentenceType
+        //$helloAttendees["guest"]["said"][sentenceType]?.push(#getMessageText());
+    }
+    return "other";
+}
+
 block introduction(helloAttendees: people, helloReason: string): people
 {	
 	context
@@ -74,13 +86,6 @@ block introduction(helloAttendees: people, helloReason: string): people
 			#log(logNodeName + " has been initialized for repeat reason: unknown");
 			#log(logNodeName + " with following attendees:");
 			#log($helloAttendees);
-	        
-			var sentenceType = #getSentenceType(); 
-
-	        if (sentenceType is not null)
-	        {
-	            $helloAttendees["guest"]["said"][sentenceType]?.push(#getMessageText());
-	        }
 						
 			if (!$greeted)
 			{
@@ -148,7 +153,8 @@ block introduction(helloAttendees: people, helloReason: string): people
 		{
 			var logNodeName: string = "helloTransfer";
 	        #log(logNodeName + " has been initialized");
-	        
+
+	        blockcall setSentenceType();
 //	        set $helloAttendees["guest"]["mood"] = "positive";
 //	        set $helloAttendees["guest"]["ask"] = "transfer";
 			#say("libIntroductionHelloTransfer");
@@ -156,6 +162,15 @@ block introduction(helloAttendees: people, helloReason: string): people
 		}
 	}
 /*	
+ 
+ 
+ 			var sentenceType = #getSentenceType(); 
+
+	        if (sentenceType is not null)
+	        {
+	            $helloAttendees["guest"]["said"][sentenceType]?.push(#getMessageText());
+	        }
+	        
 	node helloFarewell
 	{
 		do
