@@ -42,17 +42,19 @@ block introduction(attendees: people, reason: string): people[]
 				set $greeted = true;
 				wait *;
 			}
+			/*
 			else
 			{
 				goto greetForce;
 			}
+			*/
 			 
 		}
 
 		transitions
 		{
-			greet: goto helloRepeat on true;
-			greetForce: goto helloRepeat;
+//			greet: goto helloRepeat on true;
+//			greetForce: goto helloRepeat;
 		}
 	}
 	
