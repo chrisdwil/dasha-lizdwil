@@ -54,7 +54,7 @@ context {
 	};
 }
 
-start node assist 
+start node main 
 {
 	do
 	{	
@@ -67,7 +67,7 @@ start node assist
 	
 	transitions
 	{
-		idle: goto assistHandler on timeout 100;
+		idle: goto handler on timeout 100;
 	}
 }
 
@@ -104,7 +104,7 @@ digression @digReturn
 		}
 }
 
-node assistHandler
+node handler
 {
 	do
 	{
@@ -123,11 +123,17 @@ node assistHandler
 		set conversation = blockcall hello($attendees, conversation);
 		#log(conversation);
 		
-		wait *;
+		if ($reason != "busy")
+		{
+			#forward($forward);
+			//exit; for later
+		}
+		
+		exit;
 	}
 	
 	transitions 
 	{
-		idle: goto assistHandler on timeout 10000;
+		idle: goto handler on timeout 10000;
 	}
 }
