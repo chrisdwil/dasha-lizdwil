@@ -5,7 +5,7 @@ import "sidekicklibrary/all.dsl";
 type discussion = {
 		agenda: string;
 		request: string; // examples: transfer, message, farewell, unknown
-		behavior: string; // examples: positive, negative, idle, confused
+		behavior: string; // examples: positive, neutral, negative, idle, confused
 		journal: string[];
 };
 
