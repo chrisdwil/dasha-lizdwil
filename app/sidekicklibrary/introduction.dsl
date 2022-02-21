@@ -146,8 +146,8 @@ block introduction(helloAttendees: people, helloReason: string): people
 		    {
 
 				$helloAttendees["guest"]["said"][sentenceType]?.unshift(#getMessageText());
-				$helloAttendees["guest"]["said"][sentenceType]?.shift();
-
+				$helloAttendees["guest"]["said"]["status"]?.unshift("positive");
+				$helloAttendees["guest"]["said"]["ask"]?.unshift("transfer");
 		    }
 			#say("libIntroductionHelloTransfer");
 			return $helloAttendees;

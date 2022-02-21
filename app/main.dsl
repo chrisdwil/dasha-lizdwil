@@ -2,6 +2,8 @@
 import "sidekicklibrary/all.dsl";
 
 type recognitions = {
+	status: string[]; // positive, negative, idle, confused
+	ask: string[]; // transfer, message, farewell
 	statement: string[];
     request: string[];
     question: string[];
@@ -11,8 +13,6 @@ type recognitions = {
 type human = {
 	name: string;
 	nick: string;
-	status: string; // positive, negative, idle, confused
-	ask: string; // transfer, message, farewell
 	said: recognitions;
 };
 
@@ -58,7 +58,7 @@ context {
 		},
 		guest: 
 		{ 
-			name: "", 
+			name: "J Doe", 
 			nick: "", 
 			status: "positive",
 			ask: "none",
