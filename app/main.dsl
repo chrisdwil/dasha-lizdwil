@@ -120,7 +120,7 @@ node handler
     	#log($attendees["sidekick"]);
     	#log($attendees["incoming"]);
 		
-		set conversation = blockcall hello($attendees, conversation);
+		blockcall hello($attendees, conversation);
 		#log(conversation);
 		
 		if ($reason != "busy")
