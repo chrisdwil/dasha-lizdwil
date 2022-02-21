@@ -112,14 +112,12 @@ block introduction(helloAttendees: people, helloReason: string): people
 			}
 			*/
 
-			goto farewell;
 			goto listen;
 		}
 		
 		transitions
 		{
 			listen: goto helloListen;
-			farewell: goto @return;
 		}
 	}
 	
