@@ -47,7 +47,7 @@ block hello(group: people, conversation: discussion): discussion
 	
 	digression @digReturn
 	{
-		conditions { on true tags: onclosed; }
+		conditions { on true tags: onfinished, oninterrupt; }
 		do 
 		{
 			var logNodeNameSub = "@digReturn";
