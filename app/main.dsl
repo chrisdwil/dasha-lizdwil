@@ -128,6 +128,6 @@ node assistHandler
 	
 	transitions 
 	{
-		idle: goto assistHandler on timeout 1000;
+		idle: goto assistHandler on timeout 10000;
 	}
 }
