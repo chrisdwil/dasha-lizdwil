@@ -17,7 +17,7 @@ block hello(group: people, conversation: discussion): discussion
 	        		request: "transfer";
 	        		behavior: "positive";
 	        		journal: ["hi", "i did a thing"];
-	        }
+	        };
 	        
 	        wait *;
 		}
