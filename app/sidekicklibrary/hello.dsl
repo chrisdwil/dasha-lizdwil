@@ -11,7 +11,13 @@ block hello(group: people, conversation: discussion): discussion
 		do
 		{
 			var logNodeNameSub = "@";
-	        #log($logNodeName + "[" + logNodeNameSub + "]" + "has been executed");
+	        #log($logNodeName + " - [" + logNodeNameSub + "]" + "has been executed");
+	        
+	        set $conversation = {
+	        		request: "transfer";
+	        		behavior: "positive";
+	        		journal: ["hi", "i did a thing"];
+	        }
 	        
 	        wait *;
 		}
@@ -27,7 +33,7 @@ block hello(group: people, conversation: discussion): discussion
 		do
 		{
 			var logNodeNameSub = "@return";
-	        #log($logNodeName + "[" + logNodeNameSub + "]" + "has been executed");
+	        #log($logNodeName + " - [" + logNodeNameSub + "]" + "has been executed");
 	        
 	        
 			return $conversation;
@@ -40,7 +46,7 @@ block hello(group: people, conversation: discussion): discussion
 		do 
 		{
 			var logNodeNameSub = "@digReturn";
-	        #log($logNodeName + "[" + logNodeNameSub + "]" + "has been executed");
+	        #log($logNodeName + " - [" + logNodeNameSub + "]" + "has been executed");
 	        
 			return $conversation;
 		}
