@@ -61,7 +61,7 @@ block hello(group: people, conversation: discussion): discussion
 		{
 			var logNodeNameSub = "handler";
 	        #log($logNodeName + " - [" + logNodeNameSub + "] has been executed");
-	        #log(conversation);
+	        #log($conversation);
 			
 	        if (!greeted)
 	        {
@@ -85,7 +85,7 @@ block hello(group: people, conversation: discussion): discussion
 		{
 			var logNodeNameSub = "listen";
 	        #log($logNodeName + " - [" + logNodeNameSub + "] has been executed");
-	        #log(conversation);
+	        #log($conversation);
 	        
 	        wait *;
 		}
