@@ -64,7 +64,7 @@ node assistGreetAttempt {
 				guest: { name: "" }
 		};
 		
-		blockcall introduction(attendees, $reason);
+		set attendees = blockcall introduction(attendees, $reason);
 		
 		if ($reason != "busy")
 		{	
