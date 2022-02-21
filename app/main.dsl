@@ -122,6 +122,7 @@ node assistGreetAttempt {
 				#forward($forward);
 				exit;
 		}
+		exit;
 	}
 	
 	transitions
