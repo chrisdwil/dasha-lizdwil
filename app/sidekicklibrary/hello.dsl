@@ -10,7 +10,7 @@ block hello(group: people, conversation: discussion): discussion
 	{
 		do
 		{
-			var logNodeNameSub = "@"
+			var logNodeNameSub = "@";
 	        #log($logNodeName + "[" + logNodeNameSub + "]" + "has been executed");
 	        
 	        wait *;
@@ -26,7 +26,7 @@ block hello(group: people, conversation: discussion): discussion
 	{
 		do
 		{
-			var logNodeNameSub = "@return"
+			var logNodeNameSub = "@return";
 	        #log($logNodeName + "[" + logNodeNameSub + "]" + "has been executed");
 	        
 	        
@@ -39,7 +39,7 @@ block hello(group: people, conversation: discussion): discussion
 		conditions { on true tags: onclosed; }
 		do 
 		{
-			var logNodeNameSub = "@digReturn"
+			var logNodeNameSub = "@digReturn";
 	        #log($logNodeName + "[" + logNodeNameSub + "]" + "has been executed");
 	        
 			return $conversation;
