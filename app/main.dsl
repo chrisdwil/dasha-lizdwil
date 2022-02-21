@@ -79,7 +79,7 @@ node @exit
         #log($logNodeName + " - [" + logNodeNameSub + "] has been executed");
     	#log($attendees["primary"]);
     	#log($attendees["sidekick"]);
-    	#log($attendees["guest"]);
+    	#log($attendees["incoming"]);
     	
         exit;
     }
@@ -98,7 +98,7 @@ digression @digReturn
 	        #log($logNodeName + " - [" + logNodeNameSub + "] has been executed");
 	    	#log($attendees["primary"]);
 	    	#log($attendees["sidekick"]);
-	    	#log($attendees["guest"]);
+	    	#log($attendees["incoming"]);
 	    	
 	    	exit;
 		}
@@ -118,7 +118,7 @@ node assistHandler
         #log($logNodeName + " - [" + logNodeNameSub + "] has been executed");
     	#log($attendees["primary"]);
     	#log($attendees["sidekick"]);
-    	#log($attendees["guest"]);
+    	#log($attendees["incoming"]);
 		
 		$attendees["incoming"]["discussions"]?.push(blockcall hello($attendees, conversation));
 		
