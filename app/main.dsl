@@ -57,7 +57,7 @@ start node assist
 		#log("call information: " + $phone + " " + $forward + " " + $reason + "with following attendees: ");
 		#connectSafe($phone);
 		
-		wait *; 
+		wait *;
 	}
 	
 	transitions
