@@ -1,6 +1,6 @@
 library
 
-block introduction(attendees: people[], reason: string): people[]
+block introduction(attendees: people, reason: string): people[]
 {	
 	context
 	{
