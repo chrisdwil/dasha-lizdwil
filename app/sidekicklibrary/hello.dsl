@@ -96,11 +96,12 @@ block hello(group: people, conversation: discussion): discussion
 		{
 			confusion: goto talk on #messageHasAnyIntent(["questions","confusion"]) priority 5;
 			idle: goto talk on timeout 5000;
+			listen: goto listen on true priority 1;
 			transfer: goto @return on #messageHasAnyIntent(["transfer"]) priority 9;
 		}
 		
 		onexit 
-		{
+		{			
 			transfer: do
 			{
 				set $conversation = {

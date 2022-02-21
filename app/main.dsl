@@ -60,7 +60,7 @@ start node main
 	{	
 		var logNodeNameSub = "@";
         #log($logNodeName + " - [" + logNodeNameSub + "] has been executed");
-		#connect($phone);
+		#connectSafe($phone);
 		
 		wait *;
 	}
