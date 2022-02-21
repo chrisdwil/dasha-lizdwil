@@ -94,7 +94,7 @@ digression @digReturn
 		
 		do 
 		{
-			var logNodeNameSub = "@exit";
+			var logNodeNameSub = "@digReturn";
 	        #log($logNodeName + " - [" + logNodeNameSub + "] has been executed");
 	    	#log($attendees["primary"]);
 	    	#log($attendees["sidekick"]);
@@ -114,7 +114,7 @@ node handler
 				behavior: "",
 				journal: []
 		};
-		var logNodeNameSub = "@exit";
+		var logNodeNameSub = "handler";
         #log($logNodeName + " - [" + logNodeNameSub + "] has been executed");
     	#log($attendees["primary"]);
     	#log($attendees["sidekick"]);

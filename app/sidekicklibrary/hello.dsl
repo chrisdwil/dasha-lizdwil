@@ -19,12 +19,13 @@ block hello(group: people, conversation: discussion): discussion
 	        {
 				#say("hello");
 				set $greeted = true;
-				wait *;
+				//wait *;
 	        }
 	        else
 	        {
-	        	goto greet;
+	        	//goto greet;
 	        }
+	        exit;
 		}
 		
 		transitions
