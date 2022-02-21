@@ -101,6 +101,7 @@ node assistHandler
 		};
 		
 		set conversation = blockcall hello($attendees, conversation);
+		$attendees["incoming"]["discussion"]?.push(conversion);
 		#log("handler");
 		
 		wait *;
