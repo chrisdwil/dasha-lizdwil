@@ -60,7 +60,7 @@ node assistGreetAttempt {
 		var logNodeName: string = "assistGreetAttempt";
 		var attendees: people = {
 				hosts: { name: "Chris D. Wil" }, 
-				sidekick: { name: "Liz D. Wil" }],
+				sidekick: { name: "Liz D. Wil" },
 				guest: { name: "" }
 		};
 		
