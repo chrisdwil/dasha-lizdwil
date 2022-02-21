@@ -5,24 +5,24 @@ type people = {
 		primary: person;
 		sidekick: person;
 		incoming: person;
-	};
+};
 
 type person = {
 		name: string;
 		nick: string;
 		discussions: discussion[];
-	};
+};
 
 type discussion = {
 		agenda: string;
 		result: interpretation;
-}
+};
 
 type interpretation = {
 		request: string; // examples: transfer, message, farewell, unknown
 		behavior: string; // examples: positive, negative, idle, confused
 		journal: sentence[]; // log for all things discussed during function/library
-}
+};
 
 type sentence = {
 		sentence: string;
@@ -67,4 +67,3 @@ digression @exit_dig
 			exit;
 		}
 }
-
