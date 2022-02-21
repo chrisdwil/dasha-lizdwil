@@ -2,7 +2,7 @@
 //import "sidekicklibrary/all.dsl";
 
 type sentence = {
-		sentence: string;
+		text: string;
 		type: string;
 };
 
