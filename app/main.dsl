@@ -1,5 +1,5 @@
 // Liz D. Wil 
-//import "sidekicklibrary/all.dsl";
+import "sidekicklibrary/all.dsl";
 
 type human = {
 	name: string;
@@ -24,7 +24,6 @@ start node assist {
 	do
 	{	
 		#log("call information: " + $phone + " " + $forward + " " + $reason + "with following attendees: ");
-		#log($attendees);
 		#connectSafe($phone);
 
 		wait *;
