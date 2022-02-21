@@ -92,6 +92,8 @@ node @exit
 {
     do 
     {
+		#log(logNodeName + " call completed with following attendees");
+		#log($attendees);
         exit;
     }
 
@@ -106,6 +108,8 @@ digression @exit_dig
 		
 		do 
 		{
+			#log(logNodeName + " call completed with following attendees");
+			#log($attendees);
 			exit;
 		}
 }
@@ -120,9 +124,10 @@ node assistGreetAttempt {
 		if ($reason != "busy")
 		{	
 				#forward($forward);
+				#log(logNodeName + " call completed with following attendees");
+				#log($attendees);
 				exit;
 		}
-		
 		exit;
 	}
 	
