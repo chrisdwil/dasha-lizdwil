@@ -144,8 +144,8 @@ block introduction(helloAttendees: people, helloReason: string): people
  			
 			if (sentenceType is not null)
 		    {
-		        $helloAttendees["guest"]["said"][sentenceType]?.push(#getMessageText());
-				$helloAttendees["guest"]["said"][sentenceType]?.shift("test");
+		        $helloAttendees["guest"]["said"][sentenceType]?.shift(#getMessageText());
+				$helloAttendees["guest"]["said"][sentenceType]?.unshift();
 		    }
 			#say("libIntroductionHelloTransfer");
 			return $helloAttendees;
