@@ -7,7 +7,7 @@ type human = {
 
 type people = {
 	host: human;
-	siekick: human;
+	sidekick: human;
 	guest: human;
 };
 
