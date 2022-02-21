@@ -101,6 +101,7 @@ block introduction(helloAttendees: people, helloReason: string): people
 				#say("libIntroductionHelloAssist");
 			}
 			
+/*
 			{
 				#say("libIntroductionHelloAssist");
 			}
@@ -109,6 +110,7 @@ block introduction(helloAttendees: people, helloReason: string): people
 			{
 				#say("libIntroductionHelloMenu");
 			}
+			*/
 
 			goto farewell;
 			goto listen;
@@ -165,7 +167,7 @@ block introduction(helloAttendees: people, helloReason: string): people
 			//set $attendeelist[2].mood = "positive";
 			//set $attendeelist[2].request = "transfer";
 			#say("libIntroductionHelloTransfer");
-			return $attendeelist;
+			return $helloAttendees;
 		}
 	}
 	
@@ -179,7 +181,7 @@ block introduction(helloAttendees: people, helloReason: string): people
 			//set $attendeelist[2].mood = "positive";
 			//set $attendeelist[2].request = "farewell";
 			#say("libIntroductionHelloFarewell");
-			return $attendeelist;
+			return $helloAttendees;
 		}
 	}
 }
