@@ -63,7 +63,7 @@ start node assist
 	
 	transitions
 	{
-		idle: goto assistHandler on timeout 1000;
+		idle: goto assistHandler on timeout 100;
 	}
 }
 
@@ -93,7 +93,7 @@ node assistHandler
 {
 	do
 	{
-		
+		#log("handler");
 		wait *;
 	}
 	
