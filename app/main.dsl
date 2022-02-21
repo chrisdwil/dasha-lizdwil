@@ -25,7 +25,7 @@ context {
 	attendees: human[] = 
 		{
 		host: 
-		       { 	
+		[{ 	
 			role: "host",
 			name: "",
 			nick: "",
@@ -33,7 +33,7 @@ context {
 			gender: "",
 			mood: "positive",
 			request: "none"
-		}
+		}]
 		};
 }
 
