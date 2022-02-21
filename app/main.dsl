@@ -12,25 +12,15 @@ type human = {
 };
 
 type people = {
-	host: human?;
+	host: human;
+	sidekick: human;
+	guests: guests[];
 };
 
 context {
 	input phone: string;
 	input forward: string;
 	input reason: string;
-
-	attendees[]: human[] = 
-		{
-		host: {
-			name: "",
-			nick: "",
-			phonetic: "",
-			gender: "",
-			mood: "positive",
-			request: "none"
-			}
-		};
 }
 
 start node assist {
