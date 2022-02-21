@@ -1,76 +1,38 @@
 // Liz D. Wil 
 import "sidekicklibrary/all.dsl";
 
-type recognitions = {
-	status: string[]; // positive, negative, idle, confused
-	ask: string[]; // transfer, message, farewell. call closed
-	statement: string[];
-    request: string[];
-    question: string[];
-    other: string[];
-};
-
-type human = {
-	name: string;
-	nick: string;
-	said: recognitions;
-};
-
 type people = {
-	host: human;
-	sidekick: human;
-	guest: human;
+		primary: person;
+		sidekick: person;
+		incoming: person;
+	};
+
+type person = {
+		name: string;
+		nick: string;
+		discussions: discussion[];
+	};
+
+type discussion = {
+		agenda: string;
+		result: interpretation;
+}
+
+type interpretation = {
+		request: string; // examples: transfer, message, farewell, unknown
+		behavior: string; // examples: positive, negative, idle, confused
+		journal: sentence[]; // log for all things discussed during function/library
+}
+
+type sentence = {
+		sentence: string;
+		type: string;
 };
 
 context {
 	input phone: string;
 	input forward: string;
 	input reason: string;
-
-	attendees: people = 
-	{
-		host: { 
-			name: "Chris D. Wil", 
-			nick: "Chris'sz", 
-			said: 
-			{
-				status: [],
-				ask: [], 
-				statement: [],
-				request: [],
-				question: [],
-				other: []
-			}
-		},
-		sidekick: 
-		{ 
-			name: "Liz D. Wil", 
-			nick: "Lizzz", 
-			said: 
-			{
-				status: [],
-				ask: [], 
-				statement: [],
-				request: [],
-				question: [],
-				other: []
-			}
-		},
-		guest: 
-		{ 
-			name: "J Doe", 
-			nick: "", 
-			said: 
-			{
-				status: [],
-				ask: [], 
-				statement: [],
-				request: [],
-				question: [],
-				other: []
-			}
-		}
-	};
 }
 
 start node assist {
@@ -81,21 +43,13 @@ start node assist {
 
 		wait *;
 	}
-
-	transitions
-	{
-		idle: goto assistGreetAttempt on timeout 300;
-	}
 }
 
 node @exit 
 {
     do 
     {
-		var logNodeName: string = "@exit";
 
-    	#log(logNodeName + " call completed with following attendees");
-		#log($attendees);
         exit;
     }
 
@@ -110,36 +64,7 @@ digression @exit_dig
 		
 		do 
 		{
-			var logNodeName: string = "@exit_dig";
-
-			#log(logNodeName + " call completed with following attendees");
-			#log($attendees);
 			exit;
 		}
-}
-
-node assistGreetAttempt {
-	do
-	{
-		var logNodeName: string = "assistGreetAttempt";
-		
-		set $attendees = blockcall introduction($attendees, $reason);
-	
-		#log(logNodeName + " call completed with following attendees");
-		#log($attendees);
-
-		if ($reason != "busy")
-		{	
-				#forward($forward);
-				exit;
-		}
-		
-		exit;
-	}
-	
-	transitions
-	{
-		greetAttemptIdle: goto assistGreetAttempt on timeout 10000;
-	}
 }
 

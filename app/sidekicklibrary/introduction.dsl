@@ -1,6 +1,6 @@
 library
 
-block introduction(helloAttendees: people, helloReason: string): people
+block introduction(attendees: people, discussion): people
 {	
 	context
 	{
@@ -59,6 +59,7 @@ block introduction(helloAttendees: people, helloReason: string): people
 		conditions { on true tags: onclosed; }
 		do 
 		{
+			$helloAttendees["guest"]["said"]["ask"]?.push("callclosed");
 			return $helloAttendees;
 		}
 	}
@@ -69,6 +70,12 @@ block introduction(helloAttendees: people, helloReason: string): people
 		do
 		{
 			var logNodeName: string = "helloRepeat";
+			var sentenceType = #getSentenceType(); 
+ 			
+			if (sentenceType is not null)
+		    {
+				$helloAttendees["guest"]["said"][sentenceType]?.push(#getMessageText());
+		    }
 
 			#log(logNodeName + " has been initialized for repeat reason: unknown");
 			#log(logNodeName + " with following attendees:");
@@ -88,12 +95,12 @@ block introduction(helloAttendees: people, helloReason: string): people
 		    {		
 				if (saidStatus == "confused")
 				{
-					#say("libIntroductionHelloMenu");
+					#say("libIntroductionHelloAssist");
 				}
 				
 				if (saidStatus == "idle")
 				{
-					#say("libIntroductionHelloAssist");
+					#say("libIntroductionHelloIdle");
 				}
 		    }
 						
@@ -129,7 +136,7 @@ block introduction(helloAttendees: people, helloReason: string): people
 			confusion: do 
 			{
 				$helloAttendees["guest"]["said"]["status"]?.push("confused");
-				$helloAttendees["guest"]["said"]["ask"]?.push("none");	
+				$helloAttendees["guest"]["said"]["ask"]?.push("none");
 			}
 			
 			idle: do

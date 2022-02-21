@@ -8,10 +8,7 @@
 			"emotion": "positive"
 		},
 		"phrases": {
-			"libIntroductionHelloFarewell": {
-				"text": "Understood, have a good day, bye now!"
-			},
-			"libIntroductionHello": {
+			"hello": {
 				"random": [
 					[
 						{
@@ -22,128 +19,48 @@
 						{
 							"text": "Heyyy this is Lizzz."
 						}
-					]
-				]
-			},
-			"libIntroductionHelloAssist": {
-				"random": [
-					[
-						{
-							"text": "How may I help you?"
-						}
 					],
-					[
-						{
-							"text": "What can I help you with?"
-						}
-					]
-				]
-			},
-			"libIntroductionHelloIdle": {
-				"random": [
-					[
-						{
-							"text": "Hello, are you there?"
-						}
-					],
-					[
-						{
-							"text": "I'm not sure if our connection is good, can you repeat that?"
-						}
-					],
-					[
-						{
-							"text": "Are you there still?"
-						}
-					]
-				]
-			},
-			"libIntroductionHelloMenu": [
-				{
-					"text": "Heyyyyyyy...."
-				},
-				{
-					"text": "I hope you're able to hear me..."
-				},
-				{
-					"text": "Things I can assist with are..."
-				},
-				{
-					"text": "His availability, call transfers..."
-				},
-				{
-					"text": "And soon I'll be able to send him messajehz."
-				},
-				{
-					"text": "Are you still there and were you able to get all that?"
-				}
-			],
-			"libIntroductionHelloTransfer": {
-				"text": "Okay, please hold a moment while I transfer you."
-			},
-			"libIntroductionHelloUnavailable": [
-				{
-					"text": "Heyyy it's Lizzz again."
-				},
-				{
-					"text": "It appears he is busy at the moment and you'll need to try him again later."
-				},
-				{
-					"text": "Have a good day!"
-				},
-				{
-					"text": "Bye now!"
-				}
-			],
-			"saySingleLine": {
-				"text": "This is a single line of text."
-			},
-			"sayTextInOrder": [
-				{
-					"text": "counting to 2"
-				},
-				{
-					"text": "1"
-				},
-				{
-					"text": "2"
-				}
-			],
-			"sayRandomText": {
-				"random": [
-					[
-						{
-							"text": "I may say this..."
-						}
-					],
-					[
-						{
-							"text": "Or this..."
-						}
-					],
-					[
-						{
-							"text": "Maybe this, you never know."
-						}
-					]
+					{
+						"text": "Lizzz here, hello..."
+					}
 				]
 			}
 		},
-		"macros": {
-			"libIntroductionHelloFarewell": {
+		"saySingleLine": {
+			"text": "This is a single line of text."
+		},
+		"sayTextInOrder": [
+			{
+				"text": "counting to 2"
 			},
-			"libIntroductionHello": {
+			{
+				"text": "1"
 			},
-			"libIntroductionHelloAssist": {
-			},
-			"libIntroductionHelloIdle": {
-			},
-			"libIntroductionHelloMenu": {
-			},
-			"libIntroductionHelloTransfer": {
-			},
-			"libIntroductionHelloUnavailable": {
+			{
+				"text": "2"
 			}
+		],
+		"sayRandomText": {
+			"random": [
+				[
+					{
+						"text": "I may say this..."
+					}
+				],
+				[
+					{
+						"text": "Or this..."
+					}
+				],
+				[
+					{
+						"text": "Maybe this, you never know."
+					}
+				]
+			]
 		}
+	},
+	"macros": {
+		"hello": {}
 	}
 }
