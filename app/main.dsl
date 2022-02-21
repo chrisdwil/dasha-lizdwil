@@ -6,7 +6,7 @@ type recognitions = {
     request: string[];
     question: string[];
     other: string[];
-}
+};
 
 type human = {
 	name: string;
