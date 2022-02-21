@@ -75,7 +75,7 @@ block hello(group: people, conversation: discussion): discussion
 		
 		transitions
 		{
-			list: goto handler;
+			listen: goto handler;
 		}
 	}
 	
