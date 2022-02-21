@@ -148,8 +148,8 @@ block introduction(helloAttendees: people, helloReason: string): people
 		    }
 			else
 			{
-				$helloAttendees[guest][status]?.push("positive");
-				$helloAttendees[guest][ask]?.push("transfer");
+				$helloAttendees[guest]["status"]?.push("positive");
+				$helloAttendees[guest]["ask"]?.push("transfer");
 			}
 			
 			#say("libIntroductionHelloTransfer");
