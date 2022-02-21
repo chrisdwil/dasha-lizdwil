@@ -32,7 +32,7 @@ start node assist
 {
 	do
 	{	
-		#connectSafe($phone);
+		#connect($phone);
 		
 		goto idle;
 	}
