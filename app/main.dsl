@@ -35,8 +35,8 @@ context {
 					request: [],
 					question: [],
 					other: []
-					}
-				},
+				}
+			},
 			sidekick: 
 			{ 
 				name: "Liz D. Wil", 
@@ -47,8 +47,7 @@ context {
 					request: [],
 					question: [],
 					other: []
-					}
-				},
+				}
 			},
 			guest: 
 			{ 
@@ -60,10 +59,8 @@ context {
 					request: [],
 					question: [],
 					other: []
-					}
-				},
+				}
 			}
-	};
 }
 
 start node assist {
