@@ -122,7 +122,7 @@ block introduction(helloAttendees: people, helloReason: string): people
 		{
 			confusion: goto helloRepeat on #messageHasAnyIntent(["questions","confusion"]) priority 5;
 			farewell: goto helloFarewell on #messageHasAnyIntent(["farewell"]) priority 10;
-			idle: goto helloRepeat on timeout 10000;
+			idle: goto helloRepeat on timeout 5000;
 			listen: goto helloListen on true priority 1;
 			transfer: goto helloTransfer on #messageHasAnyIntent(["transfer"]) priority 9;
 		}
@@ -131,7 +131,7 @@ block introduction(helloAttendees: people, helloReason: string): people
 		{	
 			confusion: do 
 			{
-				set $helloAttendees["guest"]["mood"] = "confused";
+				//set $helloAttendees["guest"]["mood"] = "confused";
 			}
 			
 			idle: do
@@ -148,8 +148,8 @@ block introduction(helloAttendees: people, helloReason: string): people
 			var logNodeName: string = "helloTransfer";
 	        #log(logNodeName + " has been initialized");
 	        
-	        set $helloAttendees["guest"]["mood"] = "positive";
-	        set $helloAttendees["guest"]["ask"] = "transfer";
+//	        set $helloAttendees["guest"]["mood"] = "positive";
+//	        set $helloAttendees["guest"]["ask"] = "transfer";
 			#say("libIntroductionHelloTransfer");
 			return $helloAttendees;
 		}
@@ -162,8 +162,8 @@ block introduction(helloAttendees: people, helloReason: string): people
 			var logNodeName: string = "helloFarewell";
 	        #log(logNodeName + " has been initialized");
 	        
-	        set $helloAttendees["guest"]["mood"] = "positive";
-	        set $helloAttendees["guest"]["ask"] = "farewell";
+//	        set $helloAttendees["guest"]["mood"] = "positive";
+//	        set $helloAttendees["guest"]["ask"] = "farewell";
 			#say("libIntroductionHelloFarewell");
 			return $helloAttendees;
 		}
