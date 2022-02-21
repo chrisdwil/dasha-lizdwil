@@ -91,7 +91,7 @@ block hello(group: people, conversation: discussion): discussion
 		}
 		transitions
 		{
-			confusion: goto handler on #messageHasAnyIntent(#messageHasAnyIntent(["questions","confusion"]) priority 5;
+			confusion: goto handler on #messageHasAnyIntent(["questions","confusion"]) priority 5;
 			idle: goto helloRepeat on timeout 5000;
 		}
 	}
