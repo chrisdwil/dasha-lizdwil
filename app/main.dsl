@@ -27,6 +27,8 @@ context {
 	input forward: string;
 	input reason: string;
 	
+	logNodeName: string = "[main]";
+	
 	attendees: people = {
 			primary: {
 				name: "Chris D. Wil",
@@ -56,6 +58,8 @@ start node assist
 {
 	do
 	{	
+		var logNodeNameSub = "@";
+        #log($logNodeName + " - [" + logNodeNameSub + "] has been executed");
 		#connect($phone);
 		
 		wait *;
@@ -71,7 +75,12 @@ node @exit
 {
     do 
     {
-    	#log($attendees);
+		var logNodeNameSub = "@exit";
+        #log($logNodeName + " - [" + logNodeNameSub + "] has been executed");
+    	#log($attendees["primary"]);
+    	#log($attendees["sidekick"]);
+    	#log($attendees["guest"]);
+    	
         exit;
     }
 }
@@ -85,8 +94,13 @@ digression @digReturn
 		
 		do 
 		{
-	    	#log($attendees);
-			exit;
+			var logNodeNameSub = "@exit";
+	        #log($logNodeName + " - [" + logNodeNameSub + "] has been executed");
+	    	#log($attendees["primary"]);
+	    	#log($attendees["sidekick"]);
+	    	#log($attendees["guest"]);
+	    	
+	    	exit;
 		}
 }
 
@@ -100,10 +114,13 @@ node assistHandler
 				behavior: "",
 				journal: []
 		};
+		var logNodeNameSub = "@exit";
+        #log($logNodeName + " - [" + logNodeNameSub + "] has been executed");
+    	#log($attendees["primary"]);
+    	#log($attendees["sidekick"]);
+    	#log($attendees["guest"]);
 		
 		$attendees["incoming"]["discussions"]?.push(blockcall hello($attendees, conversation));
-		#log("handler");
-		#log($attendees);
 		
 		wait *;
 	}
