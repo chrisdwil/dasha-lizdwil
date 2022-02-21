@@ -103,7 +103,7 @@ block hello(group: people, conversation: discussion): discussion
 		{
 			transfer: do
 			{
-				$conversation = {
+				set $conversation = {
 						agenda: $conversation["agenda"],
 						request: "transfer";
 						behavior: "neutral";
