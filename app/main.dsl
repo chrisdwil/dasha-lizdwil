@@ -1,10 +1,12 @@
 // Liz D. Wil 
 //import "sidekicklibrary/all.dsl";
-/*
+
 type sentence = {
 		sentence: string;
 		type: string;
 };
+
+/*
 
 type interpretation = {
 		request: string; // examples: transfer, message, farewell, unknown
