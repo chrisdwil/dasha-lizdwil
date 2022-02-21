@@ -16,7 +16,7 @@ block introduction(helloAttendees: people, helloReason: string): people
 			#log(logNodeName + " with following attendees:");
 			#log($helloAttendees);
 			
-			set $helloAttendees["guest"]["name"] = "Bob";
+			set helloAttendees["guest"]["name"] = "Bob";
 			
 			if ($helloReason == "busy")
 			{
