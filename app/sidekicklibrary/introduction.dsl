@@ -1,6 +1,6 @@
 library
 
-block introduction(attendees: people, reason: string): people[]
+block introduction(helloAttendees: people, helloReason: string): people[]
 {	
 	context
 	{
@@ -25,11 +25,11 @@ block introduction(attendees: people, reason: string): people[]
 		do 
 		{
 			var logNodeName: string = "hello";
-			#log(logNodeName + " has been initialized for reason: " + $reason);
+			#log(logNodeName + " has been initialized for reason: " + $helloReason);
 			#log(logNodeName + " with following attendees:");
 			#log($attendees);
 			
-			if ($reason == "busy")
+			if ($helloReason == "busy")
 			{
 				#say("libIntroductionHelloUnavailable");
 				exit;
@@ -65,7 +65,7 @@ block introduction(attendees: people, reason: string): people[]
 			var logNodeName: string = "@return";
 	        #log(logNodeName + " has been initialized");
 	        
-			return $attendeelist;
+			return $helloAttendees;
 		}
 	}
 	
