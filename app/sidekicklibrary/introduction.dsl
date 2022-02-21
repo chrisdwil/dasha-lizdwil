@@ -1,6 +1,6 @@
 library
 
-block introduction(helloAttendees: people, helloReason: string): people[]
+block introduction(helloAttendees: people, helloReason: string): people
 {	
 	context
 	{
