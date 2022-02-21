@@ -34,7 +34,7 @@ context {
 				nick: "Chris",
 				discussions: []
 			}
-	}
+	};
 }
 
 start node assist 
