@@ -32,10 +32,10 @@ context {
 		host: { 
 			name: "Chris D. Wil", 
 			nick: "Chris'sz", 
-			status: "positive",
-			ask: "none",
 			said: 
 			{
+				status: [],
+				ask: [], 
 				statement: [],
 				request: [],
 				question: [],
@@ -46,10 +46,10 @@ context {
 		{ 
 			name: "Liz D. Wil", 
 			nick: "Lizzz", 
-			status: "positive",
-			ask: "none",
 			said: 
 			{
+				status: [],
+				ask: [], 
 				statement: [],
 				request: [],
 				question: [],
@@ -60,10 +60,10 @@ context {
 		{ 
 			name: "J Doe", 
 			nick: "", 
-			status: "positive",
-			ask: "none",
 			said: 
 			{
+				status: [],
+				ask: [], 
 				statement: [],
 				request: [],
 				question: [],
