@@ -69,8 +69,8 @@ block introduction(helloAttendees: people, helloReason: string): people
 		do
 		{
 			var logNodeName: string = "helloRepeat";
-			var saidStatus = $helloAttendees["guest"]["said"]["status"]?.unshift();
-			var saidStatus = $helloAttendees["guest"]["said"]["ask"]?.unshift();
+			var saidStatus = $helloAttendees["guest"]["said"]["status"]?.shift();
+			var saidAsk = $helloAttendees["guest"]["said"]["ask"]?.shift();
 			
 			#log(logNodeName + " has been initialized for repeat reason: unknown");
 			#log(logNodeName + " with following attendees:");
