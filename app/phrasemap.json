@@ -26,41 +26,8 @@
 				]
 			}
 		},
-		"saySingleLine": {
-			"text": "This is a single line of text."
-		},
-		"sayTextInOrder": [
-			{
-				"text": "counting to 2"
-			},
-			{
-				"text": "1"
-			},
-			{
-				"text": "2"
+		"macros": {
+			"hello": {
 			}
-		],
-		"sayRandomText": {
-			"random": [
-				[
-					{
-						"text": "I may say this..."
-					}
-				],
-				[
-					{
-						"text": "Or this..."
-					}
-				],
-				[
-					{
-						"text": "Maybe this, you never know."
-					}
-				]
-			]
 		}
-	},
-	"macros": {
-		"hello": {}
 	}
-}
