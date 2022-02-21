@@ -5,19 +5,6 @@ block introduction(helloAttendees: people, helloReason: string): people
 	context
 	{
 		greeted: boolean = false;
-	    
-	    recognitions: 
-	    {
-	    	statement: string[];
-	        request: string[];
-	        question: string[];
-	        other: string[];
-	    } = {
-	            statement: [],
-	            request: [],
-	            question: [],
-	            other: []
-        };
 	}
 	
 	start node hello
