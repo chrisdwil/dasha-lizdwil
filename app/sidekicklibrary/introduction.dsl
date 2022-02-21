@@ -77,7 +77,7 @@ block introduction(helloAttendees: people, helloReason: string): people
 
 	        if (sentenceType is not null)
 	        {
-	            $helloAttendees.guest.said.[sentenceType]?.push(#getMessageText());
+	            $helloAttendees[guest][said][sentenceType]?.push(#getMessageText());
 		        #log($recognitions);
 	        }
 						
