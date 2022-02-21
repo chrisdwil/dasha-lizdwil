@@ -14,7 +14,7 @@ block hello(group: people, conversation: discussion): discussion
 		
 		transitions
 		{
-			idle: goto @return on timeout 100;
+			idle: goto return on timeout 100;
 		}
 	}
 	
