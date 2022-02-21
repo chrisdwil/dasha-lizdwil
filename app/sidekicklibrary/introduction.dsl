@@ -150,7 +150,7 @@ block introduction(helloAttendees: people, helloReason: string): people
 		    }
 			else
 			{
-				set $helloAttendees["guest"]["ask"] = ["transfer"];
+				set $helloAttendees["guest"]["ask"]? = "transfer";
 			}
 			
 			#say("libIntroductionHelloTransfer");
