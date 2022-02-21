@@ -132,13 +132,12 @@ block introduction(helloAttendees: people, helloReason: string): people
 		{	
 			confusion: do 
 			{
-				set $helloAttendee["guest"]["mood"] = "confused";
+				$helloAttendee["guest"]["mood"].push("confused");
 			}
 			
 			idle: do
 			{
-				set $helloAttendee["guest"]["mood"] = "idle";
-
+				//set $helloAttendee["guest"]["mood"] = "idle";
 			}
 		}
 	}
