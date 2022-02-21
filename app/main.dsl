@@ -1,21 +1,9 @@
 // Liz D. Wil 
 import "sidekicklibrary/all.dsl";
 
-type people = {
-		primary: person;
-		sidekick: person;
-		incoming: person;
-};
-
-type person = {
-		name: string;
-		nick: string;
-		discussions: discussion[];
-};
-
-type discussion = {
-		agenda: string;
-		result: interpretation;
+type sentence = {
+		sentence: string;
+		type: string;
 };
 
 type interpretation = {
@@ -24,9 +12,21 @@ type interpretation = {
 		journal: sentence[]; // log for all things discussed during function/library
 };
 
-type sentence = {
-		sentence: string;
-		type: string;
+type discussion = {
+		agenda: string;
+		result: interpretation;
+};
+
+type person = {
+		name: string;
+		nick: string;
+		discussions: discussion[];
+};
+
+type people = {
+		primary: person;
+		sidekick: person;
+		incoming: person;
 };
 
 context {
