@@ -3,7 +3,7 @@ import "sidekicklibrary/all.dsl";
 
 type recognitions = {
 	status: string[]; // positive, negative, idle, confused
-	ask: string[]; // transfer, message, farewell
+	ask: string[]; // transfer, message, farewell. call closed
 	statement: string[];
     request: string[];
     question: string[];
@@ -124,14 +124,16 @@ node assistGreetAttempt {
 		var logNodeName: string = "assistGreetAttempt";
 		
 		set $attendees = blockcall introduction($attendees, $reason);
-		
+	
+		#log(logNodeName + " call completed with following attendees");
+		#log($attendees);
+
 		if ($reason != "busy")
 		{	
 				#forward($forward);
-				#log(logNodeName + " call completed with following attendees");
-				#log($attendees);
 				exit;
 		}
+		
 		exit;
 	}
 	

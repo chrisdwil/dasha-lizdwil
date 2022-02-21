@@ -121,7 +121,6 @@ block introduction(helloAttendees: people, helloReason: string): people
 			confusion: goto helloRepeat on #messageHasAnyIntent(["questions","confusion"]) priority 5;
 			//farewell: goto helloFarewell on #messageHasAnyIntent(["farewell"]) priority 10;
 			idle: goto helloRepeat on timeout 5000;
-			//listen: goto helloListen on true priority 1;
 			transfer: goto helloTransfer on #messageHasAnyIntent(["transfer"]) priority 9;
 		}
 
@@ -161,8 +160,8 @@ block introduction(helloAttendees: people, helloReason: string): people
 			return $helloAttendees;
 		}
 	}
-	
-/*		        
+		
+	/*
 	node helloFarewell
 	{
 		do
@@ -174,7 +173,8 @@ block introduction(helloAttendees: people, helloReason: string): people
 			return $helloAttendees;
 		}
 	}
-*/
+	*/
+
 }
 
 
