@@ -56,8 +56,13 @@ start node assist
 	{	
 		#log("call information: " + $phone + " " + $forward + " " + $reason + "with following attendees: ");
 		#connectSafe($phone);
-
-		exit;
+		
+		goto hello; 
+	}
+	
+	transitions
+	{
+		hello: goto assistHandler on true;
 	}
 }
 
@@ -82,4 +87,19 @@ digression @exit_dig
 		{
 			exit;
 		}
+}
+
+node assistHandler
+{
+	do
+	{
+		#log("repeat");
+		
+		wait *;
+	}
+	
+	transitions 
+	{
+		goto assistHandler: on timeout 1000;
+	}
 }
