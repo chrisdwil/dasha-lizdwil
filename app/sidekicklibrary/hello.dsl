@@ -64,20 +64,13 @@ block hello(group: people, conversation: discussion): discussion
 			var logNodeNameSub = "talk";
 	        #log($logNodeName + " - [" + logNodeNameSub + "] has been executed");
 	        #log($conversation);
-			
-	        if (!$greeted)
-	        {
-				#say("hello");
-				set $greeted = true;
-				wait *;
-			}
 	        
 	        goto listen;
 		}
 		
 		transitions
 		{
-			listen: goto talk;
+			listen: goto listen;
 		}
 	}
 	
