@@ -33,9 +33,7 @@ block introduction(helloAttendees: people, helloReason: string): people
 			else
 			{
 				goto greetForce;
-			}
-			
-			 
+			} 
 		}
 
 		transitions
@@ -150,7 +148,7 @@ block introduction(helloAttendees: people, helloReason: string): people
 		    }
 			else
 			{
-				set $helloAttendees[guest][mood] = "Bob;
+				$helloAttendees[guest][mood]?.push("Bob");
 			}
 			
 			#say("libIntroductionHelloTransfer");
