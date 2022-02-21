@@ -26,8 +26,8 @@ block hello(group: people, conversation: discussion): discussion
 		
 		transitions
 		{
-			idle: goto handler on true;
-			helloForce: goto handler;
+			idle: goto talker on true;
+			helloForce: goto talker;
 		}
 	}
 	
@@ -55,11 +55,11 @@ block hello(group: people, conversation: discussion): discussion
 		}
 	}
 	
-	node handler
+	node talker
 	{
 		do
 		{
-			var logNodeNameSub = "handler";
+			var logNodeNameSub = "talker";
 	        #log($logNodeName + " - [" + logNodeNameSub + "] has been executed");
 	        #log($conversation);
 			
@@ -70,20 +70,20 @@ block hello(group: people, conversation: discussion): discussion
 				wait *;
 			}
 	        
-	        goto listen;
+	        goto listener;
 		}
 		
 		transitions
 		{
-			listen: goto handler;
+			listener: goto talker;
 		}
 	}
 	
-	node listen
+	node listener
 	{
 		do
 		{
-			var logNodeNameSub = "listen";
+			var logNodeNameSub = "listener";
 	        #log($logNodeName + " - [" + logNodeNameSub + "] has been executed");
 	        #log($conversation);
 	        
@@ -91,8 +91,8 @@ block hello(group: people, conversation: discussion): discussion
 		}
 		transitions
 		{
-			confusion: goto handler on #messageHasAnyIntent(["questions","confusion"]) priority 5;
-			idle: goto handler on timeout 5000;
+			confusion: goto talker on #messageHasAnyIntent(["questions","confusion"]) priority 5;
+			idle: goto talker on timeout 5000;
 		}
 	}
 }
