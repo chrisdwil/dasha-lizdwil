@@ -6,8 +6,8 @@ block hello(group: people, conversation: discussion): discussion
 	{
 		do
 		{
-			#log($group);
-			#log($conversation);
+			var logNodeName: string = "-- hello: ";
+	        #log(logNodeName + "has been executed");
 		}
 	}
 	
@@ -15,8 +15,8 @@ block hello(group: people, conversation: discussion): discussion
 	{
 		do
 		{
-			var logNodeName: string = "@return";
-	        #log(logNodeName + " has been executed");
+			var logNodeName: string = "-- hello.@return: ";
+	        #log(logNodeName + "has been executed");
 	        
 			return $conversation;
 		}
@@ -27,6 +27,9 @@ block hello(group: people, conversation: discussion): discussion
 		conditions { on true tags: onclosed; }
 		do 
 		{
+			var logNodeName: string = "-- hello.@digReturn: ";
+	        #log(logNodeName + "has been executed");
+	        
 			return $conversation;
 		}
 	}
