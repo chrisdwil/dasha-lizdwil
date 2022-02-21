@@ -101,7 +101,7 @@ block hello(group: people, conversation: discussion): discussion
 						agenda: $conversation["agenda"],
 						request: "transfer",
 						behavior: "neutral",
-						journal: $conversation["journal"]
+						journal: $conversation["journal"].?push(#getMessageText())
 				};
 			}
 		}
