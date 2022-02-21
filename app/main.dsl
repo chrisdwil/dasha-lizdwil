@@ -33,6 +33,7 @@ context {
 				name: "Chris D. Wil",
 				nick: "Chris",
 				discussions: [
+				              {agenda: "", result: { request: "", behavior: "" }}
 				]
 			}
 	};
