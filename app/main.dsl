@@ -21,6 +21,7 @@ context {
 	input phone: string;
 	input forward: string;
 	input reason: string;
+	attendees: people;
 }
 
 start node assist {
