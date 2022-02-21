@@ -16,6 +16,8 @@ type person = {
 
 type people = {
 		primary: person;
+		sidekick: person;
+		incoming: person;
 };
 
 context {
@@ -27,6 +29,20 @@ context {
 			primary: {
 				name: "Chris D. Wil",
 				nick: "Chris",
+				discussions: [
+				              {agenda: "", request: "", behavior: "", journal: []}
+				]
+			},
+			sidekick: {
+				name: "Liz D. Wil",
+				nick: "Lizzz",
+				discussions: [
+				              {agenda: "", request: "", behavior: "", journal: []}
+				]
+			},
+			incoming: {
+				name: "",
+				nick: "",
 				discussions: [
 				              {agenda: "", request: "", behavior: "", journal: []}
 				]
