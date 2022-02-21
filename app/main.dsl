@@ -25,42 +25,44 @@ context {
 	input forward: string;
 	input reason: string;
 
-	attendees: people = {
-			host: { 
-				name: "Chris D. Wil", 
-				nick: "Chris'sz", 
-				said: 
-				{
-					statement: [],
-					request: [],
-					question: [],
-					other: []
-				}
-			},
-			sidekick: 
-			{ 
-				name: "Liz D. Wil", 
-				nick: "Lizzz", 
-				said: 
-				{
-					statement: [],
-					request: [],
-					question: [],
-					other: []
-				}
-			},
-			guest: 
-			{ 
-				name: "", 
-				nick: "", 
-				said: 
-				{
-					statement: [],
-					request: [],
-					question: [],
-					other: []
-				}
+	attendees: people = 
+	{
+		host: { 
+			name: "Chris D. Wil", 
+			nick: "Chris'sz", 
+			said: 
+			{
+				statement: [],
+				request: [],
+				question: [],
+				other: []
 			}
+		},
+		sidekick: 
+		{ 
+			name: "Liz D. Wil", 
+			nick: "Lizzz", 
+			said: 
+			{
+				statement: [],
+				request: [],
+				question: [],
+				other: []
+			}
+		},
+		guest: 
+		{ 
+			name: "", 
+			nick: "", 
+			said: 
+			{
+				statement: [],
+				request: [],
+				question: [],
+				other: []
+			}
+		}
+	}	
 }
 
 start node assist {
