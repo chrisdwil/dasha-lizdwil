@@ -69,12 +69,13 @@ block introduction(helloAttendees: people, helloReason: string): people
 		do
 		{
 			var logNodeName: string = "helloRepeat";
-			var saidStatus = $helloAttendees["guest"]["said"]["status"]?.shift();
-			var saidAsk = $helloAttendees["guest"]["said"]["ask"]?.shift();
-			
+
 			#log(logNodeName + " has been initialized for repeat reason: unknown");
 			#log(logNodeName + " with following attendees:");
-			#log($helloAttendees);
+			#log($helloAttendees);	
+
+			var saidStatus = $helloAttendees["guest"]["said"]["status"]?.pop();
+			var saidAsk = $helloAttendees["guest"]["said"]["ask"]?.pop();
 			
 			if (!$greeted)
 			{
@@ -85,14 +86,14 @@ block introduction(helloAttendees: people, helloReason: string): people
 			
 			if (saidStatus is not null) 
 		    {		
-				if (saidStatus == "idle")
-				{
-					#say("libIntroductionHelloAssist");
-				}
-				
 				if (saidStatus == "confused")
 				{
 					#say("libIntroductionHelloMenu");
+				}
+				
+				if (saidStatus == "idle")
+				{
+					#say("libIntroductionHelloAssist");
 				}
 		    }
 						
@@ -117,26 +118,28 @@ block introduction(helloAttendees: people, helloReason: string): people
 		 
 		transitions
 		{
-			//confusion: goto helloRepeat on #messageHasAnyIntent(["questions","confusion"]) priority 5;
+			confusion: goto helloRepeat on #messageHasAnyIntent(["questions","confusion"]) priority 5;
 			//farewell: goto helloFarewell on #messageHasAnyIntent(["farewell"]) priority 10;
 			idle: goto helloRepeat on timeout 5000;
 			//listen: goto helloListen on true priority 1;
 			transfer: goto helloTransfer on #messageHasAnyIntent(["transfer"]) priority 9;
 		}
-/*		
+
 		onexit
 		{	
 			confusion: do 
 			{
-				//set $helloAttendees["guest"]["mood"] = "confused";
+				$helloAttendees["guest"]["said"]["status"]?.push("confused");
+				$helloAttendees["guest"]["said"]["ask"]?.push("none");	
 			}
 			
 			idle: do
 			{
-				//set $helloAttendees["guest"]["mood"] = "idle";
+				$helloAttendees["guest"]["said"]["status"]?.push("idle");
+				$helloAttendees["guest"]["said"]["ask"]?.push("none");
 			}
 		}
-*/
+
 	}
 	
 	node helloTransfer
@@ -150,9 +153,9 @@ block introduction(helloAttendees: people, helloReason: string): people
  			
 			if (sentenceType is not null)
 		    {
-				$helloAttendees["guest"]["said"][sentenceType]?.unshift(#getMessageText());
-				$helloAttendees["guest"]["said"]["status"]?.unshift("positive");
-				$helloAttendees["guest"]["said"]["ask"]?.unshift("transfer");
+				$helloAttendees["guest"]["said"][sentenceType]?.push(#getMessageText());
+				$helloAttendees["guest"]["said"]["status"]?.push("positive");
+				$helloAttendees["guest"]["said"]["ask"]?.push("transfer");
 		    }
 			#say("libIntroductionHelloTransfer");
 			return $helloAttendees;
