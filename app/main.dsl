@@ -15,8 +15,6 @@ type person = {
 
 type people = {
 		primary: person;
-		sidekick: person;
-		incoming: person;
 };
 
 context {
