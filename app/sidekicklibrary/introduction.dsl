@@ -15,9 +15,7 @@ block introduction(helloAttendees: people, helloReason: string): people
 			#log(logNodeName + " has been initialized for call reason: " + $helloReason);
 			#log(logNodeName + " with following attendees:");
 			#log($helloAttendees);
-			
-			$helloAttendees["guest"]["name"].set("Bob");
-			
+						
 			if ($helloReason == "busy")
 			{
 				#say("libIntroductionHelloUnavailable");
@@ -148,7 +146,7 @@ block introduction(helloAttendees: people, helloReason: string): people
 		    {
 		        $helloAttendees["guest"]["said"][sentenceType]?.push(#getMessageText());
 		    }
-			
+			set testVar = $helloAttendees["guest"]["said"][sentenceType]?.pop();
 			#say("libIntroductionHelloTransfer");
 			return $helloAttendees;
 		}
