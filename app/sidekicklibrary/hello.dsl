@@ -14,16 +14,7 @@ block hello(group: people, conversation: discussion): discussion
 			var logNodeNameSub = "@";
 	        #log($logNodeName + " - [" + logNodeNameSub + "] has been executed");
 	        #log(conversation);
-	        
-	        if ($reason == "busy")
-	        {
-	        	sayText("Hi, it's Lizzz again."); 
-	        	sayText("I'm sorry but it appears Chris is still unavailable");
-	        	sayText("You'll have to try him back later");
-	        	sayText("He does get notes about all the calls I try to transfer");
-	        	exit;
-	        }
-	        
+	        	        
 	        if (#waitForSpeech(5000))
 	        {
 				#say("hello");
