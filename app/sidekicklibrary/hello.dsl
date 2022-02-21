@@ -108,7 +108,7 @@ block hello(group: people, conversation: discussion): discussion
 						request: "transfer",
 						behavior: "neutral",
 						journal: $conversation["journal"]
-				}
+				};
 			}
 		}
 	}
