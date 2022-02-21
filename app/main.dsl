@@ -22,7 +22,7 @@ type people = {
 		primary: person;
 		sidekick: person;
 		incoming: person;
-};*/
+};
 
 context {
 	input phone: string;
@@ -37,7 +37,7 @@ start node assist
 		#log("call information: " + $phone + " " + $forward + " " + $reason + "with following attendees: ");
 		#connectSafe($phone);
 
-		wait *;
+		exit;
 	}
 }
 
