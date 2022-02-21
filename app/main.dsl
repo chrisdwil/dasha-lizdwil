@@ -32,7 +32,13 @@ context {
 			primary: {
 				name: "Chris D. Wil",
 				nick: "Chris",
-				discussions: []
+				discussions: [
+				              agenda: "",
+				              result: {
+				            	  request: "",
+				            	  behavior: ""
+				              }
+				]
 			}
 	};
 }
