@@ -100,8 +100,7 @@ node assistHandler
 				journal: []
 		};
 		
-		set conversation = blockcall hello($attendees, conversation);
-		$attendees["incoming"]["discussions"]?.push(conversation);
+		$attendees["incoming"]["discussions"]?.push(blockcall hello($attendees, conversation));
 		#log("handler");
 		#log($attendees);
 		
