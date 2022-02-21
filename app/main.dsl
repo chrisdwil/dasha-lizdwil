@@ -120,7 +120,7 @@ node assistHandler
     	#log($attendees["sidekick"]);
     	#log($attendees["incoming"]);
 		
-		set conversation = blockcall hello($attendees, conversation));
+		set conversation = blockcall hello($attendees, conversation);
 		#log(conversation);
 		
 		wait *;
