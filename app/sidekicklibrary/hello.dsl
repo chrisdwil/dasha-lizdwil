@@ -9,7 +9,12 @@ block hello(group: people, conversation: discussion): discussion
 			var logNodeName: string = "-- hello: ";
 	        #log(logNodeName + "has been executed");
 	        
-	        exit;
+	        wait *;
+		}
+		
+		transitions
+		{
+			idle: goto @return on timeout 100;
 		}
 	}
 	
