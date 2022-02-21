@@ -85,6 +85,7 @@ digression @digReturn
 		
 		do 
 		{
+	    	#log($attendees);
 			exit;
 		}
 }
