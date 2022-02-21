@@ -32,7 +32,9 @@ context {
 			primary: {
 				name: "Chris D. Wil",
 				nick: "Chris",
-				discussions: [{}]
+				discussions: [
+				              {agenda: "", {request: "", behavior: ""}}
+				]
 			}
 	};
 }
