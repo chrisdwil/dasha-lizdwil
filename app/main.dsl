@@ -74,7 +74,7 @@ node @exit
     }
 }
 
-digression digReturn
+digression @digReturn
 {
 		conditions
 		{ 
