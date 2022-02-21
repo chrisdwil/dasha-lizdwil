@@ -12,7 +12,7 @@ block introduction(helloAttendees: people, helloReason: string): people
 		do 
 		{
 			var logNodeName: string = "hello";
-			#log(logNodeName + " has been initialized for reason: " + $helloReason);
+			#log(logNodeName + " has been initialized for call reason: " + $helloReason);
 			#log(logNodeName + " with following attendees:");
 			#log($helloAttendees);
 			
@@ -50,7 +50,7 @@ block introduction(helloAttendees: people, helloReason: string): people
 		do
 		{
 			var logNodeName: string = "@return";
-	        #log(logNodeName + " has been initialized");
+	        #log(logNodeName + " has been executed");
 	        
 			return $helloAttendees;
 		}
@@ -71,7 +71,9 @@ block introduction(helloAttendees: people, helloReason: string): people
 		do
 		{
 			var logNodeName: string = "helloRepeat";
-			#log(logNodeName + " has been initialized");
+			#log(logNodeName + " has been initialized for repeat reason: unknown");
+			#log(logNodeName + " with following attendees:");
+			#log($helloAttendees);
 	        
 			var sentenceType = #getSentenceType(); 
 
@@ -130,12 +132,12 @@ block introduction(helloAttendees: people, helloReason: string): people
 		{	
 			confusion: do 
 			{
-			//	set $attendeelist[2].mood = "confused";
+				set $helloAttendee["guest"]["mood"] = "confused";
 			}
 			
 			idle: do
 			{
-			//	set $attendeelist[2].mood = "idle";
+				set $helloAttendee["guest"]["mood"] = "idle";
 
 			}
 		}

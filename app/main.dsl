@@ -11,7 +11,9 @@ type recognitions = {
 type human = {
 	name: string;
 	nick: string;
-	said: recognitions; 
+	mood: string; // positive, negative, idle, confused
+	ask: string; // transfer, farewell
+	said: recognitions;
 };
 
 type people = {
@@ -30,6 +32,8 @@ context {
 		host: { 
 			name: "Chris D. Wil", 
 			nick: "Chris'sz", 
+			mood: "positive",
+			ask: "none",
 			said: 
 			{
 				statement: [],
@@ -42,6 +46,8 @@ context {
 		{ 
 			name: "Liz D. Wil", 
 			nick: "Lizzz", 
+			mood: "positive",
+			ask: "none",
 			said: 
 			{
 				statement: [],
@@ -54,6 +60,8 @@ context {
 		{ 
 			name: "", 
 			nick: "", 
+			mood: "positive",
+			ask: "none",
 			said: 
 			{
 				statement: [],
