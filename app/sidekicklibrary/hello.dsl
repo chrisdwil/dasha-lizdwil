@@ -91,11 +91,12 @@ block hello(group: people, conversation: discussion): discussion
 	        
 	        wait *;
 		}
+		
 		transitions
 		{
 			confusion: goto talk on #messageHasAnyIntent(["questions","confusion"]) priority 5;
 			idle: goto talk on timeout 5000;
-			transfer: goto return on #messageHasAnyIntent(["transfer"]) priority 9;
+			transfer: goto @return on #messageHasAnyIntent(["transfer"]) priority 9;
 		}
 		
 		onexit 
