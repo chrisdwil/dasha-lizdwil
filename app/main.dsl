@@ -39,7 +39,7 @@ start node assist
 	
 	transitions
 	{
-		idle: goto assistHandler on true;
+		idle: goto assistHandler on timeout 1000;
 	}
 }
 
