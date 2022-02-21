@@ -6,9 +6,9 @@ type human = {
 };
 
 type people = {
-	hosts: human;
+	host: human;
 	siekick: human;
-	guests: human;
+	guest: human;
 };
 
 context {
@@ -59,7 +59,7 @@ node assistGreetAttempt {
 	{
 		var logNodeName: string = "assistGreetAttempt";
 		var attendees: people = {
-				hosts: { name: "Chris D. Wil" }, 
+				host: { name: "Chris D. Wil" }, 
 				sidekick: { name: "Liz D. Wil" },
 				guest: { name: "" }
 		};
