@@ -1,6 +1,6 @@
 library
 
-block introduction(attendeelist: human[], reason: string): human[]
+block introduction(attendees: people[], reason: string): people[]
 {	
 	context
 	{
@@ -26,6 +26,8 @@ block introduction(attendeelist: human[], reason: string): human[]
 		{
 			var logNodeName: string = "hello";
 			#log(logNodeName + " has been initialized for reason: " + $reason);
+			#log(logNodeName + " with following attendees:");
+			#log($attendees);
 			
 			if ($reason == "busy")
 			{
@@ -73,7 +75,8 @@ block introduction(attendeelist: human[], reason: string): human[]
 			exit;
 		}
 	}
-	
+
+	/*
 	node helloRepeat
 	{
 		do
@@ -97,7 +100,6 @@ block introduction(attendeelist: human[], reason: string): human[]
 				#say("libIntroductionHelloAssist");
 			}
 			
-			/*
 			{
 				#say("libIntroductionHelloAssist");
 			}
@@ -106,7 +108,7 @@ block introduction(attendeelist: human[], reason: string): human[]
 			{
 				#say("libIntroductionHelloMenu");
 			}
-			*/
+
 			goto farewell;
 			goto listen;
 		}
@@ -180,3 +182,5 @@ block introduction(attendeelist: human[], reason: string): human[]
 		}
 	}
 }
+*/
+

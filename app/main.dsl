@@ -23,17 +23,16 @@ context {
 start node assist {
 	do
 	{	
-		#log("call information: " + $phone + " " + $forward + " " + $reason);
+		#log("call information: " + $phone + " " + $forward + " " + $reason + "with following attendees: ");
+		#log($attendees);
 		#connectSafe($phone);
 
-		#log($attendees);
-		exit;
 		wait *;
 	}
 
 	transitions
 	{
-		//idle: goto assistGreetAttempt on timeout 300;
+		idle: goto assistGreetAttempt on timeout 300;
 	}
 }
 
@@ -58,14 +57,13 @@ digression @exit_dig
 			exit;
 		}
 }
-/*
+
 node assistGreetAttempt {
 	do
 	{
 		var logNodeName: string = "assistGreetAttempt";
 		
 		set $attendees = blockcall introduction($attendees, $reason);
-		#log($attendees);
 		
 		if ($reason != "busy")
 		{	
@@ -79,4 +77,4 @@ node assistGreetAttempt {
 		greetAttemptIdle: goto assistGreetAttempt on timeout 10000;
 	}
 }
-*/
+
