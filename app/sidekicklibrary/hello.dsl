@@ -97,12 +97,9 @@ block hello(group: people, conversation: discussion): discussion
 		{			
 			transfer: do
 			{
-				set $conversation = {
-						agenda: $conversation["agenda"],
-						request: "transfer",
-						behavior: "neutral",
-						journal: $conversation["journal"].?push(#getMessageText())
-				};
+				set $conversation["request"] = "transfer";
+				set $conversation["behavior"] = "neutral";
+				$conversation["journal"].push(#getMessageText());
 			}
 		}
 	}
