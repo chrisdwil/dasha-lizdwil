@@ -100,7 +100,7 @@ node assistHandler
 				journal: []
 		};
 		
-		set $conversation = blockcall($attendees, $conversation);
+		set $conversation = blockcall hello($attendees, $conversation);
 		#log("handler");
 		
 		wait *;
