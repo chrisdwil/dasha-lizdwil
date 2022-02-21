@@ -132,7 +132,7 @@ block introduction(helloAttendees: people, helloReason: string): people
 		{	
 			confusion: do 
 			{
-				set = $helloAttendees["guest"]["mood"] = "confused";
+				set $helloAttendees["guest"]["mood"] = "confused";
 			}
 			
 			idle: do
