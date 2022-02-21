@@ -54,7 +54,6 @@ start node assist
 {
 	do
 	{	
-		#log("call information: " + $phone + " " + $forward + " " + $reason + "with following attendees: ");
 		#connectSafe($phone);
 		
 		wait *;
@@ -73,10 +72,9 @@ node @exit
 
         exit;
     }
-
 }
 
-digression @exit_dig
+digression digReturn
 {
 		conditions
 		{ 
