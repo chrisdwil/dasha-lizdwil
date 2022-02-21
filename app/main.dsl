@@ -1,14 +1,10 @@
 // Liz D. Wil 
 //import "sidekicklibrary/all.dsl";
 
-type interpretation = {
-		request: string; // examples: transfer, message, farewell, unknown
-		behavior: string; // examples: positive, negative, idle, confused
-};
-
 type discussion = {
 		agenda: string;
-		result: interpretation;
+		request: string; // examples: transfer, message, farewell, unknown
+		behavior: string; // examples: positive, negative, idle, confused
 };
 
 type person = {
@@ -33,7 +29,7 @@ context {
 				name: "Chris D. Wil",
 				nick: "Chris",
 				discussions: [
-				              {agenda: "", {request: "", behavior: ""}}
+				              {agenda: "", request: "", behavior: ""}
 				]
 			}
 	};
