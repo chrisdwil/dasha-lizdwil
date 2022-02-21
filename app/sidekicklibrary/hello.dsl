@@ -2,19 +2,23 @@ library
 
 block hello(group: people, conversation: discussion): discussion
 {	
+	context {
+		logNodeName: string = "[hello]";
+	}
+	
 	start node hello
 	{
 		do
 		{
-			var logNodeName: string = "-- hello: ";
-	        #log(logNodeName + "has been executed");
+			var logNodeNameSub = "@"
+	        #log($logNodeName + "[" + logNodeNameSub + "]" + "has been executed");
 	        
 	        wait *;
 		}
 		
 		transitions
 		{
-			idle: goto return on timeout 100;
+			idle: goto @return on timeout 100;
 		}
 	}
 	
@@ -22,8 +26,9 @@ block hello(group: people, conversation: discussion): discussion
 	{
 		do
 		{
-			var logNodeName: string = "-- hello.@return: ";
-	        #log(logNodeName + "has been executed");
+			var logNodeNameSub = "@return"
+	        #log($logNodeName + "[" + logNodeNameSub + "]" + "has been executed");
+	        
 	        
 			return $conversation;
 		}
@@ -34,8 +39,8 @@ block hello(group: people, conversation: discussion): discussion
 		conditions { on true tags: onclosed; }
 		do 
 		{
-			var logNodeName: string = "-- hello.@digReturn: ";
-	        #log(logNodeName + "has been executed");
+			var logNodeNameSub = "@digReturn"
+	        #log($logNodeName + "[" + logNodeNameSub + "]" + "has been executed");
 	        
 			return $conversation;
 		}
