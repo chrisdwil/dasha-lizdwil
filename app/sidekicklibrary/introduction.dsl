@@ -78,10 +78,9 @@ block introduction(helloAttendees: people, helloReason: string): people
 	        if (sentenceType is not null)
 	        {
 	            $helloAttendees["guest"]["said"][sentenceType]?.push(#getMessageText());
-		        #log($recognitions);
 	        }
 						
-			if (!$greeted) 
+			if (!$greeted)
 			{
 				set $greeted = true;
 				#say("libIntroductionHello");
