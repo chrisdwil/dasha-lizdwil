@@ -2,8 +2,7 @@
 //import "sidekicklibrary/all.dsl";
 
 type human = {
-	name: string?;
-	nick: string?;
+	name: string;
 };
 
 type people = {
@@ -15,7 +14,7 @@ context {
 	input forward: string;
 	input reason: string;
 	attendees: people = {
-			host: { }
+			host: { name: "Chris D. Wil" }
 	};
 }
 
