@@ -93,7 +93,16 @@ node assistHandler
 {
 	do
 	{
+		var conversation: discussion = {
+				agenda: "hello",
+				request: "", 
+				behavior: "",
+				journal: []
+		};
+		
+		set $conversation = blockcall($attendees, $)
 		#log("handler");
+		
 		wait *;
 	}
 	
