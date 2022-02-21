@@ -14,7 +14,7 @@ type human = {
 type people = {
 	host: human;
 	sidekick: human;
-	guests: guests[];
+	guests: human[];
 };
 
 context {
