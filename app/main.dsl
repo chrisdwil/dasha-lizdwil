@@ -126,10 +126,8 @@ node handler
 		if ($reason != "busy")
 		{
 			#forward($forward);
-			//exit; for later
-		}
-		
-		exit;
+			exit; for later
+		}	
 	}
 	
 	transitions 
