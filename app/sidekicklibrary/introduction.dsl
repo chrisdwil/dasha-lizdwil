@@ -181,6 +181,7 @@ block introduction(attendees: people[], reason: string): people[]
 			return $attendeelist;
 		}
 	}
+	*/
 }
-*/
+
 
