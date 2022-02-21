@@ -15,6 +15,12 @@ context {
 	input phone: string;
 	input forward: string;
 	input reason: string;
+
+	attendees: people = {
+			host: { name: "Chris D. Wil" }, 
+			sidekick: { name: "Liz D. Wil" },
+			guest: { name: "" }
+	};
 }
 
 start node assist {
@@ -58,11 +64,6 @@ node assistGreetAttempt {
 	do
 	{
 		var logNodeName: string = "assistGreetAttempt";
-		var attendees: people = {
-				host: { name: "Chris D. Wil" }, 
-				sidekick: { name: "Liz D. Wil" },
-				guest: { name: "" }
-		};
 		
 		set attendees = blockcall introduction(attendees, $reason);
 		
