@@ -57,12 +57,12 @@ start node assist
 		#log("call information: " + $phone + " " + $forward + " " + $reason + "with following attendees: ");
 		#connectSafe($phone);
 		
-		goto hello; 
+		wait *; 
 	}
 	
 	transitions
 	{
-		hello: goto assistHandler on true;
+		idle: goto assistHandler on timeout 300;
 	}
 }
 
