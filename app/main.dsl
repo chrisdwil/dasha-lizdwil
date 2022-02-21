@@ -34,12 +34,12 @@ start node assist
 	{	
 		#connectSafe($phone);
 		
-		wait *;
+		goto idle;
 	}
 	
 	transitions
 	{
-		idle: goto assistHandler on timeout 300;
+		idle: goto assistHandler on true;
 	}
 }
 
