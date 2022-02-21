@@ -24,7 +24,6 @@ context {
 
 	attendees: human[] = 
 		[
-		{
 		host: 
 		[{ 	
 			role: "host",
@@ -35,7 +34,6 @@ context {
 			mood: "positive",
 			request: "none"
 		}]
-		}
 		];
 }
 
