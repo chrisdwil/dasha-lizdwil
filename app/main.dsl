@@ -69,7 +69,6 @@ node assistHandler
 {
 	do
 	{
-		#log("repeat");
 		
 		wait *;
 	}
