@@ -97,8 +97,6 @@ block hello(group: people, conversation: discussion): discussion
 		{			
 			transfer: do
 			{
-				set $conversation["request"] = "transfer";
-				set $conversation["behavior"] = "neutral";
 			}
 		}
 	}
