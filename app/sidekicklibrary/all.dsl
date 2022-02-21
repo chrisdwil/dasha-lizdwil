@@ -1,2 +1,3 @@
 library
 
+import "hello.dsl";
