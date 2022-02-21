@@ -1,3 +1,3 @@
 library
 
-//import "hello.dsl";
+import "hello.dsl";
