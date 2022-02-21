@@ -6,18 +6,15 @@ type human = {
 };
 
 type people = {
-	hosts: human[];
-	guests: human[];
+	hosts: human;
+	siekick: human;
+	guests: human;
 };
 
 context {
 	input phone: string;
 	input forward: string;
 	input reason: string;
-	attendees: people = {
-			hosts: [{ name: "Chris D. Wil" }, { name: "Liz D. Wil" }],
-			guests: [{ name: "" }]
-	};
 }
 
 start node assist {
@@ -62,9 +59,11 @@ node assistGreetAttempt {
 	{
 		var logNodeName: string = "assistGreetAttempt";
 		var attendees: people = {
-				hosts: [{ name: "Chris D. Wil" }, { name: "Liz D. Wil" }],
-				guests: [{ name: "" }]
+				hosts: { name: "Chris D. Wil" }, 
+				sidekick: { name: "Liz D. Wil" }],
+				guest: { name: "" }
 		};
+		
 		blockcall introduction(attendees, $reason);
 		
 		if ($reason != "busy")
