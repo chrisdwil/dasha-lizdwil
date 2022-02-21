@@ -14,6 +14,7 @@ block hello(group: people, conversation: discussion): discussion
 	        #log($logNodeName + " - [" + logNodeNameSub + "]" + "has been executed");
 	        
 	        set $conversation = {
+	        		agenda: "agenda",
 	        		request: "transfer",
 	        		behavior: "positive",
 	        		journal: ["hi", "i did a thing"]
