@@ -10,12 +10,12 @@ type notes = {
 		text: string;
 };
 
-/*
 type result = {
 		name: string;
 		data: string;
 };
 
+/*
 type constraints = {
 		cycles: number;
 		timeout: number;	
