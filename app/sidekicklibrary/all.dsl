@@ -1,3 +1,3 @@
 library
 
-import "sidekicklibrary/_types.dsl";
+import "_types.dsl";
