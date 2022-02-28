@@ -17,8 +17,8 @@ type result = {
 
 
 type restrictions = {
-		count: number;
-		timeout: number;	
+		count: string;
+		timeout: string;	
 };
 
 type interaction = {
