@@ -15,11 +15,12 @@ type result = {
 		data: string;
 };
 
-
-type restrictions = {
+/*
+type restriction = {
 		count: string;
 		timeout: string;	
 };
+*/
 
 type interaction = {
 		name: string;
