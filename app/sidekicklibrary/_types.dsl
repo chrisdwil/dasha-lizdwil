@@ -1,12 +1,10 @@
-library
-
-global type person = {
+type person = {
 		name: string;
 		nick: string;
 		phonetic: string;
 };
 
-global type notes = {
+type notes = {
 		text: string;
 };
 
