@@ -15,13 +15,11 @@ type result = {
 		data: string;
 };
 
-/*
+
 type constraints = {
 		cycles: number;
 		timeout: number;	
 };
-
-*/
 
 type interaction = {
 		name: string;
