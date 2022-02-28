@@ -1,3 +1,5 @@
+library
+
 type talker = {
 		name: string;
 		nick: string;
@@ -36,5 +38,3 @@ type interaction = {
 		results: result[];
 		*/
 };
-
-library
