@@ -1,6 +1,8 @@
 library
 
-block hello(group: people, conversation: discussion): discussion
+import "_types.dsl"
+
+block hello(interaction: thread): thread
 {	
 	context {
 		logNodeName: string = "[hello]";
@@ -41,7 +43,7 @@ block hello(group: people, conversation: discussion): discussion
 			var logNodeNameSub = "@return";
 	        #log($logNodeName + " - [" + logNodeNameSub + "] has been executed");
 	        
-			return $conversation;
+			return $interaction;
 		}
 	}
 	
@@ -53,7 +55,7 @@ block hello(group: people, conversation: discussion): discussion
 			var logNodeNameSub = "@digReturn";
 	        #log($logNodeName + " - [" + logNodeNameSub + "] has been executed");
 	        
-			return $conversation;
+			return $interaction;
 		}
 	}
 	
@@ -63,7 +65,6 @@ block hello(group: people, conversation: discussion): discussion
 		{
 			var logNodeNameSub = "talk";
 	        #log($logNodeName + " - [" + logNodeNameSub + "] has been executed");
-	        #log($conversation);
 	        
 	        goto listen;
 		}
@@ -80,7 +81,6 @@ block hello(group: people, conversation: discussion): discussion
 		{
 			var logNodeNameSub = "listen";
 	        #log($logNodeName + " - [" + logNodeNameSub + "] has been executed");
-	        #log($conversation);
 	        
 	        wait *;
 		}
