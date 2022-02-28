@@ -1,6 +1,7 @@
 // Liz D. Wil 
-import "sidekicklibrary/_types.dsl";
 import "sidekicklibrary/all.dsl";
+
+import "sidekicklibrary/_types.dsl";
 
 context {
 	input phone: string;

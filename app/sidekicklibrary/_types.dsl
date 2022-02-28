@@ -1,5 +1,3 @@
-library
-
 type person = {
 		name: string;
 		nick: string;
