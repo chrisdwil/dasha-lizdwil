@@ -1,7 +1,7 @@
 // Liz D. Wil 
 import "sidekicklibrary/all.dsl";
 
-/*
+
 context {
 	input phone: string;
 	input forward: string;
@@ -9,6 +9,7 @@ context {
 	
 	logNodeName: string = "[main]";
 }
+/*
 
 start node main 
 {
