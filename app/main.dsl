@@ -1,7 +1,6 @@
 // Liz D. Wil 
 import "sidekicklibrary/all.dsl";
 
-
 context {
 	input phone: string;
 	input forward: string;

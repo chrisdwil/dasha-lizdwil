@@ -6,7 +6,7 @@ global type person = {
 		phonetic: string;
 };
 
-type notes = {
+global type notes = {
 		text: string;
 };
 
