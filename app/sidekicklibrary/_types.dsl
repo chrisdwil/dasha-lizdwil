@@ -1,8 +1,10 @@
-type person = {
+type talker = {
 		name: string;
 		nick: string;
 		phonetic: string;
 };
+
+/*
 
 type notes = {
 		text: string;
@@ -18,15 +20,19 @@ type constraints = {
 		timeout: number;	
 };
 
+*/
+
 type interaction = {
 		name: string;
 		agenda: string;
 		request: string; // examples: transfer, message, farewell, unknown
 		behavior: string; // examples: positive, neutral, negative, idle, confused
 		// all people in discussion
-		host: person; 
-		sidekick: person;
-		guest: person;
+		host: talker; 
+		sidekick: talker;
+		guest: talker;
+		/*
 		journal: notes[];
 		results: result[];
+		*/
 };
