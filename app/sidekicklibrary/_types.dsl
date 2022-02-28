@@ -16,8 +16,8 @@ type result = {
 };
 
 
-type constraints = {
-		cycles: number;
+type restrictions = {
+		count: number;
 		timeout: number;	
 };
 
