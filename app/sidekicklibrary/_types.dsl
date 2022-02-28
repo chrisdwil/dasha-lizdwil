@@ -29,8 +29,7 @@ type interaction = {
 		host: talker; 
 		sidekick: talker;
 		guest: talker;
-		/*
+		
 		journal: notes[];
 		results: result[];
-		*/
 };
