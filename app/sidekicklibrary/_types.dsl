@@ -1,10 +1,7 @@
-library
-
 type person = {
 		name: string;
 		nick: string;
 		phonetic: string;
-		role: string;
 };
 
 type notes = {
@@ -27,7 +24,10 @@ type interaction = {
 		agenda: string;
 		request: string; // examples: transfer, message, farewell, unknown
 		behavior: string; // examples: positive, neutral, negative, idle, confused
-		people: person[]; // all people in discussion
+		// all people in discussion
+		host: person; 
+		sidekick: person;
+		guest: person;
 		journal: notes[];
 		results: result[];
 };
