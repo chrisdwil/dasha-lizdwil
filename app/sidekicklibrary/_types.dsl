@@ -15,8 +15,7 @@ type result = {
 
 constraints = {
 		cycles: number;
-		timeout: number;
-		
+		timeout: number;	
 }
 
 type interaction = {
