@@ -1,4 +1,5 @@
 // Liz D. Wil 
+import "sidekicklibrary/_types.dsl";
 import "sidekicklibrary/all.dsl";
 
 context {
