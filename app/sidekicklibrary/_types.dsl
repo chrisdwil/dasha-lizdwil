@@ -6,12 +6,11 @@ type talker = {
 		phonetic: string;
 };
 
-/*
-
 type notes = {
 		text: string;
 };
 
+/*
 type result = {
 		name: string;
 		data: string;
