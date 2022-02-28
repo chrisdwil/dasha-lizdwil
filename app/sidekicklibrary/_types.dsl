@@ -11,12 +11,12 @@ type notes = {
 type result = {
 		name: string;
 		data: string;
-}
+};
 
-constraints = {
+type constraints = {
 		cycles: number;
 		timeout: number;	
-}
+};
 
 type interaction = {
 		name: string;
