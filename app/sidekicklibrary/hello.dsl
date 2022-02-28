@@ -2,7 +2,7 @@ library
 
 import "_types.dsl"
 
-block hello(interaction: thread): thread
+block hello(interaction: thread): interaction
 {	
 	context {
 		logNodeName: string = "[hello]";
