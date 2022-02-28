@@ -36,3 +36,5 @@ type interaction = {
 		results: result[];
 		*/
 };
+
+library
