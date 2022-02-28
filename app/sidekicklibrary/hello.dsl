@@ -1,6 +1,6 @@
 library
 
-import "_types.dsl"
+import "_types.dsl";
 
 block hello(interaction: thread): interaction
 {	
