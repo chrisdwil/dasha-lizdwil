@@ -9,12 +9,17 @@ context {
 	
 	logNodeName: string = "[main]";
 }
-/*
+
 
 start node main 
 {
 	do
 	{	
+		exit;
+	}
+}
+
+/*
 		var logNodeNameSub = "@";
         #log($logNodeName + " - [" + logNodeNameSub + "] has been executed");
 		#connectSafe($phone);
