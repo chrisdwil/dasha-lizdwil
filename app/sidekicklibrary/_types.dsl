@@ -1,6 +1,6 @@
 library
 
-type person = {
+global type person = {
 		name: string;
 		nick: string;
 		phonetic: string;
