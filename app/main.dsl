@@ -1,12 +1,11 @@
 // Liz D. Wil 
 import "sidekicklibrary/all.dsl";
-		
+import "sidekicklibrary/_types.dsl";	
+
 context {
 	input phone: string;
 	input forward: string;
 	input reason: string;
-	
-	
 	
 	logNodeName: string = "[main]";
 }
