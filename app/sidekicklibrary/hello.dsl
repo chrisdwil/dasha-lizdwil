@@ -3,7 +3,7 @@ library
 block hello(interaction: thread): interaction
 {	
 	context {
-		logNodeName: string = "[hello]";
+		localAgenda: string = "hello";
 		interactionExecuted: boolean = false;
 	}
 	
@@ -11,9 +11,8 @@ block hello(interaction: thread): interaction
 	{
 		do
 		{
-			var logNodeNameSub = "@";
-	        #log($logNodeName + " - [" + logNodeNameSub + "] has been executed");
-	        #log($conversation);
+			var localFunctionName = "@";
+	        #log("[" + $localAgenda "] - [" + $localFunctionName + "] has been executed");
 	        
 	        // go to talk 
 		}
@@ -23,8 +22,8 @@ block hello(interaction: thread): interaction
 	{
 		do
 		{
-			var logNodeNameSub = "@return";
-	        #log($logNodeName + " - [" + logNodeNameSub + "] has been executed");
+			var localFunctionName = "@return";
+	        #log("[" + $localAgenda "] - [" + $localFunctionName + "] has been executed");
 	        
 			return $interaction;
 		}
@@ -35,8 +34,8 @@ block hello(interaction: thread): interaction
 		conditions { on true tags: onclosed; }
 		do 
 		{
-			var logNodeNameSub = "@digReturn";
-	        #log($logNodeName + " - [" + logNodeNameSub + "] has been executed");
+			var localFunctionName = "@digReturn";
+	        #log("[" + $localAgenda "] - [" + $localFunctionName + "] has been executed");
 	        
 			return $interaction;
 		}
@@ -46,8 +45,8 @@ block hello(interaction: thread): interaction
 	{
 		do
 		{
-			var logNodeNameSub = "talk";
-	        #log($logNodeName + " - [" + logNodeNameSub + "] has been executed");
+			var localFunctionName = "talk";
+	        #log("[" + $localAgenda "] - [" + $localFunctionName + "] has been executed");
 	        
 	        goto listen;
 		}
@@ -62,8 +61,8 @@ block hello(interaction: thread): interaction
 	{
 		do
 		{
-			var logNodeNameSub = "listen";
-	        #log($logNodeName + " - [" + logNodeNameSub + "] has been executed");
+			var localFunctionName = "listen";
+	        #log("[" + $localAgenda "] - [" + $localFunctionName + "] has been executed");
 	        
 	        wait *;
 		}
@@ -73,10 +72,6 @@ block hello(interaction: thread): interaction
 			confusion: goto talk on #messageHasAnyIntent(["questions","confusion"]) priority 5;
 			idle: goto talk on timeout 5000;
 			listen: goto listen on true priority 1;
-		}
-		
-		onexit 
-		{			
 		}
 	}
 }
