@@ -12,7 +12,7 @@ block hello(interaction: thread, restrictions: concerns): interaction
 		do
 		{
 			var localFunctionName = "@";
-	        #log("[" + $localAgenda "] - [" + $localFunctionName + "] has been executed");
+	        #log("[" + $localAgenda + "] - [" + $localFunctionName + "] has been executed");
 	        
 	        // go to talk 
 		}
