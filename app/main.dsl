@@ -62,7 +62,7 @@ node handler
 	do
 	{
 		var logNodeNameSub = "handler";
-        var phonecallResult: interaction;
+        var phonecallResult: interaction?;
 		#log($logNodeName + " - [" + logNodeNameSub + "] has been executed");
         
 		set helloResult = blockcall hello(helloResult);
