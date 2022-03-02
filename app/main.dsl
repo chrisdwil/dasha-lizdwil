@@ -8,12 +8,8 @@ context {
 	
 	logNodeName: string = "[main]";
 	
-	phonecall[]: interaction = {
-			name: "";
-			agenda: "";
-			request: "";
-			behavior: "";
-			}
+	phonecall[]: interaction;
+	
 	}
 }
 
