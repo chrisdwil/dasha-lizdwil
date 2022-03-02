@@ -7,6 +7,14 @@ context {
 	input reason: string;
 	
 	logNodeName: string = "[main]";
+	
+	phonecall[]: interaction = {
+			name: "";
+			agenda: "";
+			request: "";
+			behavior: "";
+			}
+	}
 }
 
 
@@ -61,8 +69,8 @@ node handler
 	{
 		var logNodeNameSub = "handler";
         #log($logNodeName + " - [" + logNodeNameSub + "] has been executed");
-		
-		blockcall hello($attendees, conversation);
+        
+		blockcall hello($phonecall);
 		
 		if ($reason != "busy")
 		{
