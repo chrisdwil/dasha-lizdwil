@@ -1,37 +1,37 @@
 library
 
 type talker = {
-		name: string;
-		nick: string;
-		phonetic: string;
+		name: string?;
+		nick: string?;
+		phonetic: string?;
 };
 
 type notes = {
-		text: string;
+		text: string?;
 };
 
 type result = {
-		name: string;
-		data: string;
+		name: string?;
+		data: string?;
 };
 
 type concerns = {
-		cycles: string;
-		idle: string;	
+		cycles: string?;
+		idle: string?;	
 };
 
 type interaction = {
-		name: string;
-		agenda: string;
-		request: string; // examples: transfer, message, farewell, unknown
-		behavior: string; // examples: positive, neutral, negative, idle, confused
-		phrase: string;
+		name: string?;
+		agenda: string?;
+		request: string?; // examples: transfer, message, farewell, unknown
+		behavior: string?; // examples: positive, neutral, negative, idle, confused
+		phrase: string?;
 		
 		// all people in discussion
-		host: talker; 
-		sidekick: talker;
-		guest: talker;
+		host: talker?; 
+		sidekick: talker?;
+		guest: talker?;
 		
-		journal: notes[];
-		results: result[];
+		journal: notes[]?;
+		results: result[]?;
 };
