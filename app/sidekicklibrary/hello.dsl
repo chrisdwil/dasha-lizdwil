@@ -14,7 +14,7 @@ block hello(discussion: interaction?): interaction //, restrictions: concerns): 
 			var localFunctionName = "@";
 	        #log("[" + $localName + "] - [" + localFunctionName + "] has been executed");
 	        
-	        $discussion.request = "transfer";
+	        set $discussion.request = "transfer";
 	        return $discussion;
 	        // go to talk 
 		}
