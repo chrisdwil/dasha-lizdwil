@@ -77,7 +77,7 @@ node handler
         
         set phonecallResult = blockcall hello(phonecallResult);
         
-        #log($discussion);
+        #log(phonecallResult);
         
 		if ($reason != "busy")
 		{

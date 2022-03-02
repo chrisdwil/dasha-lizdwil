@@ -3,7 +3,7 @@ library
 block hello(discussion: interaction?): interaction //, restrictions: concerns): interaction
 {	
 	context {
-		localDiscussion: interaction? = $discussion;
+		//localDiscussion: interaction? = $discussion;
 		localName:string = "hello";
 		interactionExecuted: boolean = false;
 	}
@@ -15,7 +15,7 @@ block hello(discussion: interaction?): interaction //, restrictions: concerns): 
 			var localFunctionName = "@";
 	        #log("[" + $localName + "] - [" + localFunctionName + "] has been executed");
 	        
-	        set $localDiscussion.request = "transfer";
+	        set $discussion.request = "transfer";
 	        return $discussion;
 	        // go to talk 
 		}
