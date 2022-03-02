@@ -54,11 +54,16 @@ digression @digReturn
 		}
 }
 
-/*
+
 node handler
 {
 	do
 	{
+		exit;
+	}
+}
+		
+/*
 		var logNodeNameSub = "handler";
         #log($logNodeName + " - [" + logNodeNameSub + "] has been executed");
 		
