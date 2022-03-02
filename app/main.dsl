@@ -75,6 +75,8 @@ node handler
         		results: null
         };
         
+        set phonecallResult = blockcall hello(phonecallResult);
+        
 		if ($reason != "busy")
 		{
 			#forward($forward);
