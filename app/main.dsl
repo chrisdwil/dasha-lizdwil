@@ -77,6 +77,8 @@ node handler
         
         set phonecallResult = blockcall hello(phonecallResult);
         
+        #log($discussion);
+        
 		if ($reason != "busy")
 		{
 			#forward($forward);
