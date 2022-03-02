@@ -3,7 +3,7 @@ library
 block hello(discussion: interaction?): interaction //, restrictions: concerns): interaction
 {	
 	context {
-		localAgenda: string = $discussion.name;
+		localName: string = $discussion.name;
 		interactionExecuted: boolean = false;
 	}
 	
@@ -12,7 +12,7 @@ block hello(discussion: interaction?): interaction //, restrictions: concerns): 
 		do
 		{
 			var localFunctionName = "@";
-	        #log("[" + $localAgenda + "] - [" + $localFunctionName + "] has been executed");
+	        #log("[" + $localName + "] - [" + $localFunctionName + "] has been executed");
 	        
 	        // go to talk 
 		}
@@ -23,7 +23,7 @@ block hello(discussion: interaction?): interaction //, restrictions: concerns): 
 		do
 		{
 			var localFunctionName = "@return";
-	        #log("[" + $localAgenda + "] - [" + $localFunctionName + "] has been executed");
+	        #log("[" + $localName + "] - [" + $localFunctionName + "] has been executed");
 	        
 			return $interaction;
 		}
@@ -35,7 +35,7 @@ block hello(discussion: interaction?): interaction //, restrictions: concerns): 
 		do 
 		{
 			var localFunctionName = "@digReturn";
-	        #log("[" + $localAgenda + "] - [" + $localFunctionName + "] has been executed");
+	        #log("[" + $localName + "] - [" + $localFunctionName + "] has been executed");
 	        
 			return $interaction;
 		}
@@ -46,7 +46,7 @@ block hello(discussion: interaction?): interaction //, restrictions: concerns): 
 		do
 		{
 			var localFunctionName = "talk";
-	        #log("[" + $localAgenda + "] - [" + $localFunctionName + "] has been executed");
+	        #log("[" + $localName + "] - [" + $localFunctionName + "] has been executed");
 	        
 	        goto listen;
 		}
@@ -62,7 +62,7 @@ block hello(discussion: interaction?): interaction //, restrictions: concerns): 
 		do
 		{
 			var localFunctionName = "listen";
-	        #log("[" + $localAgenda + "] - [" + $localFunctionName + "] has been executed");
+	        #log("[" + $localName + "] - [" + $localFunctionName + "] has been executed");
 	        
 	        wait *;
 		}
