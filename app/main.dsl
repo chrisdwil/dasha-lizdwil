@@ -66,7 +66,7 @@ node handler
 		
         var phonecallInit: interaction = {
         		name: "hello",
-        		agenda: "confirm caller exists";
+        		agenda: "confirm caller exists"
         };
         
 		if ($reason != "busy")
