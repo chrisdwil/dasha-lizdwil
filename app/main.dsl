@@ -2,9 +2,9 @@
 import "sidekicklibrary/all.dsl";
 
 context {
-	input phone: string;
-	input forward: string;
-	input reason: string;
+	input phone: string?;
+	input forward: string?;
+	input reason: string?;
 	
 	logNodeName: string = "[main]";
 	
@@ -64,10 +64,12 @@ node handler
 		var logNodeNameSub = "handler";
 		#log($logNodeName + " - [" + logNodeNameSub + "] has been executed");
 		
+		/*
         var phonecallInit: interaction = {
         		name: "hello",
         		agenda: "confirm caller exists"
         };
+        */
         
 		if ($reason != "busy")
 		{
