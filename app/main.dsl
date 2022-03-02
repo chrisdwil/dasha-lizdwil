@@ -62,9 +62,10 @@ node handler
 	do
 	{
 		var logNodeNameSub = "handler";
-        #log($logNodeName + " - [" + logNodeNameSub + "] has been executed");
         
-		blockcall hello($phonecall);
+		#log($logNodeName + " - [" + logNodeNameSub + "] has been executed");
+        
+		var helloResult = blockcall hello(helloResult);
 		
 		if ($reason != "busy")
 		{
