@@ -59,11 +59,6 @@ node handler
 {
 	do
 	{
-		exit;
-	}
-}
-		
-/*
 		var logNodeNameSub = "handler";
         #log($logNodeName + " - [" + logNodeNameSub + "] has been executed");
 		
@@ -81,4 +76,3 @@ node handler
 		idle: goto handler on timeout 10000;
 	}
 }
-*/
