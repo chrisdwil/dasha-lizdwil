@@ -40,18 +40,18 @@ node @exit
 
 digression @digReturn
 {
-		conditions
-		{ 
-			on true tags: onclosed; 
-		}
-		
-		do 
-		{
-			var logNodeNameSub = "@digReturn";
-	        #log($logNodeName + " - [" + logNodeNameSub + "] has been executed");
-	    	
-	    	exit;
-		}
+	conditions
+	{ 
+		on true tags: onclosed; 
+	}
+	
+	do 
+	{
+		var logNodeNameSub = "@digReturn";
+        #log($logNodeName + " - [" + logNodeNameSub + "] has been executed");
+    	
+    	exit;
+	}
 }
 
 
@@ -62,11 +62,10 @@ node handler
 		var logNodeNameSub = "handler";
 		#log($logNodeName + " - [" + logNodeNameSub + "] has been executed");
 		
-		
-        var phonecallResult: interaction? = {
+        var phonecallResult: interaction? = [{
         		name: "hello",
         		agenda: "confirm caller exists"
-        };
+        }];
         
 		if ($reason != "busy")
 		{
