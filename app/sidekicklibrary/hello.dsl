@@ -25,7 +25,7 @@ block hello(discussion: interaction?): interaction //, restrictions: concerns): 
 			var localFunctionName = "@return";
 	        #log("[" + $localName + "] - [" + localFunctionName + "] has been executed");
 	        
-			return $interaction;
+			return $discussion;
 		}
 	}
 	
@@ -37,7 +37,7 @@ block hello(discussion: interaction?): interaction //, restrictions: concerns): 
 			var localFunctionName = "@digReturn";
 	        #log("[" + $localName + "] - [" + localFunctionName + "] has been executed");
 	        
-			return $interaction;
+			return $discussion;
 		}
 	}
 	
