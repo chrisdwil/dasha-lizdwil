@@ -69,7 +69,8 @@ node handler
         		agenda: "caller confirmation";
         		request: "none";
         		behavior: "positive";
-        }
+        };
+        
 		set phonecallResult = blockcall hello(phonecallResult);
 		
 		if ($reason != "busy")
