@@ -23,7 +23,7 @@ block hello(interaction: thread, restrictions: concerns): interaction
 		do
 		{
 			var localFunctionName = "@return";
-	        #log("[" + $localAgenda "] - [" + $localFunctionName + "] has been executed");
+	        #log("[" + $localAgenda + "] - [" + $localFunctionName + "] has been executed");
 	        
 			return $interaction;
 		}
@@ -35,7 +35,7 @@ block hello(interaction: thread, restrictions: concerns): interaction
 		do 
 		{
 			var localFunctionName = "@digReturn";
-	        #log("[" + $localAgenda "] - [" + $localFunctionName + "] has been executed");
+	        #log("[" + $localAgenda + "] - [" + $localFunctionName + "] has been executed");
 	        
 			return $interaction;
 		}
@@ -46,7 +46,7 @@ block hello(interaction: thread, restrictions: concerns): interaction
 		do
 		{
 			var localFunctionName = "talk";
-	        #log("[" + $localAgenda "] - [" + $localFunctionName + "] has been executed");
+	        #log("[" + $localAgenda + "] - [" + $localFunctionName + "] has been executed");
 	        
 	        goto listen;
 		}
@@ -62,7 +62,7 @@ block hello(interaction: thread, restrictions: concerns): interaction
 		do
 		{
 			var localFunctionName = "listen";
-	        #log("[" + $localAgenda "] - [" + $localFunctionName + "] has been executed");
+	        #log("[" + $localAgenda + "] - [" + $localFunctionName + "] has been executed");
 	        
 	        wait *;
 		}
