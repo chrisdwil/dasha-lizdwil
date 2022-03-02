@@ -3,7 +3,7 @@ library
 block hello(discussion: interaction?): interaction //, restrictions: concerns): interaction
 {	
 	context {
-		localName = "hello";
+		localName:string = "hello";
 		interactionExecuted: boolean = false;
 	}
 	
