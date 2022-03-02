@@ -65,7 +65,7 @@ node handler
         var phonecallResult: interaction?;
 		#log($logNodeName + " - [" + logNodeNameSub + "] has been executed");
         
-		set helloResult = blockcall hello(helloResult);
+		set phonecallResult = blockcall hello(phonecallResult);
 		
 		if ($reason != "busy")
 		{
