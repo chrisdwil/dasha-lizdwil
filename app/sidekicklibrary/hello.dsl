@@ -3,7 +3,7 @@ library
 block hello(discussion: interaction?): interaction //, restrictions: concerns): interaction
 {	
 	context {
-		localName: string = discussion.name;
+		localDiscussion = $discussion;
 		interactionExecuted: boolean = false;
 	}
 	
