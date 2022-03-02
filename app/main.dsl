@@ -69,6 +69,14 @@ node handler
         		agenda: "caller confirmation";
         		request: "none";
         		behavior: "positive";
+        		phrase: null;
+        		
+        		host: null;
+        		sidekick: null;
+        		guest: null;
+        		
+        		journal: null;
+        		results: null;
         };
         
 		set phonecallResult = blockcall hello(phonecallResult);
