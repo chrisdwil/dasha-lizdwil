@@ -15,7 +15,7 @@ type result = {
 		data: string;
 };
 
-type restriction = {
+type concerns = {
 		cycles: string;
 		idle: string;	
 };
@@ -25,6 +25,8 @@ type interaction = {
 		agenda: string;
 		request: string; // examples: transfer, message, farewell, unknown
 		behavior: string; // examples: positive, neutral, negative, idle, confused
+		phrase: string;
+		
 		// all people in discussion
 		host: talker; 
 		sidekick: talker;

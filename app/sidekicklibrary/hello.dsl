@@ -1,6 +1,6 @@
 library
 
-block hello(interaction: thread): interaction
+block hello(interaction: thread, restrictions: concerns): interaction
 {	
 	context {
 		localAgenda: string = "hello";
