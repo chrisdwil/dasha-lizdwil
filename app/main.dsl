@@ -63,7 +63,7 @@ node handler
 	{
 		var logNodeNameSub = "handler";
 		#log($logNodeName + " - [" + logNodeNameSub + "] has been executed");
-        var phonecallInit: interaction? = []{
+        var phonecallInit: interaction? = [{
         		name: "hello";
         		agenda: "confirm caller exists";
         }];
