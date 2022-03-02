@@ -2,9 +2,9 @@
 import "sidekicklibrary/all.dsl";
 
 context {
-	input phone: string?;
-	input forward: string?;
-	input reason: string?;
+	input phone: string;
+	input forward: string;
+	input reason: string;
 	
 	logNodeName: string = "[main]";
 	
