@@ -9,8 +9,6 @@ context {
 	logNodeName: string = "[main]";
 	
 	phonecall[]: interaction;
-	
-	}
 }
 
 
