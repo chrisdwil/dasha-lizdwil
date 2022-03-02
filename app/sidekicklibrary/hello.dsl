@@ -3,7 +3,7 @@ library
 block hello(discussion: interaction): interaction //, restrictions: concerns): interaction
 {	
 	context {
-		localAgenda: string = "hello";
+		localAgenda: string = $discussion.name;
 		interactionExecuted: boolean = false;
 	}
 	
