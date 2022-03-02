@@ -4,21 +4,21 @@ type talker = {
 		name: string?;
 		nick: string?;
 		phonetic: string?;
-};
+}?;
 
 type notes = {
 		text: string?;
-};
+}?;
 
 type result = {
 		name: string?;
 		data: string?;
-};
+}?;
 
 type concerns = {
 		cycles: string?;
 		idle: string?;	
-};
+}?;
 
 type interaction = {
 		name: string?;
@@ -34,4 +34,4 @@ type interaction = {
 		
 		journal: notes[]?;
 		results: result[]?;
-};
+}?;
