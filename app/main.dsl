@@ -14,7 +14,7 @@ context {
 	
 	logNodeName: string = "main";
 
-    persons: Person[] = [{name: "Bob", age: 20}];
+    persons: Person[] = [{name: "Bob", phone: "281", age: 20}];
 }
 
 
