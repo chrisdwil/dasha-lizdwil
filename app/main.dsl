@@ -91,13 +91,13 @@ node handler
         		host: $primary,
         		sidekick: $secondary,
         		guest: $tertiary,
-        		journal: {
+        		journal: [{
         			text: null
-        		},
-        		results: {
+        		}],
+        		results: [{
         			name: null,
         			data: null
-        		}
+        		}]
         };
         
         set interaction = blockcall hello( phonecallResult);
