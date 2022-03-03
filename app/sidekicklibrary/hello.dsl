@@ -7,7 +7,7 @@ block hello(discussion: interaction?): interaction? //, restrictions: concerns):
 		//localDiscussion: interaction? = $discussion;
 		localName:string = "hello";
 		interactionExecuted: boolean = false;
-		returnResult: interaction? = @hello.discussion;
+		returnResult: interaction?;
 	}
 	
 	start node main
@@ -19,7 +19,8 @@ block hello(discussion: interaction?): interaction? //, restrictions: concerns):
 	        
 	        set $returnResult = $discussion;
 	        
-	        
+	        $discussion.journal.push("hello world");
+	        $discussion.journal.push("good bye world");
 	        	       
 	        return $returnResult;
 	        // go to talk 
