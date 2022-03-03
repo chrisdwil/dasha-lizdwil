@@ -1,7 +1,7 @@
 // Liz D. Wil 
 import "sidekicklibrary/all.dsl";
 
-type Role = <"student"|"professor">;
+type Role? = <"student"|"professor">;
 
 type Person = {
     name: string?;
