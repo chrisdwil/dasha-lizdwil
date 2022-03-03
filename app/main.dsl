@@ -4,10 +4,10 @@ import "sidekicklibrary/all.dsl";
 type Role = <"student"|"professor">;
 
 type Person = {
-    name: string;
-    age: number;
+    name: string?;
+    age: number;?
     phone: string?;
-    role: Role;
+    role: Role?;
 }?;
 
 context {
