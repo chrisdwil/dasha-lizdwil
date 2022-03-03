@@ -24,9 +24,9 @@ block hello(discussion: interaction?): interaction //, restrictions: concerns): 
 	        		request: "transfer",
 	        		behavior: "positive",
 	        		phrase: null,
-	        		host: $discussion.host,
-	        		sidekick: $discussion.sidekick,
-	        		guest: $discussion.guest,
+	        		host: $discussion[host],
+	        		sidekick: $discussion[sidekick],
+	        		guest: $discussion[guest],
 	        		journal: null,
 	        		results: null
 	        	};
