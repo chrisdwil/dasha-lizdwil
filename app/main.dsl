@@ -6,7 +6,7 @@ context {
 	input forward: string;
 	input reason: string;
 	
-	phonecall: interaction[];
+	phonecall: interaction?[];
 	
 	logNodeName: string = "main";
 }
