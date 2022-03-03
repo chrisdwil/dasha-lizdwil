@@ -100,7 +100,7 @@ node handler
         		}]
         };
         
-        set interaction = blockcall hello( phonecallResult);
+        set phonecallResult = blockcall hello(phonecallResult);
         
 		if ($reason != "busy")
 		{
