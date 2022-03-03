@@ -5,10 +5,22 @@ block hello(discussion: interaction?): interaction? //, restrictions: concerns):
 	context 
 	{
 		//localDiscussion: interaction? = $discussion;
-		localName:string = "hello";
 		interactionExecuted: boolean = false;
-		returnResult: interaction?;
-	}
+	
+		localName:string? = "hello";
+		localAgenda: string?;
+		localRequest: string?; // examples: transfer, message, farewell, unknown
+		localBehavior: string?; // examples: positive, neutral, negative, idle, confused
+		localPhrase: string?;
+		
+		// all people in discussion
+		localHost: talker?;
+		localSidekick: talker?;
+		localGuest: talker?;
+		
+		localJournal: string?[];
+		localResults: result[]?;
+}
 	
 	start node main
 	{
@@ -16,13 +28,24 @@ block hello(discussion: interaction?): interaction? //, restrictions: concerns):
 		{
 			var localFunctionName = "@";
 	        #log("[" + $localName + "] - [" + localFunctionName + "] has been executed");
-	        
-	        set $returnResult = $discussion;
-	        
-	        $returnResult.journal.push("hello world");
-	        	       
-	        return $returnResult;
+	        set $localName = $discussion.name;
+	        set $localAgenda = $discussion.agenda;
+	        set $localRequest = $discussion.request;
+	        set $localBehavior = $discussion.behavior;
+	        set $localPhrase = $discussion.phrase;
+	        set $localHost = $discussion.host;
+	        set $localSidekick = $discussion.sidekick;
+	        set $localGuest = $discussion.guest;
+	        set $localJournal = $discussion.journal;
+	        set $localResults = $discussion.results;
+	        	        
+	        goto selfReturn;
 	        // go to talk 
+		}
+		
+		transition
+		{
+			selfReturn: goto @return;
 		}
 	}
 	
