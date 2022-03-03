@@ -28,6 +28,22 @@ context {
 			nick: null,
 			phonetic: null
 	};
+	
+	phonecall: interaction[] = 
+	[
+	 	{
+			name: "initialize",
+			agenda: "creationg phone call array",
+			request: null,
+			behavior: null,
+			phrase: null,
+			host: $primary,
+			sidekick: $secondary,
+			guest: $tertiary,
+			journal: null,
+			results: null
+	 	}
+	];			
 }
 
 
@@ -37,6 +53,7 @@ start node main
 	{	
 		var logNodeNameSub = "@";
         #log("[" + $logNodeName + "] - [" + logNodeNameSub + "] has been executed");
+        #log($phonecall);
 		#connectSafe($phone);
 		
 		wait *;
@@ -82,7 +99,7 @@ node handler
 		var logNodeNameSub = "handler";
         #log("[" + $logNodeName + "] - [" + logNodeNameSub + "] has been executed");
                 
-         var phonecallResult:interaction? = 
+        var phonecallResult:interaction? = 
     	{
     		name: "hello",
     		agenda: "confirm caller is present",
