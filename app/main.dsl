@@ -93,7 +93,7 @@ node handler
     		phrase: null
     	};
         
-        #log(phoneCallResult);
+        #log(phoneCallresult);
                 
 		if ($reason != "busy")
 		{
