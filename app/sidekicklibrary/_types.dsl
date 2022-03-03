@@ -18,10 +18,12 @@ type result =
 	data: string?;
 };
 
-type concerns = 
+type constraints = 
 {
-	cycles: string?;
-	idle: string?;	
+	// max or defaults
+	steps: string?;
+	timeout: string?;	
+	errors: strings?;
 };
 
 type interaction = 

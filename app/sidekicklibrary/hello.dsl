@@ -16,7 +16,22 @@ block hello(discussion: interaction?): interaction //, restrictions: concerns): 
 		{
 			var localFunctionName = "@";
 	        #log("[" + $localName + "] - [" + localFunctionName + "] has been executed");
-	        	        
+	        
+	        set $returnResult = 
+	        	{
+	        		name: "hello",
+	        		agenda: "confirm caller is present",
+	        		request: "transfer",
+	        		behavior: "positive",
+	        		phrase: null,
+	        		host: $primary,
+	        		sidekick: $secondary,
+	        		guest: $tertiary,
+	        		journal: null,
+	        		results: null
+	        	};
+	       
+	        return $returnResult;
 	        // go to talk 
 		}
 	}
