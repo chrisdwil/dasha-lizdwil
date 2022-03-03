@@ -7,7 +7,7 @@ block hello(discussion: interaction?): interaction? //, restrictions: concerns):
 		//localDiscussion: interaction? = $discussion;
 		localName:string = "hello";
 		interactionExecuted: boolean = false;
-		returnResult: interaction?;
+		returnResult: interaction? = discussion;
 	}
 	
 	start node main
@@ -19,20 +19,7 @@ block hello(discussion: interaction?): interaction? //, restrictions: concerns):
 	        
 	        set $returnResult = $discussion;
 	        
-	        /*
-	        	{
-	        		name: "hello",
-	        		agenda: "confirm caller is present",
-	        		request: "transfer",
-	        		behavior: "positive",
-	        		phrase: null,
-	        		host: $discussion["host"],
-	        		sidekick: $discussion["sidekick"],
-	        		guest: $discussion["guest"],
-	        		journal: null,
-	        		results: null
-	        	};
-	        */
+	        
 	        	       
 	        return $returnResult;
 	        // go to talk 
