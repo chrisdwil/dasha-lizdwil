@@ -5,9 +5,7 @@ context {
 	input phone: string;
 	input forward: string;
 	input reason: string;
-	
-	phonecall: interaction?;
-	
+		
 	logNodeName: string = "main";
 }
 
@@ -63,8 +61,21 @@ node handler
 	{
 		var logNodeNameSub = "handler";
         #log("[" + $logNodeName + "] - [" + logNodeNameSub + "] has been executed");
-		     
         
+        var phonecallResult: interaction = {
+        		name: "hello",
+        		agenda: "confirm caller is present",
+        		request: null,
+        		behavior: null,
+        		phrase: null,
+        		host: null,
+        		sidekick: null,
+        		guest: null,
+        		journal: null,
+        		results: null
+        }
+        
+        set interaction = blockcall hello( phonecallResult);
         
 		if ($reason != "busy")
 		{
