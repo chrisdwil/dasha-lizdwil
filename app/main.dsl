@@ -83,6 +83,9 @@ node handler
         #log("[" + $logNodeName + "] - [" + logNodeNameSub + "] has been executed");
         
         var phonecallResult: interaction[] = [
+                                              {
+        	
+        
         		name: "hello",
         		agenda: "confirm caller is present",
         		request: null,
@@ -98,7 +101,8 @@ node handler
         			name: null,
         			data: null
         		}]
-       ];
+                                              }
+                                              ];
         
         set phonecallResult = blockcall hello(phonecallResult);
         
