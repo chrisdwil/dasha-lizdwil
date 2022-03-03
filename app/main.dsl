@@ -82,7 +82,9 @@ node handler
 		var logNodeNameSub = "handler";
         #log("[" + $logNodeName + "] - [" + logNodeNameSub + "] has been executed");
         
-        var phonecallResult: interaction = 
+        var phonecallResult: interaction; 
+        
+        set phonecallResult = 
     	{
     		name: "hello",
     		agenda: "confirm caller is present",
@@ -90,9 +92,7 @@ node handler
     		behavior: null,
     		phrase: null
     	};
-        
-        set phonecallResult = blockcall hello(phonecallResult);
-        
+                
 		if ($reason != "busy")
 		{
 			#forward($forward);
