@@ -88,8 +88,8 @@ node handler
     		agenda: "confirm caller is present",
     		request: null,
     		behavior: null,
-    		phrase: null,
-    	}
+    		phrase: null
+    	};
         
         set phonecallResult = blockcall hello(phonecallResult);
         
