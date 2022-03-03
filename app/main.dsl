@@ -65,7 +65,6 @@ node handler
         var phonecallResult: interaction? = {
         		name: "hello",
         		agenda: "confirm caller exists"
-        		
 		};
         
         set phonecallResult = blockcall hello(phonecallResult);
