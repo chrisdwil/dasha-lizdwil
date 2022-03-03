@@ -27,7 +27,6 @@ type interaction = {
 		behavior: string?; // examples: positive, neutral, negative, idle, confused
 		phrase: string?;
 
-/*
 		// all people in discussion
 		host: talker?; 
 		sidekick: talker?;
@@ -35,5 +34,4 @@ type interaction = {
 		
 		journal: notes[]?;
 		results: result[]?;
-*/
 };

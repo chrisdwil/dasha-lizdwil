@@ -1,19 +1,14 @@
 // Liz D. Wil 
 import "sidekicklibrary/all.dsl";
 
-type Person = {
-    name: string;
-    age: number?;
-};
-
 context {
 	input phone: string;
 	input forward: string;
 	input reason: string;
 	
+	phonecall = interaction?[];
+	
 	logNodeName: string = "main";
-
-    persons: Person[] = [{name: "Bob", age: null}];
 }
 
 
@@ -68,7 +63,9 @@ node handler
 	{
 		var logNodeNameSub = "handler";
         #log("[" + $logNodeName + "] - [" + logNodeNameSub + "] has been executed");
-		                
+		     
+        
+        
 		if ($reason != "busy")
 		{
 			#forward($forward);
