@@ -43,7 +43,7 @@ block hello(discussion: interaction?): interaction? //, restrictions: concerns):
 	        // go to talk 
 		}
 		
-		transition
+		transitions
 		{
 			selfReturn: goto @return;
 		}
