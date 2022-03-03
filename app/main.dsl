@@ -5,7 +5,7 @@ type Person = {
     name: string;
     age: number;
     phone: string;
-};
+}?;
 
 context {
 	input phone: string;
