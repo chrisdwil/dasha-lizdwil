@@ -90,7 +90,10 @@ node handler
     		agenda: "confirm caller is present",
     		request: null,
     		behavior: null,
-    		phrase: null
+    		phrase: null,
+    		host: $primary,
+    		sidekick: $secondary,
+    		guest: $tertiary
     	};
         
         #log(phonecallResult);
