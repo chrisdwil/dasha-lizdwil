@@ -81,10 +81,8 @@ node handler
 	{
 		var logNodeNameSub = "handler";
         #log("[" + $logNodeName + "] - [" + logNodeNameSub + "] has been executed");
-        
-        var phonecallResult: interaction?; 
-        
-        set phonecallResult = 
+                
+         var phonecallResult:interaction? = 
     	{
     		name: "hello",
     		agenda: "confirm caller is present",
