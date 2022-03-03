@@ -7,6 +7,27 @@ context {
 	input reason: string;
 		
 	logNodeName: string = "main";
+	
+	primary: talker = 
+	{
+			name: "Chris D. Wil",
+			nick: "Chris",
+			phonetic: "Chris Dee Wil"
+	};
+	
+	secondary: talker = 
+	{
+			name: "Elize D. Wil",
+			nick: "Lizzz",
+			phonetic: "Lizzz Dee Wil"
+	};
+	
+	tertiary: talker = 
+	{
+			name: null,
+			nick: null,
+			phonetic: null
+	};
 }
 
 
@@ -54,7 +75,6 @@ digression @digReturn
 	}
 }
 
-
 node handler
 {
 	do
@@ -68,9 +88,9 @@ node handler
         		request: null,
         		behavior: null,
         		phrase: null,
-        		host: null,
-        		sidekick: null,
-        		guest: null,
+        		host: $primary,
+        		sidekick: $secondary,
+        		guest: $tertierary,
         		journal: {
         			text: null
         		},
