@@ -7,7 +7,19 @@ block hello(discussion: interaction?): interaction //, restrictions: concerns): 
 		//localDiscussion: interaction? = $discussion;
 		localName:string = "hello";
 		interactionExecuted: boolean = false;
-		returnResult: interaction;
+		returnResult: interaction? = 
+		{
+				name: null,
+				agenda: null,
+				request: null,
+				behavior: null,
+				phrase: null,
+				host: null,
+				sidekick: null,
+				guest: null,
+				journal: null,
+				results: null	
+		};
 	}
 	
 	start node main
