@@ -115,11 +115,13 @@ node handler
         
         #log(phonecallResult);
                 
-		if ($reason != "busy")
+		/*
 		{
 			#forward($forward);
 			exit;
-		}	
+		}
+		*/
+        exit;
 	}
 	
 	transitions 
