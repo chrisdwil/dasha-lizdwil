@@ -35,3 +35,5 @@ type interaction = {
 		journal: notes[]?;
 		results: result[]?;
 }?;
+
+type Account = { [x:string]:string; }?;
