@@ -6,6 +6,8 @@ block hello(discussion: interaction?): interaction //, restrictions: concerns): 
 		//localDiscussion: interaction? = $discussion;
 		localName:string = "hello";
 		interactionExecuted: boolean = false;
+		
+		returnResult: interaction? = $discussion;
 	}
 	
 	start node main
@@ -14,7 +16,7 @@ block hello(discussion: interaction?): interaction //, restrictions: concerns): 
 		{
 			var localFunctionName = "@";
 	        #log("[" + $localName + "] - [" + localFunctionName + "] has been executed");
-	        
+	          
 	        // go to talk 
 		}
 	}
