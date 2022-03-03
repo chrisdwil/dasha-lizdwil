@@ -37,9 +37,9 @@ context {
 			request: null,
 			behavior: null,
 			phrase: null,
-			host: $primary,
-			sidekick: $secondary,
-			guest: $tertiary,
+			host: primary,
+			sidekick: secondary,
+			guest: tertiary,
 			journal: null,
 			results: null
 	 	}
