@@ -8,7 +8,6 @@ block hello(discussion: interaction?): interaction? //, restrictions: concerns):
 		localName:string = "hello";
 		interactionExecuted: boolean = false;
 		returnResult: interaction?;
-				/*= 
 		{
 				name: null,
 				agenda: null,
@@ -21,7 +20,6 @@ block hello(discussion: interaction?): interaction? //, restrictions: concerns):
 				journal: null,
 				results: null	
 		};
-		*/
 	}
 	
 	start node main
