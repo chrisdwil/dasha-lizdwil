@@ -8,7 +8,7 @@ type Person = {
     age: number;
     phone: string?;
     role: Role;
-};
+}?;
 
 context {
 	input phone: string;
@@ -17,7 +17,7 @@ context {
 	
 	logNodeName: string = "main";
 
-    persons: Person[] = [{name: "Bob", age: 20, phone: null, role: "student"}];
+    persons: Person[]? = [{name: "Bob", age: 20, role: "student"}];
 }
 
 
