@@ -18,13 +18,15 @@ type result =
 	data: string?;
 };
 
-type constraints = 
+/*
+type  = 
 {
 	// max or defaults
 	steps: string?;
 	timeout: string?;	
 	errors: strings?;
 };
+*/
 
 type interaction = 
 {
