@@ -29,7 +29,7 @@ context {
 			phonetic: null
 	};
 	
-	phonecall: interaction? = 
+	phonecall: interaction[]? = 
 	[
 	 	{
 			name: "initialize",
