@@ -71,8 +71,13 @@ node handler
         		host: null,
         		sidekick: null,
         		guest: null,
-        		journal: null,
-        		results: null
+        		journal: {
+        			text: null
+        		},
+        		results: {
+        			name: null,
+        			data: null
+        		}
         };
         
         set interaction = blockcall hello( phonecallResult);
