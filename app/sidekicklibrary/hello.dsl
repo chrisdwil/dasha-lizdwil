@@ -2,12 +2,12 @@ library
 
 block hello(discussion: interaction?): interaction //, restrictions: concerns): interaction
 {	
-	context {
+	context 
+	{
 		//localDiscussion: interaction? = $discussion;
 		localName:string = "hello";
 		interactionExecuted: boolean = false;
-		
-		returnResult: interaction? = $hello.discussion;
+		returnResult: interaction?;
 	}
 	
 	start node main
@@ -16,7 +16,7 @@ block hello(discussion: interaction?): interaction //, restrictions: concerns): 
 		{
 			var localFunctionName = "@";
 	        #log("[" + $localName + "] - [" + localFunctionName + "] has been executed");
-	          
+	        	        
 	        // go to talk 
 		}
 	}
