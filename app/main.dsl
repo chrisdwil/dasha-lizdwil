@@ -29,11 +29,11 @@ context {
 			phonetic: null
 	};
 	
-	phonecall: interaction[] = 
+	phonecall: interaction?[] = 
 	[
 	 	{
 			name: "initialize",
-			agenda: "creationg phone call array",
+			agenda: "creating phone call array",
 			request: null,
 			behavior: null,
 			phrase: null,
