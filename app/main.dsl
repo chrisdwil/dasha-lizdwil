@@ -91,7 +91,9 @@ node handler
     		phrase: null,
     		host: $primary,
     		sidekick: $secondary,
-    		guest: $tertiary
+    		guest: $tertiary,
+    		journal: null,
+    		results: null
     	};
         
         #log(phonecallResult);
