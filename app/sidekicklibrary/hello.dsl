@@ -7,7 +7,7 @@ block hello(discussion: interaction?): interaction? //, restrictions: concerns):
 		//localDiscussion: interaction? = $discussion;
 		localName:string = "hello";
 		interactionExecuted: boolean = false;
-		returnResult: interaction? = $hello.discussion;
+		returnResult: interaction?;
 	}
 	
 	start node main
@@ -17,7 +17,9 @@ block hello(discussion: interaction?): interaction? //, restrictions: concerns):
 			var localFunctionName = "@";
 	        #log("[" + $localName + "] - [" + localFunctionName + "] has been executed");
 	        
-	        set $returnResult = 
+	        set $returnResult = $discussion;
+	        
+	        /*
 	        	{
 	        		name: "hello",
 	        		agenda: "confirm caller is present",
@@ -30,7 +32,8 @@ block hello(discussion: interaction?): interaction? //, restrictions: concerns):
 	        		journal: null,
 	        		results: null
 	        	};
-	       
+	        */
+	        	       
 	        return $returnResult;
 	        // go to talk 
 		}
