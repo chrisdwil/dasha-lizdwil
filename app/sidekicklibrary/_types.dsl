@@ -7,11 +7,6 @@ type talker =
 	phonetic: string?;
 };
 
-type notes = 
-{
-	text: string?;
-};
-
 type result = 
 {
 	name: string?;
@@ -41,6 +36,6 @@ type interaction =
 	sidekick: talker?;
 	guest: talker?;
 	
-	journal: notes[]?;
+	journal: string[]?;
 	results: result[]?;
 }?;
