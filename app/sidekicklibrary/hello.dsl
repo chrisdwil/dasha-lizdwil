@@ -19,8 +19,7 @@ block hello(discussion: interaction?): interaction? //, restrictions: concerns):
 	        
 	        set $returnResult = $discussion;
 	        
-	        $discussion.journal?.push("hello world");
-	        $discussion.journal?.push("good bye world");
+	        $returnResult.journal.push("hello world");
 	        	       
 	        return $returnResult;
 	        // go to talk 
