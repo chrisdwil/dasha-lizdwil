@@ -7,7 +7,7 @@ block hello(discussion: interaction?): interaction //, restrictions: concerns): 
 		localName:string = "hello";
 		interactionExecuted: boolean = false;
 		
-		returnResult: interaction? = discussion;
+		returnResult: interaction? = $hello.discussion;
 	}
 	
 	start node main
