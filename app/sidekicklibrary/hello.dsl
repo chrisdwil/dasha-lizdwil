@@ -7,7 +7,7 @@ block hello(discussion: interaction?): interaction? //, restrictions: concerns):
 		//localDiscussion: interaction? = $discussion;
 		localName:string = "hello";
 		interactionExecuted: boolean = false;
-		returnResult: interaction?;
+		returnResult: interaction? =
 		{
 				name: null,
 				agenda: null,
