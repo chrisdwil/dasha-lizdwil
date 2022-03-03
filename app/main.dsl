@@ -4,7 +4,7 @@ import "sidekicklibrary/all.dsl";
 type Person = {
     name: string;
     age: number;
-    phone: string?;
+    phone: string;
 };
 
 context {
