@@ -90,7 +90,7 @@ node handler
         		phrase: null,
         		host: $primary,
         		sidekick: $secondary,
-        		guest: $tertierary,
+        		guest: $tertiary,
         		journal: {
         			text: null
         		},
