@@ -1,6 +1,6 @@
 library
 
-block hello(discussion: interaction?): interaction //, restrictions: concerns): interaction
+block hello(discussion: interaction[]): interaction //, restrictions: concerns): interaction
 {	
 	context {
 		//localDiscussion: interaction? = $discussion;

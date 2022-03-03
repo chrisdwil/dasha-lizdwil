@@ -7,6 +7,11 @@ context {
 	input reason: string;
 	
 	logNodeName: string = "main";
+	
+	phonecall: interaction[] = [{
+		name: "initialized",
+		agenda: "creating phonecall interactiona array"
+	}];
 }
 
 
@@ -62,12 +67,7 @@ node handler
 		var logNodeNameSub = "handler";
         #log("[" + $logNodeName + "] - [" + logNodeNameSub + "] has been executed");
 		
-        var phonecallResult: interaction? = {
-        		name: "hello",
-        		agenda: "confirm caller exists"
-		};
-        
-        set phonecallResult = blockcall hello(phonecallResult);
+        blockcall hello(phonecall);
         
         #log(phonecallResult);
         
