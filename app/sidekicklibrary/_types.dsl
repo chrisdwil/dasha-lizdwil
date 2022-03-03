@@ -26,12 +26,13 @@ type interaction = {
 		request: string?; // examples: transfer, message, farewell, unknown
 		behavior: string?; // examples: positive, neutral, negative, idle, confused
 		phrase: string?;
-		
+
+/*
 		// all people in discussion
 		host: talker?; 
 		sidekick: talker?;
 		guest: talker?;
-/*	
+		
 		journal: notes[]?;
 		results: result[]?;
 */
