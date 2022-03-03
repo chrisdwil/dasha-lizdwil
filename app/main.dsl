@@ -3,7 +3,7 @@ import "sidekicklibrary/all.dsl";
 
 type Person = {
     name: string?;
-    age: number;?
+    age: number?;
     phone: string?;
 }?;
 
