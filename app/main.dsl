@@ -82,27 +82,14 @@ node handler
 		var logNodeNameSub = "handler";
         #log("[" + $logNodeName + "] - [" + logNodeNameSub + "] has been executed");
         
-        var phonecallResult: interaction[] = [
-                                              {
-        	
-        
-        		name: "hello",
-        		agenda: "confirm caller is present",
-        		request: null,
-        		behavior: null,
-        		phrase: null,
-        		host: $primary,
-        		sidekick: $secondary,
-        		guest: $tertiary,
-        		journal: [{
-        			text: null
-        		}],
-        		results: [{
-        			name: null,
-        			data: null
-        		}]
-                                              }
-                                              ];
+        var phonecallResult: interaction = 
+    	{
+    		name: "hello",
+    		agenda: "confirm caller is present",
+    		request: null,
+    		behavior: null,
+    		phrase: null,
+    	}
         
         set phonecallResult = blockcall hello(phonecallResult);
         
