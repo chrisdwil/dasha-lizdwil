@@ -1,13 +1,10 @@
 // Liz D. Wil 
 import "sidekicklibrary/all.dsl";
 
-type Role? = <"student"|"professor">;
-
 type Person = {
     name: string?;
     age: number;?
     phone: string?;
-    role: Role?;
 }?;
 
 context {
@@ -17,7 +14,7 @@ context {
 	
 	logNodeName: string = "main";
 
-    persons: Person[]? = [{name: "Bob", age: 20, role: "student"}];
+    persons: Person[]? = [{name: "Bob", age: 20}];
 }
 
 
