@@ -92,6 +92,8 @@ node handler
     		behavior: null,
     		phrase: null
     	};
+        
+        #log(phoneCallResult);
                 
 		if ($reason != "busy")
 		{
