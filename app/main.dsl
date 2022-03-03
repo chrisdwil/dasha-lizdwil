@@ -73,7 +73,7 @@ node handler
         		guest: null,
         		journal: null,
         		results: null
-        }
+        };
         
         set interaction = blockcall hello( phonecallResult);
         
