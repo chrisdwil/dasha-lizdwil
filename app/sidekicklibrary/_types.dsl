@@ -41,4 +41,4 @@ type interaction =
 	journal: notes[]?;
 	results: result[]?;
 	*/
-};
+}?;
