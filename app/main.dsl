@@ -6,7 +6,7 @@ context {
 	input forward: string;
 	input reason: string;
 	
-	logNodeName: string = "[main]";
+	logNodeName: string = "main";
 }
 
 
@@ -15,7 +15,7 @@ start node main
 	do
 	{	
 		var logNodeNameSub = "@";
-        #log($logNodeName + " - [" + logNodeNameSub + "] has been executed");
+        #log("[" + $logNodeName + "] - [" + logNodeNameSub + "] has been executed");
 		#connectSafe($phone);
 		
 		wait *;
@@ -32,7 +32,7 @@ node @exit
     do 
     {
 		var logNodeNameSub = "@exit";
-        #log($logNodeName + " - [" + logNodeNameSub + "] has been executed");
+        #log("[" + $logNodeName + "] - [" + logNodeNameSub + "] has been executed");
   	
         exit;
     }
@@ -48,7 +48,7 @@ digression @digReturn
 	do 
 	{
 		var logNodeNameSub = "@digReturn";
-        #log($logNodeName + " - [" + logNodeNameSub + "] has been executed");
+        #log("[" + $logNodeName + "] - [" + logNodeNameSub + "] has been executed");
     	
     	exit;
 	}
@@ -60,7 +60,7 @@ node handler
 	do
 	{
 		var logNodeNameSub = "handler";
-		#log($logNodeName + " - [" + logNodeNameSub + "] has been executed");
+        #log("[" + $logNodeName + "] - [" + logNodeNameSub + "] has been executed");
 		
         var phonecallResult: interaction? = {
         		name: "hello",
