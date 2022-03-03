@@ -3,9 +3,8 @@ import "sidekicklibrary/all.dsl";
 
 type Person = {
     name: string;
-    age: number;
-    phone: string?;
-}?;
+    age: number?;
+};
 
 context {
 	input phone: string;
@@ -14,7 +13,7 @@ context {
 	
 	logNodeName: string = "main";
 
-    persons: Person[] = [{name: "Bob", age: 20}];
+    persons: Person[] = [{name: "Bob"}];
 }
 
 
