@@ -1,13 +1,14 @@
 library
 
-block hello(discussion: interaction?): interaction //, restrictions: concerns): interaction
+block hello(discussion: interaction?): interaction? //, restrictions: concerns): interaction
 {	
 	context 
 	{
 		//localDiscussion: interaction? = $discussion;
 		localName:string = "hello";
 		interactionExecuted: boolean = false;
-		returnResult: interaction? = 
+		returnResult: interaction?
+				/*= 
 		{
 				name: null,
 				agenda: null,
@@ -20,6 +21,7 @@ block hello(discussion: interaction?): interaction //, restrictions: concerns): 
 				journal: null,
 				results: null	
 		};
+		*/
 	}
 	
 	start node main
