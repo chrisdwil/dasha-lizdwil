@@ -21,8 +21,8 @@ type concerns = {
 }?;
 
 type interaction = {
-		name: string;
-		agenda: string;
+		name: string?;
+		agenda: string?;
 		request: string?; // examples: transfer, message, farewell, unknown
 		behavior: string?; // examples: positive, neutral, negative, idle, confused
 		phrase: string?;
