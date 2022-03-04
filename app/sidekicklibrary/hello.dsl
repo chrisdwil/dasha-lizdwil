@@ -18,7 +18,7 @@ block hello(discussion: interaction?): interaction? //, restrictions: concerns):
 		localSidekick: talker?;
 		localGuest: talker?;
 		
-		localJournal: string?[];
+		localJournal: string[]?;
 		localResults: result[]?;
 }
 	
