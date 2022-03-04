@@ -36,6 +36,6 @@ type interaction =
 	sidekick: talker?;
 	guest: talker?;
 	
-	journal: string?[];
+	journal: string[]?;
 	results: result[]?;
-}?;
+};
