@@ -38,4 +38,4 @@ type interaction =
 	
 	journal: string?[];
 	results: result[]?;
-};
+}?;

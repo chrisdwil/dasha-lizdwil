@@ -28,6 +28,7 @@ block hello(discussion: interaction?): interaction? //, restrictions: concerns):
 		{
 			var localFunctionName = "@";
 	        #log("[" + $localName + "] - [" + localFunctionName + "] has been executed");
+	        /*
 	        set $localName = $discussion.name;
 	        set $localAgenda = $discussion.agenda;
 	        set $localRequest = $discussion.request;
@@ -38,6 +39,7 @@ block hello(discussion: interaction?): interaction? //, restrictions: concerns):
 	        set $localGuest = $discussion.guest;
 	        set $localJournal = $discussion.journal;
 	        set $localResults = $discussion.results;
+	        */
 	        	        
 	        goto selfReturn;
 	        // go to talk 
