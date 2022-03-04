@@ -27,7 +27,8 @@ block hello(discussion: interaction?): interaction? //, restrictions: concerns):
 		do
 		{
 			var localFunctionName = "@";
-	        #log("[" + $localName + "] - [" + localFunctionName + "] has been executed");
+			#log($localName);
+	        //#log("[" + $localName + "] - [" + localFunctionName + "] has been executed");
 	        /*
 	        set $localName = $discussion.name;
 	        set $localAgenda = $discussion.agenda;
