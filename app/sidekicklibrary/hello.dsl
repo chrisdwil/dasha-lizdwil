@@ -8,18 +8,18 @@ block hello(discussion: interaction?): interaction? //, restrictions: concerns):
 		interactionExecuted: boolean = false;
 	
 		localName:string = "hello";
-		localAgenda: string?;
-		localRequest: string?; // examples: transfer, message, farewell, unknown
-		localBehavior: string?; // examples: positive, neutral, negative, idle, confused
-		localPhrase: string?;
+		localAgenda: string;
+		localRequest: string; // examples: transfer, message, farewell, unknown
+		localBehavior: string; // examples: positive, neutral, negative, idle, confused
+		localPhrase: string;
 		
 		// all people in discussion
-		localHost: talker?;
-		localSidekick: talker?;
-		localGuest: talker?;
+		localHost: talker;
+		localSidekick: talker;
+		localGuest: talker;
 		
-		localJournal: string[]?;
-		localResults: result[]?;
+		localJournal: string[];
+		localResults: result[];
 }
 	
 	start node main
