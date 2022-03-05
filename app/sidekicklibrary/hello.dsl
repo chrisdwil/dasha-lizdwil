@@ -7,7 +7,7 @@ block hello(discussion: interaction?): interaction? //, restrictions: concerns):
 		//localDiscussion: interaction? = $discussion;
 		interactionExecuted: boolean = false;
 	
-		localName:string?;
+		localName:string = "hello";
 		localAgenda: string?;
 		localRequest: string?; // examples: transfer, message, farewell, unknown
 		localBehavior: string?; // examples: positive, neutral, negative, idle, confused
@@ -27,8 +27,7 @@ block hello(discussion: interaction?): interaction? //, restrictions: concerns):
 		do
 		{
 			var localFunctionName = "@";
-			#log($localName as string + "hi ");
-	        //#log("[" + $localName + "] - [" + localFunctionName + "] has been executed");
+	        #log("[" + $localName + "] - [" + localFunctionName + "] has been executed");
 	        /*
 	        set $localName = $discussion.name;
 	        set $localAgenda = $discussion.agenda;
