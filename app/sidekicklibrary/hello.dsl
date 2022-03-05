@@ -39,7 +39,8 @@ block hello(discussion: interaction?): interaction? //, restrictions: concerns):
 	        set $localGuest = $discussion.guest;
 	        set $localJournal = $discussion.journal;
 	        set $localResults = $discussion.results;
-	        	        
+	        	   
+	        
 	        goto selfReturn;
 	        // go to talk 
 		}
