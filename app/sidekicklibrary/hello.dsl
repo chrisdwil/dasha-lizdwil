@@ -1,6 +1,6 @@
 library
 
-block hello(discussion: interaction): interaction
+block hello ( discussion: interaction ): interaction
 {	
 	context
 	{
