@@ -30,8 +30,7 @@ context
 			phonetic: null
 	};
 	
-	phonecall: interaction[] = 
-	[
+	phonecall: interaction = 
 	 	{
 			name: "initialize",
 			agenda: "creating phone call array",
@@ -40,11 +39,8 @@ context
 			phrase: null,
 			host: null,
 			sidekick: null,
-			guest: null,
-			journal: null,
-			results: null
-	 	}
-	];			
+			guest: null
+	 	};
 }
 
 start node main
@@ -53,16 +49,17 @@ start node main
 	{	
 		var logNodeNameSub = "@";
         #log("[" + $logNodeName + "] - [" + logNodeNameSub + "] has been executed");
+		set $phonecall.host = $primary;
+		set $phonecall.sidekick = $secondary;
+		set $phonecall.guest = $tertiary;
         #log($phonecall);
+
 		#connectSafe($phone);
-		
-		goto exitSelf;
 	}
 	
 	transitions
 	{
 		idle: goto handler on timeout 100;
-		exitSelf: goto @exit;
 	}
 }
 
@@ -99,10 +96,24 @@ node handler
 	{
 		var logNodeNameSub = "handler";
         #log("[" + $logNodeName + "] - [" + logNodeNameSub + "] has been executed");
-    
+
+		var greetHello: interaction = 
+		{
+			name: "hello",
+			agenda: "say hello to caller, confirm they exist",
+			request: null,
+			behavior: null,
+			phrase: null,
+			host: $primary,
+			sidekick: $secondary,
+			guest: $tertiary
+		};
+
+		set greetHello = blockcall hello($phonecall);
+
         exit;
 	}
-	
+
 	transitions 
 	{
 		idle: goto handler on timeout 10000;
