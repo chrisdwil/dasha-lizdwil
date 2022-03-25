@@ -111,7 +111,7 @@ node handler
 			guest: $tertiary
 		};
 
-		set greetHello = blockcall hello($phonecall);
+		var test: boolean = blockcall hello($phonecall);
 
 		#log(greetHello);
         exit;
