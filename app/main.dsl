@@ -1,5 +1,5 @@
 // Liz D. Wil 
-import "sidekicklibrary/_types.dsl";
+import "sidekicklibrary/all.dsl";
 
 context 
 {
@@ -111,6 +111,7 @@ node handler
 
 		set greetHello = blockcall hello($phonecall);
 
+		#log(greetHello);
         exit;
 	}
 

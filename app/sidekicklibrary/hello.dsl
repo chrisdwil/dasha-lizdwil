@@ -12,8 +12,10 @@ block hello ( discussion: interaction ): interaction
 		do
 		{
 			var localFunctionName = "@";
-	        #log("[" + $discussion.Name + "] - [" + localFunctionName + "] has been executed");
-	        	        
+	        #log("[" + $discussion.name + "] - [" + localFunctionName + "] has been executed");
+
+            set $discussion.request = "transfer";
+                
 	        goto selfReturn;
 	        // go to talk 
 		}
@@ -29,7 +31,7 @@ block hello ( discussion: interaction ): interaction
 		do
 		{
 			var localFunctionName = "@return";
-	        #log("[" + $discussion.Name + "] - [" + localFunctionName + "] has been executed");
+	        #log("[" + $discussion.name + "] - [" + localFunctionName + "] has been executed");
 	        
 			return $discussion;
 		}
@@ -41,7 +43,7 @@ block hello ( discussion: interaction ): interaction
 		do 
 		{
 			var localFunctionName = "@digReturn";
-	        #log("[" + $discussion.Name + "] - [" + localFunctionName + "] has been executed");
+	        #log("[" + $discussion.name + "] - [" + localFunctionName + "] has been executed");
 	        
 			return $discussion;
 		}
@@ -52,7 +54,7 @@ block hello ( discussion: interaction ): interaction
 		do
 		{
 			var localFunctionName = "talk";
-	        #log("[" + $discussion.Name + "] - [" + localFunctionName + "] has been executed");
+	        #log("[" + $discussion.name + "] - [" + localFunctionName + "] has been executed");
 	        
 	        goto listen;
 		}
@@ -68,7 +70,7 @@ block hello ( discussion: interaction ): interaction
 		do
 		{
 			var localFunctionName = "listen";
-	        #log("[" + $discussion.Name + "] - [" + localFunctionName + "] has been executed");
+	        #log("[" + $discussion.name + "] - [" + localFunctionName + "] has been executed");
 	        
 	        wait *;
 		}
