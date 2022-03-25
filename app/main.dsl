@@ -1,7 +1,8 @@
 // Liz D. Wil 
-import "sidekicklibrary/all.dsl";
+import "sidekicklibrary/_types.dsl";
 
-context {
+context 
+{
 	input phone: string;
 	input forward: string;
 	input reason: string;
@@ -46,7 +47,6 @@ context {
 	];			
 }
 
-
 start node main
 {
 	do
@@ -56,12 +56,13 @@ start node main
         #log($phonecall);
 		#connectSafe($phone);
 		
-		wait *;
+		goto exitSelf;
 	}
 	
 	transitions
 	{
 		idle: goto handler on timeout 100;
+		exitSelf: goto @exit;
 	}
 }
 
@@ -98,29 +99,7 @@ node handler
 	{
 		var logNodeNameSub = "handler";
         #log("[" + $logNodeName + "] - [" + logNodeNameSub + "] has been executed");
-                
-        var phonecallResult:interaction? = 
-    	{
-    		name: "hello",
-    		agenda: "confirm caller is present",
-    		request: null,
-    		behavior: null,
-    		phrase: null,
-    		host: $primary,
-    		sidekick: $secondary,
-    		guest: $tertiary,
-    		journal: null,
-    		results: null
-    	};
-        
-        #log(phonecallResult);
-                
-		/*
-		{
-			#forward($forward);
-			exit;
-		}
-		*/
+    
         exit;
 	}
 	
