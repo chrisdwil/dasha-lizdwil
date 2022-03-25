@@ -55,6 +55,8 @@ start node main
         #log($phonecall);
 
 		#connectSafe($phone);
+
+		wait *;
 	}
 	
 	transitions
