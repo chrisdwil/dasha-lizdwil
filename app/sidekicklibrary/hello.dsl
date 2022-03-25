@@ -45,7 +45,7 @@ block hello ( discussion: interaction ): boolean
 			var localFunctionName = "@digReturn";
 	        #log("[" + $discussion.name + "] - [" + localFunctionName + "] has been executed");
 	        
-			return $discussion;
+			return true;
 		}
 	}
 	
