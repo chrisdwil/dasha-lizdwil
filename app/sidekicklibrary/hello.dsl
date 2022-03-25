@@ -33,7 +33,7 @@ block hello ( discussion: interaction ): boolean
 			var localFunctionName = "@return";
 	        #log("[" + $discussion.name + "] - [" + localFunctionName + "] has been executed");
 	        
-			return $discussion;
+			return true;
 		}
 	}
 	
