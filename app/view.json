@@ -1,0 +1,62 @@
+{
+  "node::handler": {
+    "common.position": {
+      "x": -407.3628714126895,
+      "y": -228.12320799110614
+    }
+  },
+  "node:hello:digReturn": {
+    "common.position": {
+      "x": 772.6457255072975,
+      "y": 826.0000223687663
+    }
+  },
+  "node:hello:main": {
+    "common.position": {
+      "x": 772.6457255072975,
+      "y": 826.0000223687663
+    }
+  },
+  "node:hello:return": {
+    "common.position": {
+      "x": 772.6457255072975,
+      "y": 826.0000223687663
+    }
+  },
+  "node:hello:talk": {
+    "common.position": {
+      "x": 768.9088721605553,
+      "y": 1021.562014181603
+    }
+  },
+  "node:hello:listen": {
+    "common.position": {
+      "x": 1017.5901194411575,
+      "y": 371.33887886375345
+    }
+  },
+  "node::exit": {
+    "common.position": {
+      "x": -43.86984769059733,
+      "y": 283.2738736592856
+    }
+  },
+  "node::main": {
+    "common.position": {
+      "x": -35.09587815247786,
+      "y": 122.83557353367252
+    }
+  },
+  "node::digReturn": {
+    "common.position": {
+      "x": -76.23249071657693,
+      "y": -233.344266466909
+    }
+  },
+  "node::testing": {
+    "common.position": {
+      "x": 0,
+      "y": -522.5806640233229
+    }
+  }
+}
