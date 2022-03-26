@@ -4,10 +4,7 @@ block hello ( discussion: interaction ): interaction
 {	
 	context
 	{
-        // these default interaction variables are ones you can define to set
-		defaultRequest: string = "farewell"; // default return action if nothing happens 
-        defaultBehavior: string = "positive"; // default behavior we assume the guest is in``
-        defaultPhrase: string = "hello"; // default section in phrase.map
+
 	}
 
 	start node main
@@ -66,8 +63,6 @@ block hello ( discussion: interaction ): interaction
 		{
 			var localFunctionName = "talk";
 	        #log("[" + $discussion.name + "] - [" + localFunctionName + "] has been executed");
-	        
-			
 
 	        goto listen;
 		}

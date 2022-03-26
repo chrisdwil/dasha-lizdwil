@@ -60,7 +60,7 @@
 			}
 		},
 		"macros": {
-			"hello": {
+			"hello.greet": {
 			}
 		}
 	}

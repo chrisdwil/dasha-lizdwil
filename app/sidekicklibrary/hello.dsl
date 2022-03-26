@@ -4,9 +4,7 @@ block hello ( discussion: interaction ): interaction
 {	
 	context
 	{
-        defaultRequest: string = "farewell";
-        defaultBehavior: string = "positive";
-        defaultPhrase: string = "hello";
+
 	}
 
 	start node main
@@ -16,8 +14,6 @@ block hello ( discussion: interaction ): interaction
 			var localFunctionName = "@";
 	        #log("[" + $discussion.name + "] - [" + localFunctionName + "] has been executed");
 
-            set $discussion.request = "transfer";
-                
 	        if ($discussion.greet)
             {
                 goto talk;
@@ -69,7 +65,10 @@ block hello ( discussion: interaction ): interaction
 	        #log("[" + $discussion.name + "] - [" + localFunctionName + "] has been executed");
 
             if ($discussion.greet)
-            {
+            {                
+                #say("hello.greet");
+                set $discussion.greet = false;
+	            #log("[" + $discussion.name + "] - [" + localFunctionName + "] has been greeted");
             }
 
 	        goto listen;
