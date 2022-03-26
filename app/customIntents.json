@@ -65,7 +65,39 @@
 			"includes": [
 				"who are you",
 				"what are you",
-				"who's this"
+				"who's this",
+				"what is this",
+				"where's chris",
+				"is chris there",
+				"chris there?",
+				"looking for"
+			]
+		},
+		"greeted": {
+			"includes": [
+				"hello",
+				"hi",
+				"yo",
+				"howdy",
+				"what's up",
+				"hey",
+				"haaaaaay",
+				"salutations",
+				"how are you",
+				"good morning",
+				"good afternoon",
+				"good evening",
+				"good day",
+				"how's it going",
+				"what you do",
+				"how have you been",
+				"nice to meet",
+				"it's been awhile",
+				"lovely to",
+				"are you ok",
+				"all right mate",
+				"hiya",
+				"heya"
 			]
 		},
 		"yes": {

@@ -64,7 +64,19 @@
 						}
 					]
 				]
-			},			"hello.identity": [
+			},			
+			"hello.identity": [
+				{
+					"text": "Oh Pardon me."
+				},
+				{
+					"text": "I'm Lizzz - Deee - Wiill."
+				},
+				{
+					"text": "I'm Chris'z personal assistant for handling his phone calls and messages."
+				}
+			],
+			"hello.identity": [
 				{
 					"text": "Oh Pardon me."
 				},

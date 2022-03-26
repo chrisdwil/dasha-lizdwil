@@ -93,6 +93,15 @@ block hello ( discussion: interaction ): interaction
                 }
             }
 
+			if ($discussion.behavior == "positive")
+			{
+				if ($discussion.request == "greeted")
+				{
+                    #say("hello.greeted");
+                    #log("[" + $discussion.name + "] - [" + localFunctionName + "] caller greeted");				
+				}
+			}
+
 	        goto listen;
 		}
 		
