@@ -151,6 +151,11 @@ block hello ( discussion: interaction ): interaction
                 set $discussion.behavior = "idle";
                 set $discussion.request = "repeat";
             }
+			greeted: do
+			{
+				set $discussion.behavior = "positive";
+				set $discussion.request = "greeted";
+			}
         }
 	}
 }
