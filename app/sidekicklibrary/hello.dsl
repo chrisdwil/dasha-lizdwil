@@ -129,9 +129,10 @@ block hello ( discussion: interaction ): interaction
 		
 		transitions
 		{
-            confusion: goto talk on #messageHasIntent("questions") priority 10;			
-			identity: goto talk on #messageHasIntent("identity") priority 9;
-			greeted: goto talk on #messageHasIntent("greeted") priority 8;
+			identity: goto talk on #messageHasIntent("identity") priority 10;
+			confusion: goto talk on #messageHasIntent("questions") priority 9;
+			confusion: goto talk on #messageHasIntent("confusion") priority 8;
+			greeted: goto talk on #messageHasIntent("greeted") priority 7;
 			idle: goto talk on timeout 10000;
 			listen: goto listen on true priority 1;
 		}
