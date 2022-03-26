@@ -11,7 +11,10 @@
 		[
 			"common_phrases",
 			"sentiment"
-		]
+		],
+		"customIntents": {
+			"file": "customIntents.json"
+		}
 	},
 	"nlg": 
 	{

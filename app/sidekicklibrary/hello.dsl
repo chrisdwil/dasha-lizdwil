@@ -87,6 +87,7 @@ block hello ( discussion: interaction ): interaction
 			{
 				#log("[" + $discussion.name + "] - [" + localFunctionName + "] caller made a request");	
 			}
+			
 
 			if ($discussion.behavior == "idle")
 			{
@@ -117,12 +118,19 @@ block hello ( discussion: interaction ): interaction
 		
 		transitions
 		{
+			greeted: goto talk on #messageHasAnyIntent("greeted");
 			idle: goto talk on timeout 10000;
 			listen: goto listen on true priority 1;
 		}
 
         onexit
         {
+			greeted: do
+			{
+				set $discussion.behavior = "positive";
+				set $discussion.request = "greeted";
+				set $discussion.sentenceType = #getSentenceType();
+			}
 			idle: do
 			{	
 				#log("transition idle");

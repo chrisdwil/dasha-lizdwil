@@ -102,7 +102,7 @@ node handler
 	{
 		var logNodeNameSub = "handler";
         #log("[" + $logNodeName + "] - [" + logNodeNameSub + "] has been executed");
-
+		
 		var greetHello: interaction = 
 		{
 			name: "hello",
