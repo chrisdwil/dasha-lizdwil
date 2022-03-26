@@ -100,7 +100,7 @@ block hello ( discussion: interaction ): interaction
 		transitions
 		{
 			confusion: goto talk on #messageHasAnyIntent(["questions","confusion"]) priority 5;
-			idle: goto talk on timeout 5000;
+			idle: goto talk on timeout 10000;
 			listen: goto listen on true priority 1;
 		}
 
