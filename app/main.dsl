@@ -34,6 +34,7 @@ context
 	 	{
 			name: "initialize",
 			agenda: "creating phone call array",
+			greet: true,
 			request: null,
 			behavior: null,
 			phrase: null,
@@ -103,6 +104,7 @@ node handler
 		{
 			name: "hello",
 			agenda: "say hello to caller, confirm they exist",
+			greet: true,
 			request: null,
 			behavior: null,
 			phrase: null,
@@ -111,9 +113,8 @@ node handler
 			guest: $tertiary
 		};
 
-		var test: boolean = blockcall hello($phonecall);
+		set greetHello = blockcall hello($phonecall);
 
-		#log(greetHello);
         exit;
 	}
 

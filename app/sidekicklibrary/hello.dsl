@@ -1,10 +1,12 @@
 library
 
-block hello ( discussion: interaction ): boolean
+block hello ( discussion: interaction ): interaction
 {	
 	context
 	{
-
+        defaultRequest: string = "farewell";
+        defaultBehavior: string = "positive";
+        defaultPhrase: string = "hello";
 	}
 
 	start node main
@@ -16,13 +18,23 @@ block hello ( discussion: interaction ): boolean
 
             set $discussion.request = "transfer";
                 
-	        goto selfReturn;
-	        // go to talk 
+	        if ($discussion.greet)
+            {
+                goto talk;
+            }
+            else
+            {
+                listen;
+            }
+            
+            goto selfReturn;
 		}
 		
 		transitions
 		{
 			selfReturn: goto @return;
+            talk: goto talk;
+            listen: goto listen;
 		}
 	}
 	
@@ -33,7 +45,7 @@ block hello ( discussion: interaction ): boolean
 			var localFunctionName = "@return";
 	        #log("[" + $discussion.name + "] - [" + localFunctionName + "] has been executed");
 	        
-			return true;
+			return $discussion;
 		}
 	}
 	
@@ -45,7 +57,7 @@ block hello ( discussion: interaction ): boolean
 			var localFunctionName = "@digReturn";
 	        #log("[" + $discussion.name + "] - [" + localFunctionName + "] has been executed");
 	        
-			return true;
+			return $discussion;
 		}
 	}
 	
@@ -55,7 +67,12 @@ block hello ( discussion: interaction ): boolean
 		{
 			var localFunctionName = "talk";
 	        #log("[" + $discussion.name + "] - [" + localFunctionName + "] has been executed");
-	        
+
+            if ($discussion.greet)
+            {
+                #say($discussion.phrase + ".greet");
+            }
+
 	        goto listen;
 		}
 		
@@ -71,7 +88,7 @@ block hello ( discussion: interaction ): boolean
 		{
 			var localFunctionName = "listen";
 	        #log("[" + $discussion.name + "] - [" + localFunctionName + "] has been executed");
-	        
+
 	        wait *;
 		}
 		

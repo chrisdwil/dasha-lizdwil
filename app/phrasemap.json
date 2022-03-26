@@ -8,7 +8,7 @@
 			"emotion": "positive"
 		},
 		"phrases": {
-			"hello": {
+			"hello.greet": {
 				"random": [
 					[
 						{
