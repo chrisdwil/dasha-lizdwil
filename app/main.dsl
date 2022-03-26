@@ -117,7 +117,7 @@ node handler
 		#log($phonecall);
 		#sayText("So what can I help you with?");
 
-		#sayText("Actually, I gotta go"));
+		#sayText("Actually, I gotta go");
 
         exit;
 	}
