@@ -75,11 +75,13 @@ block hello ( discussion: interaction ): interaction
             if ($discussion.behavior == "idle")
             {
                 #say("hello.idle");
+				#log("[" + $discussion.name + "] - [" + localFunctionName + "] caller is idle");
+
             }
 
             if ($discussion.behavior == "confusion")
             {
-                if ($discussion.request == "identity")
+                if ($discussion.request == "repeat")
                 {
                     #say("hello.identity");
                     #log("[" + $discussion.name + "] - [" + localFunctionName + "] caller requested identity");
@@ -87,7 +89,7 @@ block hello ( discussion: interaction ): interaction
 				else
                 {
                     #say("hello.confusion");
-                    #log("[" + $discussion.name + "] - [" + localFunctionName + "] caller requested identity");                    
+                    #log("[" + $discussion.name + "] - [" + localFunctionName + "] caller is confused");                    
                 }
             }
 
