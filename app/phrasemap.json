@@ -22,7 +22,7 @@
 					],
 					[
 						{
-							"text": "Hiiiiiii, Lizzzz here, Chrissses assistant."
+							"text": "Hiii, Lizzz here, Chrisz's assistant."
 						}
 					]
 				]
@@ -46,7 +46,18 @@
 					]
 				]
 				
-			},		
+			},
+			"hello.identity": [
+				{
+					"text": "Oh Pardon me."
+				},
+				{
+					"text": "I'm Lizzz - Deee - Wiill."
+				},
+				{
+					"text": "I'm Chris'z personal assistant for handling his phone calls and messages."
+				}
+			],
 			"saySingleLine": {
 				"text": "This is a single line of text."
 			},
@@ -84,7 +95,8 @@
 		"macros": {
 			"hello.greet": {},
 			"hello.idle": {},
-			"hello.confusion": {}
+			"hello.confusion": {},
+			"hello.identity": {}
 		}
 	}
 }

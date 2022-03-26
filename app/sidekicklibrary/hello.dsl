@@ -77,7 +77,7 @@ block hello ( discussion: interaction ): interaction
                 #say("hello.idle");
             }
 
-            if ($discussion.behavior == "confusion" && $discussion.behavior == "identify")
+            if ($discussion.behavior == "confusion" && $discussion.behavior == "identity")
             {
                 #sayText("I'm Lizzzz, Chris' personal assistant, I'm here to help you by transferring you to him, messaging him, or you can try him later");
                 goto selfReturn;
@@ -112,7 +112,7 @@ block hello ( discussion: interaction ): interaction
 		transitions
 		{
             selfReturn: goto @return;
-			identify: goto talk on #messageHasAnyIntent(["identity"]) priority 10;
+			identity: goto talk on #messageHasAnyIntent(["identity"]) priority 10;
             confusion: goto talk on #messageHasAnyIntent(["questions","confusion"]) priority 5;
 			idle: goto talk on timeout 10000;
 			listen: goto listen on true priority 1;
@@ -120,10 +120,10 @@ block hello ( discussion: interaction ): interaction
 
         onexit
         {
-            identify: do
+            identity: do
             {
                 set $discussion.behavior = "confusion";
-                set $discussion.request = "identify";
+                set $discussion.request = "identity";
             }
             confusion: do
             {
