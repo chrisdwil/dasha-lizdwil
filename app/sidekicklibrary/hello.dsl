@@ -75,14 +75,14 @@ block hello ( discussion: interaction ): interaction
 	            #log("[" + $discussion.name + "] - [" + localFunctionName + "] has been greeted");
             }
 
-            if ($discussion.behavior == "idle")
+            if ($discussion.sentenceType == "null")
             {
                 #say("hello.idle");
 				#log("[" + $discussion.name + "] - [" + localFunctionName + "] caller is idle");
 
             }
 
-            if ($discussion.behavior == "confusion")
+            if ($discussion.sentenceType == "question")
             {
                 if ($discussion.request == "identity")
                 {
@@ -97,7 +97,7 @@ block hello ( discussion: interaction ): interaction
                 }
             }
 
-			if ($discussion.behavior == "positive")
+			if ($discussion.sentenceType == "statement")
 			{
 				if ($discussion.request == "greeted")
 				{
@@ -105,6 +105,11 @@ block hello ( discussion: interaction ): interaction
                     #log("[" + $discussion.name + "] - [" + localFunctionName + "] caller greeted");
 					goto selfReturn;	
 				}
+			}
+
+			if ($discussion.sentenceType == "request")
+			{
+
 			}
 
 	        goto listen;
@@ -130,11 +135,10 @@ block hello ( discussion: interaction ): interaction
 		
 		transitions
 		{
-			identity: goto talk on #messageHasIntent("identity") priority 10;
-			confusionQuestions: goto talk on #messageHasIntent("questions") priority 9;
-			confusion: goto talk on #messageHasIntent("confusion") priority 8;
-			greeted: goto talk on #messageHasIntent("greeted") priority 7;
 			idle: goto talk on timeout 10000;
+			identity: goto talk on #messageHasIntent("identity") priority 4;
+			confusion: goto talk on #messageHasIntent("confusion") priority 3;
+			greeted: goto talk on #messageHasIntent("greeted") priority 2;
 			listen: goto listen on true priority 1;
 		}
 
@@ -144,12 +148,6 @@ block hello ( discussion: interaction ): interaction
             {
                 set $discussion.behavior = "confusion";
                 set $discussion.request = "identity";
-				set $discussion.text = #getMessageText();
-            }
-			confusionQuestions: do
-            {
-                set $discussion.behavior = "confusion";
-                set $discussion.request = "repeat";
 				set $discussion.text = #getMessageText();
             }
             confusion: do
