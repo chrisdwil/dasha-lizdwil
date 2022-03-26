@@ -65,8 +65,6 @@ block hello ( discussion: interaction ): interaction
 	        #log("[" + $discussion.name + "] - [" + localFunctionName + "] has been executed");
             #log($discussion);
 
-			set $discussion.text = #getMessageText();
-
             if ($discussion.greet)
             {                
                 #say("hello.greet");
@@ -142,11 +140,13 @@ block hello ( discussion: interaction ): interaction
             {
                 set $discussion.behavior = "confusion";
                 set $discussion.request = "identity";
+				set $discussion.text = #getMessageText();
             }
             confusion: do
             {
                 set $discussion.behavior = "confusion";
                 set $discussion.request = "repeat";
+				set $discussion.text = #getMessageText();
             }
             idle: do
             {
@@ -157,6 +157,7 @@ block hello ( discussion: interaction ): interaction
 			{
 				set $discussion.behavior = "positive";
 				set $discussion.request = "greeted";
+				set $discussion.text = #getMessageText();
 			}
         }
 	}
