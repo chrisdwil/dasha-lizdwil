@@ -77,15 +77,17 @@ block hello ( discussion: interaction ): interaction
                 #say("hello.idle");
             }
 
-            if ($discussion.behavior == "confusion" && $discussion.behavior == "identity")
-            {
-                #say("hello.identity");
-	            #log("[" + $discussion.name + "] - [" + localFunctionName + "] caller requested identity");
-            }
-
             if ($discussion.behavior == "confusion")
             {
-                #say("hello.confusion");
+                if ($discussion.behavior == "identity")
+                {
+                    #say("hello.identity");
+                    #log("[" + $discussion.name + "] - [" + localFunctionName + "] caller requested identity");
+                }
+                if ($discussion.behavior == "confusion")
+                {
+                    #say("hello.confusion");
+                }
             }
 
 	        goto listen;
@@ -111,7 +113,6 @@ block hello ( discussion: interaction ): interaction
 		
 		transitions
 		{
-            selfReturn: goto @return;
 			identity: goto talk on #messageHasAnyIntent(["identity"]) priority 10;
             confusion: goto talk on #messageHasAnyIntent(["questions","confusion"]) priority 5;
 			idle: goto talk on timeout 10000;
@@ -128,10 +129,12 @@ block hello ( discussion: interaction ): interaction
             confusion: do
             {
                 set $discussion.behavior = "confusion";
+                set $discussion.request = "repeat";
             }
             idle: do
             {
                 set $discussion.behavior = "idle";
+                set $discussion.request = "repeat";
             }
         }
 	}
