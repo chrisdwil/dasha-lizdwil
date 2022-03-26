@@ -65,6 +65,8 @@ block hello ( discussion: interaction ): interaction
 	        #log("[" + $discussion.name + "] - [" + localFunctionName + "] has been executed");
             #log($discussion);
 
+			set $discussion.text = #getMessageText();
+
             if ($discussion.greet)
             {                
                 #say("hello.greet");

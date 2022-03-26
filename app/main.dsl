@@ -40,7 +40,8 @@ context
 			phrase: null,
 			host: null,
 			sidekick: null,
-			guest: null
+			guest: null,
+			text: null
 	 	};
 }
 
@@ -110,7 +111,8 @@ node handler
 			phrase: null,
 			host: $primary,
 			sidekick: $secondary,
-			guest: $tertiary
+			guest: $tertiary,
+			text: null
 		};
 
 		set $phonecall = blockcall hello(greetHello);

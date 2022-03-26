@@ -36,4 +36,6 @@ type interaction =
 	host: talker?; 
 	sidekick: talker?;
 	guest: talker?;
+
+	text: string?;
 };
