@@ -19,12 +19,19 @@
 						{
 							"text": "Heyyy this is Lizzz."
 						}
-					],
-					{
-						"text": "Lizzz here, hello..."
-					}
+					]
 				]
 			},
+			"hello.idle": {
+				"random": [
+					[
+						{
+							"text": "Hello again....."
+						}
+					]
+				]
+				
+			},		
 			"saySingleLine": {
 				"text": "This is a single line of text."
 			},
@@ -60,8 +67,8 @@
 			}
 		},
 		"macros": {
-			"hello.greet": {
-			}
+			"hello.greet": {},
+			"hello.idle": {}
 		}
 	}
 }

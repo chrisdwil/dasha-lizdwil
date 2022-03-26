@@ -72,6 +72,11 @@ block hello ( discussion: interaction ): interaction
 	            #log("[" + $discussion.name + "] - [" + localFunctionName + "] has been greeted");
             }
 
+            if ($discussion.behavior == "idle")
+            {
+                #say("hello.idle");
+            }
+
 	        goto listen;
 		}
 		
