@@ -41,6 +41,7 @@ context
 			host: null,
 			sidekick: null,
 			guest: null,
+			sentiment: null,
 			text: null
 	 	};
 }
@@ -112,6 +113,7 @@ node handler
 			host: $primary,
 			sidekick: $secondary,
 			guest: $tertiary,
+			sentiment: null,
 			text: null
 		};
 
