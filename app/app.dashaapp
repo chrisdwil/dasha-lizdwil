@@ -1,19 +1,19 @@
 {
 	"formatVersion": "2",
-	"dialogue": {
+	"dialogue": 
+	{
 		"file": "main.dsl"
 	},
-	"nlu": {
+	"nlu": 
+	{
 		"language": "en-US",
 		"skills": [
 			"common_phrases",
 			"sentiment"
-		],
-		"customIntents": {
-			"file": "customIntents.json"
-		}
+		]
 	},
-	"nlg": {
+	"nlg": 
+	{
 		"type": "phrases",
 		"file": "phrasemap.json",
 		"signatureFile": "phrasemap.json"

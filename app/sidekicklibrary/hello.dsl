@@ -91,8 +91,11 @@ block hello ( discussion: interaction ): interaction
 				#log("[" + $discussion.name + "] - [" + localFunctionName + "] caller made a request");	
 			}
 
-			#say("hello.idle");
-			#log("[" + $discussion.name + "] - [" + localFunctionName + "] caller is idle or not understandable");
+			if ($discussion.behavior == "idle")
+			{
+				#say("hello.idle");
+				#log("[" + $discussion.name + "] - [" + localFunctionName + "] caller is idle or not understandable");
+			}
 
 	        goto listen;
 		}
