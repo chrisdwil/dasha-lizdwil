@@ -134,8 +134,8 @@ block hello ( discussion: interaction ): interaction
 			default: do
 			{
 				#log("transition default");				
-				set $discussion.behavior = null;
-				set $discussion.request = null;
+				set $discussion.behavior = "positive";
+				set $discussion.request = "repeat";
 				set $discussion.sentenceType = #getSentenceType();
 			}
         }
