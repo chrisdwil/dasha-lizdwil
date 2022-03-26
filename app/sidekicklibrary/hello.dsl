@@ -4,7 +4,7 @@ block hello ( discussion: interaction ): interaction
 {	
 	context
 	{
-
+        defaultAttempts: number = 4;
 	}
 
 	start node main
@@ -77,11 +77,23 @@ block hello ( discussion: interaction ): interaction
                 #say("hello.idle");
             }
 
+            if ($discussion.behavior == "confusion" && $discussion.behavior == "identify")
+            {
+                #sayText("I'm Lizzzz, Chris' personal assistant, I'm here to help you by transferring you to him, messaging him, or you can try him later");
+                goto selfReturn;
+            }
+
+            if ($discussion.behavior == "confusion")
+            {
+                #say("hello.confusion");
+            }
+
 	        goto listen;
 		}
 		
 		transitions
 		{
+            selfReturn: goto @return;
 			listen: goto listen;
 		}
 	}
@@ -99,13 +111,20 @@ block hello ( discussion: interaction ): interaction
 		
 		transitions
 		{
-			confusion: goto talk on #messageHasAnyIntent(["questions","confusion"]) priority 5;
+            selfReturn: goto @return;
+			identify: goto talk on #messageHasAnyIntent(["identify"]) priority 10;
+            confusion: goto talk on #messageHasAnyIntent(["questions","confusion"]) priority 5;
 			idle: goto talk on timeout 10000;
 			listen: goto listen on true priority 1;
 		}
 
         onexit
         {
+            identify: do
+            {
+                set $discussion.behavior = "confusion";
+                set $discussion.request = "identify";
+            }
             confusion: do
             {
                 set $discussion.behavior = "confusion";

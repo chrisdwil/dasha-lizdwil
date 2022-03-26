@@ -61,6 +61,13 @@
 				"connect"
 			]
 		},
+		"identity": {
+			"includes": [
+				"who are you",
+				"what are you",
+				"who's this"
+			]
+		},
 		"yes": {
 			"includes": [
 				"yes",
