@@ -25,7 +25,7 @@ block hello ( discussion: interaction ): interaction
             }
             else
             {
-                listen;
+                goto listen;
             }
 
 			goto selfReturn;		
