@@ -85,6 +85,7 @@ block hello ( discussion: interaction ): interaction
                 {
                     #say("hello.identity");
                     #log("[" + $discussion.name + "] - [" + localFunctionName + "] caller requested identity");
+					goto selfReturn;
                 }
 				if ($discussion.request == "repeat")
                 {
@@ -98,7 +99,8 @@ block hello ( discussion: interaction ): interaction
 				if ($discussion.request == "greeted")
 				{
                     #say("hello.greeted");
-                    #log("[" + $discussion.name + "] - [" + localFunctionName + "] caller greeted");				
+                    #log("[" + $discussion.name + "] - [" + localFunctionName + "] caller greeted");
+					goto selfReturn;	
 				}
 			}
 
@@ -126,6 +128,7 @@ block hello ( discussion: interaction ): interaction
 		transitions
 		{
 			identity: goto talk on #messageHasAnyIntent(["identity"]) priority 10;
+			greeted: goto talk on #messageHasAnyIntent(["greeted"]) priority 10;
             confusion: goto talk on #messageHasAnyIntent(["questions","confusion"]) priority 5;
 			idle: goto talk on timeout 10000;
 			listen: goto listen on true priority 1;
