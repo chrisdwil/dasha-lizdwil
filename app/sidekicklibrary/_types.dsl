@@ -27,7 +27,7 @@ type interaction =
 	sidekick: talker?;
 	guest: talker?;
 
+	sentenceType: string?;
 	sentiment: string?;
 	text: string?;
-	sentenceType: string?;
 };

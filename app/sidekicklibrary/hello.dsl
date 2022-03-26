@@ -66,7 +66,6 @@ block hello ( discussion: interaction ): interaction
             #log($discussion);
 			set $discussion.sentiment = null;
 			set $discussion.text = null;
-			set $discussion.sentenceType = #getSentenceType();
 
             if ($discussion.greet)
             {                
@@ -120,8 +119,6 @@ block hello ( discussion: interaction ): interaction
 		
 		transitions
 		{
-			positive: goto talk on #messageHasSentiment("positive");
-			negative: goto talk on #messageHasSentiment("negative");
 			idle: goto talk on timeout 10000;
 			listen: goto listen on true priority 1;
 		}
@@ -141,6 +138,7 @@ block hello ( discussion: interaction ): interaction
 				#log("transition default");				
 				set $discussion.behavior = null;
 				set $discussion.request = null;
+				set $discussion.sentenceType = #getSentenceType();
 			}
         }
 	}
