@@ -80,7 +80,7 @@ block hello ( discussion: interaction ): interaction
             if ($discussion.behavior == "confusion" && $discussion.behavior == "identity")
             {
                 #say("hello.identity");
-                goto selfReturn;
+	            #log("[" + $discussion.name + "] - [" + localFunctionName + "] caller requested identity");
             }
 
             if ($discussion.behavior == "confusion")
