@@ -113,7 +113,7 @@ node handler
 			guest: $tertiary
 		};
 
-		set greetHello = blockcall hello($phonecall);
+		set $phonecall = blockcall hello(greetHello);
 
         exit;
 	}

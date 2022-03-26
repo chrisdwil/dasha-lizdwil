@@ -79,12 +79,12 @@ block hello ( discussion: interaction ): interaction
 
             if ($discussion.behavior == "confusion")
             {
-                if ($discussion.behavior == "identity")
+                if ($discussion.request == "identity")
                 {
                     #say("hello.identity");
                     #log("[" + $discussion.name + "] - [" + localFunctionName + "] caller requested identity");
                 }
-                if ($discussion.behavior == "confusion")
+                if ($discussion.request == "repeat")
                 {
                     #say("hello.confusion");
                 }
