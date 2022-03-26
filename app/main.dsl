@@ -114,6 +114,10 @@ node handler
 		};
 
 		set $phonecall = blockcall hello(greetHello);
+		#log($phonecall);
+		#sayText("So what can I help you with?");
+
+		#sayText("Actually, I gotta go"));
 
         exit;
 	}
