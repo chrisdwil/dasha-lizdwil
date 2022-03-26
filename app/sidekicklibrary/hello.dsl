@@ -63,6 +63,7 @@ block hello ( discussion: interaction ): interaction
 		{
 			var localFunctionName = "talk";
 	        #log("[" + $discussion.name + "] - [" + localFunctionName + "] has been executed");
+            #log($discussion);
 
             if ($discussion.greet)
             {                
@@ -86,6 +87,7 @@ block hello ( discussion: interaction ): interaction
 		{
 			var localFunctionName = "listen";
 	        #log("[" + $discussion.name + "] - [" + localFunctionName + "] has been executed");
+            #log($discussion);
 
 	        wait *;
 		}
@@ -96,5 +98,17 @@ block hello ( discussion: interaction ): interaction
 			idle: goto talk on timeout 5000;
 			listen: goto listen on true priority 1;
 		}
+
+        onexit
+        {
+            confusion: do
+            {
+                set $discussion.behavior = "confusion";
+            }
+            idle: do
+            {
+                set $discussion.behavior = "idle";
+            }
+        }
 	}
 }
