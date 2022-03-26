@@ -8,27 +8,22 @@
 			"emotion": "positive"
 		},
 		"phrases": {
-			"hello.greet": {
-				"random": [
-					[
-						{
-							"text": "Hello!!!! This is Lizz- speaking."
-						}
-					],
-					[
-						{
-							"text": "Heyyy this is Lizzz."
-						}
-					],
-					[
-						{
-							"text": "Hiii, Lizzz here, Chrisz's assistant."
-						}
-					]
-				]
-			},
-			"hello.idle": {
-				"random": [
+			"hello.greet": 
+			[
+				{
+					"text": "Hello."
+				},
+				{
+					"text": "This is Lizz- speaking."
+				},
+				{
+					"text": "How may I assist you?"
+				}
+			],
+			"hello.idle": 
+			{
+				"random": 
+				[
 					[
 						{
 							"text": "Hello again....."
@@ -46,7 +41,8 @@
 					]
 				]
 			},
-			"hello.confusion": {
+			"hello.confusion": 
+			{
 				"random": [
 					[
 						{
@@ -64,8 +60,9 @@
 						}
 					]
 				]
-			},			
-			"hello.identity": [
+			},
+			"hello.identity": 
+			[
 				{
 					"text": "Oh Pardon me."
 				},

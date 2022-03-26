@@ -1,65 +1,71 @@
-// Liz D. Wil 
+// Liz D. Wil
 import "sidekicklibrary/all.dsl";
 
-context 
+context
 {
 	input phone: string;
 	input forward: string;
 	input reason: string;
-		
+	
 	logNodeName: string = "main";
 	
-	primary: talker = 
+	primary: talker =
 	{
-			name: "Chris D. Wil",
-			nick: "Chris",
-			phonetic: "Chris Dee Wil"
-	};
+		name: "Chris D. Wil",
+		nick: "Chris",
+		phonetic: "Chris Dee Wil"
+	}
+	;
 	
-	secondary: talker = 
+	secondary: talker =
 	{
-			name: "Elize D. Wil",
-			nick: "Lizzz",
-			phonetic: "Lizzz Dee Wil"
-	};
+		name: "Elize D. Wil",
+		nick: "Lizzz",
+		phonetic: "Lizzz Dee Wil"
+	}
+	;
 	
-	tertiary: talker = 
+	tertiary: talker =
 	{
-			name: null,
-			nick: null,
-			phonetic: null
-	};
+		name: null,
+		nick: null,
+		phonetic: null
+	}
+	;
 	
-	phonecall: interaction = 
-	 	{
-			name: "initialize",
-			agenda: "creating phone call array",
-			greet: true,
-			request: null,
-			behavior: null,
-			phrase: null,
-			host: null,
-			sidekick: null,
-			guest: null,
-			sentiment: null,
-			text: null,
-			sentenceType: null
-	 	};
+	phonecall: interaction =
+	{
+		name: "initialize",
+		agenda: "creating phone call array",
+		greet: true,
+		request: null,
+		behavior: null,
+		phrase: null,
+		host: null,
+		sidekick: null,
+		guest: null,
+		sentiment: null,
+		text: null,
+		sentenceType: null
+	}
+	;
 }
 
 start node main
 {
 	do
-	{	
+	{
 		var logNodeNameSub = "@";
-        #log("[" + $logNodeName + "] - [" + logNodeNameSub + "] has been executed");
+		#log("---------------");
+		#log("[" + $logNodeName + "] - [" + logNodeNameSub + "] has been executed");
+		#log("---------------");
 		set $phonecall.host = $primary;
 		set $phonecall.sidekick = $secondary;
 		set $phonecall.guest = $tertiary;
-        #log($phonecall);
-
+		#log($phonecall);
+		
 		#connectSafe($phone);
-
+		
 		wait *;
 	}
 	
@@ -69,30 +75,30 @@ start node main
 	}
 }
 
-node @exit 
+node @exit
 {
-    do 
-    {
+	do
+	{
 		var logNodeNameSub = "@exit";
-        #log("[" + $logNodeName + "] - [" + logNodeNameSub + "] has been executed");
-  	
-        exit;
-    }
+		#log("[" + $logNodeName + "] - [" + logNodeNameSub + "] has been executed");
+		
+		exit;
+	}
 }
 
 digression @digReturn
 {
 	conditions
-	{ 
-		on true tags: onclosed; 
+	{
+		on true tags: onclosed;
 	}
 	
-	do 
+	do
 	{
 		var logNodeNameSub = "@digReturn";
-        #log("[" + $logNodeName + "] - [" + logNodeNameSub + "] has been executed");
-    	
-    	exit;
+		#log("[" + $logNodeName + "] - [" + logNodeNameSub + "] has been executed");
+		
+		exit;
 	}
 }
 
@@ -101,9 +107,9 @@ node handler
 	do
 	{
 		var logNodeNameSub = "handler";
-        #log("[" + $logNodeName + "] - [" + logNodeNameSub + "] has been executed");
+		#log("[" + $logNodeName + "] - [" + logNodeNameSub + "] has been executed");
 		
-		var greetHello: interaction = 
+		var greetHello: interaction =
 		{
 			name: "hello",
 			agenda: "say hello to caller, confirm they exist",
@@ -117,15 +123,16 @@ node handler
 			sentiment: null,
 			text: null,
 			sentenceType: null
-		};
-
+		}
+		;
+		
 		set $phonecall = blockcall hello(greetHello);
 		#log($phonecall);
-
-        exit;
+		
+		exit;
 	}
-
-	transitions 
+	
+	transitions
 	{
 		idle: goto handler on timeout 10000;
 	}
