@@ -66,6 +66,7 @@ block hello ( discussion: interaction ): interaction
             #log($discussion);
 			set $discussion.sentiment = null;
 			set $discussion.text = null;
+			set $discussion.sentenceType = #getSentenceType();
 
             if ($discussion.greet)
             {                
