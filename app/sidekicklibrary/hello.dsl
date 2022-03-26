@@ -64,8 +64,6 @@ block hello ( discussion: interaction ): interaction
 			var localFunctionName = "talk";
 	        #log("[" + $discussion.name + "] - [" + localFunctionName + "] has been executed");
             #log($discussion);
-			set $discussion.sentiment = null;
-			set $discussion.text = null;
 
             if ($discussion.greet)
             {                
