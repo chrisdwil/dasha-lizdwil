@@ -112,7 +112,7 @@ block hello ( discussion: interaction ): interaction
 		transitions
 		{
             selfReturn: goto @return;
-			identify: goto talk on #messageHasAnyIntent(["identify"]) priority 10;
+			identify: goto talk on #messageHasAnyIntent(["identity"]) priority 10;
             confusion: goto talk on #messageHasAnyIntent(["questions","confusion"]) priority 5;
 			idle: goto talk on timeout 10000;
 			listen: goto listen on true priority 1;
