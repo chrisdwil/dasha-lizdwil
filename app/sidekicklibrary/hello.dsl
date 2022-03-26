@@ -128,7 +128,7 @@ block hello ( discussion: interaction ): interaction
         {
 			idle: do
 			{	
-				#log("[" + $discussion.name + "] - [" + localFunctionName + "] idle transition has been executed");
+				#log("transition idle");
 
                 set $discussion.behavior = "idle";
                 set $discussion.request = "repeat";
@@ -136,8 +136,7 @@ block hello ( discussion: interaction ): interaction
 
 			default: do
 			{
-				#log("[" + $discussion.name + "] - [" + localFunctionName + "] idle transition has been executed");
-				
+				#log("transition default");				
 				set $discussion.behavior = null;
 				set $discussion.request = null;
 			}
