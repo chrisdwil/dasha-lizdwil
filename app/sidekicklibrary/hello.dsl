@@ -127,13 +127,17 @@ block hello ( discussion: interaction ): interaction
         onexit
         {
 			idle: do
-            {
+			{	
+				#log("[" + $discussion.name + "] - [" + localFunctionName + "] idle transition has been executed");
+
                 set $discussion.behavior = "idle";
                 set $discussion.request = "repeat";
             }
 
 			default: do
 			{
+				#log("[" + $discussion.name + "] - [" + localFunctionName + "] idle transition has been executed");
+				
 				set $discussion.behavior = null;
 				set $discussion.request = null;
 			}
