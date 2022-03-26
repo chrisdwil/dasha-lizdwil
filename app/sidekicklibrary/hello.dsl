@@ -118,7 +118,7 @@ block hello ( discussion: interaction ): interaction
 		
 		transitions
 		{
-			greeted: goto talk on #messageHasAnyIntent("greeted");
+			greeted: goto talk on #messageHasIntent("greeted");
 			idle: goto talk on timeout 10000;
 			listen: goto listen on true priority 1;
 		}
