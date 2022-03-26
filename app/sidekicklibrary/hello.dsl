@@ -75,42 +75,24 @@ block hello ( discussion: interaction ): interaction
 	            #log("[" + $discussion.name + "] - [" + localFunctionName + "] has been greeted");
             }
 
-            if ($discussion.sentenceType == "null")
-            {
-                #say("hello.idle");
-				#log("[" + $discussion.name + "] - [" + localFunctionName + "] caller is idle");
-
-            }
-
             if ($discussion.sentenceType == "question")
-            {
-                if ($discussion.request == "identity")
-                {
-                    #say("hello.identity");
-                    #log("[" + $discussion.name + "] - [" + localFunctionName + "] caller requested identity");
-					goto selfReturn;
-                }
-				if ($discussion.request == "repeat")
-                {
+            { 
                     #say("hello.confusion");
-                    #log("[" + $discussion.name + "] - [" + localFunctionName + "] caller is confused");                    
-                }
-            }
+                    #log("[" + $discussion.name + "] - [" + localFunctionName + "] caller asked a question");                    
+			}
 
 			if ($discussion.sentenceType == "statement")
 			{
-				if ($discussion.request == "greeted")
-				{
-                    #say("hello.greeted");
-                    #log("[" + $discussion.name + "] - [" + localFunctionName + "] caller greeted");
-					goto selfReturn;	
-				}
+            	#log("[" + $discussion.name + "] - [" + localFunctionName + "] caller made a statement");
 			}
 
 			if ($discussion.sentenceType == "request")
 			{
-
+				#log("[" + $discussion.name + "] - [" + localFunctionName + "] caller made a request");	
 			}
+
+			#say("hello.idle");
+			#log("[" + $discussion.name + "] - [" + localFunctionName + "] caller is idle or not understandable");
 
 	        goto listen;
 		}
@@ -136,36 +118,21 @@ block hello ( discussion: interaction ): interaction
 		transitions
 		{
 			idle: goto talk on timeout 10000;
-			identity: goto talk on #messageHasIntent("identity") priority 4;
-			confusion: goto talk on #messageHasIntent("confusion") priority 3;
-			greeted: goto talk on #messageHasIntent("greeted") priority 2;
 			listen: goto listen on true priority 1;
 		}
 
         onexit
         {
-            identity: do
-            {
-                set $discussion.behavior = "confusion";
-                set $discussion.request = "identity";
-				set $discussion.text = #getMessageText();
-            }
-            confusion: do
-            {
-                set $discussion.behavior = "confusion";
-                set $discussion.request = "repeat";
-				set $discussion.text = #getMessageText();
-            }
-            idle: do
+			idle: do
             {
                 set $discussion.behavior = "idle";
                 set $discussion.request = "repeat";
             }
-			greeted: do
+
+			default: do
 			{
-				set $discussion.behavior = "positive";
-				set $discussion.request = "greeted";
-				set $discussion.text = #getMessageText();
+				set $discussion.behavior = null;
+				set $discussion.request = null;
 			}
         }
 	}

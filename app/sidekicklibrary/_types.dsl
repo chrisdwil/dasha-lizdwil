@@ -13,16 +13,6 @@ type result =
 	data: string?;
 };
 
-/*
-type  = 
-{
-	// max or defaults
-	steps: string?;
-	timeout: string?;	
-	errors: strings?;
-};
-*/
-
 type interaction = 
 {
 	name: string;

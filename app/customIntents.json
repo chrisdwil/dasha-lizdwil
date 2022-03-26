@@ -3,14 +3,7 @@
 	"intents": {
 		"confusion": {
 			"includes": [
-				"huh",
-				"huh?",
-				"uh",
-				"err",
-				"i'm confused",
-				"need help",
-				"i need",
-				"um"
+				"huh"
 			]
 		},
 		"farewell": {
