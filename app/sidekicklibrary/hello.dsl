@@ -87,6 +87,7 @@ block hello ( discussion: interaction ): interaction
                 if ($discussion.request == "repeat")
                 {
                     #say("hello.confusion");
+                    #log("[" + $discussion.name + "] - [" + localFunctionName + "] caller requested identity");                    
                 }
             }
 
