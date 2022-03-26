@@ -39,4 +39,5 @@ type interaction =
 
 	sentiment: string?;
 	text: string?;
+	sentenceType: string?;
 };

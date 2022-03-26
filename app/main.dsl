@@ -42,7 +42,8 @@ context
 			sidekick: null,
 			guest: null,
 			sentiment: null,
-			text: null
+			text: null,
+			sentenceType: null
 	 	};
 }
 
@@ -114,7 +115,8 @@ node handler
 			sidekick: $secondary,
 			guest: $tertiary,
 			sentiment: null,
-			text: null
+			text: null,
+			sentenceType: null
 		};
 
 		set $phonecall = blockcall hello(greetHello);
