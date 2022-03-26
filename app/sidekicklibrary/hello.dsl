@@ -120,7 +120,8 @@ block hello ( discussion: interaction ): interaction
 		
 		transitions
 		{
-			sentence: goto talk on true;
+			positive: goto talk on #messageHasSentiment("positive");
+			negative: goto talk on #messageHasSentiment("negative");
 			idle: goto talk on timeout 10000;
 			listen: goto listen on true priority 1;
 		}
