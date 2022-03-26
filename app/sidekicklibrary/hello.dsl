@@ -130,7 +130,7 @@ block hello ( discussion: interaction ): interaction
 		transitions
 		{
 			identity: goto talk on #messageHasIntent("identity") priority 10;
-			confusion: goto talk on #messageHasIntent("questions") priority 9;
+			confusionQuestions: goto talk on #messageHasIntent("questions") priority 9;
 			confusion: goto talk on #messageHasIntent("confusion") priority 8;
 			greeted: goto talk on #messageHasIntent("greeted") priority 7;
 			idle: goto talk on timeout 10000;
@@ -143,6 +143,12 @@ block hello ( discussion: interaction ): interaction
             {
                 set $discussion.behavior = "confusion";
                 set $discussion.request = "identity";
+				set $discussion.text = #getMessageText();
+            }
+			confusionQuestions: do
+            {
+                set $discussion.behavior = "confusion";
+                set $discussion.request = "repeat";
 				set $discussion.text = #getMessageText();
             }
             confusion: do
