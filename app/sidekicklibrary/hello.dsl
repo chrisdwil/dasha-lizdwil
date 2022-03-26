@@ -70,7 +70,6 @@ block hello ( discussion: interaction ): interaction
 
             if ($discussion.greet)
             {
-                #say($discussion.phrase + ".greet");
             }
 
 	        goto listen;
