@@ -120,6 +120,7 @@ block hello ( discussion: interaction ): interaction
 		
 		transitions
 		{
+			sentence: goto talk on true;
 			idle: goto talk on timeout 10000;
 			listen: goto listen on true priority 1;
 		}
