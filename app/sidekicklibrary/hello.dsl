@@ -79,7 +79,7 @@ block hello ( discussion: interaction ): interaction
 
             if ($discussion.behavior == "confusion" && $discussion.behavior == "identity")
             {
-                #sayText("I'm Lizzzz, Chris' personal assistant, I'm here to help you by transferring you to him, messaging him, or you can try him later");
+                #say("hello.identity");
                 goto selfReturn;
             }
 
