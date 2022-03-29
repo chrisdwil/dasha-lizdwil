@@ -8,6 +8,21 @@
 			"emotion": "positive"
 		},
 		"phrases": {
+			"assist.greet":
+			[
+				{
+					"text": "How may I assist you today?"
+				}
+			],
+			"assist.idle":
+			[
+				{
+					"text": "I can transfer you,"
+				},
+				{
+					"text": "or leave him a message."
+				}	
+			],
 			"hello.greet": 
 			[
 				{
@@ -15,6 +30,11 @@
 				},
 				{
 					"text": "This is Lizz- speaking."
+				}
+			],
+			"okay": [
+				{
+					"text": "Oh kay."
 				}
 			],
 			"hello.idle": 
@@ -70,11 +90,6 @@
 					"text": "I'm Chrisz's personal assistant for handling his phone calls and messages."
 				}
 			],
-			"hello.greeted": [
-				{
-					"text": "Oh kay."
-				}
-			],
 			"saySingleLine": {
 				"text": "This is a single line of text."
 			},
@@ -110,11 +125,13 @@
 			}
 		},
 		"macros": {
-			"hello.greet": {},
-			"hello.idle": {},
+			"assist.greet": {},
+			"assist.idle": {},
 			"hello.confusion": {},
+			"hello.greet": {},
+			"hello.greeted": {},
 			"hello.identity": {},
-			"hello.greeted": {}
+			"hello.idle": {}
 		}
 	}
 }
