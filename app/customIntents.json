@@ -17,6 +17,20 @@
 				"you later"
 			]
 		},
+		"greeted": {
+			"includes": [
+				"hello",
+				"hi",
+				"yo",
+				"howdy"
+			]
+		},
+		"identity": {
+			"includes": [
+				"who are you",
+				"what are you"
+			]
+		},
 		"no": {
 			"includes": [
 				"no",
@@ -53,19 +67,6 @@
 			],
 			"excludes": [
 				"connect"
-			]
-		},
-		"identity": {
-			"includes": [
-				"who are you",
-				"what are you"
-			]
-		},
-		"greeted": {
-			"includes": [
-				"hello",
-				"hi",
-				"yo"
 			]
 		},
 		"yes": {

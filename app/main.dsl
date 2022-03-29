@@ -123,8 +123,7 @@ node handler
 			sentiment: null,
 			text: null,
 			sentenceType: null
-		}
-		;
+		};
 		
 		set $phonecall = blockcall hello(greetHello);
 		#log($phonecall);

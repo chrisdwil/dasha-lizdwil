@@ -67,30 +67,20 @@ block hello ( discussion: interaction ): interaction
 			var localFunctionName = "talk";
 			#log("[" + $discussion.name + "] - [" + localFunctionName + "] has been executed");
 			#log($discussion);
-			
+			set $discussion.text = #getMessageText();
+
 			if ($discussion.greet)
 			{
 				#say("hello.greet");
 				set $discussion.greet = false;
 				#log("[" + $discussion.name + "] - [" + localFunctionName + "] has been greeted");
 			}
-			
-			if ($discussion.sentenceType == "question")
+
+			if ($discussion.sentenceType != "null")
 			{
-				#say("hello.confusion");
-				#log("[" + $discussion.name + "] - [" + localFunctionName + "] caller asked a question");
+				
 			}
-			
-			if ($discussion.sentenceType == "statement")
-			{
-				#log("[" + $discussion.name + "] - [" + localFunctionName + "] caller made a statement");
-			}
-			
-			if ($discussion.sentenceType == "request")
-			{
-				#log("[" + $discussion.name + "] - [" + localFunctionName + "] caller made a request");
-			}
-			
+
 			if ($discussion.behavior == "idle")
 			{
 				#say("hello.idle");
@@ -132,7 +122,6 @@ block hello ( discussion: interaction ): interaction
 				set $discussion.behavior = "positive";
 				set $discussion.request = "greeted";
 				set $discussion.sentenceType = #getSentenceType();
-				set $discussion.text = #getMessageText();
 				
 			}
 			idle: do
@@ -152,5 +141,18 @@ block hello ( discussion: interaction ): interaction
 				set $discussion.text = #getMessageText();
 			}
 		}
+	}
+}
+
+node action
+{
+	do
+	{
+
+	}
+
+	transitions
+	{
+
 	}
 }
