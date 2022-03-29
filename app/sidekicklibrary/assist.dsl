@@ -1,6 +1,6 @@
 library
 
-block hello ( discussion: interaction ): interaction
+block assist ( discussion: interaction ): interaction
 {
 	context
 	{
@@ -70,14 +70,22 @@ block hello ( discussion: interaction ): interaction
 
 			if ($discussion.greet)
 			{
-				#say("hello.greet");
+				#say("assist.greet");
 				set $discussion.greet = false;
 				#log("[" + $discussion.name + "] - [" + localFunctionName + "] has been greeted");
 			}
 
+			if ($discussion.sentenceType != "null")
+			{
+				if ($discussion.request == "greeted")
+				{
+					goto @selfReturn;
+				}
+			}
+
 			if ($discussion.behavior == "idle")
 			{
-				#say("hello.idle");
+				#say("assist.idle");
 				#log("[" + $discussion.name + "] - [" + localFunctionName + "] caller is idle or not understandable");
 			}
 			
@@ -104,16 +112,17 @@ block hello ( discussion: interaction ): interaction
 		
 		transitions
 		{
-			greeted: goto action on #messageHasIntent("greeted") priority 10;
+			transfer: goto talk on #messageHasIntent("transfer") priority 10;
+			message: goto talk on #messageHasIntent("message") priority 9;
 			idle: goto talk on timeout 10000;
 			listen: goto listen on true priority 1;
 		}
 		
 		onexit
 		{
-			greeted: do
+			transfer: do
 			{
-				#log("transition greeted");
+				#log("transition transfer");
 				set $discussion.behavior = "positive";
 				set $discussion.request = "greeted";
 				set $discussion.sentenceType = #getSentenceType();
@@ -139,28 +148,17 @@ block hello ( discussion: interaction ): interaction
 			}
 		}
 	}
-
-	node action
-	{
-		do
-		{
-			var localFunctionName = "action";
-			#log("[" + $discussion.name + "] - [" + localFunctionName + "] has been executed");
-			#log($discussion);
-
-			if ($discussion.sentenceType is not null)
-			{
-				if ($discussion.request == "greeted")
-				{
-					goto selfReturn;
-				}
-			}
-		}
-
-		transitions
-		{
-			selfReturn: goto @return;
-		}
-	}
 }
 
+node action
+{
+	do
+	{
+
+	}
+
+	transitions
+	{
+
+	}
+}

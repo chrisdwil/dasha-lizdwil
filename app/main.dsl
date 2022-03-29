@@ -6,6 +6,8 @@ context
 	input phone: string;
 	input forward: string;
 	input reason: string;
+
+	greeted: boolean = false;
 	
 	logNodeName: string = "main";
 	
@@ -108,26 +110,52 @@ node handler
 	{
 		var logNodeNameSub = "handler";
 		#log("[" + $logNodeName + "] - [" + logNodeNameSub + "] has been executed");
-		
-		var greetHello: interaction =
+
+		if (#getVisitCount("handler") < 2)
 		{
-			name: "hello",
-			agenda: "say hello to caller, confirm they exist",
-			greet: true,
-			request: null,
-			behavior: null,
-			phrase: null,
-			host: $primary,
-			sidekick: $secondary,
-			guest: $tertiary,
-			sentiment: null,
-			text: null,
-			sentenceType: null
-		};
-		
-		set $phonecall = blockcall hello(greetHello);
+			var helloMain: interaction =
+			{
+				name: "hello",
+				agenda: "say hello to caller, confirm they exist",
+				greet: true,
+				request: null,
+				behavior: null,
+				phrase: null,
+				host: $primary,
+				sidekick: $secondary,
+				guest: $tertiary,
+				sentiment: null,
+				text: null,
+				sentenceType: null
+			};
+
+			set $phonecall = blockcall hello(helloMain);
+		}
 		#log($phonecall);
-		
+
+		if ($phonecall.request is not null)
+		{
+			if ($phonecall.request == "greeted")
+			{
+				var assistMain = 
+				{
+					name: "assist",
+					agenda: "ask them how you can assist today",
+					greet: true,
+					request: null,
+					behavior: null,
+					phrase: null,
+					host: $primary,
+					sidekick: $secondary,
+					guest: $tertiary,
+					sentiment: null,
+					text: null,
+					sentenceType: null
+				};
+
+				//set $phonecall = blockcall assist(assistMain);
+			}
+		}		
 		exit;
 	}
 	
