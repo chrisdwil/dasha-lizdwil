@@ -11,16 +11,22 @@
 			"assist.greet":
 			[
 				{
+					"text": "It's a pleassure speaking with you."
+				},			
+				{
 					"text": "How may I assist you today?"
 				}
 			],
 			"assist.idle":
 			[
 				{
-					"text": "I can transfer you,"
+					"text": "If you're unsure of what to do."
 				},
 				{
-					"text": "or leave him a message."
+					"text": "I can transfer you to Chris,"
+				},
+				{
+					"text": "or I can leave him a message."
 				}	
 			],
 			"hello.greet": 

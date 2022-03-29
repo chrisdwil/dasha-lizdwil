@@ -12,7 +12,9 @@ block assist ( discussion: interaction ): interaction
 		do
 		{
 			var localFunctionName = "@";
+			#log("---------------");
 			#log("[" + $discussion.name + "] - [" + localFunctionName + "] has been executed");
+			#log("---------------");
 			
 			if ($discussion.greet)
 			{
@@ -39,7 +41,9 @@ block assist ( discussion: interaction ): interaction
 		do
 		{
 			var localFunctionName = "@return";
+			#log("---------------");
 			#log("[" + $discussion.name + "] - [" + localFunctionName + "] has been executed");
+			#log("---------------");
 			
 			return $discussion;
 		}
@@ -54,7 +58,9 @@ block assist ( discussion: interaction ): interaction
 		do
 		{
 			var localFunctionName = "@digReturn";
+			#log("---------------");
 			#log("[" + $discussion.name + "] - [" + localFunctionName + "] has been executed");
+			#log("---------------");
 			
 			return $discussion;
 		}
@@ -112,8 +118,8 @@ block assist ( discussion: interaction ): interaction
 		
 		transitions
 		{
-			transfer: goto talk on #messageHasIntent("transfer") priority 10;
-			message: goto talk on #messageHasIntent("message") priority 9;
+			transfer: goto action on #messageHasIntent("transfer") priority 10;
+			message: goto action on #messageHasIntent("message") priority 9;
 			idle: goto talk on timeout 10000;
 			listen: goto listen on true priority 1;
 		}
@@ -124,10 +130,20 @@ block assist ( discussion: interaction ): interaction
 			{
 				#log("transition transfer");
 				set $discussion.behavior = "positive";
-				set $discussion.request = "greeted";
+				set $discussion.request = "transfer";
 				set $discussion.sentenceType = #getSentenceType();
 				set $discussion.text = #getMessageText();	
 			}
+
+			message: do
+			{
+				#log("transition message");
+				set $discussion.behavior = "positive";
+				set $discussion.request = "message";
+				set $discussion.sentenceType = #getSentenceType();
+				set $discussion.text = #getMessageText();	
+			}
+
 			idle: do
 			{
 				#log("transition idle");
@@ -148,17 +164,28 @@ block assist ( discussion: interaction ): interaction
 			}
 		}
 	}
+
+	node action
+	{
+		do
+		{
+			var localFunctionName = "action";
+			#log("[" + $discussion.name + "] - [" + localFunctionName + "] has been executed");
+			#log($discussion);
+
+			if ($discussion.sentenceType is not null)
+			{
+				if ($discussion.request == "transfer")
+				{
+					goto selfReturn;
+				}
+			}
+		}
+
+		transitions
+		{
+			selfReturn: goto @return;
+		}
+	}
 }
 
-node action
-{
-	do
-	{
-
-	}
-
-	transitions
-	{
-
-	}
-}

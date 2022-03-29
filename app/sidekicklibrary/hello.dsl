@@ -12,8 +12,10 @@ block hello ( discussion: interaction ): interaction
 		do
 		{
 			var localFunctionName = "@";
+			#log("---------------");
 			#log("[" + $discussion.name + "] - [" + localFunctionName + "] has been executed");
-			
+			#log("---------------");
+
 			if ($discussion.greet)
 			{
 				goto talk;
@@ -39,7 +41,9 @@ block hello ( discussion: interaction ): interaction
 		do
 		{
 			var localFunctionName = "@return";
+			#log("---------------");
 			#log("[" + $discussion.name + "] - [" + localFunctionName + "] has been executed");
+			#log("---------------");
 			
 			return $discussion;
 		}
@@ -54,7 +58,9 @@ block hello ( discussion: interaction ): interaction
 		do
 		{
 			var localFunctionName = "@digReturn";
+			#log("---------------");
 			#log("[" + $discussion.name + "] - [" + localFunctionName + "] has been executed");
+			#log("---------------");
 			
 			return $discussion;
 		}
@@ -163,4 +169,3 @@ block hello ( discussion: interaction ): interaction
 		}
 	}
 }
-

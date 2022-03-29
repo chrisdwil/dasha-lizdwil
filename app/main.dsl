@@ -60,6 +60,9 @@ start node main
 		var logNodeNameSub = "@";
 		#log("---------------");
 		#log("[" + $logNodeName + "] - [" + logNodeNameSub + "] has been executed");
+		#log($phone);
+		#log($forward);
+		#log($reason);
 		#log("---------------");
 		set $phonecall.host = $primary;
 		set $phonecall.sidekick = $secondary;
@@ -153,9 +156,10 @@ node handler
 					sentenceType: null
 				};
 
-				//set $phonecall = blockcall assist(assistMain);
+				set $phonecall = blockcall assist(assistMain);
 			}
-		}		
+		}
+
 		exit;
 	}
 	
