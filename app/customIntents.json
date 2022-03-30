@@ -80,10 +80,13 @@
 		},
 		"transfer": {
 			"includes": [
-				"transfer me to",
-				"connect me to",
-				"connect my call",
-				"i'm looking for"
+				"connect me",
+				"connect my",
+				"i'm looking for",
+				"i'm trying to get ahold",
+				"transfer",
+				"transfer me",
+				"where chris"
 			],
 			"excludes": [
 				"connect example"
