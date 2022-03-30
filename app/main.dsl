@@ -114,6 +114,15 @@ node handler
 		var logNodeNameSub = "handler";
 		#log("[" + $logNodeName + "] - [" + logNodeNameSub + "] has been executed");
 
+		if ($reason == "busy")
+		{
+			#sayText("Hey it's Lizzz again.");
+			#sayText("it appears he's still busy, you'll have to try him again later.");
+			#sayText(" ");
+			#sayText("Good bye.");
+			exit;
+		}
+		
 		if (#getVisitCount("handler") < 2)
 		{
 			var helloMain: interaction =
@@ -158,13 +167,22 @@ node handler
 
 				set $phonecall = blockcall assist(assistMain);
 			}
-		}
 
-		exit;
+			if ($phonecall.request == "transfer")
+			{
+				#log("[" + $logNodeName + "] - [" + logNodeNameSub + "] is transferring to" + $forward);
+
+				#sayText("Okay");
+				#sayText("Please hold one moment.");
+				#sayText("If he's still busy I'll pick back up and we can send him a message instead.");
+				
+				#forward($forward);
+			}
+		}
 	}
 	
 	transitions
 	{
-		idle: goto handler on timeout 10000;
+		idle: goto handler on timeout 1000;
 	}
 }

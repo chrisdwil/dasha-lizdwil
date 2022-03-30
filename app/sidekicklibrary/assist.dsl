@@ -81,14 +81,6 @@ block assist ( discussion: interaction ): interaction
 				#log("[" + $discussion.name + "] - [" + localFunctionName + "] has been greeted");
 			}
 
-			if ($discussion.sentenceType != "null")
-			{
-				if ($discussion.request == "greeted")
-				{
-					goto @selfReturn;
-				}
-			}
-
 			if ($discussion.behavior == "idle")
 			{
 				#say("assist.idle");
@@ -188,4 +180,3 @@ block assist ( discussion: interaction ): interaction
 		}
 	}
 }
-
