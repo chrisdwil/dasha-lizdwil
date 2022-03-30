@@ -5,6 +5,7 @@ type talker =
 	name: string?;
 	nick: string?;
 	phonetic: string?;
+	phone: string?;
 };
 
 type result = 

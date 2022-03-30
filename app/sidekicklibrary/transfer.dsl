@@ -4,7 +4,7 @@ block transfer ( discussion: interaction ): interaction
 {
 	context
 	{
-		defaultAttempts: number = 4;
+
 	}
 	
 	start node main
@@ -79,6 +79,7 @@ block transfer ( discussion: interaction ): interaction
 				#say("transfer.greet");
 				set $discussion.greet = false;
 				#log("[" + $discussion.name + "] - [" + localFunctionName + "] has been greeted");
+				goto transfer;
 			}
 
 			if ($discussion.behavior == "idle")
@@ -92,6 +93,7 @@ block transfer ( discussion: interaction ): interaction
 		
 		transitions
 		{
+			transfer: goto action;
 			selfReturn: goto @return;
 			listen: goto listen;
 		}
@@ -145,13 +147,8 @@ block transfer ( discussion: interaction ): interaction
 			#log("[" + $discussion.name + "] - [" + localFunctionName + "] has been executed");
 			#log($discussion);
 
-			if ($discussion.sentenceType is not null)
-			{
-				if ($discussion.request == "greeted")
-				{
-					goto selfReturn;
-				}
-			}
+			set $discussion.request = "transfer";
+			goto selfReturn;
 		}
 
 		transitions

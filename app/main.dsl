@@ -15,7 +15,8 @@ context
 	{
 		name: "Chris D. Wil",
 		nick: "Chris",
-		phonetic: "Chris Dee Wil"
+		phonetic: "Chris Dee Wil",
+		phone: null
 	}
 	;
 	
@@ -23,7 +24,8 @@ context
 	{
 		name: "Elize D. Wil",
 		nick: "Lizzz",
-		phonetic: "Lizzz Dee Wil"
+		phonetic: "Lizzz Dee Wil",
+		phone: null
 	}
 	;
 	
@@ -31,7 +33,8 @@ context
 	{
 		name: null,
 		nick: null,
-		phonetic: null
+		phonetic: null,
+		phone:  null
 	}
 	;
 	
@@ -64,6 +67,7 @@ start node main
 		#log($forward);
 		#log($reason);
 		#log("---------------");
+		set $primary.phone = $forward;
 		set $phonecall.host = $primary;
 		set $phonecall.sidekick = $secondary;
 		set $phonecall.guest = $tertiary;
@@ -170,7 +174,7 @@ node handler
 
 			if ($phonecall.request == "transfer")
 			{
-				#log("[" + $logNodeName + "] - [" + logNodeNameSub + "] is transferring to" + $forward);
+				#log("[" + $logNodeName + "] - [" + logNodeNameSub + "] is executing transfer");
 				var transferMain = 
 				{
 					name: "transfer",
@@ -187,8 +191,13 @@ node handler
 					sentenceType: null
 				};
 
-				set $phonecall = blockcall assist(transferMain);
+				set $phonecall = blockcall transfer(transferMain);
 				
+				#log("[" + $logNodeName + "] - [" + logNodeNameSub + "] transferring to" + $forward);
+				if ($phonecall.request == "transfer")
+				{
+					#forward($forward);
+				}
 			}
 		}
 	}

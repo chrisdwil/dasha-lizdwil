@@ -99,10 +99,13 @@
 			"transfer.greet": 
 			[
 				{
-					"text": "Oh kay, let me get some information to transfer your call."
+					"text": "Oh kay."
 				},
 				{
-					"text": "What was your name again?"
+					"text": "Let me see if he's available and I'll transfer your call."
+				},
+				{
+					"text": "If he's not you'll return back to me and we'll have to leave him a message instead."
 				}
 			],
 			"transfer.idle": 
