@@ -86,7 +86,9 @@
 				"i'm trying to get ahold",
 				"transfer",
 				"transfer me",
-				"where chris"
+				"where chris",
+				"where is chris",
+				"where's chris"
 			],
 			"excludes": [
 				"connect example"
