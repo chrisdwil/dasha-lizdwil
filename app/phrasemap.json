@@ -29,6 +29,26 @@
 					"text": "or I can leave him a message."
 				}	
 			],
+			"hello.confusion": 
+			{
+				"random": [
+					[
+						{
+							"text": "Yes, helloo....."
+						}
+					],
+					[
+						{
+							"text": "Uhhh.. hi."
+						}
+					],
+					[
+						{
+							"text": "Hey."
+						}
+					]
+				]
+			},
 			"hello.greet": 
 			[
 				{
@@ -36,11 +56,6 @@
 				},
 				{
 					"text": "This is Lizz- speaking."
-				}
-			],
-			"okay": [
-				{
-					"text": "Oh kay."
 				}
 			],
 			"hello.idle": 
@@ -64,26 +79,6 @@
 					]
 				]
 			},
-			"hello.confusion": 
-			{
-				"random": [
-					[
-						{
-							"text": "Yes, helloo....."
-						}
-					],
-					[
-						{
-							"text": "Uhhh.. hi."
-						}
-					],
-					[
-						{
-							"text": "Hey."
-						}
-					]
-				]
-			},
 			"hello.identity": 
 			[
 				{
@@ -94,6 +89,26 @@
 				},
 				{
 					"text": "I'm Chrisz's personal assistant for handling his phone calls and messages."
+				}
+			],
+			"okay": [
+				{
+					"text": "Oh kay."
+				}
+			],
+			"transfer.greet": 
+			[
+				{
+					"text": "Oh kay, let me get some information to transfer your call."
+				},
+				{
+					"text": "What was your name again?"
+				}
+			],
+			"transfer.idle": 
+			[
+				{
+					"text": "Hello."
 				}
 			],
 			"saySingleLine": {
@@ -137,7 +152,9 @@
 			"hello.greet": {},
 			"hello.greeted": {},
 			"hello.identity": {},
-			"hello.idle": {}
+			"hello.idle": {},
+			"transfer.greet": {},
+			"transfer.idle": {}
 		}
 	}
 }

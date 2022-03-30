@@ -171,12 +171,24 @@ node handler
 			if ($phonecall.request == "transfer")
 			{
 				#log("[" + $logNodeName + "] - [" + logNodeNameSub + "] is transferring to" + $forward);
+				var transferMain = 
+				{
+					name: "transfer",
+					agenda: "ask them how you can assist today",
+					greet: true,
+					request: null,
+					behavior: null,
+					phrase: null,
+					host: $primary,
+					sidekick: $secondary,
+					guest: $tertiary,
+					sentiment: null,
+					text: null,
+					sentenceType: null
+				};
 
-				#sayText("Okay");
-				#sayText("Please hold one moment.");
-				#sayText("If he's still busy I'll pick back up and we can send him a message instead.");
+				set $phonecall = blockcall assist(transferMain);
 				
-				#forward($forward);
 			}
 		}
 	}
