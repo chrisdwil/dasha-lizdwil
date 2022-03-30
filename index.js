@@ -15,7 +15,7 @@ commander
     app.setExternal("messageForward", (args, conv) => {
       client.messages
         .create({
-          body: 'Hello from Node',
+          body: 'test function',
           to: '',
           from: '', // From a valid Twilio number
         })
@@ -36,10 +36,15 @@ commander
         conv.on("debugLog", console.log);
       }
       conv.audio.tts = "dasha";
-      const result = await conv.execute();
+      resultBody = result.recordingUrl.concat('\n');
+
+      result.transcription.forEach(element => {
+        resultBody = resultBody + element.speaker + ': ' + element.text + '\n';
+      });
+
       client.messages
         .create({
-          body: result.recordingUrl,
+          body: resultBody,
           to: '',
           from: '',
         })
