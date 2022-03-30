@@ -56,6 +56,8 @@ context
 	;
 }
 
+external function messageForward(): boolean;
+
 start node main
 {
 	do
@@ -72,7 +74,7 @@ start node main
 		set $phonecall.sidekick = $secondary;
 		set $phonecall.guest = $tertiary;
 		#log($phonecall);
-		
+			
 		#connectSafe($phone);
 		
 		wait *;

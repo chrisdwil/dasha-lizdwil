@@ -1,30 +1,8 @@
 const commander = require("commander");
 const dasha = require("@dasha.ai/sdk");
-
-commander
-  .command("out")
-  .description("check calls from Dasha")
-  .requiredOption("-p --phone <phone>", "phone or SIP URI to call to")
-  .option("-c --config <name>", "SIP config name", "default")
-  .option("-f --forward <phone>", "phone or SIP URI to forward the call to")
-  .option("-v --verbose", "Show debug logs")
-  .action(async ({ phone, config, forward, verbose }) => {
-    const app = await dasha.deploy("./app");
-
-    await app.start();
-
-    const conv = app.createConversation({ phone, forward: forward ?? null });
-    if (verbose) {
-      conv.on("debugLog", console.log);
-    }
-    conv.audio.tts = "dasha";
-    conv.audio.noiseVolume = 0.1;
-    conv.sip.config = config;
-    await conv.execute();
-
-    await app.stop();
-    app.dispose();
-  });
+const accountSid = 'your api sid';
+const authToken = 'your api auth token';
+const client = require('twilio')(accountSid, authToken);
 
 commander
   .command("in")
@@ -33,18 +11,40 @@ commander
   .option("-v --verbose", "Show debug logs")
   .action(async ({ forward, verbose }) => {
     const app = await dasha.deploy("./app", { groupName: "Default" });
+
+    app.setExternal("messageForward", (args, conv) => {
+      client.messages
+        .create({
+          body: 'Hello from Node',
+          to: '',
+          from: '', // From a valid Twilio number
+        })
+        .then((message) => console.log(message.sid));
+      return true;
+    });
+
     app.queue.on("ready", async (id, conv, info) => {
       if (info.sip !== undefined)
         console.log(`Captured sip call: ${JSON.stringify(info.sip)}`);
-      sprint = false;
-      if (JSON.stringify(info.sip).includes("sip:+12817829187"))
-        sprint = true;      
-      conv.input = { phone: "", forward: forward ?? null, sprint: sprint };
+      reason = "ok";
+      if (JSON.stringify(info.sip).includes("reason=user-busy"))
+        reason = "busy";
+      if (JSON.stringify(info.sip).includes("reason=no-answer"))
+        reason = "no-answer";
+      conv.input = { phone: "", forward: forward ?? null, reason: reason };
       if (verbose === true) {
         conv.on("debugLog", console.log);
       }
       conv.audio.tts = "dasha";
-      await conv.execute();
+      const result = await conv.execute();
+      client.messages
+        .create({
+          body: result.recordingUrl,
+          to: '',
+          from: '',
+        })
+        .then((message) => console.log(message.sid));
+      return true;
     });
 
     await app.start();
