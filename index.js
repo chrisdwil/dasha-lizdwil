@@ -39,7 +39,7 @@ commander
       resultBody = result.recordingUrl.concat('\n');
 
       result.transcription.forEach(element => {
-        resultBody = resultBody + element.speaker + ': ' + element.text + '\n';
+        resultBody = resultBody + element.speaker + ': ' + element.text + '\n\n';
       });
 
       client.messages

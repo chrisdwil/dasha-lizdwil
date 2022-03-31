@@ -11,7 +11,7 @@
 			"assist.greet":
 			[
 				{
-					"text": "It's a pleassure speaking with you."
+					"text": "It's a pleasure speaking with you today."
 				},			
 				{
 					"text": "How may I assist you today?"
@@ -94,6 +94,27 @@
 			"okay": [
 				{
 					"text": "Oh kay."
+				}
+			],
+			"message.greet": 
+			[
+				{
+					"text": "Oh kay."
+				},
+				{
+					"text": "Let me get ready to take notes."
+				},
+				{
+					"text": ""
+				},
+				{
+					"text": "Okay, go ahead and say what you went me to communicate to Chris."
+				}
+			],
+			"message.idle": 
+			[
+				{
+					"text": "Hello."
 				}
 			],
 			"transfer.greet": 
