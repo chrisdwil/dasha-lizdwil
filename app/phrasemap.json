@@ -177,6 +177,8 @@
 			"hello.greeted": {},
 			"hello.identity": {},
 			"hello.idle": {},
+			"message.greet": {},
+			"message.idle": {},
 			"transfer.greet": {},
 			"transfer.idle": {}
 		}
