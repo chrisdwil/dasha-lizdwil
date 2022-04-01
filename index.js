@@ -35,7 +35,7 @@ commander
       if (verbose === true) {
         conv.on("debugLog", console.log);
       }
-      conv.audio.tts = "dasha";
+      conv.audio.tts = "dasha-emotional";
       resultBody = result.recordingUrl.concat('\n');
 
       result.transcription.forEach(element => {

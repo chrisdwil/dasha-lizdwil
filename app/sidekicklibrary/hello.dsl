@@ -110,21 +110,32 @@ block hello ( discussion: interaction ): interaction
 		
 		transitions
 		{
-			greeted: goto action on #messageHasIntent("greeted") priority 10;
+			greeted: goto action on #messageHasAnyIntent(["hello"]) priority 10;
+			farewell: goto action on #messageHasAnyIntent(["farewell"]) priority 5;
 			idle: goto talk on timeout 10000;
 			listen: goto listen on true priority 1;
 		}
 		
 		onexit
 		{
+			farewell: do 
+			{
+				#log("transition farewell");
+				set $discussion.behavior = "positive";
+				set $discussion.request = "farewell";
+				set $discussion.sentenceType = #getSentenceType();
+				set $discussion.text = #getMessageText();
+			}
+
 			greeted: do
 			{
 				#log("transition greeted");
 				set $discussion.behavior = "positive";
-				set $discussion.request = "greeted";
+				set $discussion.request = "assist";
 				set $discussion.sentenceType = #getSentenceType();
 				set $discussion.text = #getMessageText();	
 			}
+
 			idle: do
 			{
 				#log("transition idle");
@@ -134,7 +145,7 @@ block hello ( discussion: interaction ): interaction
 				set $discussion.sentenceType = null;
 				set $discussion.text = null;
 			}
-			
+
 			default: do
 			{
 				#log("transition default");
@@ -154,13 +165,7 @@ block hello ( discussion: interaction ): interaction
 			#log("[" + $discussion.name + "] - [" + localFunctionName + "] has been executed");
 			#log($discussion);
 
-			if ($discussion.sentenceType is not null)
-			{
-				if ($discussion.request == "greeted")
-				{
-					goto selfReturn;
-				}
-			}
+			goto selfReturn;
 		}
 
 		transitions

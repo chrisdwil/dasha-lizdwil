@@ -153,8 +153,16 @@ node handler
 
 		if ($phonecall.request is not null)
 		{
-			if ($phonecall.request == "greeted")
+			if ($phonecall.request == "farewell")
 			{
+				#log("[" + $logNodeName + "] - [" + logNodeNameSub + "] is executing farewell");
+				#say("farewell.greet");
+				goto selfReturn;
+			}
+			
+			if ($phonecall.request == "assist")
+			{
+				#log("[" + $logNodeName + "] - [" + logNodeNameSub + "] is executing assist");
 				var assistMain = 
 				{
 					name: "assist",
@@ -172,6 +180,7 @@ node handler
 				};
 
 				set $phonecall = blockcall assist(assistMain);
+				#log("------- break ------");
 			}
 
 			if ($phonecall.request == "message")
@@ -230,10 +239,14 @@ node handler
 				}
 			}
 		}
+	goto selfRepeat;
 	}
 	
 	transitions
 	{
+		selfRepeat: goto handler;
+		selfReturn: goto @exit;
 		idle: goto handler on timeout 1000;
+		handler: goto handler on true priority 1;
 	}
 }

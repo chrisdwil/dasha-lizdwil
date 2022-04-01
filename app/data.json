@@ -1,6 +1,6 @@
 {
 	"version": "v2",
-	"intents": {
+	"intents": {	
 		"confusion": {
 			"includes": [
 				"huh",
@@ -11,16 +11,41 @@
 		},
 		"farewell": {
 			"includes": [
-				"bye",
-				"goodbye",
-				"good bye",
+				"adios",
+				"cheerio",
+				"chow",
+				"ciao",
 				"farewell",
+				"godspeed",
+				"goodbye",
+				"gotta go",
+				"have a good one",
+				"i'm done",
+				"laters",
+				"nice talking with you",
+				"see ya",
 				"see you later",
+				"see you later alligator",
+				"take care",
 				"talk to you later",
-				"you later"
+				"you later",
+				"bye",
+				"good bye",
+				"thanks bye",
+				"nevermind",
+				"forget about it",
+				"we're done",
+				"take it easy",
+				"peace out",
+				"peace",
+				"that's it",
+				"I'm good",
+				"all good",
+				"that's all",
+				"no that's it"
 			]
 		},
-		"greeted": {
+		"hello": {
 			"includes": [
 				"hello",
 				"hi",
@@ -48,12 +73,6 @@
 				"yo"
 			]
 		},
-		"identity": {
-			"includes": [
-				"who are you",
-				"what are you"
-			]
-		},
 		"message": {
 			"includes": [
 				"can you message",
@@ -65,21 +84,7 @@
 				"send him a ",
 				"share with chris",
 				"share with him",
-				"sms chris",
-				"sms him",
-				"tell chris",
-				"tell him",
-				"text him",
-				"text message",
 				"will you message"
-			],
-			"excludes": [
-				"who",
-				"what",
-				"when",
-				"where",
-				"why",
-				"how"
 			]
 		},
 		"no": {

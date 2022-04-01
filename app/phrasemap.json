@@ -3,9 +3,22 @@
 		"voiceInfo": {
 			"lang": "en-US",
 			"speaker": "default",
-			"speed": 0.9,
-			"variation": 4,
-			"emotion": "positive"
+			"speed": 1.1,
+			"emotion": "from text: You are welcome!"
+		},
+		"macros": {
+			"assist.greet": {},
+			"assist.idle": {},
+			"farewell.greet": {},
+			"hello.confusion": {},
+			"hello.greet": {},
+			"hello.greeted": {},
+			"hello.identity": {},
+			"hello.idle": {},
+			"message.greet": {},
+			"message.idle": {},
+			"transfer.greet": {},
+			"transfer.idle": {}
 		},
 		"phrases": {
 			"assist.greet":
@@ -27,6 +40,24 @@
 				},
 				{
 					"text": "or I can leave him a message."
+				}	
+			],
+			"farewell.greet":
+			[
+				{
+					"text": "It was a pleasure assisting you,"
+				},
+				{
+					"text": "and,"
+				},
+				{
+					"text": "have a wonderful day."
+				},
+				{
+					"text": ""
+				},
+				{
+					"text": "Good bye!"
 				}	
 			],
 			"hello.confusion": 
@@ -102,19 +133,25 @@
 					"text": "Oh kay."
 				},
 				{
-					"text": "Let me get ready to take notes."
+					"text": "I'm getting ready to take notes."
 				},
 				{
-					"text": ""
+					"text": "When finished, simply hang up and I'll pass it along."
 				},
 				{
-					"text": "Okay, go ahead and say what you went me to communicate to Chris."
+					"text": "Start out with your name, then number."
+				},				
+				{
+					"text": "Then share your message."
+				},
+				{
+					"text": "You can go ahead now."
 				}
 			],
 			"message.idle": 
 			[
 				{
-					"text": "Hello."
+					"text": "Keep going."
 				}
 			],
 			"transfer.greet": 
@@ -168,19 +205,6 @@
 					]
 				]
 			}
-		},
-		"macros": {
-			"assist.greet": {},
-			"assist.idle": {},
-			"hello.confusion": {},
-			"hello.greet": {},
-			"hello.greeted": {},
-			"hello.identity": {},
-			"hello.idle": {},
-			"message.greet": {},
-			"message.idle": {},
-			"transfer.greet": {},
-			"transfer.idle": {}
 		}
 	}
 }

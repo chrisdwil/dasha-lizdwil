@@ -79,7 +79,6 @@ block message ( discussion: interaction ): interaction
 				#say("message.greet");
 				set $discussion.greet = false;
 				#log("[" + $discussion.name + "] - [" + localFunctionName + "] has been greeted");
-				goto message;
 			}
 
 			if ($discussion.behavior == "idle")
@@ -112,12 +111,23 @@ block message ( discussion: interaction ): interaction
 		
 		transitions
 		{
+			farewell: goto action on #messageHasAnyIntent(["farewell"]) priority 5;
 			idle: goto talk on timeout 10000;
 			listen: goto listen on true priority 1;
 		}
 		
 		onexit
 		{
+			farewell: do 
+			{
+				#log("transition farewell");
+				set $discussion.behavior = "positive";
+				set $discussion.request = "farewell";
+				set $discussion.sentenceType = #getSentenceType();
+				set $discussion.text = #getMessageText();	
+
+			}
+
 			idle: do
 			{
 				#log("transition idle");
@@ -147,7 +157,6 @@ block message ( discussion: interaction ): interaction
 			#log("[" + $discussion.name + "] - [" + localFunctionName + "] has been executed");
 			#log($discussion);
 
-			set $discussion.request = "message";
 			goto selfReturn;
 		}
 

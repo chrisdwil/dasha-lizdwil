@@ -112,12 +112,23 @@ block transfer ( discussion: interaction ): interaction
 		
 		transitions
 		{
+			transfer: goto action on #messageHasAnyIntent(["transfer"]) priority 10;
+			farewell: goto action on #messageHasAnyIntent(["farewell"]) priority 5;
 			idle: goto talk on timeout 10000;
 			listen: goto listen on true priority 1;
 		}
 		
 		onexit
 		{
+			farewell: do 
+			{
+				#log("transition farewell");
+				set $discussion.behavior = "positive";
+				set $discussion.request = "farewell";
+				set $discussion.sentenceType = #getSentenceType();
+				set $discussion.text = #getMessageText();
+			}			
+
 			idle: do
 			{
 				#log("transition idle");
@@ -126,6 +137,15 @@ block transfer ( discussion: interaction ): interaction
 				set $discussion.request = "repeat";
 				set $discussion.sentenceType = null;
 				set $discussion.text = null;
+			}
+
+			transfer: do 
+			{
+				#log("transition transfer");
+				set $discussion.behavior = "positive";
+				set $discussion.request = "transfer";
+				set $discussion.sentenceType = #getSentenceType();
+				set $discussion.text = #getMessageText();
 			}
 			
 			default: do
@@ -147,7 +167,6 @@ block transfer ( discussion: interaction ): interaction
 			#log("[" + $discussion.name + "] - [" + localFunctionName + "] has been executed");
 			#log($discussion);
 
-			set $discussion.request = "transfer";
 			goto selfReturn;
 		}
 

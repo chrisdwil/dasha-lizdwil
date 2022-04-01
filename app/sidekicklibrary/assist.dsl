@@ -110,21 +110,22 @@ block assist ( discussion: interaction ): interaction
 		
 		transitions
 		{
-			transfer: goto action on #messageHasIntent("transfer") priority 10;
-			message: goto action on #messageHasIntent("message") priority 9;
+			transfer: goto action on #messageHasAnyIntent(["transfer"]) priority 10;
+			message: goto action on #messageHasAnyIntent(["message"]) priority 9;
+			farewell: goto action on #messageHasAnyIntent(["farewell"]) priority 5;
 			idle: goto talk on timeout 10000;
 			listen: goto listen on true priority 1;
 		}
 		
 		onexit
 		{
-			transfer: do
+			farewell: do 
 			{
-				#log("transition transfer");
+				#log("transition farewell");
 				set $discussion.behavior = "positive";
-				set $discussion.request = "transfer";
+				set $discussion.request = "farewell";
 				set $discussion.sentenceType = #getSentenceType();
-				set $discussion.text = #getMessageText();	
+				set $discussion.text = #getMessageText();
 			}
 
 			message: do
@@ -132,6 +133,15 @@ block assist ( discussion: interaction ): interaction
 				#log("transition message");
 				set $discussion.behavior = "positive";
 				set $discussion.request = "message";
+				set $discussion.sentenceType = #getSentenceType();
+				set $discussion.text = #getMessageText();	
+			}
+
+			transfer: do
+			{
+				#log("transition transfer");
+				set $discussion.behavior = "positive";
+				set $discussion.request = "transfer";
 				set $discussion.sentenceType = #getSentenceType();
 				set $discussion.text = #getMessageText();	
 			}
@@ -145,7 +155,7 @@ block assist ( discussion: interaction ): interaction
 				set $discussion.sentenceType = null;
 				set $discussion.text = null;
 			}
-			
+
 			default: do
 			{
 				#log("transition default");
@@ -165,13 +175,7 @@ block assist ( discussion: interaction ): interaction
 			#log("[" + $discussion.name + "] - [" + localFunctionName + "] has been executed");
 			#log($discussion);
 
-			if ($discussion.sentenceType is not null)
-			{
-				if ($discussion.request == "transfer")
-				{
-					goto selfReturn;
-				}
-			}
+			goto selfReturn;
 		}
 
 		transitions

@@ -13,7 +13,7 @@
 			"sentiment"
 		],
 		"customIntents": {
-			"file": "customIntents.json"
+			"file": "data.json"
 		}
 	},
 	"nlg": 
