@@ -54,6 +54,34 @@
 				"what are you"
 			]
 		},
+		"message": {
+			"includes": [
+				"can you message",
+				"message chris",
+				"message him",
+				"please message",
+				"please sms",
+				"please txt",
+				"send him a ",
+				"share with chris",
+				"share with him",
+				"sms chris",
+				"sms him",
+				"tell chris",
+				"tell him",
+				"text him",
+				"text message",
+				"will you message"
+			],
+			"excludes": [
+				"who",
+				"what",
+				"when",
+				"where",
+				"why",
+				"how"
+			]
+		},
 		"no": {
 			"includes": [
 				"no",
@@ -95,9 +123,6 @@
 				"where is chris",
 				"where's chris",
 				"will you transfer"
-			],
-			"excludes": [
-				"connect example"
 			]
 		},
 		"yes": {

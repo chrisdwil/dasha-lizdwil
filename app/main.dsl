@@ -174,13 +174,41 @@ node handler
 				set $phonecall = blockcall assist(assistMain);
 			}
 
+			if ($phonecall.request == "message")
+			{
+				#log("[" + $logNodeName + "] - [" + logNodeNameSub + "] is executing message");
+				var messageMain = 
+				{
+					name: "message",
+					agenda: "sending message to host",
+					greet: true,
+					request: null,
+					behavior: null,
+					phrase: null,
+					host: $primary,
+					sidekick: $secondary,
+					guest: $tertiary,
+					sentiment: null,
+					text: null,
+					sentenceType: null
+				};
+
+				set $phonecall = blockcall message(messageMain);
+				
+				#log("[" + $logNodeName + "] - [" + logNodeNameSub + "] sending message to" + $forward);
+				if ($phonecall.request == "message")
+				{
+
+				}
+			}
+
 			if ($phonecall.request == "transfer")
 			{
 				#log("[" + $logNodeName + "] - [" + logNodeNameSub + "] is executing transfer");
 				var transferMain = 
 				{
 					name: "transfer",
-					agenda: "ask them how you can assist today",
+					agenda: "transferring call to host",
 					greet: true,
 					request: null,
 					behavior: null,
