@@ -62,7 +62,7 @@ block assist ( discussion: interaction ): interaction
 			#log("[" + $discussion.name + "] - [" + localFunctionName + "] has been executed");
 			#log("---------------");
 			
-			return $discussion;
+			exit;
 		}
 	}
 	

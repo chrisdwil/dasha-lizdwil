@@ -62,7 +62,7 @@ block hello ( discussion: interaction ): interaction
 			#log("[" + $discussion.name + "] - [" + localFunctionName + "] has been executed");
 			#log("---------------");
 			
-			return $discussion;
+			exit;
 		}
 	}
 	
@@ -112,7 +112,7 @@ block hello ( discussion: interaction ): interaction
 		{
 			greeted: goto action on #messageHasAnyIntent(["hello"]) priority 10;
 			farewell: goto action on #messageHasAnyIntent(["farewell"]) priority 5;
-			idle: goto talk on timeout 10000;
+			idle: goto talk on timeout 5000;
 			listen: goto listen on true priority 1;
 		}
 		

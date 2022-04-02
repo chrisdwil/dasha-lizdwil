@@ -180,7 +180,6 @@ node handler
 				};
 
 				set $phonecall = blockcall assist(assistMain);
-				#log("------- break ------");
 			}
 
 			if ($phonecall.request == "message")
