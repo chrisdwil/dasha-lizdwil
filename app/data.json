@@ -12,18 +12,14 @@
 		"farewell": {
 			"includes": [
 				"adios",
-				"cheerio",
 				"chow",
-				"ciao",
 				"farewell",
-				"godspeed",
 				"goodbye",
 				"gotta go",
 				"have a good one",
 				"i'm done",
 				"laters",
 				"nice talking with you",
-				"see ya",
 				"see you later",
 				"see you later alligator",
 				"take care",
@@ -32,15 +28,11 @@
 				"bye",
 				"good bye",
 				"thanks bye",
-				"nevermind",
-				"forget about it",
 				"we're done",
 				"take it easy",
 				"peace out",
 				"peace",
 				"that's it",
-				"I'm good",
-				"all good",
 				"that's all",
 				"no that's it"
 			]
@@ -75,16 +67,11 @@
 		},
 		"message": {
 			"includes": [
-				"can you message",
-				"message chris",
-				"message him",
-				"please message",
-				"please sms",
-				"please txt",
-				"send him a ",
-				"share with chris",
-				"share with him",
-				"will you message"
+				"message",
+				"sms",
+				"text",
+				"send",
+				"share"
 			]
 		},
 		"no": {
@@ -114,20 +101,20 @@
 				"how"
 			]
 		},
-		"transfer": {
+		"connect": {
 			"includes": [
-				"can you transfer",
-				"connect him",
-				"connect me",
-				"connect my",
-				"i'm looking for",
-				"i'm trying to get ahold",
-				"transfer",
 				"transfer me",
-				"where chris",
-				"where is chris",
-				"where's chris",
-				"will you transfer"
+				"transfer to",
+				"transfer my",
+				"transfer please",
+				"connect me",
+				"connect to",
+				"connect my",
+				"connect please",
+				"forward me",
+				"forward to",
+				"forward my",
+				"forward please"
 			]
 		},
 		"yes": {
@@ -139,9 +126,9 @@
 				"sure",
 				"fine",
 				"That's fine",
-				"Please do",
-				"Go ahead",
-				"Do it"
+				"please do",
+				"go ahead",
+				"do it"
 			]
 		}
 	}

@@ -41,7 +41,7 @@ context
 	phonecall: interaction =
 	{
 		name: "initialize",
-		agenda: "creating phone call array",
+		agenda: "creating phone call object",
 		greet: true,
 		request: null,
 		behavior: null,
@@ -182,6 +182,31 @@ node handler
 				set $phonecall = blockcall assist(assistMain);
 			}
 
+            if ($phonecall.request == "connect")
+            {
+                #log("[" + $logNodeName + "] - [" + logNodeNameSub + "] is executing transfer");
+                var transferMain = 
+                {
+                    name: "connect",
+                    agenda: "connecting call to host",
+                    greet: true,
+                    request: null,
+                    behavior: null,
+                    phrase: null,
+                    host: $primary,
+                    sidekick: $secondary,
+                    guest: $tertiary,
+                    sentiment: null,
+                    text: null,
+                    sentenceType: null
+                };
+
+                set $phonecall = blockcall transfer(transferMain);
+                
+                #log("[" + $logNodeName + "] - [" + logNodeNameSub + "] connecting to" + $forward);
+                #forward($forward);
+            }
+
 			if ($phonecall.request == "message")
 			{
 				#log("[" + $logNodeName + "] - [" + logNodeNameSub + "] is executing message");
@@ -202,40 +227,8 @@ node handler
 				};
 
 				set $phonecall = blockcall message(messageMain);
-				
+
 				#log("[" + $logNodeName + "] - [" + logNodeNameSub + "] sending message to" + $forward);
-				if ($phonecall.request == "message")
-				{
-
-				}
-			}
-
-			if ($phonecall.request == "transfer")
-			{
-				#log("[" + $logNodeName + "] - [" + logNodeNameSub + "] is executing transfer");
-				var transferMain = 
-				{
-					name: "transfer",
-					agenda: "transferring call to host",
-					greet: true,
-					request: null,
-					behavior: null,
-					phrase: null,
-					host: $primary,
-					sidekick: $secondary,
-					guest: $tertiary,
-					sentiment: null,
-					text: null,
-					sentenceType: null
-				};
-
-				set $phonecall = blockcall transfer(transferMain);
-				
-				#log("[" + $logNodeName + "] - [" + logNodeNameSub + "] transferring to" + $forward);
-				if ($phonecall.request == "transfer")
-				{
-					#forward($forward);
-				}
 			}
 		}
 	goto selfRepeat;

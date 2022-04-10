@@ -110,11 +110,11 @@ block assist ( discussion: interaction ): interaction
 		
 		transitions
 		{
-			transfer: goto action on #messageHasAnyIntent(["transfer"]) priority 10;
-			message: goto action on #messageHasAnyIntent(["message"]) priority 9;
+			connect: goto action on #messageHasIntent("connect") priority 10;
+			message: goto action on #messageHasAnyIntent(["message"]) priority 8;
 			farewell: goto action on #messageHasAnyIntent(["farewell"]) priority 5;
 			idle: goto talk on timeout 10000;
-			listen: goto listen on true priority 1;
+			listen: goto listen on true priority -1;
 		}
 		
 		onexit
@@ -137,11 +137,11 @@ block assist ( discussion: interaction ): interaction
 				set $discussion.text = #getMessageText();	
 			}
 
-			transfer: do
+			connect: do
 			{
-				#log("transition transfer");
+				#log("transition connect");
 				set $discussion.behavior = "positive";
-				set $discussion.request = "transfer";
+				set $discussion.request = "connect";
 				set $discussion.sentenceType = #getSentenceType();
 				set $discussion.text = #getMessageText();	
 			}
