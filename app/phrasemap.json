@@ -8,7 +8,8 @@
 		},
 		"macros": {
 			"assist.greet": {},
-			"assist.idle": {},
+			"assist.greetLookingForHost": {},
+			"assist.greetPositive": {},
 			"farewell.greet": {},
 			"hello.confusion": {},
 			"hello.greet": {},
@@ -25,22 +26,31 @@
 			[
 				{
 					"text": "It's a pleasure speaking with you."
-				},			
-				{
-					"text": "How may I assist you today?"
 				}
 			],
-			"assist.idle":
+			"assist.confirm":
 			[
 				{
-					"text": "If you're unsure of what to do."
-				},
+					"text": "Are you looking for Chris?"
+				}
+			],
+			"assist.confirmPos":
+			[
 				{
-					"text": "I can transfer you to Chris,"
-				},
+					"text": "Wonderful."
+				}
+			],
+			"assist.confirmNeg":
+			[
 				{
-					"text": "or I can leave him a message."
-				}	
+					"text": "oh kay, soo"
+				}
+			],
+			"assist.greetOfferTransfer":
+			[
+				{
+					"text": "Would you like me to transfer you?"
+				}
 			],
 			"farewell.greet":
 			[

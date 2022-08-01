@@ -182,13 +182,13 @@ node handler
 				set $phonecall = blockcall assist(assistMain);
 			}
 
-            if ($phonecall.request == "connect")
+            if ($phonecall.request == "call")
             {
                 #log("[" + $logNodeName + "] - [" + logNodeNameSub + "] is executing transfer");
                 var transferMain = 
                 {
-                    name: "connect",
-                    agenda: "connecting call to host",
+                    name: "call",
+                    agenda: "calling call to host",
                     greet: true,
                     request: null,
                     behavior: null,
@@ -203,7 +203,7 @@ node handler
 
                 set $phonecall = blockcall transfer(transferMain);
                 
-                #log("[" + $logNodeName + "] - [" + logNodeNameSub + "] connecting to" + $forward);
+                #log("[" + $logNodeName + "] - [" + logNodeNameSub + "] calling to" + $forward);
                 #forward($forward);
             }
 

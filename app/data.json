@@ -1,12 +1,11 @@
 {
 	"version": "v2",
 	"intents": {	
-		"confusion": {
+		"callHost": {
 			"includes": [
-				"huh",
-				"um",
-				"ugh",
-				"er"
+				"chris",
+				"christopher",
+				"wilkerson"
 			]
 		},
 		"farewell": {
@@ -16,10 +15,8 @@
 				"farewell",
 				"goodbye",
 				"gotta go",
-				"have a good one",
 				"i'm done",
 				"laters",
-				"nice talking with you",
 				"see you later",
 				"see you later alligator",
 				"take care",
@@ -72,63 +69,6 @@
 				"text",
 				"send",
 				"share"
-			]
-		},
-		"no": {
-			"includes": [
-				"no",
-				"wrong",
-				"incorrect",
-				"I do not",
-				"I don't",
-				"I would not",
-				"I wouldn't",
-				"nope",
-				"no, I'm okay",
-				"not right now",
-				"not this time",
-				"not this moment",
-				"not now"
-			]
-		},
-		"questions": {
-			"includes": [
-				"who",
-				"what",
-				"when",
-				"where",
-				"why",
-				"how"
-			]
-		},
-		"connect": {
-			"includes": [
-				"transfer me",
-				"transfer to",
-				"transfer my",
-				"transfer please",
-				"connect me",
-				"connect to",
-				"connect my",
-				"connect please",
-				"forward me",
-				"forward to",
-				"forward my",
-				"forward please"
-			]
-		},
-		"yes": {
-			"includes": [
-				"yes",
-				"yeah",
-				"definitely",
-				"absolutely",
-				"sure",
-				"fine",
-				"That's fine",
-				"please do",
-				"go ahead",
-				"do it"
 			]
 		}
 	}

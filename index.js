@@ -39,16 +39,22 @@ commander
       resultBody = result.recordingUrl.concat('\n');
 
       result.transcription.forEach(element => {
-        resultBody = resultBody + element.speaker + ': ' + element.text + '\n\n';
+        if (element.speaker == "ai") {
+          resultBody = resultBody + 'liz: ' + element.text + '\n\n';
+        } else {
+          resultBody = resultBody + 'guest: ' + element.text + '\n\n';
+        }
       });
 
-      client.messages
-        .create({
-          body: resultBody,
-          to: '',
-          from: '',
-        })
-        .then((message) => console.log(message.sid));
+      console.log(resultBody);
+      /*      client.messages
+              .create({
+                body: resultBody,
+                to: '',
+                from: '',
+              })
+              .then((message) => console.log(message.sid));
+      */
       return true;
     });
 

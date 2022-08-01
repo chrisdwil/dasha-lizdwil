@@ -4,7 +4,8 @@ block assist ( discussion: interaction ): interaction
 {
 	context
 	{
-		defaultAttempts: number = 4;
+		lastIdleTime: number = 0;
+		forgetTime: number = 15000;
 	}
 	
 	start node main
@@ -16,22 +17,11 @@ block assist ( discussion: interaction ): interaction
 			#log("[" + $discussion.name + "] - [" + localFunctionName + "] has been executed");
 			#log("---------------");
 			
-			if ($discussion.greet)
-			{
-				goto talk;
-			}
-			else
-			{
-				goto listen;
-			}
-			
-			goto selfReturn;
+			goto listen;
 		}
 		
 		transitions
 		{
-			selfReturn: goto @return;
-			talk: goto talk;
 			listen: goto listen;
 		}
 	}
@@ -66,121 +56,89 @@ block assist ( discussion: interaction ): interaction
 		}
 	}
 	
-	node talk
-	{
-		do
-		{
-			var localFunctionName = "talk";
-			#log("[" + $discussion.name + "] - [" + localFunctionName + "] has been executed");
-			#log($discussion);
-
-			if ($discussion.greet)
-			{
-				#say("assist.greet");
-				set $discussion.greet = false;
-				#log("[" + $discussion.name + "] - [" + localFunctionName + "] has been greeted");
-			}
-
-			if ($discussion.behavior == "idle")
-			{
-				#say("assist.idle");
-				#log("[" + $discussion.name + "] - [" + localFunctionName + "] caller is idle or not understandable");
-			}
-			
-			goto listen;
-		}
-		
-		transitions
-		{
-			selfReturn: goto @return;
-			listen: goto listen;
-		}
-	}
-	
 	node listen
 	{
 		do
 		{
 			var localFunctionName = "listen";
 			#log("[" + $discussion.name + "] - [" + localFunctionName + "] has been executed");
-			#log($discussion);
 			
 			wait *;
 		}
 		
 		transitions
 		{
-			connect: goto action on #messageHasIntent("connect") priority 10;
-			message: goto action on #messageHasAnyIntent(["message"]) priority 8;
-			farewell: goto action on #messageHasAnyIntent(["farewell"]) priority 5;
-			idle: goto talk on timeout 10000;
-			listen: goto listen on true priority -1;
+			listen: goto listen on true tags: ontick;
 		}
 		
 		onexit
 		{
-			farewell: do 
+			listen: do
 			{
-				#log("transition farewell");
-				set $discussion.behavior = "positive";
-				set $discussion.request = "farewell";
-				set $discussion.sentenceType = #getSentenceType();
-				set $discussion.text = #getMessageText();
-			}
-
-			message: do
-			{
-				#log("transition message");
-				set $discussion.behavior = "positive";
-				set $discussion.request = "message";
-				set $discussion.sentenceType = #getSentenceType();
-				set $discussion.text = #getMessageText();	
-			}
-
-			connect: do
-			{
-				#log("transition connect");
-				set $discussion.behavior = "positive";
-				set $discussion.request = "connect";
-				set $discussion.sentenceType = #getSentenceType();
-				set $discussion.text = #getMessageText();	
-			}
-
-			idle: do
-			{
-				#log("transition idle");
-				
-				set $discussion.behavior = "idle";
-				set $discussion.request = "repeat";
 				set $discussion.sentenceType = null;
 				set $discussion.text = null;
 			}
-
+			
 			default: do
 			{
-				#log("transition default");
-				set $discussion.behavior = "positive";
-				set $discussion.request = "repeat";
 				set $discussion.sentenceType = #getSentenceType();
 				set $discussion.text = #getMessageText();
 			}
 		}
 	}
-
-	node action
+	
+	preprocessor digression action
 	{
+		conditions
+		{
+			on $discussion.request is null priority 2000 tags: ontick;
+			on #messageHasSentiment("positive") priority 1999 tags: ontick;
+			on #messageHasSentiment("negative") priority 1998 tags: ontick;
+		}
+		
+		var actions: string[] = ["assist.greet", "assist.confirm", "assist.host", "assist.transfer", "assist.message", "farewell"];
+
 		do
 		{
 			var localFunctionName = "action";
 			#log("[" + $discussion.name + "] - [" + localFunctionName + "] has been executed");
-			#log($discussion);
+			if ($discussion.text is not null)
+			{
+				#log($discussion);
+			}
 
-			goto selfReturn;
+			return;
 		}
-
+	}
+	
+	preprocessor digression idle
+	{
+		conditions
+		{
+			on #getIdleTime() - $lastIdleTime > 2000 tags: ontick;
+		}
+		
+		do
+		{
+			var localFunctionName = "idle";
+			#log("[" + $discussion.name + "] - [" + localFunctionName + "] has been executed");
+			#log($discussion);
+			
+			set $lastIdleTime = #getIdleTime();
+			return;
+		}
+		
 		transitions
 		{
-			selfReturn: goto @return;
+			greetConfirm: goto listen on $discussion.request == "greet";
+		}
+
+		onexit
+		{
+			greetConfirm: do
+			{
+				set $discussion.request = "greetConfirm";
+			}
 		}
 	}
 }
