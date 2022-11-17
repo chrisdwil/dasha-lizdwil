@@ -1,6 +1,4 @@
-// Liz D. Wil - Final V2
-import "sidekicklibrary/all.dsl";
-
+// Liz D. Wil - Beta V0
 context
 {
 	input phone: string;
@@ -10,50 +8,6 @@ context
 	greeted: boolean = false;
 	
 	logNodeName: string = "main";
-	
-	primary: talker =
-	{
-		name: "Chris D. Wil",
-		nick: "Chris",
-		phonetic: "Chris Dee Wil",
-		phone: null
-	}
-	;
-	
-	secondary: talker =
-	{
-		name: "Elize D. Wil",
-		nick: "Lizzz",
-		phonetic: "Lizzz Dee Wil",
-		phone: null
-	}
-	;
-	
-	tertiary: talker =
-	{
-		name: null,
-		nick: null,
-		phonetic: null,
-		phone:  null
-	}
-	;
-	
-	phonecall: interaction =
-	{
-		name: "initialize",
-		agenda: "creating phone call object",
-		greet: true,
-		request: null,
-		behavior: null,
-		phrase: null,
-		host: null,
-		sidekick: null,
-		guest: null,
-		sentiment: null,
-		text: null,
-		sentenceType: null
-	}
-	;
 }
 
 external function messageForward(): boolean;
@@ -69,20 +23,11 @@ start node main
 		#log($forward);
 		#log($reason);
 		#log("---------------");
-		set $primary.phone = $forward;
-		set $phonecall.host = $primary;
-		set $phonecall.sidekick = $secondary;
-		set $phonecall.guest = $tertiary;
-		#log($phonecall);
-			
+
 		#connectSafe($phone);
-		
+		#waitForSpeech(5000);
+		#say("sayHelloTextRandom");
 		wait *;
-	}
-	
-	transitions
-	{
-		idle: goto handler on timeout 100;
 	}
 }
 
@@ -99,11 +44,7 @@ node @exit
 
 digression @digReturn
 {
-	conditions
-	{
-		on true tags: onclosed;
-	}
-	
+	conditions{on true tags: onclosed;}
 	do
 	{
 		var logNodeNameSub = "@digReturn";
@@ -113,111 +54,26 @@ digression @digReturn
 	}
 }
 
-node handler
+digression digressionHello
 {
+	conditions{on #messageHasIntent("hello");}
 	do
 	{
-		var logNodeNameSub = "handler";
+		var logNodeNameSub = "digressionHello";
 		#log("[" + $logNodeName + "] - [" + logNodeNameSub + "] has been executed");
-
-		if ($reason == "busy")
-		{
-			#sayText("Hey it's Lizzz again.");
-			#sayText("it appears he's still busy, you'll have to try him again later.");
-			#sayText(" ");
-			#sayText("Good bye.");
-			exit;
-		}
-		
-		if (#getVisitCount("handler") < 2)
-		{
-			var helloMain: interaction =
-			{
-				name: "hello",
-				agenda: "say hello to caller, confirm they exist",
-				greet: true,
-				request: null,
-				behavior: null,
-				phrase: null,
-				host: $primary,
-				sidekick: $secondary,
-				guest: $tertiary,
-				sentiment: null,
-				text: null,
-				sentenceType: null
-			};
-
-			set $phonecall = blockcall hello(helloMain);
-		}
-		#log($phonecall);
-
-		if ($phonecall.request is not null)
-		{
-			if ($phonecall.request == "farewell")
-			{
-				#log("[" + $logNodeName + "] - [" + logNodeNameSub + "] is executing farewell");
-				goto selfReturn;
-			}
-
-/*			
-            if ($phonecall.request == "call")
-            {
-                #log("[" + $logNodeName + "] - [" + logNodeNameSub + "] is executing transfer");
-                var transferMain = 
-                {
-                    name: "call",
-                    agenda: "calling call to host",
-                    greet: true,
-                    request: null,
-                    behavior: null,
-                    phrase: null,
-                    host: $primary,
-                    sidekick: $secondary,
-                    guest: $tertiary,
-                    sentiment: null,
-                    text: null,
-                    sentenceType: null
-                };
-
-                set $phonecall = blockcall transfer(transferMain);
-                
-                #log("[" + $logNodeName + "] - [" + logNodeNameSub + "] calling to" + $forward);
-                #forward($forward);
-            }
-
-			if ($phonecall.request == "message")
-			{
-				#log("[" + $logNodeName + "] - [" + logNodeNameSub + "] is executing message");
-				var messageMain = 
-				{
-					name: "message",
-					agenda: "sending message to host",
-					greet: true,
-					request: null,
-					behavior: null,
-					phrase: null,
-					host: $primary,
-					sidekick: $secondary,
-					guest: $tertiary,
-					sentiment: null,
-					text: null,
-					sentenceType: null
-				};
-
-				set $phonecall = blockcall message(messageMain);
-
-				#log("[" + $logNodeName + "] - [" + logNodeNameSub + "] sending message to" + $forward);
-			}
-*/
-		}
-	goto selfRepeat;
+		#say("sayHelloTextMulti");
+		wait *;
 	}
-	
-	transitions
+}
+
+digression digressionGoodbye
+{
+	conditions{on #messageHasIntent("goodbye");}
+	do
 	{
-		selfRepeat: goto handler;
-		selfReturn: goto @exit;
-		idle: goto handler on timeout 1000;
-		handler: goto handler on true priority 1;
+		var logNodeNameSub = "digressionGoodbye";
+		#log("[" + $logNodeName + "] - [" + logNodeNameSub + "] has been executed");
+		#say("sayGoodbyeTextRandom");
+		exit;
 	}
 }

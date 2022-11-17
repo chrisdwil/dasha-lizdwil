@@ -1,67 +1,19 @@
 {
 	"version": "v2",
 	"intents": {	
-		"goodbye": {
-			"includes": [
-				"adios",
-				"chow",
-				"farewell",
-				"goodbye",
-				"gotta go",
-				"i'm done",
-				"laters",
-				"see you later",
-				"see you later alligator",
-				"take care",
-				"talk to you later",
-				"you later",
-				"bye",
-				"good bye",
-				"thanks bye",
-				"we're done",
-				"take it easy",
-				"peace out",
-				"peace",
-				"that's it",
-				"that's all",
-				"no that's it"
-			]
-		},
 		"hello": {
 			"includes": [
-				"hello",
-				"hi",
-				"hey",
-				"hey boo",
-				"heya",
-				"hi ya",
-				"howdy",
-				"how are you",
-				"how's everything",
-				"how goes it",
-				"good afternoon",
-				"good day",
-				"good morning",
-				"greetings",
-				"long time no see",
-				"look what the cat dragged in",
-				"look who it is",
-				"nice to meet you",
-				"nice to see you again",
-				"what's happening",
-				"what's up",
-				"what's shakin",
-				"what it do",
-				"yo"
+				"Hello.",
+				"Hi.",
+				"Yo.",
+				"What's up."
 			]
 		},
-		"message": {
+		"goodbye": {
 			"includes": [
-				"message",
-				"sms",
-				"text",
-				"send",
-				"share"
+				"Goodbye.",
+				"Bye.",
+				"Later."
 			]
 		}
 	}
