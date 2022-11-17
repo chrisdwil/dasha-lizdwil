@@ -13,8 +13,16 @@
 			"includes": [
 				"Goodbye.",
 				"Bye.",
-				"Later."
+				"Later.",
+				"I gotta go."
 			]
+		},
+		"simcity": {
+			"includes": [
+				"Sim City",
+				"Simcity"
+			]
+
 		}
 	}
 }

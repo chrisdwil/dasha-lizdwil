@@ -38,6 +38,7 @@ node @exit
 		var logNodeNameSub = "@exit";
 		#log("[" + $logNodeName + "] - [" + logNodeNameSub + "] has been executed");
 		
+		#disconnect();
 		exit;
 	}
 }
@@ -50,30 +51,7 @@ digression @digReturn
 		var logNodeNameSub = "@digReturn";
 		#log("[" + $logNodeName + "] - [" + logNodeNameSub + "] has been executed");
 		
-		exit;
-	}
-}
-
-digression digressionHello
-{
-	conditions{on #messageHasIntent("hello");}
-	do
-	{
-		var logNodeNameSub = "digressionHello";
-		#log("[" + $logNodeName + "] - [" + logNodeNameSub + "] has been executed");
-		#say("sayHelloTextMulti");
-		wait *;
-	}
-}
-
-digression digressionGoodbye
-{
-	conditions{on #messageHasIntent("goodbye");}
-	do
-	{
-		var logNodeNameSub = "digressionGoodbye";
-		#log("[" + $logNodeName + "] - [" + logNodeNameSub + "] has been executed");
-		#say("sayGoodbyeTextRandom");
+		#disconnect();
 		exit;
 	}
 }

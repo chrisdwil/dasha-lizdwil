@@ -3,12 +3,14 @@
 		"voiceInfo": {
 			"lang": "en-US",
 			"speaker": "default",
-			"speed": 1,
+			"speed": 1.1,
 			"emotion": "from text: You are welcome!"
 		},
 		"macros": {
 			"sayHelloTextRandom": {},
-			"sayHelloTextMulti": {}
+			"sayHelloTextMulti": {},
+			"sayGoodbyeTextRandom": {},
+			"saySimCityTextRandom": {}
 		},
 		"phrases": {
 			"sayTextSingle": {
@@ -78,7 +80,7 @@
 				"random": [
 					[
 						{
-							"text": "Bye!"
+							"text": "Ok, bye."
 						}
 					],
 					[
@@ -90,11 +92,122 @@
 						{
 							"text": "Have a great day."
 						}
-					],					[
+					],					
+					[
 						{
 							"text": "Have a wonderful day."
 						}
 					]
+				]
+			},
+			"saySimCityTextRandom": {
+				"random": [
+					[{"text": "Adding Hidden Agendas"}],
+					[{"text": "Adjusting Bell Curves"}],
+					[{"text": "Aesthesizing Industrial Areas"}],
+					[{"text": "Aligning Covariance Matrices"}],
+					[{"text": "Applying Feng Shui Shaders"}],
+					[{"text": "Applying Theatre Soda Layer"}],
+					[{"text": "Asserting Packed Exemplars"}],
+					[{"text": "Attempting to Lock Back-Buffer"}],
+					[{"text": "Binding Sapling Root System"}],
+					[{"text": "Breeding Fauna"}],
+					[{"text": "Building Data Trees"}],
+					[{"text": "Bureacritizing Bureaucracies"}],
+					[{"text": "Calculating Inverse Probability Matrices"}],
+					[{"text": "Calculating Llama Expectoration Trajectory"}],
+					[{"text": "Calibrating Blue Skies"}],
+					[{"text": "Charging Ozone Layer"}],
+					[{"text": "Coalescing Cloud Formations"}],
+					[{"text": "Cohorting Exemplars"}],
+					[{"text": "Collecting Meteor Particles"}],
+					[{"text": "Compounding Inert Tessellations"}],
+					[{"text": "Compressing Fish Files"}],
+					[{"text": "Computing Optimal Bin Packing"}],
+					[{"text": "Concatenating Sub-Contractors"}],
+					[{"text": "Containing Existential Buffer"}],
+					[{"text": "Debarking Ark Ramp"}],
+					[{"text": "Debunching Unionized Commercial Services"}],
+					[{"text": "Deciding What Message to Display Next"}],
+					[{"text": "Decomposing Singular Values"}],
+					[{"text": "Decrementing Tectonic Plates"}],
+					[{"text": "Deleting Ferry Routes"}],
+					[{"text": "Depixelating Inner Mountain Surface Back Faces"}],
+					[{"text": "Depositing Slush Funds"}],
+					[{"text": "Destabilizing Economic Indicators"}],
+					[{"text": "Determining Width of Blast Fronts"}],
+					[{"text": "Deunionizing Bulldozers"}],
+					[{"text": "Dicing Models"}],
+					[{"text": "Diluting Livestock Nutrition Variables"}],
+					[{"text": "Downloading Satellite Terrain Data"}],
+					[{"text": "Exposing Flash Variables to Streak System"}],
+					[{"text": "Extracting Resources"}],
+					[{"text": "Factoring Pay Scale"}],
+					[{"text": "Fixing Election Outcome Matrix"}],
+					[{"text": "Flood-Filling Ground Water"}],
+					[{"text": "Flushing Pipe Network"}],
+					[{"text": "Gathering Particle Sources"}],
+					[{"text": "Generating Jobs"}],
+					[{"text": "Gesticulating Mimes"}],
+					[{"text": "Graphing Whale Migration"}],
+					[{"text": "Hiding Willio Webnet Mask"}],
+					[{"text": "Implementing Impeachment Routine"}],
+					[{"text": "Increasing Accuracy of RCI Simulators"}],
+					[{"text": "Increasing Magmafacation"}],
+					[{"text": "Initializing My Sim Tracking Mechanism"}],
+					[{"text": "Initializing Rhinoceros Breeding Timetable"}],
+					[{"text": "Initializing Robotic Click-Path AI"}],
+					[{"text": "Inserting Sublimated Messages"}],
+					[{"text": "Integrating Curves"}],
+					[{"text": "Integrating Illumination Form Factors"}],
+					[{"text": "Integrating Population Graphs"}],
+					[{"text": "Iterating Cellular Automata"}],
+					[{"text": "Lecturing Errant Subsystems"}],
+					[{"text": "Mixing Genetic Pool"}],
+					[{"text": "Modeling Object Components"}],
+					[{"text": "Mopping Occupant Leaks"}],
+					[{"text": "Normalizing Power"}],
+					[{"text": "Obfuscating Quigley Matrix"}],
+					[{"text": "Overconstraining Dirty Industry Calculations"}],
+					[{"text": "Partitioning City Grid Singularities"}],
+					[{"text": "Perturbing Matrices"}],
+					[{"text": "Pixalating Nude Patch"}],
+					[{"text": "Polishing Water Highlights"}],
+					[{"text": "Populating Lot Templates"}],
+					[{"text": "Preparing Sprites for Random Walks"}],
+					[{"text": "Prioritizing Landmarks"}],
+					[{"text": "Projecting Law Enforcement Pastry Intake"}],
+					[{"text": "Realigning Alternate Time Frames"}],
+					[{"text": "Reconfiguring User Mental Processes"}],
+					[{"text": "Relaxing Splines"}],
+					[{"text": "Removing Road Network Speed Bumps"}],
+					[{"text": "Removing Texture Gradients"}],
+					[{"text": "Removing Vehicle Avoidance Behavior"}],
+					[{"text": "Resolving GUID Conflict"}],
+					[{"text": "Reticulating Splines"}],
+					[{"text": "Retracting Phong Shader"}],
+					[{"text": "Retrieving from Back Store"}],
+					[{"text": "Reverse Engineering Image Consultant"}],
+					[{"text": "Routing Neural Network Infanstructure"}],
+					[{"text": "Scattering Rhino Food Sources"}],
+					[{"text": "Scrubbing Terrain"}],
+					[{"text": "Searching for Llamas"}],
+					[{"text": "Seeding Architecture Simulation Parameters"}],
+					[{"text": "Sequencing Particles"}],
+					[{"text": "Setting Advisor Moods"}],
+					[{"text": "Setting Inner Deity Indicators"}],
+					[{"text": "Setting Universal Physical Constants"}],
+					[{"text": "Sonically Enhancing Occupant-Free Timber"}],
+					[{"text": "Speculating Stock Market Indices"}],
+					[{"text": "Splatting Transforms"}],
+					[{"text": "Stratifying Ground Layers"}],
+					[{"text": "Sub-Sampling Water Data"}],
+					[{"text": "Synthesizing Gravity"}],
+					[{"text": "Synthesizing Wavelets"}],
+					[{"text": "Time-Compressing Simulator Clock"}],
+					[{"text": "Unable to Reveal Current Activity"}],
+					[{"text": "Weathering Buildings"}],
+					[{"text": "Zeroing Crime Network"}]
 				]
 			}
 		}
