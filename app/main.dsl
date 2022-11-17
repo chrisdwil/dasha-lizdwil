@@ -1,4 +1,4 @@
-// Liz D. Wil - Final V1
+// Liz D. Wil - Final V2
 import "sidekicklibrary/all.dsl";
 
 context
@@ -156,32 +156,10 @@ node handler
 			if ($phonecall.request == "farewell")
 			{
 				#log("[" + $logNodeName + "] - [" + logNodeNameSub + "] is executing farewell");
-				#say("farewell.greet");
 				goto selfReturn;
 			}
-			
-			if ($phonecall.request == "assist")
-			{
-				#log("[" + $logNodeName + "] - [" + logNodeNameSub + "] is executing assist");
-				var assistMain = 
-				{
-					name: "assist",
-					agenda: "ask them how you can assist today",
-					greet: true,
-					request: null,
-					behavior: null,
-					phrase: null,
-					host: $primary,
-					sidekick: $secondary,
-					guest: $tertiary,
-					sentiment: null,
-					text: null,
-					sentenceType: null
-				};
 
-				set $phonecall = blockcall assist(assistMain);
-			}
-
+/*			
             if ($phonecall.request == "call")
             {
                 #log("[" + $logNodeName + "] - [" + logNodeNameSub + "] is executing transfer");
@@ -230,6 +208,7 @@ node handler
 
 				#log("[" + $logNodeName + "] - [" + logNodeNameSub + "] sending message to" + $forward);
 			}
+*/
 		}
 	goto selfRepeat;
 	}

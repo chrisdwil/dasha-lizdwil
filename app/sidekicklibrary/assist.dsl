@@ -6,6 +6,7 @@ block assist ( discussion: interaction ): interaction
 	{
 		lastIdleTime: number = 0;
 		forgetTime: number = 15000;
+		actions: string[] = ["callHost","message","farewell"];
 	}
 	
 	start node main
@@ -62,50 +63,29 @@ block assist ( discussion: interaction ): interaction
 		{
 			var localFunctionName = "listen";
 			#log("[" + $discussion.name + "] - [" + localFunctionName + "] has been executed");
-			
+			#log(#getSentenceType());
+			#log(#getMessageText());
+
 			wait *;
 		}
-		
+
 		transitions
 		{
-			listen: goto listen on true tags: ontick;
-		}
-		
-		onexit
-		{
-			listen: do
-			{
-				set $discussion.sentenceType = null;
-				set $discussion.text = null;
-			}
-			
-			default: do
-			{
-				set $discussion.sentenceType = #getSentenceType();
-				set $discussion.text = #getMessageText();
-			}
+			listen: goto listen on true priority 1;
 		}
 	}
 	
 	preprocessor digression action
 	{
-		conditions
+		conditions 
 		{
-			on $discussion.request is null priority 2000 tags: ontick;
-			on #messageHasSentiment("positive") priority 1999 tags: ontick;
-			on #messageHasSentiment("negative") priority 1998 tags: ontick;
+			on #messageHasAnyIntent($actions) tags: ontick;
 		}
-		
-		var actions: string[] = ["assist.greet", "assist.confirm", "assist.host", "assist.transfer", "assist.message", "farewell"];
 
 		do
 		{
 			var localFunctionName = "action";
 			#log("[" + $discussion.name + "] - [" + localFunctionName + "] has been executed");
-			if ($discussion.text is not null)
-			{
-				#log($discussion);
-			}
 
 			return;
 		}
@@ -126,19 +106,6 @@ block assist ( discussion: interaction ): interaction
 			
 			set $lastIdleTime = #getIdleTime();
 			return;
-		}
-		
-		transitions
-		{
-			greetConfirm: goto listen on $discussion.request == "greet";
-		}
-
-		onexit
-		{
-			greetConfirm: do
-			{
-				set $discussion.request = "greetConfirm";
-			}
 		}
 	}
 }

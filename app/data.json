@@ -1,14 +1,7 @@
 {
 	"version": "v2",
 	"intents": {	
-		"callHost": {
-			"includes": [
-				"chris",
-				"christopher",
-				"wilkerson"
-			]
-		},
-		"farewell": {
+		"goodbye": {
 			"includes": [
 				"adios",
 				"chow",

@@ -4,7 +4,10 @@ block hello ( discussion: interaction ): interaction
 {
 	context
 	{
-		defaultAttempts: number = 4;
+		functionname: string = "hello";
+		lastIdleTime: number = 0;
+		forgetTime: number = 15000;
+		actions: string[] = ["goodbye","hello","message"];
 	}
 	
 	start node main
@@ -16,23 +19,12 @@ block hello ( discussion: interaction ): interaction
 			#log("[" + $discussion.name + "] - [" + localFunctionName + "] has been executed");
 			#log("---------------");
 
-			if ($discussion.greet)
-			{
-				goto talk;
-			}
-			else
-			{
-				goto listen;
-			}
-			
-			goto selfReturn;
+			goto handler;
 		}
 		
 		transitions
 		{
-			selfReturn: goto @return;
-			talk: goto talk;
-			listen: goto listen;
+			handler: goto handler;
 		}
 	}
 	
@@ -66,111 +58,82 @@ block hello ( discussion: interaction ): interaction
 		}
 	}
 	
-	node talk
+	node handler
 	{
 		do
 		{
-			var localFunctionName = "talk";
+			var localFunctionName = "handler";
 			#log("[" + $discussion.name + "] - [" + localFunctionName + "] has been executed");
-			#log($discussion);
 
-			if ($discussion.greet)
-			{
-				#say("hello.greet");
-				set $discussion.greet = false;
-				#log("[" + $discussion.name + "] - [" + localFunctionName + "] has been greeted");
-			}
-
-			if ($discussion.behavior == "idle")
-			{
-				#say("hello.idle");
-				#log("[" + $discussion.name + "] - [" + localFunctionName + "] caller is idle or not understandable");
-			}
-			
-			goto listen;
-		}
-		
-		transitions
-		{
-			selfReturn: goto @return;
-			listen: goto listen;
-		}
-	}
-	
-	node listen
-	{
-		do
-		{
-			var localFunctionName = "listen";
-			#log("[" + $discussion.name + "] - [" + localFunctionName + "] has been executed");
-			#log($discussion);
-			
 			wait *;
 		}
-		
+
 		transitions
 		{
-			greeted: goto action on #messageHasAnyIntent(["hello"]) priority 10;
-			farewell: goto action on #messageHasAnyIntent(["farewell"]) priority 5;
-			idle: goto talk on timeout 5000;
-			listen: goto listen on true priority 1;
+			question: goto question on #getSentenceType() == "question" priority 10;
+			request: goto request on #getSentenceType() == "request" priority 9;
+			statement: goto statement on #getSentenceType() == "statement" priority 8;
+			handler: goto handler on true priority 1;
 		}
-		
+
 		onexit
 		{
-			farewell: do 
-			{
-				#log("transition farewell");
-				set $discussion.behavior = "positive";
-				set $discussion.request = "farewell";
-				set $discussion.sentenceType = #getSentenceType();
-				set $discussion.text = #getMessageText();
-			}
-
-			greeted: do
-			{
-				#log("transition greeted");
-				set $discussion.behavior = "positive";
-				set $discussion.request = "assist";
-				set $discussion.sentenceType = #getSentenceType();
-				set $discussion.text = #getMessageText();	
-			}
-
-			idle: do
-			{
-				#log("transition idle");
-				
-				set $discussion.behavior = "idle";
-				set $discussion.request = "repeat";
-				set $discussion.sentenceType = null;
-				set $discussion.text = null;
-			}
-
 			default: do
 			{
-				#log("transition default");
-				set $discussion.behavior = "positive";
-				set $discussion.request = "repeat";
-				set $discussion.sentenceType = #getSentenceType();
-				set $discussion.text = #getMessageText();
+				var logText = "";
+				#log(logText.concat(["unsure of caller intent: ", #getMessageText()]));
 			}
 		}
 	}
 
-	node action
+	node question
 	{
 		do
 		{
-			var localFunctionName = "action";
+			var localFunctionName = "question";
+			var logText = "";
+			#log("[" + $discussion.name + "] - [" + localFunctionName + "] has been executed");		
+			#log(logText.concat(["caller has asked question with text: ", #getMessageText()]));
+		}
+	}	
+
+	node request 
+	{
+		do
+		{
+			var localFunctionName = "request";
+			var logText = "";
+			#log("[" + $discussion.name + "] - [" + localFunctionName + "] has been executed");
+			#log(logText.concat(["caller has requested with text: ", #getMessageText()]));
+		}		
+	}
+
+	node statement
+	{
+		do
+		{
+			var localFunctionName = "statement";
+			var logText = "";
+			#log("[" + $discussion.name + "] - [" + localFunctionName + "] has been executed");	
+			#log(logText.concat(["caller has stated with text: ", #getMessageText()]));	
+		}
+	}
+
+	preprocessor digression idle
+	{
+		conditions
+		{
+			on #getIdleTime() - $lastIdleTime > 2000 tags: ontick;
+		}
+		
+		do
+		{
+			var localFunctionName = "idle";
 			#log("[" + $discussion.name + "] - [" + localFunctionName + "] has been executed");
 			#log($discussion);
-
-			goto selfReturn;
-		}
-
-		transitions
-		{
-			selfReturn: goto @return;
+			
+			set $lastIdleTime = #getIdleTime();
+			return;
 		}
 	}
 }
