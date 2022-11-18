@@ -1,4 +1,6 @@
 // Liz D. Wil - Beta V0
+import "gressGlobal/all.dsl";
+
 context
 {
 	input phone: string;
@@ -25,7 +27,7 @@ start node main
 		#log("---------------");
 
 		#connectSafe($phone);
-		#waitForSpeech(5000);
+		#waitForSpeech(3000);
 		#say("sayHelloTextRandom");
 		wait *;
 	}
@@ -51,7 +53,6 @@ digression @digReturn
 		var logNodeNameSub = "@digReturn";
 		#log("[" + $logNodeName + "] - [" + logNodeNameSub + "] has been executed");
 		
-		#disconnect();
 		exit;
 	}
 }

@@ -1,3 +1,4 @@
+url for list: https://gist.github.com/erikcox/7e96d031d00d7ecb1a2f
 command to convert this file to syntax: perl -pl -e "s/(.*)/\[{\"text\": \"\1\"}\],/" Sim\ City\ Loading\ Messages.txt > Sim\ City\ Loading\ Messages.json
 Adding Hidden Agendas
 Adjusting Bell Curves

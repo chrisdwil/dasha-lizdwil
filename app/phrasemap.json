@@ -3,7 +3,7 @@
 		"voiceInfo": {
 			"lang": "en-US",
 			"speaker": "default",
-			"speed": 1.1,
+			"speed": 1.03,
 			"emotion": "from text: You are welcome!"
 		},
 		"macros": {
@@ -45,7 +45,7 @@
 						}
 					]
 				]
-			},
+			},			
 			"sayHelloTextRandom": {
 				"random": [
 					[
@@ -70,10 +70,10 @@
 					"text": "Thanks for calling Chris!"
 				},
 				{
-					"text": "My name is Liz."
+					"text": "My name is Liz, Chris personal assistant."
 				},
 				{
-					"text": "How can I help you today?"
+					"text": "What can I help you with today?"
 				}
 			],
 			"sayGoodbyeTextRandom": {
@@ -100,6 +100,17 @@
 					]
 				]
 			},
+			"saySimCityTextMulti": [
+				{
+					"text": "Chris likes the video game Sim City 2000."
+				},
+				{
+					"text": "His favorite part is remembering the loading game messages..."
+				},
+				{
+					"text": "ere's a loading message for you..."
+				}
+			],
 			"saySimCityTextRandom": {
 				"random": [
 					[{"text": "Adding Hidden Agendas"}],

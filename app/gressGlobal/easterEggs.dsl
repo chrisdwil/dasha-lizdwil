@@ -7,9 +7,7 @@ digression digressionSimCity
 	{
 		var logNodeNameSub = "digressionSimCity";
 		#log("[" + $logNodeName + "] - [" + logNodeNameSub + "] has been executed");
-		#sayText("Chris likes the video game Sim City 2000.");
-		#sayText("His favorite part is remembering the loading game messages...");
-		#sayText("Here's a loading message for you...");
+		#say("saySimCityTextMulti");
 		#say("saySimCityTextRandom");
 		wait *;
 	}
