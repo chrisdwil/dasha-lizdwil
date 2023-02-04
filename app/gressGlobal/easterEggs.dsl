@@ -9,6 +9,6 @@ digression digressionSimCity
 		#log("[" + $logNodeName + "] - [" + logNodeNameSub + "] has been executed");
 		#say("saySimCityTextMulti");
 		#say("saySimCityTextRandom");
-		wait *;
+		return;
 	}
 }

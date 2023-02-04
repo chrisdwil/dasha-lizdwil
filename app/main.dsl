@@ -14,13 +14,44 @@ context
 
 external function openAICompletions(completionsQuestion: string): string;
 
+block speakText(blockHostText: string, blockCallerText: string): boolean
+{
+	context
+	{
+	logNodeName: string = "speakText";
+	}
 
+    start node root
+    {
+        do
+        {
+			var blockHostTextReplaced = $blockHostText;
+			set blockHostTextReplaced = blockHostTextReplaced.replaceAll("\n", "   ");
+			set blockHostTextReplaced = blockHostTextReplaced.replaceAll("\"", "   ");
+
+			var logNodeNameSub = "@";
+			#log("---------------");
+			#log("[" + $logNodeName + "] - [" + logNodeNameSub + "] has been executed");
+			#log("caller:" + $blockCallerText);
+			#log("original:" + $blockHostText);
+			#log("replaced:" + blockHostTextReplaced);
+
+			#sayText(blockHostTextReplaced,
+				options: { 
+					speed: 0.99, emotion: "from text: Awesome Day!",
+					interruptable: true
+					}
+				);	
+			return true;
+        }
+    }
+}
 
 start node main
 {
 	do
 	{
-		var hostText = external openAICompletions("Q: Generate me a greeting to a caller introducing myself as Liz");
+		set $hostText = external openAICompletions("Generate me a greeting to a caller introducing myself as Liz");
 
 		var logNodeNameSub = "@";
 		#log("---------------");
@@ -28,18 +59,17 @@ start node main
 		#log($phone);
 		#log($forward);
 		#log($reason);
-		#log($hostText);
 		#log("---------------");
 
 		#connectSafe($phone);
-		#waitForSpeech(3000);
-		#sayText(hostText);
+		#waitForSpeech(10000);
+		blockcall speakText($hostText, $callerText);
 		goto transitionConversationAssist;
 	}
 
 	transitions 
 	{
-		transitionConversationAssist: goto mainConversationAssist;
+		transitionConversationAssist: goto mainAssist;
 	}
 }
 
@@ -67,31 +97,48 @@ digression @digReturn
 	}
 }
 
-node mainConversationAssist
+node mainAssist
 {
 	do
 	{
-		set $hostText = external openAICompletions("Q: Generate me a random statement that I am here to assist them with anything today");
+		var mainAssistVisitCount = #getVisitCount("mainAssist");
+		
+		if (mainAssistVisitCount == 1)
+		{
+			set $hostText = external openAICompletions("Generate me a random statement for how can I assist today?");
+		}	
 
-		var logNodeNameSub = "mainConversationAssist";	
+		if (mainAssistVisitCount > 1)
+		{
+			set $hostText = external openAICompletions("Generate me a random statement for is there anything else?");
+		}
+
+		if (mainAssistVisitCount > 3)
+		{
+			set $hostText = external openAICompletions("Generate me a random statement for I am getting busy here, is there anything else?");
+		}
+
+		var logNodeNameSub = "mainAssist";	
 		#log("---------------");
 		#log("[" + $logNodeName + "] - [" + logNodeNameSub + "] has been executed");
+		#log(mainAssistVisitCount);
 		#log("---------------");
 
-		#sayText($hostText);
-		set $hostText = "";
+		blockcall speakText($hostText, $callerText);
 		wait *;
 	}
 
 	transitions
 	{
 		transitionReply: goto mainReply on true;
-		transitionTimeout: goto mainIdle on timeout 15000;
+		transitionTimeout: goto mainAssist on timeout 15000;
 	}
 
 	onexit 
 	{
-		transitionReply: do { set $callerText = #getMessageText(); }
+		transitionReply: do { 
+								set $callerText = #getMessageText(); 
+							}
 	}
 }
 
@@ -99,36 +146,20 @@ node mainReply
 {
 	do
 	{
+		blockcall speakText("Let me check ... ", $callerText);
 		set $hostText = external openAICompletions($callerText);
-		#sayText($hostText);
-		#log($hostText);
+
+		var logNodeNameSub = "mainReply";	
+		#log("---------------");
+		#log("[" + $logNodeName + "] - [" + logNodeNameSub + "] has been executed");
+		#log("---------------");
+		
+		blockcall speakText($hostText, $callerText);
 		goto mainReplyNext;
 	}
 
 	transitions 
 	{
-		mainReplyNext: goto mainConversationAssist;
-	}
-}
-
-node mainIdle 
-{
-	do
-	{
-		set $hostText = "Are you still there?";
-
-		var logNodeNameSub = "mainIdle";
-		#log("---------------");
-		#log("[" + $logNodeName + "] - [" + logNodeNameSub + "] has been executed");
-		#log($hostText);
-		#log("---------------");
-
-		#sayText($hostText);
-		goto mainIdleNext;
-	}
-
-	transitions 
-	{
-		mainIdleNext: goto mainConversationAssist;
+		mainReplyNext: goto mainAssist;
 	}
 }
