@@ -9,14 +9,6 @@
 				"What's up."
 			]
 		},
-		"goodbye": {
-			"includes": [
-				"Goodbye.",
-				"Bye.",
-				"Later.",
-				"I gotta go."
-			]
-		},
 		"simcity": {
 			"includes": [
 				"Sim City",
