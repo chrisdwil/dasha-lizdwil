@@ -1,5 +1,31 @@
 // Liz D. Wil - Beta V0
+
 import "gressGlobal/all.dsl";
+
+type gptStory = {
+	startText: string;
+	restartText: string;
+	storyBoard: string;
+	suggestion: string;
+	fullText: string;
+	asstText: string;
+	guestText: string;
+	model: string;
+	temperature: number;
+	tokens: number;
+	options: string;
+	submit: string;
+	response: string;
+	error: boolean;
+};
+
+type gptTalk = {
+	hostName: string;
+	asstName: string;
+	guestName: string;
+	guestRealName: string;
+	stories: gptStory[];
+};
 
 context
 {
@@ -10,9 +36,53 @@ context
 	logNodeName: string = "main";
 	callerText: string = "";
 	hostText: string = "";
+
+	callTalk: gptTalk = {
+		hostName: "Chris",
+		asstName: "Liz",
+		guestName: "Human",
+		guestRealName: "",
+		stories: [
+			{
+				startText: "\n" + "Liz: ",
+				restartText: "\n\n" + "Human: ",
+				storyBoard: "" + "I am Liz, a highly intelligent, exciting, and fun personal assistant for Chris Wil also known as Wilkerson. If you ask me a question that is rooted in truth, I will give you the answer. If you ask me a question that is nonsense, trickery, or has no clear answer, I will respond with Unknown. Chris is too busy to handle your conversation right now. In his absence I can take messages, send Chris a text message or email Chris on your behalf. I can also connect you to his voice mail, or assist you with any questions that are appropriate topics, including tech support, fun facts and trivia, non-Adult jokes, and anything that doesn't use foul language.",
+				suggestion: "",
+				fullText: "",
+				asstText: "",
+				guestText: "",
+				model: "text-davinci-003",
+				temperature: 0.9,
+				tokens: 3000,
+				options: "",
+				submit: "",
+				response: "",
+				error: false
+			}]
+	};
 }
 
 external function openAICompletions(completionsQuestion: string): string;
+
+/*
+block gptConversation(discussion: gpt3Discussion): gpt3Discussion;
+{
+	context
+	{
+		hostName: string = "Liz";
+		guestName: string = "";
+	}
+	start node gptRoot
+	{
+		do
+		{
+			var logNodeNameSub = "gpt3Conversation";
+			#log("---------------");
+			#log("[" + $logNodeName + "] - [" + logNodeNameSub + "] has been executed");
+		}
+	}
+}
+*/
 
 block speakText(blockHostText: string, blockCallerText: string): boolean
 {
@@ -36,14 +106,13 @@ block speakText(blockHostText: string, blockCallerText: string): boolean
 			#log("original:" + $blockHostText);
 			#log("replaced:" + blockHostTextReplaced);
 
-			#sayText(blockHostTextReplaced,
-				options: { 
-					speed: 0.99, emotion: "from text: Awesome Day!",
-					interruptable: true
-					}
-				);	
+			#sayText(blockHostTextReplaced);
 			return true;
         }
+		transitions
+		{
+
+		}
     }
 }
 
@@ -61,7 +130,9 @@ start node main
 		#log($reason);
 		#log("---------------");
 
-		#connectSafe($phone);
+		#log("sending connectSafe()");
+		var connectMessage = #connectSafe($phone);
+		#log(connectMessage);
 		#waitForSpeech(10000);
 		blockcall speakText($hostText, $callerText);
 		goto transitionConversationAssist;
@@ -105,12 +176,12 @@ node mainAssist
 		
 		if (mainAssistVisitCount == 1)
 		{
-			set $hostText = external openAICompletions("Generate me a random statement for how can I assist today?");
+			set $hostText = external openAICompletions("Generate me a random statement for how can I assist you today?");
 		}	
 
 		if (mainAssistVisitCount > 1)
 		{
-			set $hostText = external openAICompletions("Generate me a random statement for is there anything else?");
+			set $hostText = external openAICompletions("Generate me a random statement for is there anything else i can help with?");
 		}
 
 		if (mainAssistVisitCount > 3)
@@ -136,9 +207,10 @@ node mainAssist
 
 	onexit 
 	{
-		transitionReply: do { 
-								set $callerText = #getMessageText(); 
-							}
+		transitionReply: do 
+		{ 
+			set $callerText = #getMessageText(); 
+		}
 	}
 }
 
