@@ -132,6 +132,7 @@ start node main
 
 		#log("sending connectSafe()");
 		var connectMessage = #connectSafe($phone);
+		#log("connectSafe() completed")
 		#log(connectMessage);
 		#waitForSpeech(10000);
 		blockcall speakText($hostText, $callerText);
